@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharpTests;
+﻿namespace HelloConsoleAppCSharp.Tests;
 
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using Xunit;
