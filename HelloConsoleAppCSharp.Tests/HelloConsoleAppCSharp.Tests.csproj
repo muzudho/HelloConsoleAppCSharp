@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HelloConsoleAppCSharp2\HelloConsoleAppCSharp.csproj" />
+    <ProjectReference Include="..\HelloConsoleAppCSharp\HelloConsoleAppCSharp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
