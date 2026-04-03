@@ -16,8 +16,7 @@ internal class REPL
 
             if (string.IsNullOrWhiteSpace(command)) continue;
 
-            if (command.Trim().ToLower() == "exit")
-                break;
+            if (command.Trim() == "exit") break;
 
             // ここでコマンドを処理（Eval）
             await evalAsync(command);
@@ -27,25 +26,4 @@ internal class REPL
 
         Console.WriteLine("終了したぜ！");
     }
-
-    /*
-    static void ProcessCommand(string cmd)
-    {
-        // ここに君のコマンド処理を書く
-        switch (cmd.ToLower())
-        {
-            case "hello":
-                Console.WriteLine("こんにちは！（＾～＾）");
-                break;
-            case "color":
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("文字色を変えたよ！");
-                Console.ResetColor();
-                break;
-            default:
-                Console.WriteLine($"知らないコマンドだぜ: {cmd}");
-                break;
-        }
-    }
-    */
 }

@@ -66,7 +66,24 @@ try
             await REPL.RunAsync(
                 evalAsync: async (text) =>
                 {
-                    logger.LogInformation($"{text} を読み取ったぜ（＾～＾）");
+                    // ここに君のコマンド処理を書く。
+                    // `exit` は REPL 内で処理されているから、ここでは処理されないぜ（＾～＾）！
+                    switch (text)
+                    {
+                        case "hello":
+                            Console.WriteLine("こんにちは！（＾～＾）");
+                            break;
+
+                        case "color":
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine("文字色を変えたよ！");
+                            Console.ResetColor();
+                            break;
+
+                        default:
+                            Console.WriteLine($"知らないコマンドだぜ: {text}");
+                            break;
+                    }
                 });
         });
 }
