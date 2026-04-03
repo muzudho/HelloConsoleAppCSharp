@@ -11,6 +11,19 @@ try
 {
     Console.WriteLine("Hello, World!");
 
+    // 文字色（前景色）を赤に変更
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("これは赤い文字だぜ！");
+
+    // 背景色を青に変更
+    Console.BackgroundColor = ConsoleColor.Blue;
+    Console.WriteLine("赤文字に青背景！");
+
+    // 元の色に戻す（大事！）
+    Console.ResetColor();
+
+    Console.WriteLine("ここはデフォルトの色に戻ったよ");
+
     // ホストビルドするぜ（＾～＾）！
     // ［ホスト］ってのは［汎用ホスト］のことで、いろいろ［サービス］っていう便利機能を付け加えることができるフレームワークみたいなもんだぜ（＾～＾）
     // それを［ビルド］するぜ（＾▽＾）
