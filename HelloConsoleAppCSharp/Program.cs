@@ -3,6 +3,7 @@
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
+using HelloConsoleAppCSharp.Infrastructure.REPL;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -61,6 +62,12 @@ try
             var loggingSvc = host.Services.GetRequiredService<IMuzLoggingService>();
             loggingSvc.Others.LogInformation("その他のログだぜ（＾～＾）");
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
+
+            await REPL.RunAsync(
+                evalAsync: async (text) =>
+                {
+                    logger.LogInformation($"{text} を読み取ったぜ（＾～＾）");
+                });
         });
 }
 catch (Exception ex)
