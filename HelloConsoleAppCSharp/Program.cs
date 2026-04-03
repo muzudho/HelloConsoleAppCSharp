@@ -22,6 +22,21 @@ try
     // 元の色に戻す（大事！）
     Console.ResetColor();
 
+
+    // Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
+    // ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
+    // 1行の中で単語ごとに色を変えたい場合
+    //  → 上の WriteColored を何度も呼ぶか、位置を指定して書き込む（Console.SetCursorPosition）必要がある。1回のWriteLineで複数色は標準では無理。
+
+    /*
+       📍 NOTE:
+
+            全部で16色あるよ：
+
+            Black, DarkBlue, DarkGreen, DarkCyan, DarkRed, DarkMagenta, DarkYellow, Gray
+            DarkGray, Blue, Green, Cyan, Red, Magenta, Yellow, White
+    */
+
     Console.WriteLine("ここはデフォルトの色に戻ったよ");
 
     // ホストビルドするぜ（＾～＾）！
