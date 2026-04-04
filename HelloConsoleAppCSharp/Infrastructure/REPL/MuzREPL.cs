@@ -16,13 +16,14 @@ internal class MuzREPL
 
 
     internal static async Task RunAsync(
+        Func<Task> printPromptAsync,
         Func<string, Task<MuzRequestType>> evalAsync)
     {
         Console.WriteLine("コマンド入力待機中...（exit で終了）");
 
         while (true)  // ここが無限ループ（REPLのLoop部分）
         {
-            Console.Write("> ");                    // プロンプト表示
+            await printPromptAsync();  // プロンプト表示
 
 
             // 📍 NOTE:

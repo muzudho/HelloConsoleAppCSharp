@@ -38,6 +38,11 @@ try
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
 
             await MuzREPL.RunAsync(
+                printPromptAsync: async () =>
+                {
+                    Console.Write("> ");  // プロンプトを表示
+                    await Task.CompletedTask;  // ここは非同期関数なので、Taskを返す必要がある。今回は特に非同期処理はないので、完了済みのTaskを返す。
+                },
                 evalAsync: async (text) =>
                 {
                     // ここに君のコマンド処理を書く。
