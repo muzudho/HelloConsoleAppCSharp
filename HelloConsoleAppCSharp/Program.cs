@@ -4,14 +4,17 @@ using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
+using HelloConsoleAppCSharp.Infrastructure.Scheduler;
 using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
 
 try
 {
+    // 開始日時を記憶しておくぜ（＾～＾）！
+    var startDateTime = DateTime.Now;
+
     Console.WriteLine("Hello, World!");
 
     // ホストビルドするぜ（＾～＾）！
@@ -175,6 +178,31 @@ try
                                 items: new[] { "開始", "設定", "終了" },
                                 fgColor: ConsoleColor.Black,
                                 bgColor: ConsoleColor.Cyan);
+
+
+                            // 📍 NOTE:
+                            //
+                            //      約1/60秒間隔のタイマーを起動するぜ（＾～＾）！
+                            //
+                            new MuzTimer(TimeSpan.FromMilliseconds(16)).Run(
+                                update: async () =>
+                                {
+
+
+                                    // 📍 NOTE:
+                                    //
+                                    //      アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
+                                    //
+                                    MuzWidgets.PrintErapsedTime(
+                                        startDateTime: startDateTime,
+                                        left: 60,
+                                        top: 0,
+                                        fgColor: ConsoleColor.Black,
+                                        bgColor: ConsoleColor.Cyan);
+
+
+                                    await Task.CompletedTask;
+                                });
 
 
                             return MuzREPL.MuzRequestType.None;
