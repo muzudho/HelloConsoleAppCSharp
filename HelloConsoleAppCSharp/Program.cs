@@ -70,6 +70,21 @@ try
                             Console.ResetColor();
                             Console.WriteLine("ここはデフォルトの色に戻ったよ");
 
+                            Console.WriteLine("３秒待つ（＾～＾）");
+                            await Task.Delay(3 * 1000);
+
+                            // 色を変更
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                            Console.SetCursorPosition(0, 0);   // コンソールの左上隅に移動
+                            Console.WriteLine("コンソールの左上隅に移動（＾～＾）！");
+
+                            Console.SetCursorPosition(10, 5);  // 11列目、6行目に移動（0始まりなので）
+                            Console.Write("ここに文字を書くぜ！");
+
+                            // 色を戻す（大事！）
+                            Console.ResetColor();
 
                             // Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
                             // ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
