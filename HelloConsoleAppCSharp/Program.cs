@@ -149,6 +149,13 @@ try
                         case "graph":   // グラフィカルの意味。
                             MuzREPL.IsPromptVisible = false; // プロンプトは消す。
                             MuzPageLayouts.PrintTitlePage();
+
+
+                            // 📍 NOTE:
+                            //
+                            //      ここで、ボーダーを表示してみましょう（＾～＾）！
+                            //      方眼紙などに画面の想像図を描いてから、位置とサイズを測って、コーディングしましょう（＾～＾）！
+                            //
                             MuzBorders.PrintDoubleBorder(
                                 left: 20,
                                 top: 15,
@@ -156,6 +163,8 @@ try
                                 height: 5,
                                 fgColor: ConsoleColor.Black,
                                 bgColor: ConsoleColor.Cyan);
+
+
                             return MuzREPL.MuzRequestType.None;
 
                         default:
