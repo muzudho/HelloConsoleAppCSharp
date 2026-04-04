@@ -4,6 +4,7 @@ using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
+using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -138,6 +139,10 @@ try
                                     Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
                                     ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
                             */
+                            return MuzREPL.MuzRequestType.None;
+
+                        case "graphical":
+                            MuzPageLayouts.PrintTitlePage();
                             return MuzREPL.MuzRequestType.None;
 
                         default:

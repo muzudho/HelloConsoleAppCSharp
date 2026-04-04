@@ -10,4 +10,4 @@
 * 📄 [ユニットテストの準備](./HelloConsoleAppCSharp/Docs/O8_ユニットテストの準備.md)
 * 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/O9_リプルの作成.md)
 * 📄 [コンソール出力の基本](./HelloConsoleAppCSharp/Docs/OO10_コンソール出力の基本.md)
-
+* 📄 [ビュー作成の基本](./HelloConsoleAppCSharp/Docs/OO11_ビュー作成の基本.md)
