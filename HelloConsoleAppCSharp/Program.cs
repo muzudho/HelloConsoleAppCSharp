@@ -147,6 +147,7 @@ try
                             return MuzREPL.MuzRequestType.None;
 
                         case "graph":   // グラフィカルの意味。
+                            MuzREPL.IsPromptVisible = false; // プロンプトは消す。
                             MuzPageLayouts.PrintTitlePage();
                             return MuzREPL.MuzRequestType.None;
 

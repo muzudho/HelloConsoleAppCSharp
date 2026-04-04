@@ -2,7 +2,7 @@
 
 using System;
 
-internal class MuzREPL
+internal static class MuzREPL
 {
     internal enum MuzRequestType
     {
@@ -15,6 +15,12 @@ internal class MuzREPL
     }
 
 
+    /// <summary>
+    /// プロンプトを表示するか。
+    /// </summary>
+    public static bool IsPromptVisible { get; set; } = true;
+
+
     internal static async Task RunAsync(
         Func<Task> printPromptAsync,
         Func<string, Task<MuzRequestType>> evalAsync)
@@ -23,8 +29,11 @@ internal class MuzREPL
 
         while (true)  // ここが無限ループ（REPLのLoop部分）
         {
-            await printPromptAsync();  // プロンプト表示
-
+            // プロンプト表示
+            if (IsPromptVisible)
+            {
+                await printPromptAsync();
+            }
 
             // 📍 NOTE:
             //
