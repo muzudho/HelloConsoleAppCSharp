@@ -23,7 +23,15 @@ internal class MuzREPL
         while (true)  // ここが無限ループ（REPLのLoop部分）
         {
             Console.Write("> ");                    // プロンプト表示
-            string? command = Console.ReadLine();    // Read
+
+
+            // 📍 NOTE:
+            //
+            //      Shift キーや、↑←↓→キー、ファンクション・キーが押されたかどうかを判別するのは、
+            //      大がかりになるので、今回は文字列のみ取得するサンプル・プログラムです。
+            //
+            string? command = Console.ReadLine();    // Read。処理はブロック（ここで止まる）されます。
+
 
             // 入力が空白だけだったら、無視していいだろう多分……（＾～＾）
             if (string.IsNullOrWhiteSpace(command)) continue;
