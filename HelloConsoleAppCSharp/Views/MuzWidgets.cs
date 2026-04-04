@@ -1,7 +1,5 @@
 ﻿namespace HelloConsoleAppCSharp.Views;
 
-using System.Drawing;
-
 /// <summary>
 /// 画面上の部品（ウィジェット）を表示するためのものです。
 /// </summary>
@@ -12,6 +10,7 @@ internal static class MuzWidgets
     /// </summary>
     /// <param name="startDateTime">開始日時</param>
     public static void PrintErapsedTime(
+        string label,
         DateTime startDateTime,
         int left,
         int top,
@@ -31,7 +30,7 @@ internal static class MuzWidgets
 
         var elapsed = DateTime.Now - startDateTime;
         
-        Console.WriteLine($"{elapsed.Hours,2}°{elapsed.Minutes,2}'{elapsed.Seconds,2}\"{elapsed.Milliseconds,3}");
+        Console.WriteLine($"{label}{elapsed.Hours:D2}°{elapsed.Minutes:D2}'{elapsed.Seconds:D2}\"{elapsed.Milliseconds:D3}");
 
         // 色とカーソルの位置を戻す（大事！）
         Console.ResetColor();

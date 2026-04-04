@@ -194,8 +194,9 @@ try
                                     //      アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
                                     //
                                     MuzWidgets.PrintErapsedTime(
+                                        label: "Time ",
                                         startDateTime: startDateTime,
-                                        left: 67,
+                                        left: 62,
                                         top: 0,
                                         fgColor: ConsoleColor.Black,
                                         bgColor: ConsoleColor.Cyan);
