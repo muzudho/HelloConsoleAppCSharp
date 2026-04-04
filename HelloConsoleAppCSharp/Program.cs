@@ -202,6 +202,18 @@ try
                                         bgColor: ConsoleColor.Cyan);
 
 
+                                    // 📍 NOTE:
+                                    //
+                                    //      一定間隔で点滅するカーソルを表示するぜ（＾～＾）！
+                                    //
+                                    MuzWidgets.PrintBlinkingText(
+                                        text: "▶",  // 右向きの三角形は、半角のようだ。
+                                        left: 36,
+                                        top: 16,
+                                        fgColor: ConsoleColor.Blue,
+                                        bgColor: ConsoleColor.Cyan,
+                                        isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
+
                                     await Task.CompletedTask;
                                 });
 
