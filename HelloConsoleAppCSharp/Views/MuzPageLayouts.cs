@@ -3,7 +3,7 @@
 /// <summary>
 /// コンソール画面を、１画面に見立てて、枠組みを表示するためのものです。
 /// </summary>
-internal class MuzPageLayouts
+internal static class MuzPageLayouts
 {
     public static void PrintTitlePage()
     {

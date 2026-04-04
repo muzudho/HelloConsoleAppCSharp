@@ -149,6 +149,11 @@ try
                         case "graph":   // グラフィカルの意味。
                             MuzREPL.IsPromptVisible = false; // プロンプトは消す。
                             MuzPageLayouts.PrintTitlePage();
+                            MuzBorders.PrintDoubleBorder(
+                                left: 20,
+                                top: 15,
+                                width: 40,
+                                height: 5);
                             return MuzREPL.MuzRequestType.None;
 
                         default:
