@@ -2,10 +2,21 @@
 
 using System;
 
-internal class REPL
+internal class MuzREPL
 {
+    internal enum MuzRequestType
+    {
+        None = 0,
+
+        /// <summary>
+        /// REPLのループの終了要求
+        /// </summary>
+        Exit,
+    }
+
+
     internal static async Task RunAsync(
-        Func<string, Task> evalAsync)
+        Func<string, Task<MuzRequestType>> evalAsync)
     {
         Console.WriteLine("コマンド入力待機中...（exit で終了）");
 
@@ -14,14 +25,13 @@ internal class REPL
             Console.Write("> ");                    // プロンプト表示
             string? command = Console.ReadLine();    // Read
 
+            // 入力が空白だけだったら、無視していいだろう多分……（＾～＾）
             if (string.IsNullOrWhiteSpace(command)) continue;
 
-            if (command.Trim() == "exit") break;
-
             // ここでコマンドを処理（Eval）
-            await evalAsync(command);
+            var request = await evalAsync(command);
 
-            // 結果はProcessCommand内でPrintされる
+            if (request == MuzRequestType.Exit) break;
         }
 
         Console.WriteLine("終了したぜ！");

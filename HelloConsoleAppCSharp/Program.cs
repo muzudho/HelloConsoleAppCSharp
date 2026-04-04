@@ -63,26 +63,30 @@ try
             loggingSvc.Others.LogInformation("その他のログだぜ（＾～＾）");
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
 
-            await REPL.RunAsync(
+            await MuzREPL.RunAsync(
                 evalAsync: async (text) =>
                 {
                     // ここに君のコマンド処理を書く。
                     // `exit` は REPL 内で処理されているから、ここでは処理されないぜ（＾～＾）！
                     switch (text)
                     {
+                        case "exit":
+                            Console.WriteLine("REPLを終了するぜ（＾～＾）");
+                            return MuzREPL.MuzRequestType.Exit;
+
                         case "hello":
-                            Console.WriteLine("こんにちは！（＾～＾）");
-                            break;
+                            Console.WriteLine("こんにちは（＾～＾）！");
+                            return MuzREPL.MuzRequestType.None;
 
                         case "color":
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("文字色を変えたよ！");
                             Console.ResetColor();
-                            break;
+                            return MuzREPL.MuzRequestType.None;
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {text}");
-                            break;
+                            return MuzREPL.MuzRequestType.None;
                     }
                 });
         });
