@@ -7,6 +7,10 @@ internal class MuzPageLayouts
 {
     public static void PrintTitlePage()
     {
+        // カーソルの現在位置を記憶。
+        var oldLeft = Console.CursorLeft;
+        var oldTop = Console.CursorTop;
+
         // いったん、背景色を黒にして、画面全体を塗りつぶします。
         Console.BackgroundColor = ConsoleColor.Black;
         Console.Clear();
@@ -35,18 +39,14 @@ internal class MuzPageLayouts
         Console.Write(title);
 
         // 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
-        var credit = "(C) 2024 by Muzudho ; MIT License";
+        var credit = "(C) 2026 by Muzudho ; MIT License";
         var creditLeft = (pageWidth - credit.Length) / 2;
         var creditTop = pageHeight - 1;
         Console.SetCursorPosition(creditLeft, creditTop);
         Console.Write(credit);
 
-        //// 次に、シアン色の背景、白文字で、デコレーションします。
-
-        //Console.WriteLine("***************************************");
-        //Console.WriteLine("*                                     *");
-        //Console.WriteLine("*         Hello Console App!          *");
-        //Console.WriteLine("*                                     *");
-        //Console.WriteLine("***************************************");
+        // 色とカーソルの位置を戻す（大事！）
+        Console.ResetColor();
+        Console.SetCursorPosition(oldLeft, oldTop);
     }
 }
