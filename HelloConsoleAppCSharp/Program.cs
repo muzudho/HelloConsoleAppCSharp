@@ -85,8 +85,8 @@ try
                             int oldTop = Console.CursorTop;   // 縦位置
 
                             // 色を変更
-                            Console.BackgroundColor = ConsoleColor.White;
                             Console.ForegroundColor = ConsoleColor.Black;
+                            Console.BackgroundColor = ConsoleColor.White;
 
                             Console.SetCursorPosition(0, 0);   // コンソールの左上隅に移動
                             Console.WriteLine("コンソールの左上隅に移動（＾～＾）！");
@@ -105,8 +105,8 @@ try
 
                             await Task.Delay(TimeSpan.FromSeconds(1));
                             Console.SetCursorPosition(0, oldTop);  // 元の行の先頭に戻る
-                            Console.BackgroundColor = ConsoleColor.Blue;
                             Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.Blue;
                             Console.Write(" ");
                             Console.ResetColor();
                             Console.Write("1");
@@ -114,8 +114,8 @@ try
 
                             await Task.Delay(TimeSpan.FromSeconds(1));
                             Console.SetCursorPosition(0, oldTop);
-                            Console.BackgroundColor = ConsoleColor.Blue;
                             Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.Blue;
                             Console.Write("  ");
                             Console.ResetColor();
                             Console.Write("2");
@@ -123,8 +123,8 @@ try
 
                             await Task.Delay(TimeSpan.FromSeconds(1));
                             Console.SetCursorPosition(0, oldTop);
-                            Console.BackgroundColor = ConsoleColor.Blue;
                             Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.Blue;
                             Console.Write("   ");
                             Console.ResetColor();
                             Console.Write("3");
@@ -161,6 +161,18 @@ try
                                 top: 15,
                                 width: 40,
                                 height: 5,
+                                fgColor: ConsoleColor.Black,
+                                bgColor: ConsoleColor.Cyan);
+
+
+                            // 📍 NOTE:
+                            //
+                            //     ここで、メニューを表示してみましょう（＾～＾）！
+                            //
+                            MuzVMenus.PrintMenu(
+                                left: 38,
+                                top: 16,
+                                items: new[] { "開始", "設定", "終了" },
                                 fgColor: ConsoleColor.Black,
                                 bgColor: ConsoleColor.Cyan);
 
