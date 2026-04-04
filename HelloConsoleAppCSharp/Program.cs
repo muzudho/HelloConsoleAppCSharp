@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Media;
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
@@ -65,6 +66,27 @@ try
                             Console.WriteLine("文字色を変えたよ！");
                             Console.ResetColor();
                             return MuzREPL.MuzRequestType.None;
+
+                        //case "sound":
+                        //    Console.WriteLine("音を鳴らしてみるぜ（＾～＾）");
+                        //    //Console.Beep(800, 300);   // Windows 限定。
+
+                        //    //SystemSounds は無かった。
+                        //    //SystemSounds.Beep.Play();      // 標準のビープ
+                        //    //SystemSounds.Asterisk.Play();  // 情報音（！マークっぽい）
+                        //    //SystemSounds.Exclamation.Play(); // 警告音
+                        //    //SystemSounds.Hand.Play();      // エラー音（×マーク）
+                        //    //SystemSounds.Question.Play();  // 質問音
+
+                        //    //これも無かった。
+                        //    //SoundPlayer player = new SoundPlayer(@"C:\Windows\Media\Alarm01.wav"); // WAVファイル指定
+                        //    //player.Play();        // 非同期で鳴らす（PlaySync()で同期）
+                        //    //                      // player.PlaySync(); // 音が終わるまで待つ
+
+                        //    //NuGet を調べた方がいい？
+                        //    //dotnet add package NetCoreAudio
+
+                        //    return MuzREPL.MuzRequestType.None;
 
                         case "print-lesson":  // コンソール出力の勉強
 
