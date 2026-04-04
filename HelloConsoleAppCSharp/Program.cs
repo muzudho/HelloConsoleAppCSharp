@@ -141,7 +141,7 @@ try
                             */
                             return MuzREPL.MuzRequestType.None;
 
-                        case "graphical":
+                        case "graph":   // グラフィカルの意味。
                             MuzPageLayouts.PrintTitlePage();
                             return MuzREPL.MuzRequestType.None;
 
