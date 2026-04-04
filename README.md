@@ -13,3 +13,5 @@
 * 📄 [ビュー作成の基本](./HelloConsoleAppCSharp/Docs/OO11_ビュー作成の基本.md)
 * 📄 [ボーダー作成の基本](./HelloConsoleAppCSharp/Docs/OO12_ボーダー作成の基本.md)
 * 📄 [垂直メニュー作成の基本](./HelloConsoleAppCSharp/Docs/OO13_垂直メニュー作成の基本.md)
+* 📄 [タイマー作成の基本](./HelloConsoleAppCSharp/Docs/OO14_タイマー作成の基本.md)
+* 📄 [ブリンカー作成の基本](./HelloConsoleAppCSharp/Docs/OO15_ブリンカー作成の基本.md)
