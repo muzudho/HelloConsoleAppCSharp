@@ -57,7 +57,7 @@ try
                             Console.ResetColor();
                             return MuzREPL.MuzRequestType.None;
 
-                        case "print-examples":  // コンソール出力の基本
+                        case "print-lesson":  // コンソール出力の勉強
 
                             // 文字色（前景色）を赤に変更
                             Console.ForegroundColor = ConsoleColor.Red;
