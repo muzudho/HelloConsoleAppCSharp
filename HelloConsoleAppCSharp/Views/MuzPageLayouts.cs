@@ -34,6 +34,13 @@ internal class MuzPageLayouts
         Console.SetCursorPosition(titleLeft, titleTop);
         Console.Write(title);
 
+        // 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
+        var credit = "(C) 2024 by Muzudho ; MIT License";
+        var creditLeft = (pageWidth - credit.Length) / 2;
+        var creditTop = pageHeight - 1;
+        Console.SetCursorPosition(creditLeft, creditTop);
+        Console.Write(credit);
+
         //// 次に、シアン色の背景、白文字で、デコレーションします。
 
         //Console.WriteLine("***************************************");
