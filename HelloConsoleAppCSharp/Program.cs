@@ -73,6 +73,10 @@ try
                             Console.WriteLine("３秒待つ（＾～＾）");
                             await Task.Delay(3 * 1000);
 
+                            // 今のカーソル位置を記憶
+                            int oldLeft = Console.CursorLeft;  // 横位置
+                            int oldTop = Console.CursorTop;   // 縦位置
+
                             // 色を変更
                             Console.BackgroundColor = ConsoleColor.White;
                             Console.ForegroundColor = ConsoleColor.Black;
@@ -85,6 +89,8 @@ try
 
                             // 色を戻す（大事！）
                             Console.ResetColor();
+                            // 元の位置に戻す
+                            Console.SetCursorPosition(oldLeft, oldTop);
 
                             // Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
                             // ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
