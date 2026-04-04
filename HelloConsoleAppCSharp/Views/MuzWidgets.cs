@@ -30,7 +30,8 @@ internal static class MuzWidgets
         Console.SetCursorPosition(left, top);
 
         var elapsed = DateTime.Now - startDateTime;
-        Console.WriteLine($"経過時間: {elapsed}");
+        
+        Console.WriteLine($"{elapsed.Hours,2}°{elapsed.Minutes,2}'{elapsed.Seconds,2}\"{elapsed.Milliseconds,3}");
 
         // 色とカーソルの位置を戻す（大事！）
         Console.ResetColor();

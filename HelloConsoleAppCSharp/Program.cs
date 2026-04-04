@@ -195,7 +195,7 @@ try
                                     //
                                     MuzWidgets.PrintErapsedTime(
                                         startDateTime: startDateTime,
-                                        left: 60,
+                                        left: 67,
                                         top: 0,
                                         fgColor: ConsoleColor.Black,
                                         bgColor: ConsoleColor.Cyan);
