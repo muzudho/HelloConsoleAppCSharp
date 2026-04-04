@@ -19,7 +19,13 @@ internal static class MuzBorders
     /// <param name="top"></param>
     /// <param name="width">2 以上としてください。</param>
     /// <param name="height">2 以上としてください。</param>
-    public static void PrintDoubleBorder(int left, int top, int width, int height)
+    public static void PrintDoubleBorder(
+        int left,
+        int top,
+        int width,
+        int height,
+        ConsoleColor fgColor,
+        ConsoleColor bgColor)
     {
         // カーソルの現在位置を記憶。
         var oldLeft = Console.CursorLeft;
@@ -34,8 +40,8 @@ internal static class MuzBorders
         char vertical = '║';
 
         // 色を設定
-        Console.BackgroundColor = ConsoleColor.Cyan;
-        Console.ForegroundColor = ConsoleColor.Black;
+        Console.ForegroundColor = fgColor;
+        Console.BackgroundColor = bgColor;
 
         // 左上隅
         Console.SetCursorPosition(left, top);

@@ -153,7 +153,9 @@ try
                                 left: 20,
                                 top: 15,
                                 width: 40,
-                                height: 5);
+                                height: 5,
+                                fgColor: ConsoleColor.Black,
+                                bgColor: ConsoleColor.Cyan);
                             return MuzREPL.MuzRequestType.None;
 
                         default:
