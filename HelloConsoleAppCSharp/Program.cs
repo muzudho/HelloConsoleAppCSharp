@@ -7,6 +7,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System;
 
 try
 {
@@ -71,7 +72,7 @@ try
                             Console.WriteLine("ここはデフォルトの色に戻ったよ");
 
                             Console.WriteLine("３秒待つ（＾～＾）");
-                            await Task.Delay(3 * 1000);
+                            await Task.Delay(TimeSpan.FromSeconds(3));
 
                             // 今のカーソル位置を記憶
                             int oldLeft = Console.CursorLeft;  // 横位置
@@ -92,10 +93,39 @@ try
                             // 元の位置に戻す
                             Console.SetCursorPosition(oldLeft, oldTop);
 
-                            // Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
-                            // ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
-                            // 1行の中で単語ごとに色を変えたい場合
-                            //  → 上の WriteColored を何度も呼ぶか、位置を指定して書き込む（Console.SetCursorPosition）必要がある。1回のWriteLineで複数色は標準では無理。
+                            Console.WriteLine("これから、進捗バーの真似事をするぜ（＾～＾）");
+                            oldLeft = Console.CursorLeft;  // 横位置
+                            oldTop = Console.CursorTop;   // 縦位置
+
+                            await Task.Delay(TimeSpan.FromSeconds(1));
+                            Console.SetCursorPosition(0, oldTop);  // 元の行の先頭に戻る
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write(" ");
+                            Console.ResetColor();
+                            Console.Write("1");
+                            Console.Write(" ".PadRight(Console.BufferWidth)); // 残りを空白で消す。カーソルは次の行の先頭へ行く。
+
+                            await Task.Delay(TimeSpan.FromSeconds(1));
+                            Console.SetCursorPosition(0, oldTop);
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write("  ");
+                            Console.ResetColor();
+                            Console.Write("2");
+                            Console.Write(" ".PadRight(Console.BufferWidth));
+
+                            await Task.Delay(TimeSpan.FromSeconds(1));
+                            Console.SetCursorPosition(0, oldTop);
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.Write("   ");
+                            Console.ResetColor();
+                            Console.Write("3");
+                            Console.Write(" ".PadRight(Console.BufferWidth));
+
+                            Console.SetCursorPosition(0, Console.CursorTop);  // 現在の行の先頭に戻る
+
 
                             /*
                                📍 NOTE:
@@ -104,6 +134,9 @@ try
 
                                     Black, DarkBlue, DarkGreen, DarkCyan, DarkRed, DarkMagenta, DarkYellow, Gray
                                     DarkGray, Blue, Green, Cyan, Red, Magenta, Yellow, White
+
+                                    Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
+                                    ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
                             */
                             return MuzREPL.MuzRequestType.None;
 
