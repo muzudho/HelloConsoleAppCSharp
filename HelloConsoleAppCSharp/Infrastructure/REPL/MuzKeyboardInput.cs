@@ -24,57 +24,12 @@ internal static class MuzKeyboardInput
     /// </summary>
     public static string? ReadInput()
     {
-        StringBuilder inputString = new StringBuilder();
-        int cursorPos = 0;  // カーソル位置（簡易版）
 
         while (true)
         {
-            // 押されたキーを取得。
-            // true : エコー（表示）しない。
-            ConsoleKeyInfo key = Console.ReadKey(true);
 
-            // === ファンクションキー検知 ===
-            if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
-            {
-                // ここでFキーの処理をしたい場合はここで分岐
-                Console.WriteLine();  // 改行
-                Console.WriteLine($"{key.Key} が押されたぜ！（特殊処理）");
 
-                // 例: F1でヘルプ、F5でクリア など
-                if (key.Key == ConsoleKey.F1)
-                {
-                    Console.WriteLine("ヘルプを表示します...");
-                }
 
-                return null;  // または特殊キーを示す特別な値を返す
-            }
-
-            // === 通常の文字入力処理 ===
-            // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
-            if (key.Key == ConsoleKey.Enter)
-            {
-                return inputString.ToString();
-            }
-            else if (key.Key == ConsoleKey.Backspace)
-            {
-                if (inputString.Length > 0 && cursorPos > 0)
-                {
-                    inputString.Remove(cursorPos - 1, 1);
-                    cursorPos--;
-
-                    // 表示を修正（Backspaceで消す）
-                    Console.Write("\b \b");
-                }
-            }
-            else if (key.KeyChar != '\0')  // 通常の文字
-            {
-                inputString.Insert(cursorPos, key.KeyChar);
-                cursorPos++;
-
-                // 入力文字を表示
-                Console.Write(key.KeyChar);
-            }
-            // 矢印キーなどもここで追加可能（LeftArrow, RightArrowなど）
         }
     }
 }

@@ -21,6 +21,14 @@ internal static class MuzREPL
     public static bool IsPromptVisible { get; set; } = true;
 
 
+    /// <summary>
+    ///     <pre>
+    /// ［エンターキー］を押すまで、コマンド入力待機するREPLのループ。
+    ///     </pre>
+    /// </summary>
+    /// <param name="printPromptAsync"></param>
+    /// <param name="evalAsync"></param>
+    /// <returns></returns>
     internal static async Task RunAsync(
         Func<Task> printPromptAsync,
         Func<string, Task<MuzRequestType>> evalAsync)
@@ -52,6 +60,14 @@ internal static class MuzREPL
     }
 
 
+    /// <summary>
+    ///     <pre>
+    /// キー入力を待機するREPLのループ。
+    ///     </pre>
+    /// </summary>
+    /// <param name="printPromptAsync"></param>
+    /// <param name="evalAsync"></param>
+    /// <returns></returns>
     internal static async Task RunAsync(
         Func<Task> printPromptAsync,
         Func<ConsoleKeyInfo, Task<MuzRequestType>> evalAsync)
@@ -66,7 +82,9 @@ internal static class MuzREPL
                 await printPromptAsync();
             }
 
-            ConsoleKeyInfo key = Console.ReadKey();    // Read。処理はブロック（ここで止まる）されます。
+            // `intercept`:  true でエコー（表示）しない。
+            ConsoleKeyInfo key = Console.ReadKey(
+                intercept: true);
 
             // ここでコマンドを処理（Eval）
             var request = await evalAsync(key);

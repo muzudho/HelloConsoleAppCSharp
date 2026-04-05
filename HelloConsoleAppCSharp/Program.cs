@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System.Media;
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
@@ -10,6 +9,8 @@ using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Media;
+using System.Text;
 
 try
 {
@@ -259,6 +260,9 @@ try
 
             Console.WriteLine("次はキー入力待機モード（＾～＾）");
 
+            // （エンターキーが押されるまでの）入力中で未確定な文字列。
+            StringBuilder draftString = new StringBuilder();
+            int cursorPos = 0;  // カーソル位置（簡易版）
 
             // 📍 NOTE:
             //
@@ -277,8 +281,52 @@ try
                     if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
                     {
                         Console.WriteLine($"{key.Key} が押されたぜ！（特殊処理）");
+
+                        // 例: F1でヘルプ、F5でクリア など
+                        if (key.Key == ConsoleKey.F1)
+                        {
+                            Console.WriteLine("ヘルプを表示します...");
+                        }
+
                         return MuzREPL.MuzRequestType.None;
                     }
+
+                    // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        // 確定した文字列。
+                        var actualString = draftString.ToString();
+                        draftString.Clear();  // 入力中の文字列をクリア
+                        Console.WriteLine($"{actualString} が入力されたぜ（＾～＾）！");
+
+                        return MuzREPL.MuzRequestType.None;
+                    }
+
+                    // １つ前に入力した文字を取り消します。
+                    if (key.Key == ConsoleKey.Backspace)
+                    {
+                        if (draftString.Length > 0 && cursorPos > 0)
+                        {
+                            draftString.Remove(cursorPos - 1, 1);
+                            cursorPos--;
+
+                            // 表示を修正（Backspaceで消す）
+                            Console.Write("\b \b");
+                        }
+
+                        return MuzREPL.MuzRequestType.None;
+                    }
+
+                    // 通常の文字
+                    if (key.KeyChar != '\0')
+                    {
+                        draftString.Insert(cursorPos, key.KeyChar);
+                        cursorPos++;
+
+                        // 入力文字を表示
+                        Console.Write(key.KeyChar);
+                    }
+                    // 矢印キーなどもここで追加可能（LeftArrow, RightArrowなど）
 
                     // その他のキー入力は無視するぜ（＾～＾）！
                     return MuzREPL.MuzRequestType.None;
