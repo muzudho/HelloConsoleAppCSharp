@@ -258,11 +258,19 @@ try
                 });
 
 
+            // 📍 NOTE:
+            //
+            //      ［文字列入力待ち］と、［キー入力待ち］は、分けろだぜ（＾～＾）！
+            //
+
+
             Console.WriteLine("次はキー入力待機モード（＾～＾）");
 
             // （エンターキーが押されるまでの）入力中で未確定な文字列。
             StringBuilder draftString = new StringBuilder();
-            int cursorPos = 0;  // カーソル位置（簡易版）
+
+            // カーソル位置（簡易版）。キャレットは最後尾とは限らないから。
+            int cursorPos = 0;
 
             // 📍 NOTE:
             //
@@ -339,34 +347,46 @@ try
                         return MuzREPL.MuzRequestType.None;
                     }
 
-                    // １つ前に入力した文字を取り消します。
+                    // 📍 NOTE:
+                    //
+                    //      キャレットが文字列の途中に有るとき、１つ左側の文字を消すとともに、その右側の文字が左にずれて詰まる処理が難しい。
+                    //
                     if (key.Key == ConsoleKey.Backspace)
                     {
-                        while (0 < cursorPos)
-                        {
-                            // 半角何文字分か。
-                            int hankakuLength = 1;
+                        Console.WriteLine($"文字［{draftString}］, 文字列調 = {draftString.Length}. カーソル位置 = {cursorPos}");
+                        //while (0 < cursorPos)
+                        //{
+                        //    // 半角何文字分か。
+                        //    //int hankakuLength = GetDisplayWidth(draftString[cursorPos - 1]);
+                        //    int hankakuLength = 1;
 
-                            // サロゲートペア（絵文字など）の場合は2つcharを削除
-                            if (2 <= cursorPos &&
-                                char.IsLowSurrogate(draftString[cursorPos - 1]) &&
-                                char.IsHighSurrogate(draftString[cursorPos - 2]))
-                            {
-                                hankakuLength = 2;
-                            }
+                        //    // サロゲートペア（絵文字など）の場合は2つcharを削除
+                        //    if (2 <= cursorPos &&
+                        //        char.IsLowSurrogate(draftString[cursorPos - 1]) &&
+                        //        char.IsHighSurrogate(draftString[cursorPos - 2]))
+                        //    {
+                        //        hankakuLength = 2;
+                        //    }
 
-                            // ひとまず、半角文字分消す。
-                            _DeleteHankaku();
-
-                            if (2 <= hankakuLength)
-                            {
-                                _DeleteHankaku();
-                            }
-                        }
+                        //    for (int i = 0; i < hankakuLength; i++)
+                        //    {
+                        //        _DeleteHankaku();
+                        //    }
+                        //}
 
                         return MuzREPL.MuzRequestType.None;
 
                         //
+
+                        // 文字の表示幅を返す（半角=1、全角=2）
+                        static int GetDisplayWidth(char c)
+                        {
+                            if (char.IsControl(c)) return 0;
+                            if (c >= 0xFF01 && c <= 0xFF5E) return 2; // 全角英数記号
+                            if (c >= 0x3000 && c <= 0x303F) return 2; // 全角句読点など
+                            // 簡易版：East Asian Wide 判定（もっと正確にしたいならUnicodeのEast_Asian_Widthを使う）
+                            return 1; // デフォルト半角
+                        }
 
                         void _DeleteHankaku()
                         {
