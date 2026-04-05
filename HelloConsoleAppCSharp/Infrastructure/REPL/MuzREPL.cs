@@ -21,7 +21,7 @@ internal static class MuzREPL
     public static bool IsPromptVisible { get; set; } = true;
 
 
-    internal static async Task RunAsync(
+    internal static async Task RunReadingLinesAsync(
         Func<Task> printPromptAsync,
         Func<string, Task<MuzRequestType>> evalAsync)
     {

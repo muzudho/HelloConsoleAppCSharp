@@ -41,20 +41,20 @@ try
             loggingSvc.Others.LogInformation("その他のログだぜ（＾～＾）");
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
 
-            await MuzREPL.RunAsync(
+            await MuzREPL.RunReadingLinesAsync(
                 printPromptAsync: async () =>
                 {
                     Console.Write("> ");  // プロンプトを表示
                     await Task.CompletedTask;  // ここは非同期関数なので、Taskを返す必要がある。今回は特に非同期処理はないので、完了済みのTaskを返す。
                 },
-                evalAsync: async (text) =>
+                evalAsync: async (line) =>
                 {
                     // 入力が空白だけだったら、無視するぜ（＾～＾）
-                    if (string.IsNullOrWhiteSpace(text)) return MuzREPL.MuzRequestType.None;
+                    if (string.IsNullOrWhiteSpace(line)) return MuzREPL.MuzRequestType.None;
 
                     // ここに君のコマンド処理を書く。
                     // `exit` は REPL 内で処理されているから、ここでは処理されないぜ（＾～＾）！
-                    switch (text)
+                    switch (line)
                     {
                         case "exit":
                             Console.WriteLine("REPLを終了するぜ（＾～＾）");
@@ -246,7 +246,7 @@ try
                             return MuzREPL.MuzRequestType.None;
 
                         default:
-                            Console.WriteLine($"知らないコマンドだぜ: {text}");
+                            Console.WriteLine($"知らないコマンドだぜ: {line}");
                             return MuzREPL.MuzRequestType.None;
                     }
                 });
