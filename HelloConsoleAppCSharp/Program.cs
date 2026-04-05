@@ -342,7 +342,33 @@ try
                     // １つ前に入力した文字を取り消します。
                     if (key.Key == ConsoleKey.Backspace)
                     {
-                        if (draftString.Length > 0 && cursorPos > 0)
+                        while (0 < cursorPos)
+                        {
+                            // 半角何文字分か。
+                            int hankakuLength = 1;
+
+                            // サロゲートペア（絵文字など）の場合は2つcharを削除
+                            if (2 <= cursorPos &&
+                                char.IsLowSurrogate(draftString[cursorPos - 1]) &&
+                                char.IsHighSurrogate(draftString[cursorPos - 2]))
+                            {
+                                hankakuLength = 2;
+                            }
+
+                            // ひとまず、半角文字分消す。
+                            _DeleteHankaku();
+
+                            if (2 <= hankakuLength)
+                            {
+                                _DeleteHankaku();
+                            }
+                        }
+
+                        return MuzREPL.MuzRequestType.None;
+
+                        //
+
+                        void _DeleteHankaku()
                         {
                             draftString.Remove(cursorPos - 1, 1);
                             cursorPos--;
@@ -350,8 +376,6 @@ try
                             // 表示を修正（Backspaceで消す）
                             Console.Write("\b \b");
                         }
-
-                        return MuzREPL.MuzRequestType.None;
                     }
 
                     // 矢印キーなどもここで追加可能（LeftArrow, RightArrowなど）
