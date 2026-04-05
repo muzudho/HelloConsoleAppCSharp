@@ -40,14 +40,10 @@ internal static class MuzREPL
             //      Shift キーや、↑←↓→キー、ファンクション・キーが押されたかどうかを判別するのは、
             //      大がかりになるので、今回は文字列のみ取得するサンプル・プログラムです。
             //
-            string? command = Console.ReadLine();    // Read。処理はブロック（ここで止まる）されます。
-
-
-            // 入力が空白だけだったら、無視していいだろう多分……（＾～＾）
-            if (string.IsNullOrWhiteSpace(command)) continue;
+            string? line = Console.ReadLine();    // Read。処理はブロック（ここで止まる）されます。
 
             // ここでコマンドを処理（Eval）
-            var request = await evalAsync(command);
+            var request = await evalAsync(line);
 
             if (request == MuzRequestType.Exit) break;
         }

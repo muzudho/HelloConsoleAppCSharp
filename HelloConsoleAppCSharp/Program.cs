@@ -49,6 +49,9 @@ try
                 },
                 evalAsync: async (text) =>
                 {
+                    // 入力が空白だけだったら、無視するぜ（＾～＾）
+                    if (string.IsNullOrWhiteSpace(text)) return MuzREPL.MuzRequestType.None;
+
                     // ここに君のコマンド処理を書く。
                     // `exit` は REPL 内で処理されているから、ここでは処理されないぜ（＾～＾）！
                     switch (text)
