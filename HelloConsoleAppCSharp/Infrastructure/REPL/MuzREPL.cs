@@ -21,7 +21,7 @@ internal static class MuzREPL
     public static bool IsPromptVisible { get; set; } = true;
 
 
-    internal static async Task RunReadingLinesAsync(
+    internal static async Task RunAsync(
         Func<Task> printPromptAsync,
         Func<string, Task<MuzRequestType>> evalAsync)
     {
@@ -48,6 +48,32 @@ internal static class MuzREPL
             if (request == MuzRequestType.Exit) break;
         }
 
-        Console.WriteLine("終了したぜ！");
+        //Console.WriteLine("終了したぜ！");
+    }
+
+
+    internal static async Task RunAsync(
+        Func<Task> printPromptAsync,
+        Func<ConsoleKeyInfo, Task<MuzRequestType>> evalAsync)
+    {
+        Console.WriteLine("キー入力待機中...");
+
+        while (true)  // ここが無限ループ（REPLのLoop部分）
+        {
+            // プロンプト表示
+            if (IsPromptVisible)
+            {
+                await printPromptAsync();
+            }
+
+            ConsoleKeyInfo key = Console.ReadKey();    // Read。処理はブロック（ここで止まる）されます。
+
+            // ここでコマンドを処理（Eval）
+            var request = await evalAsync(key);
+
+            if (request == MuzRequestType.Exit) break;
+        }
+
+        //Console.WriteLine("終了したぜ！");
     }
 }

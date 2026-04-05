@@ -41,7 +41,12 @@ try
             loggingSvc.Others.LogInformation("その他のログだぜ（＾～＾）");
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
 
-            await MuzREPL.RunReadingLinesAsync(
+
+            // 📍 NOTE:
+            //
+            //      キーボードからのコマンド入力を待機するぜ（＾～＾）！
+            //
+            await MuzREPL.RunAsync(
                 printPromptAsync: async () =>
                 {
                     Console.Write("> ");  // プロンプトを表示
@@ -250,6 +255,36 @@ try
                             return MuzREPL.MuzRequestType.None;
                     }
                 });
+
+
+            Console.WriteLine("次はキー入力待機モード（＾～＾）");
+
+
+            // 📍 NOTE:
+            //
+            //      キーボードからのキー入力を待機するぜ（＾～＾）！
+            //
+            await MuzREPL.RunAsync(
+                printPromptAsync: async () =>
+                {
+                    Console.WriteLine("キー入力待機中...（F1〜F12で特殊処理）");
+                    await Task.CompletedTask;
+                },
+                evalAsync: async (key) =>
+                {
+                    // ここに君のキー入力処理を書く。
+                    // 例えば、F1〜F12のファンクションキーを検知することができるぜ（＾～＾）！
+                    if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
+                    {
+                        Console.WriteLine($"{key.Key} が押されたぜ！（特殊処理）");
+                        return MuzREPL.MuzRequestType.None;
+                    }
+
+                    // その他のキー入力は無視するぜ（＾～＾）！
+                    return MuzREPL.MuzRequestType.None;
+                });
+
+
         });
 }
 catch (Exception ex)
