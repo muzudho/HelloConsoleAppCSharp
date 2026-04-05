@@ -268,7 +268,12 @@ try
 
                             while (true)  // 無限ループ。
                             {
-                                // `intercept`:  true でエコー（表示）しない。
+                                // 📍 NOTE:
+                                //
+                                //      キー入力を受け取ります。
+                                //      プログラムは、ユーザーがキーを押すまで、ここで待機します。  
+                                //      `intercept`:  true でエコー（表示）しない。
+                                //
                                 ConsoleKeyInfo key = Console.ReadKey(
                                     intercept: true);
 

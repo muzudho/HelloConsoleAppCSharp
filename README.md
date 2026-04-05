@@ -15,5 +15,6 @@
 * 📄 [垂直メニュー作成の基本](./HelloConsoleAppCSharp/Docs/OO13_垂直メニュー作成の基本.md)
 * 📄 [タイマー作成の基本](./HelloConsoleAppCSharp/Docs/OO14_タイマー作成の基本.md)
 * 📄 [ブリンカー作成の基本](./HelloConsoleAppCSharp/Docs/OO15_ブリンカー作成の基本.md)
+* 📄 [キー入力作成の基本](./HelloConsoleAppCSharp/Docs/OO16_キー入力作成の基本.md)
 
-以降の予定： 矢印キー等の入力、画面遷移、メッセージ管理、など。  
+以降の予定： メニュー作成、画面遷移、メッセージ管理、など。  
