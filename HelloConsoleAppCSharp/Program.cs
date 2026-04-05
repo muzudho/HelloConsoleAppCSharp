@@ -269,14 +269,25 @@ try
             //      キーボードからのキー入力を待機するぜ（＾～＾）！
             //
             await MuzREPL.RunAsync(
-                printPromptAsync: async () =>
+                pushKeyAsync: async (key) =>
                 {
-                    Console.WriteLine("キー入力待機中...（F1〜F12で特殊処理）");
-                    await Task.CompletedTask;
-                },
-                evalAsync: async (key) =>
-                {
-                    // ここに君のキー入力処理を書く。
+                    // 📍 NOTE:
+                    //
+                    //      ここにお前のキー入力処理を書く。
+                    //
+
+                    // 通常の文字
+                    if (key.KeyChar != '\0')
+                    {
+                        draftString.Insert(cursorPos, key.KeyChar);
+                        cursorPos++;
+
+                        // 入力文字を表示
+                        Console.Write(key.KeyChar);
+
+                        return MuzREPL.MuzRequestType.None;
+                    }
+
                     // 例えば、F1〜F12のファンクションキーを検知することができるぜ（＾～＾）！
                     if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
                     {
@@ -297,6 +308,7 @@ try
                         // 確定した文字列。
                         var actualString = draftString.ToString();
                         draftString.Clear();  // 入力中の文字列をクリア
+                        cursorPos = 0;       // カーソル位置もリセット
                         Console.WriteLine($"{actualString} が入力されたぜ（＾～＾）！");
 
                         return MuzREPL.MuzRequestType.None;
@@ -317,15 +329,6 @@ try
                         return MuzREPL.MuzRequestType.None;
                     }
 
-                    // 通常の文字
-                    if (key.KeyChar != '\0')
-                    {
-                        draftString.Insert(cursorPos, key.KeyChar);
-                        cursorPos++;
-
-                        // 入力文字を表示
-                        Console.Write(key.KeyChar);
-                    }
                     // 矢印キーなどもここで追加可能（LeftArrow, RightArrowなど）
 
                     // その他のキー入力は無視するぜ（＾～＾）！

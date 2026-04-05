@@ -66,28 +66,23 @@ internal static class MuzREPL
     ///     </pre>
     /// </summary>
     /// <param name="printPromptAsync"></param>
-    /// <param name="evalAsync"></param>
+    /// <param name="pushKeyAsync"></param>
     /// <returns></returns>
     internal static async Task RunAsync(
-        Func<Task> printPromptAsync,
-        Func<ConsoleKeyInfo, Task<MuzRequestType>> evalAsync)
+        Func<ConsoleKeyInfo, Task<MuzRequestType>> pushKeyAsync)
     {
         Console.WriteLine("キー入力待機中...");
 
         while (true)  // ここが無限ループ（REPLのLoop部分）
         {
-            // プロンプト表示
-            if (IsPromptVisible)
-            {
-                await printPromptAsync();
-            }
+            // キー入力単位なので、このループの中でプロンプトは表示できません。
 
             // `intercept`:  true でエコー（表示）しない。
             ConsoleKeyInfo key = Console.ReadKey(
                 intercept: true);
 
             // ここでコマンドを処理（Eval）
-            var request = await evalAsync(key);
+            var request = await pushKeyAsync(key);
 
             if (request == MuzRequestType.Exit) break;
         }
