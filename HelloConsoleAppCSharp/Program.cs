@@ -276,8 +276,45 @@ try
                     //      ここにお前のキー入力処理を書く。
                     //
 
-                    // 通常の文字
-                    if (key.KeyChar != '\0')
+                    // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
+                    if (key.Key == ConsoleKey.Enter || key.KeyChar == '\r' || key.KeyChar == '\n')
+                    {
+                        // 確定した文字列。
+                        var line = draftString.ToString();
+
+                        for (int i = 0; i < line.Length; i++)
+                        {
+                            // マルチバイト文字だと、カーソル位置の計算が複雑になるので、ここでは単純に半角文字のみを想定しているぜ（＾～＾）！
+                            Console.Write("\b \b"); // １つ左に移動してスペースで消して、さらに左に移動（カーソルを元の位置に戻す）
+                        }
+
+                        //Console.WriteLine($"［エンターキー］が入力されたぜ（＾～＾）！");
+
+                        draftString.Clear();  // 入力中の文字列をクリア
+                        cursorPos = 0;       // カーソル位置もリセット
+
+                        Console.WriteLine($"{line} が入力されたぜ（＾～＾）！");
+
+                        switch (line)
+                        {
+                            case "exit":
+                                Console.WriteLine("REPLを終了するぜ（＾～＾）");
+                                return MuzREPL.MuzRequestType.Exit;
+
+                            case "hello":
+                                Console.WriteLine("こんにちは（＾～＾）！");
+                                return MuzREPL.MuzRequestType.None;
+
+                            default:
+                                Console.WriteLine($"知らないコマンドだぜ: {line}");
+                                break;
+                        }
+
+                        return MuzREPL.MuzRequestType.None;
+                    }
+
+                    // 表示可能な文字（改行も拾ってしまうので、最後に行うこと）
+                    if (key.KeyChar != '\0' && !char.IsControl(key.KeyChar))
                     {
                         draftString.Insert(cursorPos, key.KeyChar);
                         cursorPos++;
@@ -298,18 +335,6 @@ try
                         {
                             Console.WriteLine("ヘルプを表示します...");
                         }
-
-                        return MuzREPL.MuzRequestType.None;
-                    }
-
-                    // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
-                    if (key.Key == ConsoleKey.Enter)
-                    {
-                        // 確定した文字列。
-                        var actualString = draftString.ToString();
-                        draftString.Clear();  // 入力中の文字列をクリア
-                        cursorPos = 0;       // カーソル位置もリセット
-                        Console.WriteLine($"{actualString} が入力されたぜ（＾～＾）！");
 
                         return MuzREPL.MuzRequestType.None;
                     }
