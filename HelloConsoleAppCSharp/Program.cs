@@ -276,6 +276,20 @@ try
                     //      ここにお前のキー入力処理を書く。
                     //
 
+                    // 例えば、F1〜F12のファンクションキーを検知することができるぜ（＾～＾）！
+                    if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
+                    {
+                        Console.WriteLine($"{key.Key} が押されたぜ！（特殊処理）");
+
+                        // 例: F1でヘルプ、F5でクリア など
+                        if (key.Key == ConsoleKey.F1)
+                        {
+                            Console.WriteLine("ヘルプを表示します...");
+                        }
+
+                        return MuzREPL.MuzRequestType.None;
+                    }
+
                     // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
                     if (key.Key == ConsoleKey.Enter || key.KeyChar == '\r' || key.KeyChar == '\n')
                     {
@@ -321,20 +335,6 @@ try
 
                         // 入力文字を表示
                         Console.Write(key.KeyChar);
-
-                        return MuzREPL.MuzRequestType.None;
-                    }
-
-                    // 例えば、F1〜F12のファンクションキーを検知することができるぜ（＾～＾）！
-                    if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
-                    {
-                        Console.WriteLine($"{key.Key} が押されたぜ！（特殊処理）");
-
-                        // 例: F1でヘルプ、F5でクリア など
-                        if (key.Key == ConsoleKey.F1)
-                        {
-                            Console.WriteLine("ヘルプを表示します...");
-                        }
 
                         return MuzREPL.MuzRequestType.None;
                     }
