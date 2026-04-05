@@ -251,157 +251,100 @@ try
 
                             return MuzREPL.MuzRequestType.None;
 
+                        case "key-input":
+
+
+                            // 📍 NOTE:
+                            //
+                            //      日本語入力への対応や、バックスペースキーの自力実装が難しいので、ここでは半角英数字キー１つの押下だけを想定しているぜ（＾～＾）！
+                            //
+
+
+                            Console.WriteLine("日本語入力への対応や、バックスペースキーの自力実装が難しいので、ここでは半角英数字キー１つの押下だけを想定しているぜ（＾～＾）！");
+                            Console.WriteLine("キー入力待機中。［エンターキー］押下でループを抜けるぜ（＾～＾）...");
+
+                            // （エンターキーが押されるまでの）入力中で未確定な文字列。
+                            StringBuilder draftString = new StringBuilder();
+
+                            while (true)  // 無限ループ。
+                            {
+                                // `intercept`:  true でエコー（表示）しない。
+                                ConsoleKeyInfo key = Console.ReadKey(
+                                    intercept: true);
+
+                                // 📍 NOTE:
+                                //
+                                //      ここにお前のキー入力処理を書く。
+                                //
+
+                                // 例えば、F1〜F12のファンクションキーを検知することができるぜ（＾～＾）！
+                                if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
+                                {
+                                    Console.WriteLine($"{key.Key} が押されたぜ！（特殊処理）");
+
+                                    // 例: F1でヘルプ、F5でクリア など
+                                    if (key.Key == ConsoleKey.F1)
+                                    {
+                                        Console.WriteLine("ヘルプを表示します...");
+                                    }
+
+                                    continue;
+                                }
+
+                                // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
+                                if (key.Key == ConsoleKey.Enter || key.KeyChar == '\r' || key.KeyChar == '\n')
+                                {
+                                    Console.WriteLine($"［エンターキー］が入力されたぜ（＾～＾）！");
+                                    break;  // ループを抜ける
+                                }
+
+                                // 表示可能な文字（改行も拾ってしまうので、最後に行うこと）
+                                if (key.KeyChar != '\0' && !char.IsControl(key.KeyChar))
+                                {
+                                    // 入力文字を表示
+                                    Console.WriteLine(key.KeyChar);
+                                    continue;
+                                }
+
+                                if (key.Key == ConsoleKey.Backspace)
+                                {
+                                    Console.WriteLine($"バックスペースキーを押したぜ（＾～＾）");
+                                    continue;
+                                }
+
+                                if (key.Key == ConsoleKey.LeftArrow)
+                                {
+                                    Console.WriteLine($"［←］キーを押したぜ（＾～＾）");
+                                    continue;
+                                }
+
+                                if (key.Key == ConsoleKey.UpArrow)
+                                {
+                                    Console.WriteLine($"［↑］キーを押したぜ（＾～＾）");
+                                    continue;
+                                }
+
+                                if (key.Key == ConsoleKey.RightArrow)
+                                {
+                                    Console.WriteLine($"［→］キーを押したぜ（＾～＾）");
+                                    continue;
+                                }
+
+                                if (key.Key == ConsoleKey.DownArrow)
+                                {
+                                    Console.WriteLine($"［↓］キーを押したぜ（＾～＾）");
+                                    continue;
+                                }
+
+                                // 他の制御キーも、欲しかったら実装してくれだぜ（＾～＾）
+                                // その他のキー入力は無視するぜ（＾～＾）！
+                            }
+                            return MuzREPL.MuzRequestType.None;
+
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");
                             return MuzREPL.MuzRequestType.None;
                     }
-                });
-
-
-            // 📍 NOTE:
-            //
-            //      ［文字列入力待ち］と、［キー入力待ち］は、分けろだぜ（＾～＾）！
-            //
-
-
-            Console.WriteLine("次はキー入力待機モード（＾～＾）");
-
-            // （エンターキーが押されるまでの）入力中で未確定な文字列。
-            StringBuilder draftString = new StringBuilder();
-
-            // カーソル位置（簡易版）。キャレットは最後尾とは限らないから。
-            int cursorPos = 0;
-
-            // 📍 NOTE:
-            //
-            //      キーボードからのキー入力を待機するぜ（＾～＾）！
-            //
-            await MuzREPL.RunAsync(
-                pushKeyAsync: async (key) =>
-                {
-                    // 📍 NOTE:
-                    //
-                    //      ここにお前のキー入力処理を書く。
-                    //
-
-                    // 例えば、F1〜F12のファンクションキーを検知することができるぜ（＾～＾）！
-                    if (key.Key >= ConsoleKey.F1 && key.Key <= ConsoleKey.F12)
-                    {
-                        Console.WriteLine($"{key.Key} が押されたぜ！（特殊処理）");
-
-                        // 例: F1でヘルプ、F5でクリア など
-                        if (key.Key == ConsoleKey.F1)
-                        {
-                            Console.WriteLine("ヘルプを表示します...");
-                        }
-
-                        return MuzREPL.MuzRequestType.None;
-                    }
-
-                    // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
-                    if (key.Key == ConsoleKey.Enter || key.KeyChar == '\r' || key.KeyChar == '\n')
-                    {
-                        // 確定した文字列。
-                        var line = draftString.ToString();
-
-                        for (int i = 0; i < line.Length; i++)
-                        {
-                            // マルチバイト文字だと、カーソル位置の計算が複雑になるので、ここでは単純に半角文字のみを想定しているぜ（＾～＾）！
-                            Console.Write("\b \b"); // １つ左に移動してスペースで消して、さらに左に移動（カーソルを元の位置に戻す）
-                        }
-
-                        //Console.WriteLine($"［エンターキー］が入力されたぜ（＾～＾）！");
-
-                        draftString.Clear();  // 入力中の文字列をクリア
-                        cursorPos = 0;       // カーソル位置もリセット
-
-                        Console.WriteLine($"{line} が入力されたぜ（＾～＾）！");
-
-                        switch (line)
-                        {
-                            case "exit":
-                                Console.WriteLine("REPLを終了するぜ（＾～＾）");
-                                return MuzREPL.MuzRequestType.Exit;
-
-                            case "hello":
-                                Console.WriteLine("こんにちは（＾～＾）！");
-                                return MuzREPL.MuzRequestType.None;
-
-                            default:
-                                Console.WriteLine($"知らないコマンドだぜ: {line}");
-                                break;
-                        }
-
-                        return MuzREPL.MuzRequestType.None;
-                    }
-
-                    // 表示可能な文字（改行も拾ってしまうので、最後に行うこと）
-                    if (key.KeyChar != '\0' && !char.IsControl(key.KeyChar))
-                    {
-                        draftString.Insert(cursorPos, key.KeyChar);
-                        cursorPos++;
-
-                        // 入力文字を表示
-                        Console.Write(key.KeyChar);
-
-                        return MuzREPL.MuzRequestType.None;
-                    }
-
-                    // 📍 NOTE:
-                    //
-                    //      キャレットが文字列の途中に有るとき、１つ左側の文字を消すとともに、その右側の文字が左にずれて詰まる処理が難しい。
-                    //
-                    if (key.Key == ConsoleKey.Backspace)
-                    {
-                        Console.WriteLine($"文字［{draftString}］, 文字列調 = {draftString.Length}. カーソル位置 = {cursorPos}");
-                        //while (0 < cursorPos)
-                        //{
-                        //    // 半角何文字分か。
-                        //    //int hankakuLength = GetDisplayWidth(draftString[cursorPos - 1]);
-                        //    int hankakuLength = 1;
-
-                        //    // サロゲートペア（絵文字など）の場合は2つcharを削除
-                        //    if (2 <= cursorPos &&
-                        //        char.IsLowSurrogate(draftString[cursorPos - 1]) &&
-                        //        char.IsHighSurrogate(draftString[cursorPos - 2]))
-                        //    {
-                        //        hankakuLength = 2;
-                        //    }
-
-                        //    for (int i = 0; i < hankakuLength; i++)
-                        //    {
-                        //        _DeleteHankaku();
-                        //    }
-                        //}
-
-                        return MuzREPL.MuzRequestType.None;
-
-                        //
-
-                        // 文字の表示幅を返す（半角=1、全角=2）
-                        static int GetDisplayWidth(char c)
-                        {
-                            if (char.IsControl(c)) return 0;
-                            if (c >= 0xFF01 && c <= 0xFF5E) return 2; // 全角英数記号
-                            if (c >= 0x3000 && c <= 0x303F) return 2; // 全角句読点など
-                            // 簡易版：East Asian Wide 判定（もっと正確にしたいならUnicodeのEast_Asian_Widthを使う）
-                            return 1; // デフォルト半角
-                        }
-
-                        void _DeleteHankaku()
-                        {
-                            draftString.Remove(cursorPos - 1, 1);
-                            cursorPos--;
-
-                            // 表示を修正（Backspaceで消す）
-                            Console.Write("\b \b");
-                        }
-                    }
-
-                    // 矢印キーなどもここで追加可能（LeftArrow, RightArrowなど）
-
-                    // その他のキー入力は無視するぜ（＾～＾）！
-                    return MuzREPL.MuzRequestType.None;
                 });
 
 
