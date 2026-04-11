@@ -92,18 +92,16 @@ internal static class MuzGraphCommand
                     top: 15,
                     width: 40,
                     height: 5);
-            });
 
-        // 📍 NOTE:
-        //
-        //     ここで、メニューを表示してみようぜ（＾～＾）！
-        //
-        MuzVMenus.PrintMenu(
-            left: 38,
-            top: 16,
-            items: new[] { "開始", "設定", "終了" },
-            fgColor: ConsoleColor.Black,
-            bgColor: ConsoleColor.Cyan);
+                // 📍 NOTE:
+                //
+                //     ここで、メニューを表示してみようぜ（＾～＾）！
+                //
+                MuzVerticalMenus.PrintMenu(
+                    left: 38,
+                    top: 16,
+                    items: new[] { "開始", "設定", "終了" });
+            });
 
         // 📍 NOTE:
         //
