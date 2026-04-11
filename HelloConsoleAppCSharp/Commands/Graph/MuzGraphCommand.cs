@@ -99,7 +99,7 @@ internal static class MuzGraphCommand
                 //
                 //     ここで、メニューを表示してみようぜ（＾～＾）！
                 //
-                MuzVerticalMenus.PrintMenu(
+                await MuzVerticalMenus.PrintMenuAsync(
                     left: 38,
                     top: 16,
                     items: new[] { "開始", "設定", "終了" });
