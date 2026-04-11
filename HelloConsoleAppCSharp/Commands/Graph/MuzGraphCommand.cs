@@ -65,7 +65,7 @@ internal static class MuzGraphCommand
 
                 // 📍 NOTE:
                 //
-                //      一定間隔で点滅するカーソルを表示するぜ（＾～＾）！
+                //      一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
                 //
                 MuzWidgets.PrintBlinkingText(
                     text: "▶",  // 右向きの三角形は、半角のようだ。
