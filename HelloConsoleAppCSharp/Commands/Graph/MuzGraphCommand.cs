@@ -115,7 +115,7 @@ internal static class MuzGraphCommand
                         //
                         //      アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
                         //
-                        MuzWidgets.PrintErapsedTime(
+                        await MuzWidgets.PrintErapsedTimeAsync(
                             label: "Time ",
                             startDateTime: startDateTime,
                             left: 62,
@@ -125,7 +125,7 @@ internal static class MuzGraphCommand
                         //
                         //      一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
                         //
-                        MuzWidgets.PrintBlinkingText(
+                        await MuzWidgets.PrintBlinkingTextAsync(
                             text: "▶",  // 右向きの三角形は、半角のようだ。
                             left: 36,
                             top: 16,

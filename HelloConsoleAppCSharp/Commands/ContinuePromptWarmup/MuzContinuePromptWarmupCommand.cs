@@ -22,7 +22,7 @@ internal static class MuzContinuePromptWarmupCommand
                     //
                     //      ブリンカーの位置は、適当に調整してほしい（＾～＾）
                     //
-                    MuzWidgets.PrintBlinkingText(
+                    await MuzWidgets.PrintBlinkingTextAsync(
                             text: string.Empty,
                             left: 36,
                             top: 16,
@@ -44,7 +44,7 @@ internal static class MuzContinuePromptWarmupCommand
                         //
                         //      ブリンカーの位置は、適当に調整してほしい（＾～＾）
                         //
-                        MuzWidgets.PrintBlinkingText(
+                        await MuzWidgets.PrintBlinkingTextAsync(
                                 text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
                                 left: 36,
                                 top: 16,

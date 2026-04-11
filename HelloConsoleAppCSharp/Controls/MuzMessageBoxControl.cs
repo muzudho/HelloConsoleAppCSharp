@@ -92,7 +92,7 @@ internal class MuzMessageBoxControl
                         height: 7);
 
                     // ［ブリンカー］（ホワイトスペースを表示）
-                    MuzWidgets.PrintBlinkingText(
+                    await MuzWidgets.PrintBlinkingTextAsync(
                         text: string.Empty,
                         left: 75,
                         top: 24,
@@ -108,7 +108,7 @@ internal class MuzMessageBoxControl
                     while (true)
                     {
                         // ［コンティニュープロンプト］
-                        MuzWidgets.PrintBlinkingText(
+                        await MuzWidgets.PrintBlinkingTextAsync(
                             text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
                             left: 75,
                             top: 24,
