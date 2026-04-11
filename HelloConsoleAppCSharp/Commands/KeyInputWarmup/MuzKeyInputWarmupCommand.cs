@@ -12,12 +12,13 @@ internal static class MuzKeyInputWarmupCommand
         //
         //      日本語入力への対応や、バックスペースキーの自力実装が難しいので、ここでは半角英数字キー１つの押下だけを想定しているぜ（＾～＾）！
         //
-
         Console.WriteLine("日本語入力への対応や、バックスペースキーの自力実装が難しいので、ここでは半角英数字キー１つの押下だけを想定しているぜ（＾～＾）！");
-        Console.WriteLine("キー入力待機中。［エンターキー］押下でループを抜けるぜ（＾～＾）...");
 
-        // （エンターキーが押されるまでの）入力中で未確定な文字列。
-        StringBuilder draftString = new StringBuilder();
+        // 📍 NOTE:
+        //
+        //      無限ループの抜け方を説明しておきましょう。
+        //
+        Console.WriteLine("キー入力待機中。［エンターキー］か、［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
 
         while (true)  // 無限ループ。
         {
@@ -53,6 +54,13 @@ internal static class MuzKeyInputWarmupCommand
             if (key.Key == ConsoleKey.Enter || key.KeyChar == '\r' || key.KeyChar == '\n')
             {
                 Console.WriteLine($"［エンターキー］が入力されたぜ（＾～＾）！");
+                break;  // ループを抜ける
+            }
+
+            // ［エスケープキー］が押されたら、ループを抜けます。
+            if (key.Key == ConsoleKey.Escape)
+            {
+                Console.WriteLine($"［エスケープキー］が入力されたぜ（＾～＾）！");
                 break;  // ループを抜ける
             }
 
