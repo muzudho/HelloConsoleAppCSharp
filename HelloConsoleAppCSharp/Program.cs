@@ -6,6 +6,7 @@ using HelloConsoleAppCSharp.Commands.Graph;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
+using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -112,6 +113,9 @@ try
 
                         // ［メニュー］の動作確認
                         case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync();
+
+                        // ［タイプライター効果］の動作確認
+                        case "typewriter-effect-warmup": return await MuzTypewriterEffectWarmupCommand.ExecuteAsync();
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");
