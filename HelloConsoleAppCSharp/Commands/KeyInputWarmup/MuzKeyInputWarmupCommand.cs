@@ -1,40 +1,13 @@
-# キー入力作成の基本
-
-REPL では、キーボードの［↑］キーを押したからカーソルを上に動かす、といったようなことはできませんでした。  
-この記事［キー入力］では、キーボードで押下されたキーを受け取る方法を説明します。  
-
-ただし、ゲームのような、キーの押下（Key down）と放す（Key up）ことを区別することは、このプロジェクト［コンソール・アプリケーション］ではサポートできません。それは［ゲーム・アプリケーション］の範囲になります。  
-
-
-## フォルダーとファイルの構成
-
-以下のようにフォルダーとファイルを用意してください。  
-
-```plaintext
-📁 HelloConsoleAppCSharp
-+-- 📁 Commands
-|   +-- 📁 KeyInput
-|       +-- 📄 MuzKeyInputCommand.cs
-+-- 📄 Program.cs
-```
-
-
-## コマンドの作成
-
-📄 MuzKeyInputCommand.cs:  
-
-```csharp
-namespace HelloConsoleAppCSharp.Commands.KeyInput;
+﻿namespace HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using System.Text;
 using static HelloConsoleAppCSharp.Infrastructure.REPL.MuzREPL;
 
-internal static class MuzKeyInputCommand
+internal static class MuzKeyInputWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {
-
         // 📍 NOTE:
         //
         //      日本語入力への対応や、バックスペースキーの自力実装が難しいので、ここでは半角英数字キー１つの押下だけを想定しているぜ（＾～＾）！
@@ -128,18 +101,3 @@ internal static class MuzKeyInputCommand
         return MuzREPL.MuzRequestType.None;
     }
 }
-```
-
-
-## プログラムの編集
-
-
-📄 Program.cs:  
-
-```csharp
-～前後略～
-                        // ［キー入力］の勉強
-                        case "key-input":   return await MuzKeyInputCommand.ExecuteAsync();
-```
-
-これで、このコンソール・アプリケーションを起動し、 `key-input` と入力すると、［キー入力］の動作確認ができます。  

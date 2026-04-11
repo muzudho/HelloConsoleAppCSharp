@@ -2,7 +2,7 @@
 
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Commands.Graph;
-using HelloConsoleAppCSharp.Commands.KeyInput;
+using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
@@ -99,11 +99,11 @@ try
                         // ［コンソール出力］の動作確認
                         case "print-warmup":    return await MuzPrintWarmupCommand.ExecuteAsync();
 
-                        // グラフィカルの意味
+                        // ［graph］はグラフィカルの意味。
                         case "graph":   return await MuzGraphCommand.ExecuteAsync(startDateTime);
 
                         // ［キー入力］の動作確認
-                        case "key-input":   return await MuzKeyInputCommand.ExecuteAsync();
+                        case "key-input-warmup":   return await MuzKeyInputWarmupCommand.ExecuteAsync();
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");
