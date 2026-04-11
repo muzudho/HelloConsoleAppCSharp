@@ -2,19 +2,18 @@
 
 using System;
 
+internal enum MuzRequestType
+{
+    None = 0,
+
+    /// <summary>
+    /// REPLのループの終了要求
+    /// </summary>
+    Exit,
+}
+
 internal static class MuzREPL
 {
-    internal enum MuzRequestType
-    {
-        None = 0,
-
-        /// <summary>
-        /// REPLのループの終了要求
-        /// </summary>
-        Exit,
-    }
-
-
     /// <summary>
     /// プロンプトを表示するか。
     /// </summary>

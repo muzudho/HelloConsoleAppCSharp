@@ -1,7 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.PrintWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
-using static HelloConsoleAppCSharp.Infrastructure.REPL.MuzREPL;
 
 internal static class MuzPrintWarmupCommand
 {
@@ -73,7 +72,7 @@ internal static class MuzPrintWarmupCommand
         Console.Write(" ".PadRight(Console.BufferWidth));
 
         Console.SetCursorPosition(0, Console.CursorTop);  // 現在の行の先頭に戻る
-        return MuzREPL.MuzRequestType.None;
+        return MuzRequestType.None;
 
 
         /*

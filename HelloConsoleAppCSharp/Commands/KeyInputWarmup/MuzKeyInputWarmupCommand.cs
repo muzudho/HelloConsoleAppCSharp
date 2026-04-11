@@ -1,8 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
-using System.Text;
-using static HelloConsoleAppCSharp.Infrastructure.REPL.MuzREPL;
 
 internal static class MuzKeyInputWarmupCommand
 {
@@ -106,6 +104,6 @@ internal static class MuzKeyInputWarmupCommand
             // その他のキー入力は無視するぜ（＾～＾）！
         }
 
-        return MuzREPL.MuzRequestType.None;
+        return MuzRequestType.None;
     }
 }

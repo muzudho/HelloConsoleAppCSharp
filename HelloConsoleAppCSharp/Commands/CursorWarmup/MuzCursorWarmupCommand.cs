@@ -2,7 +2,6 @@
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
-using static HelloConsoleAppCSharp.Infrastructure.REPL.MuzREPL;
 
 internal static class MuzCursorWarmupCommand
 {
@@ -102,6 +101,6 @@ internal static class MuzCursorWarmupCommand
             // その他のキー入力は無視するぜ（＾～＾）！
         }
 
-        return MuzREPL.MuzRequestType.None;
+        return MuzRequestType.None;
     }
 }

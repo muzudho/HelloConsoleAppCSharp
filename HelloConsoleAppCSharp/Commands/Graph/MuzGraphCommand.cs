@@ -4,7 +4,6 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.Scheduler;
 using HelloConsoleAppCSharp.Views;
 using System;
-using static HelloConsoleAppCSharp.Infrastructure.REPL.MuzREPL;
 
 internal static class MuzGraphCommand
 {
@@ -79,6 +78,6 @@ internal static class MuzGraphCommand
             });
 
 
-        return MuzREPL.MuzRequestType.None;
+        return MuzRequestType.None;
     }
 }

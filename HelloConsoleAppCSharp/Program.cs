@@ -56,7 +56,7 @@ try
                 evalAsync: async (line) =>
                 {
                     // 入力が空白だけだったら、無視するぜ（＾～＾）
-                    if (string.IsNullOrWhiteSpace(line)) return MuzREPL.MuzRequestType.None;
+                    if (string.IsNullOrWhiteSpace(line)) return MuzRequestType.None;
 
                     // ここに君のコマンド処理を書く。
                     // `exit` は REPL 内で処理されているから、ここでは処理されないぜ（＾～＾）！
@@ -64,17 +64,17 @@ try
                     {
                         case "exit":
                             Console.WriteLine("REPLを終了するぜ（＾～＾）");
-                            return MuzREPL.MuzRequestType.Exit;
+                            return MuzRequestType.Exit;
 
                         case "hello":
                             Console.WriteLine("こんにちは（＾～＾）！");
-                            return MuzREPL.MuzRequestType.None;
+                            return MuzRequestType.None;
 
                         case "color":
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine("文字色を変えたよ！");
                             Console.ResetColor();
-                            return MuzREPL.MuzRequestType.None;
+                            return MuzRequestType.None;
 
                         //case "sound":
                         //    Console.WriteLine("音を鳴らしてみるぜ（＾～＾）");
@@ -95,7 +95,7 @@ try
                         //    //NuGet を調べた方がいい？
                         //    //dotnet add package NetCoreAudio
 
-                        //    return MuzREPL.MuzRequestType.None;
+                        //    return MuzRequestType.None;
 
                         // ［コンソール出力］の動作確認
                         case "print-warmup":    return await MuzPrintWarmupCommand.ExecuteAsync();
@@ -111,7 +111,7 @@ try
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");
-                            return MuzREPL.MuzRequestType.None;
+                            return MuzRequestType.None;
                     }
                 });
 
