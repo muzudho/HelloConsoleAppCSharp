@@ -3,7 +3,7 @@
 /// <summary>
 /// ウィンドウの枠のようなものを表示するためのものです。
 /// </summary>
-internal static class MuzBorders
+internal static class MuzBoxViews
 {
     /// <summary>
     ///     <pre>

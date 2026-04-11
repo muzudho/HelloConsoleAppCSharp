@@ -20,7 +20,7 @@ internal static class MuzGraphCommand
         //      ここで、ボーダーを表示してみましょう（＾～＾）！
         //      方眼紙などに画面の想像図を描いてから、位置とサイズを測って、コーディングしましょう（＾～＾）！
         //
-        MuzBorders.PrintDoubleBorder(
+        MuzBoxViews.PrintDoubleBorder(
             left: 20,
             top: 15,
             width: 40,
