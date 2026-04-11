@@ -11,6 +11,18 @@ internal static class MuzContinuePromptWarmupCommand
         // まずは、メッセージ毎に分割するぜ（＾～＾）
         foreach (var message in messageList)
         {
+            // 📍 NOTE:
+            //
+            //      ブリンカーの位置は、適当に調整してほしい（＾～＾）
+            //
+            MuzWidgets.PrintBlinkingText(
+                text: string.Empty,
+                left: 36,
+                top: 16,
+                fgColor: ConsoleColor.Blue,
+                bgColor: ConsoleColor.Cyan,
+                isVisible: false);  // 常にホワイトスペースを表示
+
             // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
             _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(message);
 
@@ -25,7 +37,7 @@ internal static class MuzContinuePromptWarmupCommand
                 //      ブリンカーの位置は、適当に調整してほしい（＾～＾）
                 //
                 MuzWidgets.PrintBlinkingText(
-                    text: "▼",
+                    text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
                     left: 36,
                     top: 16,
                     fgColor: ConsoleColor.Blue,
