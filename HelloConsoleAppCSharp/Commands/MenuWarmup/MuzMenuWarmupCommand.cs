@@ -9,7 +9,8 @@ internal static class MuzMenuWarmupCommand
     {
         // ［開始メニュー］コントロール
         var startMenuControl = new MuzStartMenuControl(
-            menuItems: new() { "開始", "設定", "終了" });
+            menuItems: new() { "開始", "設定", "終了" },
+            stopYList: [16, 17, 18]);
         return await startMenuControl.Enter();
     }
 }

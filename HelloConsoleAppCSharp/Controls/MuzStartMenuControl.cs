@@ -12,9 +12,14 @@ internal class MuzStartMenuControl
     // ========================================
 
 
-    internal MuzStartMenuControl(List<string> menuItems)
+    internal MuzStartMenuControl(
+        List<string> menuItems,
+        List<int> stopYList,
+        int selectedIndex = 0)
     {
         this.MenuItems = menuItems;
+        this.StopYList = stopYList;
+        this.SelectedIndex = selectedIndex;
     }
 
 
@@ -23,7 +28,20 @@ internal class MuzStartMenuControl
     // ========================================
 
 
+    /// <summary>
+    /// 項目の一覧
+    /// </summary>
     internal List<string> MenuItems { get; init; } = default!;
+
+    /// <summary>
+    /// カーソルの停止Ｙ位置のリスト
+    /// </summary>
+    internal List<int> StopYList { get; init; } = default!;
+
+    /// <summary>
+    /// 選択している項目が何番目か。０から始まる数
+    /// </summary>
+    internal int SelectedIndex { get; private set; }
 
 
     // ========================================
@@ -56,10 +74,7 @@ internal class MuzStartMenuControl
         //
         Console.WriteLine("キー入力待機中。［エンターキー］か、［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
 
-        int prevIndex = 0;   // カーソルの前回位置
-        int currIndex = 0;    // カーソルの現在位置
-        // カーソルの停止Ｙ位置のリスト
-        int[] stopYList = [16, 17, 18];
+        int previousIndex = 0;   // カーソルの前回位置
 
         while (true)  // 無限ループ
         {
@@ -70,14 +85,14 @@ internal class MuzStartMenuControl
             MuzWidgets.PrintBlinkingText(
                 text: " ",  // ホワイトスペース
                 left: 36,
-                top: stopYList[prevIndex],
+                top: this.StopYList[previousIndex],
                 fgColor: ConsoleColor.Blue,
                 bgColor: ConsoleColor.Cyan,
                 isVisible: false);  // 常にホワイトスペースを表示
             MuzWidgets.PrintBlinkingText(
                 text: "▶",  // 右向きの三角形は、半角のようだ。
                 left: 36,
-                top: stopYList[currIndex],
+                top: this.StopYList[this.SelectedIndex],
                 fgColor: ConsoleColor.Blue,
                 bgColor: ConsoleColor.Cyan,
                 isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
@@ -117,26 +132,26 @@ internal class MuzStartMenuControl
                 break;  // ループを抜ける
             }
 
+            // ［↑］キーが押されたら、カーソルを上に移動します。
             if (key.Key == ConsoleKey.UpArrow)
             {
-                Console.WriteLine($"［↑］キーを押したぜ（＾～＾）");
-                prevIndex = currIndex;
-                currIndex--;
-                if (currIndex < 0)
+                previousIndex = this.SelectedIndex;
+                this.SelectedIndex--;
+                if (this.SelectedIndex < 0)
                 {
-                    currIndex = stopYList.Length - 1;
+                    this.SelectedIndex = this.StopYList.Count() - 1;
                 }
                 continue;
             }
 
+            // ［↓］キーが押されたら、カーソルを下に移動します。
             if (key.Key == ConsoleKey.DownArrow)
             {
-                Console.WriteLine($"［↓］キーを押したぜ（＾～＾）");
-                prevIndex = currIndex;
-                currIndex++;
-                if (currIndex >= stopYList.Length)
+                previousIndex = this.SelectedIndex;
+                this.SelectedIndex++;
+                if (this.SelectedIndex >= this.StopYList.Count())
                 {
-                    currIndex = 0;
+                    this.SelectedIndex = 0;
                 }
                 continue;
             }
