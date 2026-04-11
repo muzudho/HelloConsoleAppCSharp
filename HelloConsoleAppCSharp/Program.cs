@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using HelloConsoleAppCSharp;
+using HelloConsoleAppCSharp.Commands.PrintLesson;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -9,7 +10,6 @@ using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Media;
 using System.Text;
 
 try
@@ -97,88 +97,8 @@ try
 
                         //    return MuzREPL.MuzRequestType.None;
 
-                        case "print-lesson":  // コンソール出力の勉強
-
-                            // 文字色（前景色）を赤に変更
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("これは赤い文字だぜ！");
-
-                            // 背景色を青に変更
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.WriteLine("赤文字に青背景！");
-
-                            // 元の色に戻す（大事！）
-                            Console.ResetColor();
-                            Console.WriteLine("ここはデフォルトの色に戻ったよ");
-
-                            Console.WriteLine("３秒待つ（＾～＾）");
-                            await Task.Delay(TimeSpan.FromSeconds(3));
-
-                            // 今のカーソル位置を記憶
-                            int oldLeft = Console.CursorLeft;  // 横位置
-                            int oldTop = Console.CursorTop;   // 縦位置
-
-                            // 色を変更
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            Console.BackgroundColor = ConsoleColor.White;
-
-                            Console.SetCursorPosition(0, 0);   // コンソールの左上隅に移動
-                            Console.WriteLine("コンソールの左上隅に移動（＾～＾）！");
-
-                            Console.SetCursorPosition(10, 5);  // 11列目、6行目に移動（0始まりなので）
-                            Console.Write("ここに文字を書くぜ！");
-
-                            // 色を戻す（大事！）
-                            Console.ResetColor();
-                            // 元の位置に戻す
-                            Console.SetCursorPosition(oldLeft, oldTop);
-
-                            Console.WriteLine("これから、進捗バーの真似事をするぜ（＾～＾）");
-                            oldLeft = Console.CursorLeft;  // 横位置
-                            oldTop = Console.CursorTop;   // 縦位置
-
-                            await Task.Delay(TimeSpan.FromSeconds(1));
-                            Console.SetCursorPosition(0, oldTop);  // 元の行の先頭に戻る
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write(" ");
-                            Console.ResetColor();
-                            Console.Write("1");
-                            Console.Write(" ".PadRight(Console.BufferWidth)); // 残りを空白で消す。カーソルは次の行の先頭へ行く。
-
-                            await Task.Delay(TimeSpan.FromSeconds(1));
-                            Console.SetCursorPosition(0, oldTop);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write("  ");
-                            Console.ResetColor();
-                            Console.Write("2");
-                            Console.Write(" ".PadRight(Console.BufferWidth));
-
-                            await Task.Delay(TimeSpan.FromSeconds(1));
-                            Console.SetCursorPosition(0, oldTop);
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write("   ");
-                            Console.ResetColor();
-                            Console.Write("3");
-                            Console.Write(" ".PadRight(Console.BufferWidth));
-
-                            Console.SetCursorPosition(0, Console.CursorTop);  // 現在の行の先頭に戻る
-
-
-                            /*
-                               📍 NOTE:
-
-                                    全部で16色あるよ：
-
-                                    Black, DarkBlue, DarkGreen, DarkCyan, DarkRed, DarkMagenta, DarkYellow, Gray
-                                    DarkGray, Blue, Green, Cyan, Red, Magenta, Yellow, White
-
-                                    Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
-                                    ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
-                            */
-                            return MuzREPL.MuzRequestType.None;
+                        // コンソール出力の勉強
+                        case "print-lesson":    return await MuzPrintLessonCommand.ExecuteAsync();
 
                         case "graph":   // グラフィカルの意味。
                             MuzREPL.IsPromptVisible = false; // プロンプトは消す。

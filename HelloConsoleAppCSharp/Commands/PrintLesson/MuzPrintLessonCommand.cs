@@ -1,25 +1,4 @@
-# コンソール出力の基本
-
-以下の場所に、これから説明するサンプル・プログラムを書いていって、コンソール出力の基本を学びましょう（＾～＾）！  
-
-
-## フォルダーとファイルの作成または編集
-
-```plaintext
-📁 HelloConsoleAppCSharp
-+-- 📁 Commands
-|   +-- 📁 PrintLesson
-|       +-- 📄 PrintLessonCommand.cs     # ファイルを新規作成
-+-- 📄 Program.cs                        # 既存ファイルを編集
-```
-
-
-## コマンドの作成
-
-📄 `Commands/PrintLesson/PrintLessonCommand.cs`:  
-
-```csharp
-namespace HelloConsoleAppCSharp.Commands.PrintLesson;
+﻿namespace HelloConsoleAppCSharp.Commands.PrintLesson;
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using static HelloConsoleAppCSharp.Infrastructure.REPL.MuzREPL;
@@ -110,44 +89,3 @@ internal static class MuzPrintLessonCommand
         */
     }
 }
-```
-
-
-## プログラムへ、コマンドの追加
-
-📄 `Program.cs`:  
-
-```csharp
-～前後略～
-
-            await MuzREPL.RunAsync(
-                printPromptAsync: async () =>
-                {
-                    Console.Write("> ");
-                    await Task.CompletedTask;
-                },
-                evalAsync: async (line) =>
-                {
-                    switch (line)
-                    {
-
-
-                        // ～中略～
-
-
-                        // コンソール出力の勉強
-                        case "print-lesson":    return await MuzPrintLessonCommand.ExecuteAsync();
-
-
-                        // ～中略～
-
-
-                        default:
-                            Console.WriteLine($"知らないコマンドだぜ: {line}");
-                            return MuzREPL.MuzRequestType.None;
-                    }
-                });
-
-```
-
-これで、このコンソール・アプリケーションを起動し、 `print-lesson` と入力すると、［コンソール出力］の動作確認ができます。  
