@@ -19,7 +19,7 @@ internal static class MuzContinuePromptWarmupCommand
                 text: string.Empty,
                 left: 36,
                 top: 16,
-                fgColor: ConsoleColor.Blue,
+                fgColor: ConsoleColor.Black,
                 bgColor: ConsoleColor.Cyan,
                 isVisible: false);  // 常にホワイトスペースを表示
 
@@ -27,6 +27,8 @@ internal static class MuzContinuePromptWarmupCommand
             _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
                 left: Console.CursorLeft,
                 top: Console.CursorTop,
+                fgColor: ConsoleColor.Black,
+                bgColor: ConsoleColor.Cyan,
                 message: message);
 
             // 📍 NOTE:
@@ -43,7 +45,7 @@ internal static class MuzContinuePromptWarmupCommand
                     text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
                     left: 36,
                     top: 16,
-                    fgColor: ConsoleColor.Blue,
+                    fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
                     isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
 

@@ -3,10 +3,8 @@
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 internal class MuzMessageBoxControl
 {
@@ -93,7 +91,7 @@ internal class MuzMessageBoxControl
                 text: string.Empty,
                 left: 75,
                 top: 24,
-                fgColor: ConsoleColor.Blue,
+                fgColor: ConsoleColor.Black,
                 bgColor: ConsoleColor.Cyan,
                 isVisible: false);  // 常にホワイトスペースを表示
 
@@ -101,6 +99,8 @@ internal class MuzMessageBoxControl
             _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
                 left: messageBoxLeft + 1,   // 枠線の太さを足す（＾～＾）
                 top: messageBoxTop + 1,
+                fgColor: ConsoleColor.Black,
+                bgColor: ConsoleColor.Cyan,
                 message: message);
 
             // 何かキーを押下するまで、一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
@@ -111,7 +111,7 @@ internal class MuzMessageBoxControl
                     text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
                     left: 75,
                     top: 24,
-                    fgColor: ConsoleColor.Blue,
+                    fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
                     isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
 

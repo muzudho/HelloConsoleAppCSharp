@@ -121,6 +121,8 @@ try
                         case "typewriter-effect-warmup": return await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
                             left: Console.CursorLeft,
                             top: Console.CursorTop,
+                            fgColor: ConsoleColor.Black,
+                            bgColor: ConsoleColor.Cyan,
                             message: "タイプライターエフェクトのウォームアップだぜ（＾～＾）\n複数行にも対応だぜ（＾～＾）！");
 
                         // ［コンティニュープロンプト］の動作確認
