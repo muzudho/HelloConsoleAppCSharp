@@ -39,25 +39,25 @@ internal static class MuzPageLayouts
                 }
             });
 
-        // 画面の真ん中辺りにタイトルを表示するとかっこいい。
-        var title = "Hello Console App C#";
-        var titleLeft = (pageWidth - title.Length) / 2;  // 漢字は横幅計算が難しいので、今回は半角英字だけのタイトルにします。
-        var titleTop = pageHeight / 2;
         await MuzConsoleHelper.SetColorAsync(
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>
             {
+                // 画面の真ん中辺りにタイトルを表示するとかっこいい。
+                var title = "Hello Console App C#";
+                var titleLeft = (pageWidth - title.Length) / 2;  // 漢字は横幅計算が難しいので、今回は半角英字だけのタイトルにします。
+                var titleTop = pageHeight / 2;
                 Console.SetCursorPosition(titleLeft, titleTop);
                 Console.Write(title);
-            });
 
-        // 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
-        var credit = "(C) 2026 by Muzudho ; MIT License";
-        var creditLeft = (pageWidth - credit.Length) / 2;
-        var creditTop = pageHeight - 1;
-        Console.SetCursorPosition(creditLeft, creditTop);
-        Console.Write(credit);
+                // 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
+                var credit = "(C) 2026 by Muzudho ; MIT License";
+                var creditLeft = (pageWidth - credit.Length) / 2;
+                var creditTop = pageHeight - 1;
+                Console.SetCursorPosition(creditLeft, creditTop);
+                Console.Write(credit);
+            });
 
         // カーソルの位置を戻す（大事！）
         Console.SetCursorPosition(oldLeft, oldTop);
