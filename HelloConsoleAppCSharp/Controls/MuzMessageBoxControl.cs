@@ -74,18 +74,17 @@ internal class MuzMessageBoxControl
         int messageBoxLeft = 0;
         int messageBoxTop = 19;
 
-        // ［ボックス］
-        MuzBoxViews.PrintDoubleBorderBox(
-            left: messageBoxLeft,
-            top: messageBoxTop,
-            width: 80,
-            height: 7,
-            fgColor: ConsoleColor.Black,
-            bgColor: ConsoleColor.Cyan);
-
         // まずは、メッセージ毎に分割するぜ（＾～＾）
         foreach (var message in this.MessageList)
         {
+            // ［ボックス］
+            MuzBoxViews.PrintDoubleBorderBox(
+                left: messageBoxLeft,
+                top: messageBoxTop,
+                width: 80,
+                height: 7,
+                fgColor: ConsoleColor.Black,
+                bgColor: ConsoleColor.Cyan);
             // ［ブリンカー］（ホワイトスペースを表示）
             MuzWidgets.PrintBlinkingText(
                 text: string.Empty,

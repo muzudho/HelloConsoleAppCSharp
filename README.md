@@ -19,5 +19,7 @@
 * 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17_カーソルの作成と動作確認.md)
 * 📄 [メニュー作成と動作確認](./HelloConsoleAppCSharp/Docs/OO18_メニュー作成と動作確認.md)
 * 📄 [タイプライター効果の作成と動作確認](./HelloConsoleAppCSharp/Docs/OO19_タイプライター効果の作成と動作確認.md)
+* 📄 [コンティニュープロンプトの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO20_コンティニュープロンプトの作成と動作確認.md)
+* 📄 [メッセージボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO21_メッセージボックスの作成と動作確認.md)
 
 以降の予定： メニュー作成、画面遷移、メッセージ管理、など。  
