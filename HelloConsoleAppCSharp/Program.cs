@@ -3,7 +3,7 @@
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Commands.Graph;
 using HelloConsoleAppCSharp.Commands.KeyInput;
-using HelloConsoleAppCSharp.Commands.PrintLesson;
+using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -96,13 +96,13 @@ try
 
                         //    return MuzREPL.MuzRequestType.None;
 
-                        // ［コンソール出力］の勉強
-                        case "print-lesson":    return await MuzPrintLessonCommand.ExecuteAsync();
+                        // ［コンソール出力］の動作確認
+                        case "print-warmup":    return await MuzPrintWarmupCommand.ExecuteAsync();
 
                         // グラフィカルの意味
                         case "graph":   return await MuzGraphCommand.ExecuteAsync(startDateTime);
 
-                        // ［キー入力］の勉強
+                        // ［キー入力］の動作確認
                         case "key-input":   return await MuzKeyInputCommand.ExecuteAsync();
 
                         default:

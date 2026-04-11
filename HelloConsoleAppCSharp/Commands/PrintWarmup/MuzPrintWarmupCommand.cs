@@ -1,9 +1,9 @@
-﻿namespace HelloConsoleAppCSharp.Commands.PrintLesson;
+﻿namespace HelloConsoleAppCSharp.Commands.PrintWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using static HelloConsoleAppCSharp.Infrastructure.REPL.MuzREPL;
 
-internal static class MuzPrintLessonCommand
+internal static class MuzPrintWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {
