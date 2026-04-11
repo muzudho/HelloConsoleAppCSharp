@@ -10,14 +10,12 @@ internal static class MuzPrintWarmupCommand
         // 文字色（前景色）を一時的に赤に変更
         await MuzConsoleHelper.SetColorAsync(
             fgColor: ConsoleColor.Red,
-            bgColor: Console.BackgroundColor,
             onColorChanged: async () =>
             {
                 Console.WriteLine("これは赤い文字だぜ！");
 
                 // 加えて、背景色を一時的に青に変更
                 await MuzConsoleHelper.SetColorAsync(
-                    fgColor: Console.ForegroundColor,
                     bgColor: ConsoleColor.Blue,
                     onColorChanged: async () =>
                     {
