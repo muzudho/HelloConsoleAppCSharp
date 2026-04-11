@@ -11,7 +11,7 @@ internal static class MuzGraphCommand
         DateTime startDateTime)
     {
         MuzREPL.IsPromptVisible = false; // プロンプトは消す。
-        MuzPageLayouts.PrintTitlePage();
+        await MuzPageLayouts.PrintTitlePageAsync();
 
         // 📍 NOTE:
         //
