@@ -2,6 +2,7 @@
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -65,13 +66,13 @@ internal class MuzMessageBoxControl
         //          |║                                                                             ║|
         //          |║                                                                             ║|
         //          |║                                                                             ║|
-        //          |║                                                                             ║|
+        //          |║                                                                         ▼  ║|
         //       25 |╚═════════════════════════════════════════════════════════════════════════════╝|
         //          +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
         //
         //      👆　とりあえず、５行表示できるボックスを下の方いっぱいに配置してみるぜ（＾～＾）
 
-        // ボックス表示
+        // ［ボックス］
         MuzBoxViews.PrintDoubleBorderBox(
             left: 0,
             top: 19,
@@ -79,6 +80,36 @@ internal class MuzMessageBoxControl
             height: 7,
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan);
+
+        while (true)
+        {
+            // ［コンティニュープロンプト］
+            MuzWidgets.PrintBlinkingText(
+                text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
+                left: 75,
+                top: 24,
+                fgColor: ConsoleColor.Blue,
+                bgColor: ConsoleColor.Cyan,
+                isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
+
+            // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
+            if (!Console.KeyAvailable)
+            {
+                Thread.Sleep(TimeSpan.FromMilliseconds(16));    // およそ１／６０秒で画面更新（＾～＾）
+                continue;
+            }
+
+            // 📍 NOTE:
+            //
+            //      キー入力を受け取ります。
+            //      プログラムは、ユーザーがキーを押すまで、ここで待機します。  
+            //      `intercept`:  true でエコー（表示）しない。
+            //      戻り値は使いません。
+            //
+            _ = Console.ReadKey(
+                intercept: true);
+            break;  // キー入力があったら、ループを抜けるぜ（＾～＾）！
+        }
 
         return MuzRequestType.None;
     }
