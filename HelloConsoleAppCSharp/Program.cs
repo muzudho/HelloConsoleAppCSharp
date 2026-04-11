@@ -13,6 +13,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using static System.Net.Mime.MediaTypeNames;
 
 try
 {
@@ -115,7 +116,8 @@ try
                         case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync();
 
                         // ［タイプライター効果］の動作確認
-                        case "typewriter-effect-warmup": return await MuzTypewriterEffectWarmupCommand.ExecuteAsync();
+                        case "typewriter-effect-warmup": return await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
+                            message: "タイプライターエフェクトのウォームアップだぜ（＾～＾）\n複数行にも対応だぜ（＾～＾）！");
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");

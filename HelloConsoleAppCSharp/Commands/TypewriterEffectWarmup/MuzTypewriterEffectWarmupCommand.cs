@@ -4,12 +4,10 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzTypewriterEffectWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(string message)
     {
-        string text = "タイプライターエフェクトのウォームアップだぜ（＾～＾）\n複数行にも対応だぜ（＾～＾）！";
-
         // まず、行ごとに分割して、各行を順番に表示するぜ（＾～＾）
-        string[] lines = text.Split('\n');
+        string[] lines = message.Split('\n');
 
         foreach (string line in lines)
         {
