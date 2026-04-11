@@ -103,36 +103,37 @@ internal static class MuzGraphCommand
                     left: 38,
                     top: 16,
                     items: new[] { "開始", "設定", "終了" });
+            });
+
+        // 📍 NOTE:
+        //
+        //      別スレッドで、約1/60秒間隔のタイマーを起動するぜ（＾～＾）！
+        //
+        new MuzTimer(TimeSpan.FromMilliseconds(16)).Run(
+            update: async () =>
+            {
+                // 別スレッドでは、［色替え］はしないぜ（＾～＾）！　処理が混ざってしまうからな（＾～＾）！
+                // 起動時の色のまま、描画するぜ（＾～＾）！　諦めろだぜ（＾～＾）！
 
                 // 📍 NOTE:
                 //
-                //      約1/60秒間隔のタイマーを起動するぜ（＾～＾）！
+                //      アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
                 //
-                new MuzTimer(TimeSpan.FromMilliseconds(16)).Run(
-                    update: async () =>
-                    {
-                        // 📍 NOTE:
-                        //
-                        //      アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
-                        //
-                        await MuzWidgets.PrintErapsedTimeAsync(
-                            label: "Time ",
-                            startDateTime: startDateTime,
-                            left: 62,
-                            top: 0);
+                await MuzWidgets.PrintErapsedTimeAsync(
+                    label: "Time ",
+                    startDateTime: startDateTime,
+                    left: 62,
+                    top: 0);
 
-                        // 📍 NOTE:
-                        //
-                        //      一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
-                        //
-                        await MuzWidgets.PrintBlinkingTextAsync(
-                            text: "▶",  // 右向きの三角形は、半角のようだ。
-                            left: 36,
-                            top: 16,
-                            isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
-
-                        await Task.CompletedTask;
-                    });
+                // 📍 NOTE:
+                //
+                //      一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
+                //
+                await MuzWidgets.PrintBlinkingTextAsync(
+                    text: "▶",  // 右向きの三角形は、半角のようだ。
+                    left: 36,
+                    top: 16,
+                    isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
             });
 
         return MuzRequestType.None;
