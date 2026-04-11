@@ -73,10 +73,13 @@ internal class MuzMessageBoxControl
         //
         //      👆　とりあえず、５行表示できるボックスを下の方いっぱいに配置してみるぜ（＾～＾）
 
+        int messageBoxLeft = 0;
+        int messageBoxTop = 19;
+
         // ［ボックス］
         MuzBoxViews.PrintDoubleBorderBox(
-            left: 0,
-            top: 19,
+            left: messageBoxLeft,
+            top: messageBoxTop,
             width: 80,
             height: 7,
             fgColor: ConsoleColor.Black,
@@ -95,7 +98,10 @@ internal class MuzMessageBoxControl
                 isVisible: false);  // 常にホワイトスペースを表示
 
             // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
-            _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(message);
+            _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
+                left: messageBoxLeft + 1,   // 枠線の太さを足す（＾～＾）
+                top: messageBoxTop + 1,
+                message: message);
 
             // 何かキーを押下するまで、一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
             while (true)
