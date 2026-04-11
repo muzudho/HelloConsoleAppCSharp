@@ -14,21 +14,28 @@ internal static class MuzCursorWarmupCommand
         //
         Console.WriteLine("キー入力待機中。［エンターキー］か、［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
 
-        // カーソルの現在位置
-        int cursorIndex = 0;
+        int prevIndex = 0;   // カーソルの前回位置
+        int currIndex = 0;    // カーソルの現在位置
         // カーソルの停止Ｙ位置のリスト
         int[] stopYList = [16, 18, 20];
 
-        while (true)  // 無限ループ。
+        while (true)  // 無限ループ
         {
             // 📍 NOTE:
             //
             //      一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
             //
             MuzWidgets.PrintBlinkingText(
+                text: " ",  // ホワイトスペース
+                left: 36,
+                top: stopYList[prevIndex],
+                fgColor: ConsoleColor.Blue,
+                bgColor: ConsoleColor.Cyan,
+                isVisible: false);  // 常にホワイトスペースを表示
+            MuzWidgets.PrintBlinkingText(
                 text: "▶",  // 右向きの三角形は、半角のようだ。
                 left: 36,
-                top: stopYList[cursorIndex],
+                top: stopYList[currIndex],
                 fgColor: ConsoleColor.Blue,
                 bgColor: ConsoleColor.Cyan,
                 isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
@@ -64,10 +71,11 @@ internal static class MuzCursorWarmupCommand
             if (key.Key == ConsoleKey.UpArrow)
             {
                 Console.WriteLine($"［↑］キーを押したぜ（＾～＾）");
-                cursorIndex--;
-                if (cursorIndex < 0)
+                prevIndex = currIndex;
+                currIndex--;
+                if (currIndex < 0)
                 {
-                    cursorIndex = stopYList.Length - 1;
+                    currIndex = stopYList.Length - 1;
                 }
                 continue;
             }
@@ -75,10 +83,11 @@ internal static class MuzCursorWarmupCommand
             if (key.Key == ConsoleKey.DownArrow)
             {
                 Console.WriteLine($"［↓］キーを押したぜ（＾～＾）");
-                cursorIndex++;
-                if (cursorIndex >= stopYList.Length)
+                prevIndex = currIndex;
+                currIndex++;
+                if (currIndex >= stopYList.Length)
                 {
-                    cursorIndex = 0;
+                    currIndex = 0;
                 }
                 continue;
             }
