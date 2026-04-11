@@ -31,4 +31,23 @@ internal static class MuzConsoleHelper
         Console.ForegroundColor = oldFgColor;
         Console.BackgroundColor = oldBgColor;
     }
+
+
+    /// <summary>
+    /// 処理が終わった後、カーソルの位置をリセットします。（初期位置に戻す）
+    /// </summary>
+    /// <returns></returns>
+    public static async Task ResetCursorLocationAfterExecute(
+        Func<Task> executeAsync)
+    {
+        // 現在のカーソル位置を記憶
+        var oldLeft = Console.CursorLeft;
+        var oldTop = Console.CursorTop;
+
+        // 処理を実行
+        await executeAsync();
+
+        // カーソルの位置を戻す
+        Console.SetCursorPosition(oldLeft, oldTop);
+    }
 }

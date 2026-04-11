@@ -28,76 +28,82 @@ internal static class MuzPrintWarmupCommand
         Console.WriteLine("３秒待つ（＾～＾）");
         await Task.Delay(TimeSpan.FromSeconds(3));
 
-        // 今のカーソル位置を記憶
-        int oldLeft = Console.CursorLeft;  // 横位置
-        int oldTop = Console.CursorTop;   // 縦位置
-
         // 色を一時的に変更
         await MuzConsoleHelper.SetColorAsync(
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.White,
             onColorChanged: async () =>
             {
-                Console.SetCursorPosition(0, 0);   // コンソールの左上隅に移動
-                Console.WriteLine("コンソールの左上隅に移動（＾～＾）！");
+                // 処理の後、カーソルを元の位置に戻す
+                await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+                {
+                    Console.SetCursorPosition(0, 0);   // コンソールの左上隅に移動
+                    Console.WriteLine("コンソールの左上隅に移動（＾～＾）！");
 
-                Console.SetCursorPosition(10, 5);  // 11列目、6行目に移動（0始まりなので）
-                Console.Write("ここに文字を書くぜ！");
+                    Console.SetCursorPosition(10, 5);  // 11列目、6行目に移動（0始まりなので）
+                    Console.Write("ここに文字を書くぜ！");
+                });
             });
-
-        // 元の位置に戻す
-        Console.SetCursorPosition(oldLeft, oldTop);
 
         Console.WriteLine("これから、進捗バーの真似事をするぜ（＾～＾）");
-        oldLeft = Console.CursorLeft;  // 横位置
-        oldTop = Console.CursorTop;   // 縦位置
 
         await Task.Delay(TimeSpan.FromSeconds(1));
-        Console.SetCursorPosition(0, oldTop);  // 元の行の先頭に戻る
 
-        // ［進捗バー］幅１
-        await MuzConsoleHelper.SetColorAsync(
-            fgColor: ConsoleColor.White,
-            bgColor: ConsoleColor.Blue,
-            onColorChanged: async () =>
-            {
-                Console.Write(" ");
-            });
+        // 処理の後、カーソルを元の位置に戻す
+        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        {
+            // ［進捗バー］幅１
+            await MuzConsoleHelper.SetColorAsync(
+                fgColor: ConsoleColor.White,
+                bgColor: ConsoleColor.Blue,
+                onColorChanged: async () =>
+                {
+                    Console.Write(" ");
+                });
 
-        Console.Write("1");
-        Console.Write(" ".PadRight(Console.BufferWidth)); // 残りを空白で消す。カーソルは次の行の先頭へ行く。
-
-        await Task.Delay(TimeSpan.FromSeconds(1));
-        Console.SetCursorPosition(0, oldTop);
-
-        // ［進捗バー］幅２
-        await MuzConsoleHelper.SetColorAsync(
-            fgColor: ConsoleColor.White,
-            bgColor: ConsoleColor.Blue,
-            onColorChanged: async () =>
-            {
-                Console.Write("  ");
-            });
-
-        Console.Write("2");
-        Console.Write(" ".PadRight(Console.BufferWidth));
+            Console.Write("1");
+            Console.Write(" ".PadRight(Console.BufferWidth)); // 残りを空白で消す。カーソルは次の行の先頭へ行く。
+        });
 
         await Task.Delay(TimeSpan.FromSeconds(1));
-        Console.SetCursorPosition(0, oldTop);
 
-        // ［進捗バー］幅３
-        await MuzConsoleHelper.SetColorAsync(
-            fgColor: ConsoleColor.White,
-            bgColor: ConsoleColor.Blue,
-            onColorChanged: async () =>
-            {
-                Console.Write("   ");
-            });
+        // 処理の後、カーソルを元の位置に戻す
+        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        {
+            // ［進捗バー］幅２
+            await MuzConsoleHelper.SetColorAsync(
+                fgColor: ConsoleColor.White,
+                bgColor: ConsoleColor.Blue,
+                onColorChanged: async () =>
+                {
+                    Console.Write("  ");
+                });
 
-        Console.Write("3");
-        Console.Write(" ".PadRight(Console.BufferWidth));
+            Console.Write("2");
+            Console.Write(" ".PadRight(Console.BufferWidth));
+        });
 
-        Console.SetCursorPosition(0, Console.CursorTop);  // 現在の行の先頭に戻る
+        await Task.Delay(TimeSpan.FromSeconds(1));
+
+        // 処理の後、カーソルを元の位置に戻す
+        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        {
+            // ［進捗バー］幅３
+            await MuzConsoleHelper.SetColorAsync(
+                fgColor: ConsoleColor.White,
+                bgColor: ConsoleColor.Blue,
+                onColorChanged: async () =>
+                {
+                    Console.Write("   ");
+                });
+
+            Console.Write("3");
+            Console.Write(" ".PadRight(Console.BufferWidth));
+        });
+
+        // まだ［進捗バー］の行の先頭にカーソルがあるので、改行
+        Console.WriteLine();
+
         return MuzRequestType.None;
 
 
