@@ -72,16 +72,17 @@ internal class MuzMessageBoxControl
         //
         //      👆　とりあえず、５行表示できるボックスを下の方いっぱいに配置してみるぜ（＾～＾）
 
-        int messageBoxLeft = 0;
-        int messageBoxTop = 19;
+        // 色替え
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: ConsoleColor.Black,
+            bgColor: ConsoleColor.Cyan,
+            onColorChanged: async () =>
+            {
+                int messageBoxLeft = 0;
+                int messageBoxTop = 19;
 
-        // まずは、メッセージ毎に分割するぜ（＾～＾）
-        foreach (var message in this.MessageList)
-        {
-            await MuzConsoleHelper.SetColorAsync(
-                fgColor: ConsoleColor.Black,
-                bgColor: ConsoleColor.Cyan,
-                onColorChanged: async () =>
+                // まずは、メッセージ毎に分割するぜ（＾～＾）
+                foreach (var message in this.MessageList)
                 {
                     // ［ボックス］
                     MuzBoxViews.PrintDoubleBorderBox(
@@ -89,60 +90,50 @@ internal class MuzMessageBoxControl
                         top: messageBoxTop,
                         width: 80,
                         height: 7);
-                });
 
-            // ［ブリンカー］（ホワイトスペースを表示）
-            MuzWidgets.PrintBlinkingText(
-                text: string.Empty,
-                left: 75,
-                top: 24,
-                fgColor: ConsoleColor.Black,
-                bgColor: ConsoleColor.Cyan,
-                isVisible: false);  // 常にホワイトスペースを表示
+                    // ［ブリンカー］（ホワイトスペースを表示）
+                    MuzWidgets.PrintBlinkingText(
+                        text: string.Empty,
+                        left: 75,
+                        top: 24,
+                        isVisible: false);  // 常にホワイトスペースを表示
 
-            await MuzConsoleHelper.SetColorAsync(
-                fgColor: ConsoleColor.Black,
-                bgColor: ConsoleColor.Cyan,
-                onColorChanged: async () =>
-                {
                     // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
                     _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
                         left: messageBoxLeft + 1,   // 枠線の太さを足す（＾～＾）
                         top: messageBoxTop + 1,
                         message: message);
-                });
 
-            // 何かキーを押下するまで、一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
-            while (true)
-            {
-                // ［コンティニュープロンプト］
-                MuzWidgets.PrintBlinkingText(
-                    text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
-                    left: 75,
-                    top: 24,
-                    fgColor: ConsoleColor.Black,
-                    bgColor: ConsoleColor.Cyan,
-                    isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
+                    // 何かキーを押下するまで、一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
+                    while (true)
+                    {
+                        // ［コンティニュープロンプト］
+                        MuzWidgets.PrintBlinkingText(
+                            text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
+                            left: 75,
+                            top: 24,
+                            isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
 
-                // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
-                if (!Console.KeyAvailable)
-                {
-                    Thread.Sleep(TimeSpan.FromMilliseconds(16));    // およそ１／６０秒で画面更新（＾～＾）
-                    continue;
+                        // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
+                        if (!Console.KeyAvailable)
+                        {
+                            Thread.Sleep(TimeSpan.FromMilliseconds(16));    // およそ１／６０秒で画面更新（＾～＾）
+                            continue;
+                        }
+
+                        // 📍 NOTE:
+                        //
+                        //      キー入力を受け取ります。
+                        //      プログラムは、ユーザーがキーを押すまで、ここで待機します。  
+                        //      `intercept`:  true でエコー（表示）しない。
+                        //      戻り値は使いません。
+                        //
+                        _ = Console.ReadKey(
+                            intercept: true);
+                        break;  // キー入力があったら、ループを抜けるぜ（＾～＾）！
+                    }
                 }
-
-                // 📍 NOTE:
-                //
-                //      キー入力を受け取ります。
-                //      プログラムは、ユーザーがキーを押すまで、ここで待機します。  
-                //      `intercept`:  true でエコー（表示）しない。
-                //      戻り値は使いません。
-                //
-                _ = Console.ReadKey(
-                    intercept: true);
-                break;  // キー入力があったら、ループを抜けるぜ（＾～＾）！
-            }
-        }
+            });
 
         return MuzRequestType.None;
     }
