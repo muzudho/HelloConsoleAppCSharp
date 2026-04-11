@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Controls;
 
+using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
@@ -81,34 +82,51 @@ internal class MuzMessageBoxControl
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan);
 
-        while (true)
+        // まずは、メッセージ毎に分割するぜ（＾～＾）
+        foreach (var message in this.MessageList)
         {
-            // ［コンティニュープロンプト］
+            // ［ブリンカー］（ホワイトスペースを表示）
             MuzWidgets.PrintBlinkingText(
-                text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
+                text: string.Empty,
                 left: 75,
                 top: 24,
                 fgColor: ConsoleColor.Blue,
                 bgColor: ConsoleColor.Cyan,
-                isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
+                isVisible: false);  // 常にホワイトスペースを表示
 
-            // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
-            if (!Console.KeyAvailable)
+            // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
+            _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(message);
+
+            // 何かキーを押下するまで、一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
+            while (true)
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(16));    // およそ１／６０秒で画面更新（＾～＾）
-                continue;
-            }
+                // ［コンティニュープロンプト］
+                MuzWidgets.PrintBlinkingText(
+                    text: "▼",  // エディターでは全角で表示されているが、コンソールに表示されるときは半角のようだ。
+                    left: 75,
+                    top: 24,
+                    fgColor: ConsoleColor.Blue,
+                    bgColor: ConsoleColor.Cyan,
+                    isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
 
-            // 📍 NOTE:
-            //
-            //      キー入力を受け取ります。
-            //      プログラムは、ユーザーがキーを押すまで、ここで待機します。  
-            //      `intercept`:  true でエコー（表示）しない。
-            //      戻り値は使いません。
-            //
-            _ = Console.ReadKey(
-                intercept: true);
-            break;  // キー入力があったら、ループを抜けるぜ（＾～＾）！
+                // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
+                if (!Console.KeyAvailable)
+                {
+                    Thread.Sleep(TimeSpan.FromMilliseconds(16));    // およそ１／６０秒で画面更新（＾～＾）
+                    continue;
+                }
+
+                // 📍 NOTE:
+                //
+                //      キー入力を受け取ります。
+                //      プログラムは、ユーザーがキーを押すまで、ここで待機します。  
+                //      `intercept`:  true でエコー（表示）しない。
+                //      戻り値は使いません。
+                //
+                _ = Console.ReadKey(
+                    intercept: true);
+                break;  // キー入力があったら、ループを抜けるぜ（＾～＾）！
+            }
         }
 
         return MuzRequestType.None;
