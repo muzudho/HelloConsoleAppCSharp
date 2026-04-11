@@ -19,7 +19,7 @@ internal static class MuzBoxViews
     /// <param name="top"></param>
     /// <param name="width">2 以上としてください。</param>
     /// <param name="height">2 以上としてください。</param>
-    public static void PrintDoubleBorder(
+    public static void PrintDoubleBorderBox(
         int left,
         int top,
         int width,
