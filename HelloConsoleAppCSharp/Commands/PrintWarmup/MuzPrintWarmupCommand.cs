@@ -1,23 +1,32 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.PrintWarmup;
 
+using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzPrintWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {
-        // 文字色（前景色）を赤に変更
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("これは赤い文字だぜ！");
+        // 文字色（前景色）を一時的に赤に変更
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: ConsoleColor.Red,
+            bgColor: Console.BackgroundColor,
+            onColorChanged: async () =>
+            {
+                Console.WriteLine("これは赤い文字だぜ！");
 
-        // 背景色を青に変更
-        Console.BackgroundColor = ConsoleColor.Blue;
-        Console.WriteLine("赤文字に青背景！");
+                // 加えて、背景色を一時的に青に変更
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: Console.ForegroundColor,
+                    bgColor: ConsoleColor.Blue,
+                    onColorChanged: async () =>
+                    {
+                        Console.WriteLine("赤文字に青背景！");
+                        await Task.Delay(TimeSpan.FromSeconds(1));
+                    });
+            });
 
-        // 元の色に戻す（大事！）
-        Console.ResetColor();
         Console.WriteLine("ここはデフォルトの色に戻ったよ");
-
         Console.WriteLine("３秒待つ（＾～＾）");
         await Task.Delay(TimeSpan.FromSeconds(3));
 
@@ -25,18 +34,19 @@ internal static class MuzPrintWarmupCommand
         int oldLeft = Console.CursorLeft;  // 横位置
         int oldTop = Console.CursorTop;   // 縦位置
 
-        // 色を変更
-        Console.ForegroundColor = ConsoleColor.Black;
-        Console.BackgroundColor = ConsoleColor.White;
+        // 色を一時的に変更
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: ConsoleColor.Black,
+            bgColor: ConsoleColor.White,
+            onColorChanged: async () =>
+            {
+                Console.SetCursorPosition(0, 0);   // コンソールの左上隅に移動
+                Console.WriteLine("コンソールの左上隅に移動（＾～＾）！");
 
-        Console.SetCursorPosition(0, 0);   // コンソールの左上隅に移動
-        Console.WriteLine("コンソールの左上隅に移動（＾～＾）！");
+                Console.SetCursorPosition(10, 5);  // 11列目、6行目に移動（0始まりなので）
+                Console.Write("ここに文字を書くぜ！");
+            });
 
-        Console.SetCursorPosition(10, 5);  // 11列目、6行目に移動（0始まりなので）
-        Console.Write("ここに文字を書くぜ！");
-
-        // 色を戻す（大事！）
-        Console.ResetColor();
         // 元の位置に戻す
         Console.SetCursorPosition(oldLeft, oldTop);
 
@@ -46,28 +56,46 @@ internal static class MuzPrintWarmupCommand
 
         await Task.Delay(TimeSpan.FromSeconds(1));
         Console.SetCursorPosition(0, oldTop);  // 元の行の先頭に戻る
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.BackgroundColor = ConsoleColor.Blue;
-        Console.Write(" ");
-        Console.ResetColor();
+
+        // ［進捗バー］幅１
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: ConsoleColor.White,
+            bgColor: ConsoleColor.Blue,
+            onColorChanged: async () =>
+            {
+                Console.Write(" ");
+            });
+
         Console.Write("1");
         Console.Write(" ".PadRight(Console.BufferWidth)); // 残りを空白で消す。カーソルは次の行の先頭へ行く。
 
         await Task.Delay(TimeSpan.FromSeconds(1));
         Console.SetCursorPosition(0, oldTop);
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.BackgroundColor = ConsoleColor.Blue;
-        Console.Write("  ");
-        Console.ResetColor();
+
+        // ［進捗バー］幅２
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: ConsoleColor.White,
+            bgColor: ConsoleColor.Blue,
+            onColorChanged: async () =>
+            {
+                Console.Write("  ");
+            });
+
         Console.Write("2");
         Console.Write(" ".PadRight(Console.BufferWidth));
 
         await Task.Delay(TimeSpan.FromSeconds(1));
         Console.SetCursorPosition(0, oldTop);
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.BackgroundColor = ConsoleColor.Blue;
-        Console.Write("   ");
-        Console.ResetColor();
+
+        // ［進捗バー］幅３
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: ConsoleColor.White,
+            bgColor: ConsoleColor.Blue,
+            onColorChanged: async () =>
+            {
+                Console.Write("   ");
+            });
+
         Console.Write("3");
         Console.Write(" ".PadRight(Console.BufferWidth));
 
