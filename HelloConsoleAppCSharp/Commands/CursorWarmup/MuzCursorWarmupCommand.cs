@@ -40,6 +40,13 @@ internal static class MuzCursorWarmupCommand
                 bgColor: ConsoleColor.Cyan,
                 isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
 
+            // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
+            if (!Console.KeyAvailable)
+            {
+                Thread.Sleep(TimeSpan.FromMilliseconds(16));    // およそ１／６０秒で画面更新（＾～＾）
+                continue;
+            }
+
             // 📍 NOTE:
             //
             //      キー入力を受け取ります。
