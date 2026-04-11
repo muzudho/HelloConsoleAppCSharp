@@ -13,11 +13,10 @@ internal static class MuzGraphCommand
         MuzREPL.IsPromptVisible = false; // プロンプトは消す。
         MuzPageLayouts.PrintTitlePage();
 
-
         // 📍 NOTE:
         //
         //      ここで、ボックスを表示してみようぜ（＾～＾）！
-        //      方眼紙などに画面の想像図を描いてから、位置とサイズを測って、コーディングしましょう（＾～＾）！
+        //      方眼紙などに画面の想像図を描いてから、位置とサイズを測って、コーディングしろだぜ（＾～＾）！
         //
         MuzBoxViews.PrintDoubleBorderBox(
             left: 20,
@@ -27,10 +26,9 @@ internal static class MuzGraphCommand
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan);
 
-
         // 📍 NOTE:
         //
-        //     ここで、メニューを表示してみましょう（＾～＾）！
+        //     ここで、メニューを表示してみようぜ（＾～＾）！
         //
         MuzVMenus.PrintMenu(
             left: 38,
@@ -38,7 +36,6 @@ internal static class MuzGraphCommand
             items: new[] { "開始", "設定", "終了" },
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan);
-
 
         // 📍 NOTE:
         //

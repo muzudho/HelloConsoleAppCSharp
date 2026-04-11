@@ -4,6 +4,7 @@ using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
 using HelloConsoleAppCSharp.Commands.Graph;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
+using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
@@ -108,6 +109,9 @@ try
 
                         // ［カーソル］の動作確認
                         case "cursor-warmup": return await MuzCursorWarmupCommand.ExecuteAsync();
+
+                        // ［メニュー］の動作確認
+                        case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync();
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");

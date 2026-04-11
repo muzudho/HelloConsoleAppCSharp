@@ -7,10 +7,22 @@ internal static class MuzMenuWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {
-        // 📍 NOTE:
-        //
-        //      ボックスを表示するぜ（＾～＾）！
-        //
+        // ボックス表示
+        MuzBoxViews.PrintDoubleBorderBox(
+            left: 20,
+            top: 15,
+            width: 40,
+            height: 5,
+            fgColor: ConsoleColor.Black,
+            bgColor: ConsoleColor.Cyan);
+
+        // メニュー項目表示
+        MuzVMenus.PrintMenu(
+            left: 38,
+            top: 16,
+            items: new[] { "開始", "設定", "終了" },
+            fgColor: ConsoleColor.Black,
+            bgColor: ConsoleColor.Cyan);
 
         // 📍 NOTE:
         //
@@ -21,7 +33,7 @@ internal static class MuzMenuWarmupCommand
         int prevIndex = 0;   // カーソルの前回位置
         int currIndex = 0;    // カーソルの現在位置
         // カーソルの停止Ｙ位置のリスト
-        int[] stopYList = [16, 18, 20];
+        int[] stopYList = [16, 17, 18];
 
         while (true)  // 無限ループ
         {
