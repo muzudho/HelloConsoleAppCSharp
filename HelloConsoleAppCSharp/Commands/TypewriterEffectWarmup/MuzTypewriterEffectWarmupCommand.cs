@@ -7,14 +7,8 @@ internal static class MuzTypewriterEffectWarmupCommand
     internal static async Task<MuzRequestType> ExecuteAsync(
         int left,
         int top,
-        ConsoleColor fgColor,
-        ConsoleColor bgColor,
         string message)
     {
-        // 色を設定
-        Console.ForegroundColor = fgColor;
-        Console.BackgroundColor = bgColor;
-
         int currentTop = top;
 
         // まず、行ごとに分割して、各行を順番に表示するぜ（＾～＾）
@@ -35,9 +29,6 @@ internal static class MuzTypewriterEffectWarmupCommand
             Console.WriteLine(); // 行の終わりで改行するぜ（＾～＾）
             currentTop++;
         }
-
-        // 色を戻す（大事！）
-        Console.ResetColor();
 
         return MuzRequestType.None;
     }

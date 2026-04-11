@@ -10,6 +10,7 @@ using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
+using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using Microsoft.Extensions.DependencyInjection;
@@ -117,12 +118,21 @@ try
                         case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync();
 
                         // ［タイプライター効果］の動作確認
-                        case "typewriter-effect-warmup": return await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
-                            left: Console.CursorLeft,
-                            top: Console.CursorTop,
-                            fgColor: ConsoleColor.Black,
-                            bgColor: ConsoleColor.Cyan,
-                            message: "タイプライターエフェクトのウォームアップだぜ（＾～＾）\n複数行にも対応だぜ（＾～＾）！");
+                        case "typewriter-effect-warmup":
+                            {
+                                MuzRequestType result = MuzRequestType.None;
+                                await MuzConsoleHelper.SetColorAsync(
+                                    fgColor: ConsoleColor.Black,
+                                    bgColor: ConsoleColor.Cyan,
+                                    onColorChanged: async () =>
+                                    {
+                                        result = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
+                                            left: Console.CursorLeft,
+                                            top: Console.CursorTop,
+                                            message: "タイプライターエフェクトのウォームアップだぜ（＾～＾）\n複数行にも対応だぜ（＾～＾）！");
+                                    });
+                                return result;
+                            }
 
                         // ［コンティニュープロンプト］の動作確認
                         case "continue-prompt-warmup": return await MuzContinuePromptWarmupCommand.ExecuteAsync(

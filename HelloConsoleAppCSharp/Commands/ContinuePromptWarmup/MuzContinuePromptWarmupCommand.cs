@@ -1,6 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
+using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 
@@ -23,13 +24,17 @@ internal static class MuzContinuePromptWarmupCommand
                 bgColor: ConsoleColor.Cyan,
                 isVisible: false);  // 常にホワイトスペースを表示
 
-            // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
-            _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
-                left: Console.CursorLeft,
-                top: Console.CursorTop,
+            await MuzConsoleHelper.SetColorAsync(
                 fgColor: ConsoleColor.Black,
                 bgColor: ConsoleColor.Cyan,
-                message: message);
+                onColorChanged: async () =>
+                {
+                    // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
+                    _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
+                        left: Console.CursorLeft,
+                        top: Console.CursorTop,
+                        message: message);
+                });
 
             // 📍 NOTE:
             //
