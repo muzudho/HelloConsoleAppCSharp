@@ -8,6 +8,7 @@ using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
+using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -128,6 +129,17 @@ try
                                 "次のメッセージだぜ（＾～＾）！",
                                 "最後のメッセージだぜ（＾～＾）！"
                             });
+
+                        // ［メッセージボックス］の動作確認
+                        case "message-box-warmup":
+                            var messageBoxControl = new MuzMessageBoxControl(
+                                messageList: new List<string>
+                                {
+                                    "メッセージボックスのウォームアップだぜ（＾～＾）！\nこれも複数行に対応してるぜ（＾～＾）！",
+                                    "次のメッセージだぜ（＾～＾）！",
+                                    "最後のメッセージだぜ（＾～＾）！"
+                                });
+                            return await messageBoxControl.Enter();
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");
