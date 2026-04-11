@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using HelloConsoleAppCSharp;
+using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
 using HelloConsoleAppCSharp.Commands.Graph;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
@@ -118,6 +119,15 @@ try
                         // ［タイプライター効果］の動作確認
                         case "typewriter-effect-warmup": return await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
                             message: "タイプライターエフェクトのウォームアップだぜ（＾～＾）\n複数行にも対応だぜ（＾～＾）！");
+
+                        // ［コンティニュープロンプト］の動作確認
+                        case "continue-prompt-warmup": return await MuzContinuePromptWarmupCommand.ExecuteAsync(
+                            messageList: new List<string>
+                            {
+                                "続きのプロンプトのウォームアップだぜ（＾～＾）！\nこれも複数行に対応してるぜ（＾～＾）！",
+                                "次のメッセージだぜ（＾～＾）！",
+                                "最後のメッセージだぜ（＾～＾）！"
+                            });
 
                         default:
                             Console.WriteLine($"知らないコマンドだぜ: {line}");
