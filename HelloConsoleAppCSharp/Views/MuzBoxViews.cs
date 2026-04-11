@@ -23,9 +23,7 @@ internal static class MuzBoxViews
         int left,
         int top,
         int width,
-        int height,
-        ConsoleColor fgColor,
-        ConsoleColor bgColor)
+        int height)
     {
         // カーソルの現在位置を記憶。
         var oldLeft = Console.CursorLeft;
@@ -38,10 +36,6 @@ internal static class MuzBoxViews
         char bottomRight = '╝';
         char horizontal = '═';
         char vertical = '║';
-
-        // 色を設定
-        Console.ForegroundColor = fgColor;
-        Console.BackgroundColor = bgColor;
 
         // 左上隅
         Console.SetCursorPosition(left, top);
@@ -87,8 +81,7 @@ internal static class MuzBoxViews
         Console.Write(bottomRight);
         Console.SetCursorPosition(left, Console.CursorTop + 1);   // 改行
 
-        // 色とカーソルの位置を戻す（大事！）
-        Console.ResetColor();
+        // カーソルの位置を戻す（大事！）
         Console.SetCursorPosition(oldLeft, oldTop);
     }
 }

@@ -78,14 +78,19 @@ internal class MuzMessageBoxControl
         // まずは、メッセージ毎に分割するぜ（＾～＾）
         foreach (var message in this.MessageList)
         {
-            // ［ボックス］
-            MuzBoxViews.PrintDoubleBorderBox(
-                left: messageBoxLeft,
-                top: messageBoxTop,
-                width: 80,
-                height: 7,
+            await MuzConsoleHelper.SetColorAsync(
                 fgColor: ConsoleColor.Black,
-                bgColor: ConsoleColor.Cyan);
+                bgColor: ConsoleColor.Cyan,
+                onColorChanged: async () =>
+                {
+                    // ［ボックス］
+                    MuzBoxViews.PrintDoubleBorderBox(
+                        left: messageBoxLeft,
+                        top: messageBoxTop,
+                        width: 80,
+                        height: 7);
+                });
+
             // ［ブリンカー］（ホワイトスペースを表示）
             MuzWidgets.PrintBlinkingText(
                 text: string.Empty,

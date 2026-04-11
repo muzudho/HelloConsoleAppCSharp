@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.Graph;
 
+using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.Scheduler;
 using HelloConsoleAppCSharp.Views;
@@ -81,13 +82,17 @@ internal static class MuzGraphCommand
         //
         //      👆　位置を決める（＾～＾）
         //
-        MuzBoxViews.PrintDoubleBorderBox(
-            left: 20,
-            top: 15,
-            width: 40,
-            height: 5,
+        await MuzConsoleHelper.SetColorAsync(
             fgColor: ConsoleColor.Black,
-            bgColor: ConsoleColor.Cyan);
+            bgColor: ConsoleColor.Cyan,
+            onColorChanged: async () =>
+            {
+                MuzBoxViews.PrintDoubleBorderBox(
+                    left: 20,
+                    top: 15,
+                    width: 40,
+                    height: 5);
+            });
 
         // 📍 NOTE:
         //
