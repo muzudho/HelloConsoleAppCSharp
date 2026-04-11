@@ -39,9 +39,13 @@ internal class MuzStartMenuControl
     internal List<int> StopYList { get; init; } = default!;
 
     /// <summary>
+    ///     <pre>
     /// 選択している項目が何番目か。０から始まる数
+    /// 
+    ///     - ［エスケープキー］が押されたら、ヌルにするぜ（＾～＾）！
+    ///     </pre>
     /// </summary>
-    internal int SelectedIndex { get; private set; }
+    internal int? SelectedIndex { get; private set; } = default!;
 
 
     // ========================================
@@ -70,9 +74,9 @@ internal class MuzStartMenuControl
 
         // 📍 NOTE:
         //
-        //      無限ループの抜け方を説明しておきましょう。
+        //      操作を説明しておきましょう。
         //
-        Console.WriteLine("キー入力待機中。［エンターキー］か、［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
+        Console.WriteLine("［↑］［↓］キーでカーソルを移動、［エンターキー］で確定、［エスケープキー］でキャンセルだぜ（＾～＾）...");
 
         int previousIndex = 0;   // カーソルの前回位置
 
@@ -92,7 +96,7 @@ internal class MuzStartMenuControl
             MuzWidgets.PrintBlinkingText(
                 text: "▶",  // 右向きの三角形は、半角のようだ。
                 left: 36,
-                top: this.StopYList[this.SelectedIndex],
+                top: this.StopYList[this.SelectedIndex!.Value],
                 fgColor: ConsoleColor.Blue,
                 bgColor: ConsoleColor.Cyan,
                 isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
@@ -118,24 +122,23 @@ internal class MuzStartMenuControl
             //      ここにお前のキー入力処理を書く。
             //
 
-            // ［エンターキー］が押されたら、そこまで入力された文字列を返します。
+            // ［エンターキー］が押されたら、ループを抜けます。this.SelectedIndexは、選択している項目の番号（０から始まる数）を保持しているぜ（＾～＾）！
             if (key.Key == ConsoleKey.Enter || key.KeyChar == '\r' || key.KeyChar == '\n')
             {
-                Console.WriteLine($"［エンターキー］が入力されたぜ（＾～＾）！");
                 break;  // ループを抜ける
             }
 
             // ［エスケープキー］が押されたら、ループを抜けます。
             if (key.Key == ConsoleKey.Escape)
             {
-                Console.WriteLine($"［エスケープキー］が入力されたぜ（＾～＾）！");
+                this.SelectedIndex = null;
                 break;  // ループを抜ける
             }
 
             // ［↑］キーが押されたら、カーソルを上に移動します。
             if (key.Key == ConsoleKey.UpArrow)
             {
-                previousIndex = this.SelectedIndex;
+                previousIndex = this.SelectedIndex!.Value;
                 this.SelectedIndex--;
                 if (this.SelectedIndex < 0)
                 {
@@ -147,7 +150,7 @@ internal class MuzStartMenuControl
             // ［↓］キーが押されたら、カーソルを下に移動します。
             if (key.Key == ConsoleKey.DownArrow)
             {
-                previousIndex = this.SelectedIndex;
+                previousIndex = this.SelectedIndex!.Value;
                 this.SelectedIndex++;
                 if (this.SelectedIndex >= this.StopYList.Count())
                 {
