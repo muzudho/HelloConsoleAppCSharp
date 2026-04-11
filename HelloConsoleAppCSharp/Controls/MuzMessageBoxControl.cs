@@ -85,7 +85,7 @@ internal class MuzMessageBoxControl
                 foreach (var message in this.MessageList)
                 {
                     // ［ボックス］
-                    MuzBoxViews.PrintDoubleBorderBox(
+                    await MuzBoxViews.PrintDoubleBorderBoxAsync(
                         left: messageBoxLeft,
                         top: messageBoxTop,
                         width: 80,

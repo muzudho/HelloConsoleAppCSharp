@@ -89,7 +89,7 @@ internal static class MuzGraphCommand
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>
             {
-                MuzBoxViews.PrintDoubleBorderBox(
+                await MuzBoxViews.PrintDoubleBorderBoxAsync(
                     left: 20,
                     top: 15,
                     width: 40,
