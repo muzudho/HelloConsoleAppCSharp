@@ -91,7 +91,7 @@ internal static class ProgramCommands
                         await MuzFloatingBoxViews.PrintAsync(
                             left: 20,
                             top: 5,
-                            width: 40,
+                            width: 60,
                             height: 2,
                             bgColor: ConsoleColor.Green);
                     });
