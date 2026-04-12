@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Commands.GraphWarmup;
+﻿namespace HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -6,7 +6,7 @@ using HelloConsoleAppCSharp.Infrastructure.Scheduler;
 using HelloConsoleAppCSharp.Views;
 using System;
 
-internal static class MuzGraphWarmupCommand
+internal static class MuzTitlePageWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         ProgramContext pgContext)

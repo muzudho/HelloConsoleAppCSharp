@@ -2,7 +2,7 @@
 
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
-using HelloConsoleAppCSharp.Commands.GraphWarmup;
+using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
@@ -95,8 +95,8 @@ internal static class ProgramCommands
                     });
                 return MuzRequestType.None;
 
-            // ［graph］はグラフィカルの意味。
-            case "graph-warmup": return await MuzGraphWarmupCommand.ExecuteAsync(pgContext);
+            // ［タイトル風ページ］の描画練習
+            case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);
 
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();

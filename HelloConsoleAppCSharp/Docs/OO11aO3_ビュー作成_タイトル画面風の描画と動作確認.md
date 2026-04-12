@@ -1,7 +1,6 @@
-# ビュー作成の基本
+# ビュー作成　＞　タイトル画面風の描画と動作確認
 
-コンソール画面への Print を、ここではビュー（View）と呼ぶことにします。  
-プログラミングでは View と呼ぶと、色んなものを指すので、混乱しないようにしてください。だいたい、目の前に見えているもの、ぐらいの意味です。  
+タイトル画面風の表示をしてみましょう。  
 
 
 ## フォルダーと空ファイルの作成
@@ -11,8 +10,8 @@
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Commands
-|   +-- 📁 GraphWarmup
-|       +-- 📄 MuzGraphWarnupCommand.cs        # ファイルを新規作成
+|   +-- 📁 TitlePageWarmup
+|       +-- 📄 MuzTitlePageWarmupCommand.cs        # ファイルを新規作成
 +-- 📁 Views
 |   +-- 📄 MuzPageLayouts.cs
 +-- 📄 ProgramCommands.cs
@@ -79,14 +78,14 @@ internal static class MuzPageLayouts
 
 ## コマンドの作成
 
-📄 `HelloConsoleAppCSharp/Commands/GraphWarmup/MuzGraphWarmupCommand.cs`:  
+📄 `HelloConsoleAppCSharp/Commands/TitlePageWarmup/MuzTitlePageWarmupCommand.cs`:  
 
 ```csharp
-namespace HelloConsoleAppCSharp.Commands.GraphWarmup;
+namespace HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 
 using HelloConsoleAppCSharp.Views;
 
-internal static class MuzGraphWarnupCommand
+internal static class MuzTitlePageWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         ProgramContext pgContext)
@@ -126,8 +125,8 @@ internal static class ProgramCommands
             // ～中略～
             
             
-            // ［graph］はグラフィカルの意味。
-            case "graph-warmup":   return await MuzGraphWarnupCommand.ExecuteAsync(pgContext);
+            // ［タイトル風ページ］の描画練習
+            case "title-page-warmup":   return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);
             
             
             // ～中略～
@@ -141,4 +140,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `graph-warmup` と入力すると、タイトルページが表示されるようになります。  
+これで、このコンソール・アプリケーションを起動し、 `title-page-warmup` と入力すると、タイトルページが表示されるようになります。  
