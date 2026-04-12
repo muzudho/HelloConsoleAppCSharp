@@ -5,7 +5,8 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzMenuWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        ProgramContext pgContext)
     {
         // ［開始メニュー］コントロール
         List<string> startMenuItems = new()
@@ -25,7 +26,14 @@ internal static class MuzMenuWarmupCommand
         }
         else
         {
-            Console.WriteLine($"{startMenuItems[startMenuControl.SelectedIndex!.Value]}を選択したぜ（＾▽＾）！");
+            var label = startMenuItems[startMenuControl.SelectedIndex!.Value];
+            Console.WriteLine($"{label}を選択したぜ（＾▽＾）！");
+
+            switch (label)
+            {
+                case "終了":
+                    return await ProgramCommands.ExecuteAsync("exit", pgContext);
+            }
         }
 
         return requestType;

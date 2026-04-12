@@ -2,7 +2,7 @@
 
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
-using HelloConsoleAppCSharp.Commands.Graph;
+using HelloConsoleAppCSharp.Commands.GraphWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
@@ -71,7 +71,7 @@ internal static class ProgramCommands
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
 
             // ［graph］はグラフィカルの意味。
-            case "graph": return await MuzGraphCommand.ExecuteAsync(pgContext);
+            case "graph-warmup": return await MuzGraphWarmupCommand.ExecuteAsync(pgContext);
 
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
@@ -80,7 +80,7 @@ internal static class ProgramCommands
             case "cursor-warmup": return await MuzCursorWarmupCommand.ExecuteAsync();
 
             // ［メニュー］の動作確認
-            case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync();
+            case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync(pgContext);
 
             // ［タイプライター効果］の動作確認
             case "typewriter-effect-warmup":
