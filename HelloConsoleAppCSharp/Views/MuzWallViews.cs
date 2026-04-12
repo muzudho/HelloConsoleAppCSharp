@@ -27,21 +27,12 @@ internal static class MuzWallViews
 
 
             // 次に、壁面の色で、使用する［固定サイズ］の面積を塗りつぶします。
-            await MuzConsoleHelper.SetColorAsync(
-                bgColor: wallColor,
-                onColorChanged: async () =>
-                {
-                    for (int dy = 0; dy < wallHeight; dy++)
-                    {
-                        Console.SetCursorPosition(wallLeft, wallTop + dy);
-
-                        for (int dx = 0; dx < wallWidth; dx++)
-                        {
-                            Console.Write(' '); // 全体を決め打ちでもいいが、とりあえず１文字ずつプリントする。
-                        }
-                        Console.WriteLine();    // 改行
-                    }
-                });
+            await MuzFloatingBoxViews.PrintAsync(
+                left: wallLeft,
+                top: wallTop,
+                width: wallWidth,
+                height: wallHeight,
+                bgColor: wallColor);
 
 
         });
