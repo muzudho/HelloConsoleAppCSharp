@@ -3,7 +3,7 @@
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 
 /// <summary>
-/// ウィンドウの枠のようなものを表示するためのものです。
+/// 矩形の塗り潰し領域を［ボックス］と呼ぶことにします。
 /// </summary>
 internal static class MuzBoxViews
 {
