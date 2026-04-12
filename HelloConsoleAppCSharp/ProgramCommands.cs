@@ -87,6 +87,21 @@ internal static class ProgramCommands
                     });
                 return MuzRequestType.None;
 
+            // ［枠付きのフローティングボックス］の動作確認
+            case "double-boarder-floating-box-warmup":
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: ConsoleColor.White,
+                    bgColor: ConsoleColor.Green,
+                    onColorChanged: async () =>
+                    {
+                        await MuzBoxViews.PrintDoubleBorderAsync(
+                            left: 20 - 1,
+                            top: 5 - 1,
+                            width: 60 + 2,
+                            height: 2 + 2);
+                    });
+                return MuzRequestType.None;
+
             // ［フローティングラベル］の動作確認
             case "floating-label-warmup":
                 await MuzConsoleHelper.SetColorAsync(

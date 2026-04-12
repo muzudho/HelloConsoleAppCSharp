@@ -8,11 +8,13 @@
 
 ## フォルダーとファイルの構成
 
+以下のフォルダーとファイルを用意してください。  
+
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Views
 |	+-- 📄 MuzBoxViews.cs
-📄 ProgramCommands.cs
++-- 📄 ProgramCommands.cs
 ```
 
 
