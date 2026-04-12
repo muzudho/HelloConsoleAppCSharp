@@ -63,7 +63,7 @@ internal class MuzStartMenuControl
             onColorChanged: async () =>
             {
                 // ボックス表示
-                await MuzBoxViews.PrintDoubleBorderBoxAsync(
+                await MuzBoxViews.PrintDoubleBorderAsync(
                     left: 20,
                     top: 15,
                     width: 40,

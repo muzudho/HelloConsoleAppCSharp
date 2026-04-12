@@ -40,6 +40,7 @@ internal static class MuzWidgets
     /// <param name="left"></param>
     /// <param name="top"></param>
     /// <param name="isVisible"></param>
+    [Obsolete("もっと使い勝手をよくしたい")]
     public static async Task PrintBlinkingTextAsync(
         string text,
         int left,

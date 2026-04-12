@@ -58,7 +58,7 @@ internal static class MuzTitlePageWarmupCommand
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>
             {
-                await MuzBoxViews.PrintDoubleBorderBoxAsync(
+                await MuzBoxViews.PrintDoubleBorderAsync(
                     left: 20,
                     top: 15,
                     width: 40,
