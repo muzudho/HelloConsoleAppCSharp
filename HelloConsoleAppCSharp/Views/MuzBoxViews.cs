@@ -11,30 +11,22 @@ internal static class MuzBoxViews
          int left,
          int top,
          int width,
-         int height,
-         ConsoleColor bgColor)
+         int height)
     {
         // 処理の後、カーソルの位置を戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
-            // 次に、［固定サイズ］の面積を塗りつぶします。
-            await MuzConsoleHelper.SetColorAsync(
-                bgColor: bgColor,
-                onColorChanged: async () =>
+            // 次に、［固定サイズ］の面積をホワイトスペースで埋めます。
+            for (int dy = 0; dy < height; dy++)
+            {
+                Console.SetCursorPosition(left, top + dy);
+
+                for (int dx = 0; dx < width; dx++)
                 {
-                    for (int dy = 0; dy < height; dy++)
-                    {
-                        Console.SetCursorPosition(left, top + dy);
-
-                        for (int dx = 0; dx < width; dx++)
-                        {
-                            Console.Write(' '); // ホワイトスペース
-                        }
-                        Console.WriteLine();    // 改行
-                    }
-                });
-
-
+                    Console.Write(' '); // ホワイトスペース
+                }
+                Console.WriteLine();    // 改行
+            }
         });
     }
 

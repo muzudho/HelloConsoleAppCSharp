@@ -102,8 +102,7 @@ internal static class ProgramCommands
                             left: 20,
                             top: 5,
                             width: 60,
-                            height: 2,
-                            bgColor: ConsoleColor.Green);
+                            height: 2);
                     });
                 return MuzRequestType.None;
             
