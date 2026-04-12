@@ -10,10 +10,10 @@ internal static class MuzWidgets
     /// <summary>
     /// 開始日時からの経過時間を表示します。
     /// </summary>
-    /// <param name="startDateTime">開始日時</param>
+    /// <param name="launchDateTime">開始日時</param>
     public static async Task PrintErapsedTimeAsync(
         string label,
-        DateTime startDateTime,
+        DateTime launchDateTime,
         int left,
         int top)
     {
@@ -23,7 +23,7 @@ internal static class MuzWidgets
             // 位置設定
             Console.SetCursorPosition(left, top);
 
-            var elapsed = DateTime.Now - startDateTime;
+            var elapsed = DateTime.Now - launchDateTime;
 
             Console.WriteLine($"{label}{elapsed.Hours:D2}°{elapsed.Minutes:D2}'{elapsed.Seconds:D2}\"{elapsed.Milliseconds:D3}");
         });

@@ -10,8 +10,10 @@ using Microsoft.Extensions.Options;
 
 try
 {
-    // 開始日時を記憶しておくぜ（＾～＾）！
-    var startDateTime = DateTime.Now;
+    // フォルダーに分類しても中身が１ファイルしかないような、分類する方がコストになるような細かいものを、ここにまとめておくぜ（＾～＾）！
+    var pgContext = new ProgramContext(
+        // 開始日時を記憶しておくぜ（＾～＾）！
+        launchDateTime: DateTime.Now);
 
     Console.WriteLine("Hello, World!");
 
@@ -51,7 +53,7 @@ try
                 },
                 evalAsync: async (command) => await ProgramCommands.ExecuteAsync(
                         command,
-                        startDateTime));
+                        pgContext));
 
 
         });

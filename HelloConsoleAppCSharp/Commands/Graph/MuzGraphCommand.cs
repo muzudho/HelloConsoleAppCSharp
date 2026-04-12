@@ -9,7 +9,7 @@ using System;
 internal static class MuzGraphCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
-        DateTime startDateTime)
+        ProgramContext pgContext)
     {
         MuzREPL.IsPromptVisible = false; // プロンプトは消す。
         await MuzPageLayouts.PrintTitlePageAsync();
@@ -122,7 +122,7 @@ internal static class MuzGraphCommand
                 //
                 await MuzWidgets.PrintErapsedTimeAsync(
                     label: "Time ",
-                    startDateTime: startDateTime,
+                    launchDateTime: pgContext.LaunchDateTime,
                     left: 62,
                     top: 0);
 

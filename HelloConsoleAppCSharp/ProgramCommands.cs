@@ -18,7 +18,7 @@ internal static class ProgramCommands
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         string command,
-        DateTime startDateTime)
+        ProgramContext pgContext)
     {
         // 入力が空白だけだったら、無視するぜ（＾～＾）
         if (string.IsNullOrWhiteSpace(command)) return MuzRequestType.None;
@@ -71,7 +71,7 @@ internal static class ProgramCommands
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
 
             // ［graph］はグラフィカルの意味。
-            case "graph": return await MuzGraphCommand.ExecuteAsync(startDateTime);
+            case "graph": return await MuzGraphCommand.ExecuteAsync(pgContext);
 
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
@@ -124,7 +124,7 @@ internal static class ProgramCommands
             case "command":
                 return await ProgramCommands.ExecuteAsync(
                     command: arguments,
-                    startDateTime: startDateTime);
+                    pgContext: pgContext);
 
             default:
                 Console.WriteLine($"知らないコマンドだぜ: {command}");
