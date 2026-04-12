@@ -35,35 +35,23 @@ internal static class MuzPageLayouts
 {
     public static async Task PrintTitlePageAsync()
     {
+        int wallLeft = 0;
+        int wallTop = 0;
+        int wallWidth = 80;
+        int wallHeight = 25;
+        ConsoleColor wallColor = ConsoleColor.Cyan;
+
+        // 壁面を塗りつぶす。
+        await MuzWallViews.PrintWallAsync(
+            wallLeft: wallLeft,
+            wallTop: wallTop,
+            wallWidth: wallWidth,
+            wallHeight: wallHeight,
+            wallColor: wallColor);
+
         // 処理の後、カーソルの位置を戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
             {
-                // いったん、背景色を黒にして、画面全体を塗りつぶします。
-                await MuzConsoleHelper.SetColorAsync(
-                    bgColor: ConsoleColor.Black,
-                    onColorChanged: async () =>
-                    {
-                        Console.Clear();
-                    });
-
-                int pageWidth = 80;
-                int pageHeight = 25;
-                // 次に、シアン色の背景色で、使用する［固定サイズ］の免責を塗りつぶします。［可変］サイズは難しいので、ここでは扱いません。
-                await MuzConsoleHelper.SetColorAsync(
-                    bgColor: ConsoleColor.Cyan,
-                    onColorChanged: async () =>
-                    {
-                        Console.SetCursorPosition(0, 0);
-                        for (int y = 0; y < pageHeight; y++)
-                        {
-                            for (int x = 0; x < pageWidth; x++)
-                            {
-                                Console.Write(' '); // 全体を決め打ちでもいいが、とりあえず１文字ずつプリントする。
-                            }
-                            Console.WriteLine();    // 改行
-                        }
-                    });
-
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
@@ -71,15 +59,15 @@ internal static class MuzPageLayouts
                     {
                         // 画面の真ん中辺りにタイトルを表示するとかっこいい。
                         var title = "Hello Console App C#";
-                        var titleLeft = (pageWidth - title.Length) / 2;  // 漢字は横幅計算が難しいので、今回は半角英字だけのタイトルにします。
-                        var titleTop = pageHeight / 2;
+                        var titleLeft = (wallWidth - title.Length) / 2;  // 漢字は横幅計算が難しいので、今回は半角英字だけのタイトルにします。
+                        var titleTop = wallHeight / 2;
                         Console.SetCursorPosition(titleLeft, titleTop);
                         Console.Write(title);
 
                         // 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
                         var credit = "(C) 2026 by Muzudho ; MIT License";
-                        var creditLeft = (pageWidth - credit.Length) / 2;
-                        var creditTop = pageHeight - 1;
+                        var creditLeft = (wallWidth - credit.Length) / 2;
+                        var creditTop = wallHeight - 1;
                         Console.SetCursorPosition(creditLeft, creditTop);
                         Console.Write(credit);
                     });
@@ -91,7 +79,7 @@ internal static class MuzPageLayouts
 
 ## コマンドの作成
 
-📄 `HelloConsoleAppCSharp/Commands/GraphWarmup/MuzGraphWarnupCommand.cs`:  
+📄 `HelloConsoleAppCSharp/Commands/GraphWarmup/MuzGraphWarmupCommand.cs`:  
 
 ```csharp
 namespace HelloConsoleAppCSharp.Commands.GraphWarmup;

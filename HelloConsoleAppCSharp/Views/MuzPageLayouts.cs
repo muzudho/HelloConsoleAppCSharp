@@ -9,37 +9,23 @@ internal static class MuzPageLayouts
 {
     public static async Task PrintTitlePageAsync()
     {
+        int wallLeft = 0;
+        int wallTop = 0;
+        int wallWidth = 80;
+        int wallHeight = 25;
+        ConsoleColor wallColor = ConsoleColor.Cyan;
+
+        // 壁面を塗りつぶす。
+        await MuzWallViews.PrintWallAsync(
+            wallLeft: wallLeft,
+            wallTop: wallTop,
+            wallWidth: wallWidth,
+            wallHeight: wallHeight,
+            wallColor: wallColor);
+
         // 処理の後、カーソルの位置を戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
             {
-                // いったん、背景色を黒にして、画面全体を塗りつぶします。
-                await MuzConsoleHelper.SetColorAsync(
-                    bgColor: ConsoleColor.Black,
-                    onColorChanged: async () =>
-                    {
-                        Console.Clear();
-                    });
-
-                int wallWidth = 80;
-                int wallHeight = 25;
-                ConsoleColor wallColor = ConsoleColor.Cyan;
-
-                // 次に、壁面の色で、使用する［固定サイズ］の免責を塗りつぶします。
-                await MuzConsoleHelper.SetColorAsync(
-                    bgColor: wallColor,
-                    onColorChanged: async () =>
-                    {
-                        Console.SetCursorPosition(0, 0);
-                        for (int y = 0; y < wallHeight; y++)
-                        {
-                            for (int x = 0; x < wallWidth; x++)
-                            {
-                                Console.Write(' '); // 全体を決め打ちでもいいが、とりあえず１文字ずつプリントする。
-                            }
-                            Console.WriteLine();    // 改行
-                        }
-                    });
-
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
