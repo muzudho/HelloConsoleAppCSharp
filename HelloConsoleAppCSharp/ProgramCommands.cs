@@ -81,6 +81,20 @@ internal static class ProgramCommands
                 Console.SetCursorPosition(0, wallHeight);   // 改行
                 return MuzRequestType.None;
 
+            // ［フローティングテキスト］の動作確認
+            case "floating-text-warmup":
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: ConsoleColor.White,
+                    bgColor: ConsoleColor.Green,
+                    onColorChanged: async () =>
+                    {
+                        await MuzFloatingTextViews.PrintAsync(
+                            left: 20,
+                            top: 5,
+                            text: "フローティングテキストのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
+                    });
+                return MuzRequestType.None;
+
             // ［graph］はグラフィカルの意味。
             case "graph-warmup": return await MuzGraphWarmupCommand.ExecuteAsync(pgContext);
 

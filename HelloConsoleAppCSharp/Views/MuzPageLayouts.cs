@@ -26,19 +26,22 @@ internal static class MuzPageLayouts
         // 処理の後、カーソルの位置を戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
             {
+                // 色替え
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
                     {
-                        // 画面の真ん中辺りにタイトルを表示するとかっこいい。
+                        // ［タイトル］
+                        //      - 画面の真ん中辺りに表示するとかっこいい。
                         var title = "Hello Console App C#";
                         var titleLeft = (wallWidth - title.Length) / 2;  // 漢字は横幅計算が難しいので、今回は半角英字だけのタイトルにします。
                         var titleTop = wallHeight / 2;
                         Console.SetCursorPosition(titleLeft, titleTop);
                         Console.Write(title);
 
-                        // 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
+                        // ［クレジット］
+                        //      - 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
                         var credit = "(C) 2026 by Muzudho ; MIT License";
                         var creditLeft = (wallWidth - credit.Length) / 2;
                         var creditTop = wallHeight - 1;
