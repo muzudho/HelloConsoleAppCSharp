@@ -1,9 +1,9 @@
-# ビュー作成　＞　フローティングテキストの作成と動作確認
+# ビュー作成　＞　フローティングボックスの作成と動作確認
 
 コンソール画面への Print を、ここではビュー（View）と呼ぶことにします。  
 プログラミングでは View と呼ぶと、色んなものを指すので、混乱しないようにしてください。だいたい、目の前に見えているもの、ぐらいの意味です。  
 
-コンソール画面上の指定の位置に、文字列を表示するフローティングテキストを作成してみましょう。  
+コンソール画面上に、矩形を描画してみましょう。  
 
 
 ## フォルダーとファイルの構成
@@ -11,51 +11,55 @@
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Views
-|	+-- 📄 MuzFloatingTextViews.cs
+|	+-- 📄 MuzFloatingBoxViews.cs
 📄 ProgramCommands.cs
 ```
 
 
 ## ビューの作成
 
-📄 `HelloConsoleAppCSharp/Views/MuzFloatingTextViews.cs`:  
+📄 `HelloConsoleAppCSharp/Views/MuzFloatingBoxViews.cs`:  
 
 ```csharp
 namespace HelloConsoleAppCSharp.Views;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 
-/// <summary>
-/// フローティングテキスト
-/// </summary>
-internal static class MuzFloatingTextViews
+internal class MuzFloatingBoxViews
 {
-    public static async Task PrintWallAsync(
-        string text,
-        int left = 0,
-        int top = 0)
+    public static async Task PrintAsync(
+         int left,
+         int top,
+         int width,
+         int height,
+         ConsoleColor bgColor)
     {
-        // 処理の後、カーソルを元の位置に戻す
+        // 処理の後、カーソルの位置を戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
-            int currentTop = top;
+            // 次に、［固定サイズ］の面積を塗りつぶします。
+            await MuzConsoleHelper.SetColorAsync(
+                bgColor: bgColor,
+                onColorChanged: async () =>
+                {
+                    for (int dy = 0; dy < height; dy++)
+                    {
+                        Console.SetCursorPosition(left, top + dy);
 
-            // まず、行ごとに分割して、各行を順番に表示するぜ（＾～＾）
-            string[] lines = text.Split('\n');
+                        for (int dx = 0; dx < width; dx++)
+                        {
+                            Console.Write(' '); // ホワイトスペース
+                        }
+                        Console.WriteLine();    // 改行
+                    }
+                });
 
-            foreach (string line in lines)
-            {
-                // 行頭
-                Console.SetCursorPosition(left, currentTop);
 
-                // 行を表示するぜ（＾～＾）
-                Console.WriteLine(line);
-                currentTop++;
-            }
         });
     }
 }
 ```
+
 
 ## コマンド実行部へ、コマンド追加
 
@@ -85,17 +89,19 @@ internal static class ProgramCommands
             // ～中略～
             
             
-            // ［フローティングテキスト］の動作確認
-            case "floating-text-warmup":
+            // ［フローティングボックス］の動作確認
+            case "floating-box-warmup":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.White,
                     bgColor: ConsoleColor.Green,
                     onColorChanged: async () =>
                     {
-                        await MuzFloatingTextViews.PrintAsync(
+                        await MuzFloatingBoxViews.PrintAsync(
                             left: 20,
                             top: 5,
-                            text: "フローティングテキストのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
+                            width: 40,
+                            height: 2,
+                            bgColor: ConsoleColor.Green);
                     });
                 return MuzRequestType.None;
             
@@ -111,4 +117,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `floating-text-warmup` と入力すると、［壁面］が塗りつぶされます。  
+これで、このコンソール・アプリケーションを起動し、 `floating-box-warmup` と入力すると、［矩形］が塗りつぶされます。  

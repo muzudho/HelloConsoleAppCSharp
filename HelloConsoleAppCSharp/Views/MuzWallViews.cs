@@ -14,7 +14,6 @@ internal static class MuzWallViews
         int wallLeft = 0,
         int wallTop = 0)
     {
-
         // 処理の後、カーソルの位置を戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
@@ -27,7 +26,7 @@ internal static class MuzWallViews
                 });
 
 
-            // 次に、壁面の色で、使用する［固定サイズ］の免責を塗りつぶします。
+            // 次に、壁面の色で、使用する［固定サイズ］の面積を塗りつぶします。
             await MuzConsoleHelper.SetColorAsync(
                 bgColor: wallColor,
                 onColorChanged: async () =>

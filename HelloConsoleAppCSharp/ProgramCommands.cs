@@ -81,6 +81,22 @@ internal static class ProgramCommands
                 Console.SetCursorPosition(0, wallHeight);   // 改行
                 return MuzRequestType.None;
 
+            // ［フローティングボックス］の動作確認
+            case "floating-box-warmup":
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: ConsoleColor.White,
+                    bgColor: ConsoleColor.Green,
+                    onColorChanged: async () =>
+                    {
+                        await MuzFloatingBoxViews.PrintAsync(
+                            left: 20,
+                            top: 5,
+                            width: 40,
+                            height: 2,
+                            bgColor: ConsoleColor.Green);
+                    });
+                return MuzRequestType.None;
+
             // ［フローティングテキスト］の動作確認
             case "floating-text-warmup":
                 await MuzConsoleHelper.SetColorAsync(
