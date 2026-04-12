@@ -15,15 +15,17 @@
 * 📄 [ビュー作成_フローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO1_ビュー作成_フローティングボックスの作成と動作確認.md)
 * 📄 [ビュー作成_枠付きのフローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO1bO1_ビュー作成_枠付きのフローティングボックスの作成と動作確認.md)
 * 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO2_ビュー作成_フローティングラベルの作成と動作確認.md)
+* 📄 [ビュー作成_点滅ラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO2bO2_ビュー作成_点滅ラベルの作成と動作確認.md)
 * 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11aO3_ビュー作成_壁面の描画と動作確認.md)
 * 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO4_ビュー作成_タイトル画面風の描画と動作確認.md)
 * 📄 [垂直メニュー作成の基本](./HelloConsoleAppCSharp/Docs/OO13_垂直メニュー作成の基本.md)
 * 📄 [タイマー作成の基本](./HelloConsoleAppCSharp/Docs/OO14_タイマー作成の基本.md)
-* 📄 [ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO15_ブリンカーの作成と動作確認.md)
+* 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO15_［OBSOLETED］ブリンカーの作成と動作確認.md)
 * 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17_カーソルの作成と動作確認.md)
 * 📄 [メニュー作成と動作確認](./HelloConsoleAppCSharp/Docs/OO18_メニュー作成と動作確認.md)
 * 📄 [タイプライター効果の作成と動作確認](./HelloConsoleAppCSharp/Docs/OO19_タイプライター効果の作成と動作確認.md)
 * 📄 [コンティニュープロンプトの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO20_コンティニュープロンプトの作成と動作確認.md)
 * 📄 [メッセージボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO21_メッセージボックスの作成と動作確認.md)
 
-TODO: 以降の予定： ラベルボックス、ラベルボックスのブリンカー、画面遷移、メッセージ管理、など。  
+TODO: 以降の予定： 古いタイマーの見直し、垂直メニューのサンプルの作り直し、古いブリンカーの見直し、画面遷移、  
+JSONファイルを使ったメッセージ管理、など。  
