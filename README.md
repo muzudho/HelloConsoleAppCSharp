@@ -9,6 +9,7 @@
 * 📄 [アサートの準備](./HelloConsoleAppCSharp/Docs/O7_アサートの準備.md)
 * 📄 [ユニットテストの準備](./HelloConsoleAppCSharp/Docs/O8_ユニットテストの準備.md)
 * 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/O9_リプルの作成.md)
+* 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/O9aO1_コマンドの間接的実行と動作確認.md)
 * 📄 [コンソール出力の動作確認](./HelloConsoleAppCSharp/Docs/OO10_コンソール出力の動作確認.md)
 * 📄 [ビュー作成の基本](./HelloConsoleAppCSharp/Docs/OO11_ビュー作成の基本.md)
 * 📄 [枠付きの欄（ボックス）の描画](./HelloConsoleAppCSharp/Docs/OO12_枠付きの欄（ボックス）の描画.md)
@@ -22,6 +23,4 @@
 * 📄 [コンティニュープロンプトの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO20_コンティニュープロンプトの作成と動作確認.md)
 * 📄 [メッセージボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO21_メッセージボックスの作成と動作確認.md)
 
-TODO: ［指定コマンドの実行と動作確認］`ExecuteCommand`  
-
-以降の予定： 画面遷移、メッセージ管理、など。  
+TODO: 以降の予定： 画面遷移、メッセージ管理、など。  
