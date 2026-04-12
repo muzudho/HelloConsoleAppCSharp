@@ -12,7 +12,7 @@
 * 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/O9aO1_コマンドの間接的実行と動作確認.md)
 * 📄 [コンソール出力の動作確認](./HelloConsoleAppCSharp/Docs/OO10aO0_コンソール出力の動作確認.md)
 * 📄 [ビュー作成_フローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO1_ビュー作成_フローティングボックスの作成と動作確認.md)
-* 📄 [ビュー作成_フローティングテキストの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO2_ビュー作成_フローティングテキストの作成と動作確認.md)
+* 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO2_ビュー作成_フローティングラベルの作成と動作確認.md)
 * 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11aO3_ビュー作成_壁面の描画と動作確認.md)
 * 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO4_ビュー作成_タイトル画面風の描画と動作確認.md)
 * 📄 [枠付きの欄（ボックス）の描画](./HelloConsoleAppCSharp/Docs/OO12_枠付きの欄（ボックス）の描画.md)

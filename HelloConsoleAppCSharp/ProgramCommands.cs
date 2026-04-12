@@ -87,17 +87,17 @@ internal static class ProgramCommands
                     });
                 return MuzRequestType.None;
 
-            // ［フローティングテキスト］の動作確認
-            case "floating-text-warmup":
+            // ［フローティングラベル］の動作確認
+            case "floating-label-warmup":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.White,
                     bgColor: ConsoleColor.Green,
                     onColorChanged: async () =>
                     {
-                        await MuzFloatingTextViews.PrintAsync(
+                        await MuzLabelViews.PrintAsync(
                             left: 20,
                             top: 5,
-                            text: "フローティングテキストのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
+                            text: "フローティングラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
                     });
                 return MuzRequestType.None;
 

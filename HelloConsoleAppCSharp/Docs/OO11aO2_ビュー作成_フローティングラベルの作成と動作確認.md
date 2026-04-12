@@ -1,6 +1,6 @@
-# ビュー作成　＞　フローティングテキストの作成と動作確認
+# ビュー作成　＞　フローティングラベルの作成と動作確認
 
-コンソール画面上の指定の位置に、文字列を表示するフローティングテキストを作成してみましょう。  
+コンソール画面上の指定の位置に、文字列を表示するフローティングラベルを作成してみましょう。  
 
 
 ## フォルダーとファイルの構成
@@ -8,14 +8,14 @@
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Views
-|	+-- 📄 MuzFloatingTextViews.cs
+|	+-- 📄 MuzLabelViews.cs
 📄 ProgramCommands.cs
 ```
 
 
 ## ビューの作成
 
-📄 `HelloConsoleAppCSharp/Views/MuzFloatingTextViews.cs`:  
+📄 `HelloConsoleAppCSharp/Views/MuzLabelViews.cs`:  
 
 ```csharp
 namespace HelloConsoleAppCSharp.Views;
@@ -23,9 +23,9 @@ namespace HelloConsoleAppCSharp.Views;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 
 /// <summary>
-/// フローティングテキスト
+/// フローティングラベル
 /// </summary>
-internal static class MuzFloatingTextViews
+internal static class MuzLabelViews
 {
     public static async Task PrintAsync(
         string text,
@@ -83,17 +83,17 @@ internal static class ProgramCommands
             // ～中略～
             
             
-            // ［フローティングテキスト］の動作確認
-            case "floating-text-warmup":
+            // ［フローティングラベル］の動作確認
+            case "floating-label-warmup":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.White,
                     bgColor: ConsoleColor.Green,
                     onColorChanged: async () =>
                     {
-                        await MuzFloatingTextViews.PrintAsync(
+                        await MuzLabelViews.PrintAsync(
                             left: 20,
                             top: 5,
-                            text: "フローティングテキストのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
+                            text: "フローティングラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
                     });
                 return MuzRequestType.None;
             
@@ -109,4 +109,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `floating-text-warmup` と入力すると、［壁面］が塗りつぶされます。  
+これで、このコンソール・アプリケーションを起動し、 `floating-label-warmup` と入力すると、［壁面］が塗りつぶされます。  
