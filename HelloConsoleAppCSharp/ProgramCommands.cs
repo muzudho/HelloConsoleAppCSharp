@@ -117,19 +117,51 @@ internal static class ProgramCommands
 
             // ［点滅ラベル］の動作確認
             case "blink-label-warmup":
-                await MuzConsoleHelper.BlinkAsync(
-                    fgColor1: ConsoleColor.White,
-                    bgColor1: ConsoleColor.Green,
-                    fgColor2: ConsoleColor.Green,   // 色の反転
-                    bgColor2: ConsoleColor.White,
-                    isColor2: (DateTime.Now.Millisecond / 500) % 2 == 0, // 0.5秒ごとに色切替
-                    onColorChanged: async () =>
+                // 📍 NOTE:
+                //
+                //      無限ループの抜け方を説明しておきましょう。
+                //
+                Console.WriteLine("［エスケープキー］押下で点滅を終了するぜ（＾～＾）...");
+                while (true)  // 無限ループ。
+                {
+                    // ラベルの表示
+                    await MuzConsoleHelper.BlinkAsync(
+                        fgColor1: ConsoleColor.White,
+                        bgColor1: ConsoleColor.Green,
+                        fgColor2: ConsoleColor.Green,   // 色の反転
+                        bgColor2: ConsoleColor.White,
+                        isColor2: (DateTime.Now.Millisecond / 500) % 2 == 0, // 0.5秒ごとに色切替
+                        onColorChanged: async () =>
+                        {
+                            await MuzLabelViews.PrintAsync(
+                                left: 20,
+                                top: 5,
+                                text: "点滅ラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
+                        });
+
+                    // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
+                    if (!Console.KeyAvailable)
                     {
-                        await MuzLabelViews.PrintAsync(
-                            left: 20,
-                            top: 5,
-                            text: "点滅ラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
-                    });
+                        // およそ１／６０秒後にループの先頭に戻るぜ（＾～＾）
+                        Thread.Sleep(TimeSpan.FromMilliseconds(16));
+                        continue;
+                    }
+
+                    // 📍 NOTE:
+                    //
+                    //      キー入力を受け取ります。
+                    //      プログラムは、ユーザーがキーを押すまで、ここで待機します。  
+                    //      `intercept`:  true でエコー（表示）しない。
+                    //
+                    ConsoleKeyInfo key = Console.ReadKey(
+                        intercept: true);
+
+                    // ［エスケープキー］が押されたら、ループを抜けます。
+                    if (key.Key == ConsoleKey.Escape)
+                    {
+                        break;  // ループを抜ける
+                    }
+                }
                 return MuzRequestType.None;
 
             // ［壁面の塗り潰し］の動作確認
