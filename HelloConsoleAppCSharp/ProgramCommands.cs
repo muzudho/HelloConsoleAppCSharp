@@ -120,6 +120,12 @@ internal static class ProgramCommands
                     });
                 return await messageBoxControl.Enter();
 
+            // ［コマンド呼出し］の動作確認
+            case "command":
+                return await ProgramCommands.ExecuteAsync(
+                    command: arguments,
+                    startDateTime: startDateTime);
+
             default:
                 Console.WriteLine($"知らないコマンドだぜ: {command}");
                 return MuzRequestType.None;
