@@ -20,6 +20,14 @@ internal static class MuzKeyInputWarmupCommand
 
         while (true)  // 無限ループ。
         {
+            // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
+            if (!Console.KeyAvailable)
+            {
+                // およそ１／６０秒後にループの先頭に戻るぜ（＾～＾）
+                Thread.Sleep(TimeSpan.FromMilliseconds(16));
+                continue;
+            }
+
             // 📍 NOTE:
             //
             //      キー入力を受け取ります。

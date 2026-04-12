@@ -21,19 +21,17 @@ REPL では、キーボードの［↑］キーを押したからカーソルを
 
 ## コマンドの作成
 
-📄 MuzKeyInputWarmupCommand.cs:  
+📄 `HelloConsoleAppCSharp/Commands/KeyInputWarmup/MuzKeyInputWarmupCommand.cs`:  
 
 ```csharp
 namespace HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
-using System.Text;
 
 internal static class MuzKeyInputWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {
-
         // 📍 NOTE:
         //
         //      日本語入力への対応や、バックスペースキーの自力実装が難しいので、ここでは半角英数字キー１つの押下だけを想定しているぜ（＾～＾）！
@@ -48,6 +46,14 @@ internal static class MuzKeyInputWarmupCommand
 
         while (true)  // 無限ループ。
         {
+            // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
+            if (!Console.KeyAvailable)
+            {
+                // およそ１／６０秒後にループの先頭に戻るぜ（＾～＾）
+                Thread.Sleep(TimeSpan.FromMilliseconds(16));
+                continue;
+            }
+
             // 📍 NOTE:
             //
             //      キー入力を受け取ります。
