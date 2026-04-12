@@ -41,7 +41,7 @@ internal static class MuzPageLayouts
         ConsoleColor wallColor = ConsoleColor.Cyan;
 
         // 壁面を塗りつぶす。
-        await MuzWallViews.PrintWallAsync(
+        await MuzWallViews.PrintAsync(
             wallLeft: wallLeft,
             wallTop: wallTop,
             wallWidth: wallWidth,

@@ -66,7 +66,7 @@ using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 /// </summary>
 internal static class MuzWallViews
 {
-    public static async Task PrintWallAsync(
+    public static async Task PrintAsync(
         int wallWidth,
         int wallHeight,
         ConsoleColor wallColor,
@@ -134,7 +134,7 @@ internal static class ProgramCommands
             // ［壁面の塗り潰し］の動作確認
             case "wall-warmup":
                 int wallHeight = 25;
-                await MuzWallViews.PrintWallAsync(
+                await MuzWallViews.PrintAsync(
                     wallWidth: 80,
                     wallHeight: wallHeight,
                     wallColor: ConsoleColor.Cyan);

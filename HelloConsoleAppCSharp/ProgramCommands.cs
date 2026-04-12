@@ -71,16 +71,6 @@ internal static class ProgramCommands
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
 
-            // ［壁面の塗り潰し］の動作確認
-            case "wall-warmup":
-                int wallHeight = 25;
-                await MuzWallViews.PrintWallAsync(
-                    wallWidth: 80,
-                    wallHeight: wallHeight,
-                    wallColor: ConsoleColor.Cyan);
-                Console.SetCursorPosition(0, wallHeight);   // 改行
-                return MuzRequestType.None;
-
             // ［フローティングボックス］の動作確認
             case "floating-box-warmup":
                 await MuzConsoleHelper.SetColorAsync(
@@ -109,6 +99,16 @@ internal static class ProgramCommands
                             top: 5,
                             text: "フローティングテキストのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
                     });
+                return MuzRequestType.None;
+
+            // ［壁面の塗り潰し］の動作確認
+            case "wall-warmup":
+                int wallHeight = 25;
+                await MuzWallViews.PrintAsync(
+                    wallWidth: 80,
+                    wallHeight: wallHeight,
+                    wallColor: ConsoleColor.Cyan);
+                Console.SetCursorPosition(0, wallHeight);   // 改行
                 return MuzRequestType.None;
 
             // ［タイトル風ページ］の描画練習

@@ -27,7 +27,7 @@ using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 /// </summary>
 internal static class MuzFloatingTextViews
 {
-    public static async Task PrintWallAsync(
+    public static async Task PrintAsync(
         string text,
         int left = 0,
         int top = 0)
