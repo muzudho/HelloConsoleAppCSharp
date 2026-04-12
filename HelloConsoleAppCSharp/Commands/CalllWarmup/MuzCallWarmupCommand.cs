@@ -5,8 +5,9 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 internal static class MuzCallWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
-        string commandName)
+        string commandName,
+        DateTime startDateTime)
     {
-        return MuzRequestType.None;
+        return await ProgramCommands.ExecuteAsync(commandName, startDateTime);
     }
 }
