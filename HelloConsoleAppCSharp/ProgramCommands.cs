@@ -115,6 +115,23 @@ internal static class ProgramCommands
                     });
                 return MuzRequestType.None;
 
+            // ［点滅ラベル］の動作確認
+            case "blink-label-warmup":
+                await MuzConsoleHelper.BlinkAsync(
+                    fgColor1: ConsoleColor.White,
+                    bgColor1: ConsoleColor.Green,
+                    fgColor2: ConsoleColor.Green,   // 色の反転
+                    bgColor2: ConsoleColor.White,
+                    isColor2: (DateTime.Now.Millisecond / 500) % 2 == 0, // 0.5秒ごとに色切替
+                    onColorChanged: async () =>
+                    {
+                        await MuzLabelViews.PrintAsync(
+                            left: 20,
+                            top: 5,
+                            text: "点滅ラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
+                    });
+                return MuzRequestType.None;
+
             // ［壁面の塗り潰し］の動作確認
             case "wall-warmup":
                 int wallHeight = 25;
