@@ -10,6 +10,7 @@ using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
+using HelloConsoleAppCSharp.Views;
 
 /// <summary>
 /// コマンド実行部
@@ -69,6 +70,14 @@ internal static class ProgramCommands
 
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
+
+            // ［壁面の塗り潰し］の動作確認
+            case "wall-warmup":
+                await MuzWallViews.PrintWallAsync(
+                    wallWidth: 80,
+                    wallHeight: 25,
+                    wallColor: ConsoleColor.Cyan);
+                return MuzRequestType.None;
 
             // ［graph］はグラフィカルの意味。
             case "graph-warmup": return await MuzGraphWarmupCommand.ExecuteAsync(pgContext);

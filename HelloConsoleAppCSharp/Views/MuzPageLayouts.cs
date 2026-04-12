@@ -20,17 +20,19 @@ internal static class MuzPageLayouts
                         Console.Clear();
                     });
 
-                int pageWidth = 80;
-                int pageHeight = 25;
-                // 次に、シアン色の背景色で、使用する［固定サイズ］の免責を塗りつぶします。［可変］サイズは難しいので、ここでは扱いません。
+                int wallWidth = 80;
+                int wallHeight = 25;
+                ConsoleColor wallColor = ConsoleColor.Cyan;
+
+                // 次に、壁面の色で、使用する［固定サイズ］の免責を塗りつぶします。
                 await MuzConsoleHelper.SetColorAsync(
-                    bgColor: ConsoleColor.Cyan,
+                    bgColor: wallColor,
                     onColorChanged: async () =>
                     {
                         Console.SetCursorPosition(0, 0);
-                        for (int y = 0; y < pageHeight; y++)
+                        for (int y = 0; y < wallHeight; y++)
                         {
-                            for (int x = 0; x < pageWidth; x++)
+                            for (int x = 0; x < wallWidth; x++)
                             {
                                 Console.Write(' '); // 全体を決め打ちでもいいが、とりあえず１文字ずつプリントする。
                             }
@@ -45,15 +47,15 @@ internal static class MuzPageLayouts
                     {
                         // 画面の真ん中辺りにタイトルを表示するとかっこいい。
                         var title = "Hello Console App C#";
-                        var titleLeft = (pageWidth - title.Length) / 2;  // 漢字は横幅計算が難しいので、今回は半角英字だけのタイトルにします。
-                        var titleTop = pageHeight / 2;
+                        var titleLeft = (wallWidth - title.Length) / 2;  // 漢字は横幅計算が難しいので、今回は半角英字だけのタイトルにします。
+                        var titleTop = wallHeight / 2;
                         Console.SetCursorPosition(titleLeft, titleTop);
                         Console.Write(title);
 
                         // 画面の下辺辺りに、制作年、開発者を表示するとかっこいい。
                         var credit = "(C) 2026 by Muzudho ; MIT License";
-                        var creditLeft = (pageWidth - credit.Length) / 2;
-                        var creditTop = pageHeight - 1;
+                        var creditLeft = (wallWidth - credit.Length) / 2;
+                        var creditTop = wallHeight - 1;
                         Console.SetCursorPosition(creditLeft, creditTop);
                         Console.Write(credit);
                     });
