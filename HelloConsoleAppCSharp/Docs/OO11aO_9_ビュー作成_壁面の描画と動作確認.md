@@ -142,10 +142,12 @@ internal static class ProgramCommands
             
             // ［壁面の塗り潰し］の動作確認
             case "wall-warmup":
+                int wallHeight = 25;
                 await MuzWallViews.PrintWallAsync(
                     wallWidth: 80,
-                    wallHeight: 25,
+                    wallHeight: wallHeight,
                     wallColor: ConsoleColor.Cyan);
+                Console.SetCursorPosition(0, wallHeight);   // 改行
                 return MuzRequestType.None;
             
             

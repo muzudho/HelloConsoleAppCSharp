@@ -11,6 +11,7 @@
 * 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/O9_リプルの作成.md)
 * 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/O9aO1_コマンドの間接的実行と動作確認.md)
 * 📄 [コンソール出力の動作確認](./HelloConsoleAppCSharp/Docs/OO10_コンソール出力の動作確認.md)
+* 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11aO_9_ビュー作成_壁面の描画と動作確認.md)
 * 📄 [ビュー作成の基本](./HelloConsoleAppCSharp/Docs/OO11_ビュー作成の基本.md)
 * 📄 [枠付きの欄（ボックス）の描画](./HelloConsoleAppCSharp/Docs/OO12_枠付きの欄（ボックス）の描画.md)
 * 📄 [垂直メニュー作成の基本](./HelloConsoleAppCSharp/Docs/OO13_垂直メニュー作成の基本.md)
