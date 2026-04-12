@@ -117,7 +117,8 @@ internal static class MuzGraphCommand
 
                 // 📍 NOTE:
                 //
-                //      アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
+                //      - アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
+                //      - XXX: バックグラウンドスレッドで画面を更新するのは、アンチパターンだった、これは悪い例だ（＾～＾）練習問題を変えたい（＾～＾）
                 //
                 await MuzWidgets.PrintErapsedTimeAsync(
                     label: "Time ",
@@ -127,7 +128,8 @@ internal static class MuzGraphCommand
 
                 // 📍 NOTE:
                 //
-                //      一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
+                //      - 一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
+                //      - XXX: バックグラウンドスレッドで画面を更新するのは、アンチパターンだった、これは悪い例だ（＾～＾）練習問題を変えたい（＾～＾）
                 //
                 await MuzWidgets.PrintBlinkingTextAsync(
                     text: "▶",  // 右向きの三角形は、半角のようだ。
