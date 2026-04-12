@@ -11,21 +11,21 @@
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Views
-|	+-- 📄 MuzFloatingBoxViews.cs
+|	+-- 📄 MuzBoxViews.cs
 📄 ProgramCommands.cs
 ```
 
 
 ## ビューの作成
 
-📄 `HelloConsoleAppCSharp/Views/MuzFloatingBoxViews.cs`:  
+📄 `HelloConsoleAppCSharp/Views/MuzBoxViews.cs`:  
 
 ```csharp
 namespace HelloConsoleAppCSharp.Views;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 
-internal class MuzFloatingBoxViews
+internal class MuzBoxViews
 {
     public static async Task PrintAsync(
          int left,
@@ -96,7 +96,7 @@ internal static class ProgramCommands
                     bgColor: ConsoleColor.Green,
                     onColorChanged: async () =>
                     {
-                        await MuzFloatingBoxViews.PrintAsync(
+                        await MuzBoxViews.PrintAsync(
                             left: 20,
                             top: 5,
                             width: 60,

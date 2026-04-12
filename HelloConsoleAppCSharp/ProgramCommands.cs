@@ -78,7 +78,7 @@ internal static class ProgramCommands
                     bgColor: ConsoleColor.Green,
                     onColorChanged: async () =>
                     {
-                        await MuzFloatingBoxViews.PrintAsync(
+                        await MuzBoxViews.PrintAsync(
                             left: 20,
                             top: 5,
                             width: 60,

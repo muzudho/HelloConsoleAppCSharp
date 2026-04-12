@@ -27,7 +27,7 @@ internal static class MuzWallViews
 
 
             // 次に、壁面の色で、使用する［固定サイズ］の面積を塗りつぶします。
-            await MuzFloatingBoxViews.PrintAsync(
+            await MuzBoxViews.PrintAsync(
                 left: wallLeft,
                 top: wallTop,
                 width: wallWidth,
