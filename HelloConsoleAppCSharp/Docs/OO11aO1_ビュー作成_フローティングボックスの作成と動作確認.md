@@ -92,17 +92,17 @@ internal static class ProgramCommands
             
             
             // ［フローティングボックス］の動作確認
-            case "floating-box-warmup":
+            case "hide-message-box":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
                     {
                         await MuzBoxViews.PrintAsync(
-                            left: 1,
-                            top: 2,
-                            width: 78,
-                            height: 5);
+                            left: 0,
+                            top: 1,
+                            width: 80,
+                            height: 7);
                     });
                 return MuzRequestType.None;
             
@@ -118,4 +118,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `floating-box-warmup` と入力すると、［矩形］が塗りつぶされます。  
+これで、このコンソール・アプリケーションを起動し、 `hide-message-box` と入力すると、［矩形］が塗りつぶされます。  
