@@ -73,6 +73,9 @@ internal static class ProgramCommands
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
 
+            // ［キー入力］の動作確認
+            case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
+
             // ［フローティングボックス］の動作確認
             case "hide-message-box":
                 await MuzConsoleHelper.SetColorAsync(
@@ -135,9 +138,6 @@ internal static class ProgramCommands
 
             // ［タイトル風ページ］の描画練習
             case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);
-
-            // ［キー入力］の動作確認
-            case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
 
             // ［カーソル］の動作確認
             case "cursor-warmup": return await MuzCursorWarmupCommand.ExecuteAsync();
