@@ -5,7 +5,7 @@ using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 /// <summary>
 /// 垂直方向の箇条書きを表示します。
 /// </summary>
-internal static class MuzVerticalMenus
+internal static class MuzVerticalListViews
 {
     public static async Task PrintMenuAsync(
         int left,

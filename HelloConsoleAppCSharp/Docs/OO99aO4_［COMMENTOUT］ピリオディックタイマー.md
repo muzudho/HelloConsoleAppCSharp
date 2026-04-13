@@ -230,7 +230,7 @@ internal static class MuzTitlePageWarmupCommand
                 //
                 //     ここで、メニューを表示してみようぜ（＾～＾）！
                 //
-                await MuzVerticalMenus.PrintMenuAsync(
+                await MuzVerticalListViews.PrintMenuAsync(
                     left: 38,
                     top: 16,
                     items: new[] { "開始", "設定", "終了" });

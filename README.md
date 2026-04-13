@@ -19,7 +19,7 @@
 * 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11aO5_ビュー作成_壁面の描画と動作確認.md)
 * 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/OO11aO6_アプリケーション起動からの経過時間を表示する.md)
 * 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO7_ビュー作成_タイトル画面風の描画と動作確認.md)
-* 📄 [垂直メニュー作成の基本](./HelloConsoleAppCSharp/Docs/OO13_垂直メニュー作成の基本.md)
+* 📄 [箇条書き（垂直）作成の基本](./HelloConsoleAppCSharp/Docs/OO13_箇条書き（垂直）作成の基本.md)
 * 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO15_［OBSOLETED］ブリンカーの作成と動作確認.md)
 * 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17_カーソルの作成と動作確認.md)
 * 📄 [メニュー作成と動作確認](./HelloConsoleAppCSharp/Docs/OO18_メニュー作成と動作確認.md)
