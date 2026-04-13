@@ -76,7 +76,7 @@ internal static class ProgramCommands
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
 
-            // ［フローティングボックス］の動作確認
+            // ［フローティングボックス］の動作確認＜その１＞
             case "hide-message-box":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
@@ -91,7 +91,22 @@ internal static class ProgramCommands
                     });
                 return MuzRequestType.None;
 
-            // ［枠付きのフローティングボックス］の動作確認
+            // ［フローティングボックス］の動作確認＜その２＞
+            case "hide-start-box":
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: ConsoleColor.Blue,
+                    bgColor: ConsoleColor.Cyan,
+                    onColorChanged: async () =>
+                    {
+                        await MuzBoxViews.PrintAsync(
+                            left: 20,
+                            top: 15,
+                            width: 40,
+                            height: 5);
+                    });
+                return MuzRequestType.None;
+
+            // ［枠付きのフローティングボックス］の動作確認＜その１＞
             case "show-message-box":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
@@ -103,6 +118,21 @@ internal static class ProgramCommands
                             top: 1,
                             width: 80,
                             height: 7);
+                    });
+                return MuzRequestType.None;
+
+            // ［枠付きのフローティングボックス］の動作確認＜その２＞
+            case "show-start-box":
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: ConsoleColor.Blue,
+                    bgColor: ConsoleColor.Cyan,
+                    onColorChanged: async () =>
+                    {
+                        await MuzBoxViews.PrintDoubleBorderAsync(
+                            left: 20,
+                            top: 15,
+                            width: 40,
+                            height: 5);
                     });
                 return MuzRequestType.None;
 

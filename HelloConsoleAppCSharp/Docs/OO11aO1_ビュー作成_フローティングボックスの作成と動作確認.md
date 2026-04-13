@@ -91,7 +91,7 @@ internal static class ProgramCommands
             // ～中略～
             
             
-            // ［フローティングボックス］の動作確認
+            // ［フローティングボックス］の動作確認＜その１＞
             case "hide-message-box":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
@@ -103,6 +103,21 @@ internal static class ProgramCommands
                             top: 1,
                             width: 80,
                             height: 7);
+                    });
+                return MuzRequestType.None;
+
+            // ［フローティングボックス］の動作確認＜その２＞
+            case "hide-start-box":
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: ConsoleColor.Blue,
+                    bgColor: ConsoleColor.Cyan,
+                    onColorChanged: async () =>
+                    {
+                        await MuzBoxViews.PrintAsync(
+                            left: 20,
+                            top: 15,
+                            width: 40,
+                            height: 5);
                     });
                 return MuzRequestType.None;
             
@@ -118,4 +133,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `hide-message-box` と入力すると、［矩形］が塗りつぶされます。  
+これで、このコンソール・アプリケーションを起動し、 `hide-message-box` や `hide-start-box` と入力すると、［矩形］が塗りつぶされます。  

@@ -142,7 +142,7 @@ internal static class ProgramCommands
             // ～中略～
             
             
-            // ［枠付きのフローティングボックス］の動作確認
+            // ［枠付きのフローティングボックス］の動作確認＜その１＞
             case "show-message-box":
                 await MuzConsoleHelper.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
@@ -154,6 +154,21 @@ internal static class ProgramCommands
                             top: 1,
                             width: 80,
                             height: 7);
+                    });
+                return MuzRequestType.None;
+
+            // ［枠付きのフローティングボックス］の動作確認＜その２＞
+            case "show-start-box":
+                await MuzConsoleHelper.SetColorAsync(
+                    fgColor: ConsoleColor.Blue,
+                    bgColor: ConsoleColor.Cyan,
+                    onColorChanged: async () =>
+                    {
+                        await MuzBoxViews.PrintDoubleBorderAsync(
+                            left: 20,
+                            top: 15,
+                            width: 40,
+                            height: 5);
                     });
                 return MuzRequestType.None;
             
@@ -169,4 +184,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `double-boarder-floating-box-warmup` と入力すると、［枠付きのフローティングボックス］が描画されます。  
+これで、このコンソール・アプリケーションを起動し、 `double-boarder-floating-box-warmup` や `show-start-box` と入力すると、［枠付きのフローティングボックス］が描画されます。  
