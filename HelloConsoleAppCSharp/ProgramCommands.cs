@@ -131,7 +131,7 @@ internal static class ProgramCommands
                 return MuzRequestType.None;
 
             // ［アプリケーション起動からの経過時間を表示する］の練習
-            case "show-erapsed-time": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
+            case "show-erapsed-time": return await MuzShowErapsedTimeCommand.ExecuteAsync(pgContext);
 
             // ［タイトル風ページ］の描画練習
             case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);

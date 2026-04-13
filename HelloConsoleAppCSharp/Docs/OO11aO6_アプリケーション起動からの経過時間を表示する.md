@@ -10,8 +10,8 @@
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Commands
-|   +-- 📁 LaunchTimerWarmup
-|       +-- 📄 MuzLaunchTimerWarmupCommand.cs
+|   +-- 📁 ShowErapsedTime
+|       +-- 📄 MuzShowErapsedTimeCommand.cs
 +-- 📁 Views
     +-- 📄 MuzWidgets.cs
 ```
@@ -58,7 +58,7 @@ internal static class MuzWidgets
 
 ## コマンドの作成
 
-📄 `Commands/LaunchTimerWarmup/MuzLaunchTimerWarmupCommand.cs`:  
+📄 `Commands/ShowErapsedTime/MuzShowErapsedTimeCommand.cs`:  
 
 ```csharp
 namespace HelloConsoleAppCSharp.Commands.LaunchTimer;
@@ -67,7 +67,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 using System;
 
-internal static class MuzLaunchTimerWarmupCommand
+internal static class MuzShowErapsedTimeCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         ProgramContext pgContext)
@@ -76,7 +76,7 @@ internal static class MuzLaunchTimerWarmupCommand
         //
         //      無限ループの抜け方を説明しておきましょう。
         //
-        Console.WriteLine("［エスケープキー］押下で点滅を終了するぜ（＾～＾）...");
+        Console.WriteLine("［エスケープキー］押下で時間経過表示を終了するぜ（＾～＾）...");
         while (true)  // 無限ループ。
         {
             // アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
@@ -144,7 +144,7 @@ internal static class ProgramCommands
             
             
             // ［アプリケーション起動からの経過時間を表示する］の練習
-            case "show-erapsed-time": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
+            case "show-erapsed-time": return await MuzShowErapsedTimeCommand.ExecuteAsync(pgContext);
             
             
             // ～中略～

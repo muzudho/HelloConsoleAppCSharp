@@ -5,7 +5,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 using System;
 
-internal static class MuzLaunchTimerWarmupCommand
+internal static class MuzShowErapsedTimeCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         ProgramContext pgContext)
@@ -14,7 +14,7 @@ internal static class MuzLaunchTimerWarmupCommand
         //
         //      無限ループの抜け方を説明しておきましょう。
         //
-        Console.WriteLine("［エスケープキー］押下で点滅を終了するぜ（＾～＾）...");
+        Console.WriteLine("［エスケープキー］押下で時間経過表示を終了するぜ（＾～＾）...");
         while (true)  // 無限ループ。
         {
             // 色替え

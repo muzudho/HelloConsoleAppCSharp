@@ -10,8 +10,8 @@
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Commands
-|   +-- 📁 LaunchTimerWarmup
-|       +-- 📄 MuzLaunchTimerWarmupCommand.cs
+|   +-- 📁 ShowErapsedTime
+|       +-- 📄 MuzShowErapsedTimeCommand.cs
 +-- 📁 Infrastructure
     +-- 📁 Scheduler
         +-- 📄 MuzTimer.cs
