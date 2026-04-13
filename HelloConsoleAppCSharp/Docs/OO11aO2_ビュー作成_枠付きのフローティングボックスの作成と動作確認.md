@@ -145,15 +145,15 @@ internal static class ProgramCommands
             // ［枠付きのフローティングボックス］の動作確認
             case "double-boarder-floating-box-warmup":
                 await MuzConsoleHelper.SetColorAsync(
-                    fgColor: ConsoleColor.White,
-                    bgColor: ConsoleColor.Green,
+                    fgColor: ConsoleColor.Blue,
+                    bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
                     {
                         await MuzBoxViews.PrintDoubleBorderAsync(
-                            left: 20 - 1,
-                            top: 5 - 1,
-                            width: 60 + 2,
-                            height: 2 + 2);
+                            left: 1 - 1,
+                            top: 2 - 1,
+                            width: 78 + 2,
+                            height: 5 + 2);
                     });
                 return MuzRequestType.None;
             

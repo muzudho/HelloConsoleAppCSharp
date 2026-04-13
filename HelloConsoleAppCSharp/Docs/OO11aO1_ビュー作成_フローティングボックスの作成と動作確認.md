@@ -94,15 +94,15 @@ internal static class ProgramCommands
             // ［フローティングボックス］の動作確認
             case "floating-box-warmup":
                 await MuzConsoleHelper.SetColorAsync(
-                    fgColor: ConsoleColor.White,
-                    bgColor: ConsoleColor.Green,
+                    fgColor: ConsoleColor.Blue,
+                    bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
                     {
                         await MuzBoxViews.PrintAsync(
-                            left: 20,
-                            top: 5,
-                            width: 60,
-                            height: 2);
+                            left: 1,
+                            top: 2,
+                            width: 78,
+                            height: 5);
                     });
                 return MuzRequestType.None;
             
