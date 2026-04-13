@@ -1,18 +1,17 @@
 # タイマー作成の基本
 
 コンソール・アプリケーションの利用を開始してから、何秒経過したかを画面に表示してみましょう。  
-このようなタイマーは、後々、役に立ちます。  
 
 
-## フォルダーと空ファイルの作成
+## フォルダーとファイルの構成
 
 以下のフォルダーと空ファイルを用意してください。  
 
 ```plaintext
 📁 HelloConsoleAppCSharp
 +-- 📁 Commands
-|   +-- 📁 TitlePageWarmup
-|       +-- 📄 MuzTitlePageWarmupCommand.cs        # 既存ファイル
+|   +-- 📁 LaunchTimerWarmup
+|       +-- 📄 MuzLaunchTimerWarmupCommand.cs
 +-- 📁 Infrastructure
     +-- 📁 Scheduler
         +-- 📄 MuzTimer.cs

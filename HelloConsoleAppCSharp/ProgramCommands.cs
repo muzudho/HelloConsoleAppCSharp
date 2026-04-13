@@ -4,6 +4,7 @@ using HelloConsoleAppCSharp.Commands.BlinkLabelWarmup;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
+using HelloConsoleAppCSharp.Commands.LaunchTimer;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
@@ -128,6 +129,9 @@ internal static class ProgramCommands
                     wallColor: ConsoleColor.Cyan);
                 Console.SetCursorPosition(0, wallHeight);   // 改行
                 return MuzRequestType.None;
+
+            // ［タイマー］作成の準備運動
+            case "launch-timer-warmup": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
 
             // ［タイトル風ページ］の描画練習
             case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);
