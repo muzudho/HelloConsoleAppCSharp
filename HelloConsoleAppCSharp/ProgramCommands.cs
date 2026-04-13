@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp;
 
-using HelloConsoleAppCSharp.Commands.BlinkLabelWarmup;
+using HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
@@ -155,7 +155,7 @@ internal static class ProgramCommands
             case "show-start-vertical-list": return await MuzShowStartVerticalList.ExecuteAsync(pgContext);
 
             // ［点滅ラベル］の動作確認
-            case "blink-label-warmup": return await MuzBlinkLabelWarmupCommand.ExecuteAsync();
+            case "select-start-warmup": return await MuzSelectStartWarmupCommand.ExecuteAsync();
 
             // ［壁面の塗り潰し］の動作確認
             case "show-wall":

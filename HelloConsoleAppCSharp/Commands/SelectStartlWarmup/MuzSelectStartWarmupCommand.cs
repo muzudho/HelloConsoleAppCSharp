@@ -1,10 +1,10 @@
-﻿namespace HelloConsoleAppCSharp.Commands.BlinkLabelWarmup;
+﻿namespace HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 
-internal class MuzBlinkLabelWarmupCommand
+internal class MuzSelectStartWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {
@@ -17,17 +17,17 @@ internal class MuzBlinkLabelWarmupCommand
         {
             // ラベルの表示
             await MuzConsoleHelper.BlinkAsync(
-                fgColor1: ConsoleColor.White,
-                bgColor1: ConsoleColor.Green,
-                fgColor2: ConsoleColor.Green,   // 色の反転
-                bgColor2: ConsoleColor.White,
+                fgColor1: ConsoleColor.Black,
+                bgColor1: ConsoleColor.Cyan,
+                fgColor2: ConsoleColor.White,   // ２番目の色
+                bgColor2: ConsoleColor.Blue,
                 isColor2: (DateTime.Now.Millisecond / 500) % 2 == 0, // 0.5秒ごとに色切替
                 onColorChanged: async () =>
                 {
                     await MuzLabelViews.PrintAsync(
-                        left: 20,
-                        top: 5,
-                        text: "点滅ラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
+                        left: 38,
+                        top: 16,
+                        text: "開始");
                 });
 
             // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
