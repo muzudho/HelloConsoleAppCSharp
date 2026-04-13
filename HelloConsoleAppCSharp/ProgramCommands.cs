@@ -130,7 +130,7 @@ internal static class ProgramCommands
                 Console.SetCursorPosition(0, wallHeight);   // 改行
                 return MuzRequestType.None;
 
-            // ［タイマー］作成の準備運動
+            // ［アプリケーション起動からの経過時間を表示する］の練習
             case "launch-timer-warmup": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
 
             // ［タイトル風ページ］の描画練習

@@ -1,4 +1,4 @@
-# タイマー作成の基本
+# アプリケーション起動からの経過時間を表示する
 
 コンソール・アプリケーションの利用を開始してから、何秒経過したかを画面に表示してみましょう。  
 
@@ -143,7 +143,7 @@ internal static class ProgramCommands
             // ～中略～
             
             
-            // ［タイマー］作成の準備運動
+            // ［アプリケーション起動からの経過時間を表示する］の練習
             case "launch-timer-warmup": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
             
             

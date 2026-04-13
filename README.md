@@ -17,7 +17,7 @@
 * 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO2_ビュー作成_フローティングラベルの作成と動作確認.md)
 * 📄 [ビュー作成_点滅ラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO2bO2_ビュー作成_点滅ラベルの作成と動作確認.md)
 * 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11aO3_ビュー作成_壁面の描画と動作確認.md)
-* 📄 [タイマー作成の基本](./HelloConsoleAppCSharp/Docs/OO11aO4_タイマー作成の基本.md)
+* 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/OO11aO4_アプリケーション起動からの経過時間を表示する.md)
 * 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO11aO5_ビュー作成_タイトル画面風の描画と動作確認.md)
 * 📄 [垂直メニュー作成の基本](./HelloConsoleAppCSharp/Docs/OO13_垂直メニュー作成の基本.md)
 * 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO15_［OBSOLETED］ブリンカーの作成と動作確認.md)

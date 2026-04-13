@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.LaunchTimer;
 
+using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 using System;
@@ -16,12 +17,19 @@ internal static class MuzLaunchTimerWarmupCommand
         Console.WriteLine("［エスケープキー］押下で点滅を終了するぜ（＾～＾）...");
         while (true)  // 無限ループ。
         {
-            // アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
-            await MuzWidgets.PrintErapsedTimeAsync(
-                label: "Time ",
-                launchDateTime: pgContext.LaunchDateTime,
-                left: 62,
-                top: 0);
+            // 色替え
+            await MuzConsoleHelper.SetColorAsync(
+                fgColor: ConsoleColor.Blue,
+                bgColor: ConsoleColor.Cyan,
+                onColorChanged: async () =>
+                {
+                    // アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
+                    await MuzWidgets.PrintErapsedTimeAsync(
+                        label: "Time ",
+                        launchDateTime: pgContext.LaunchDateTime,
+                        left: 62,
+                        top: 0);
+                });
 
             // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
             if (!Console.KeyAvailable)
