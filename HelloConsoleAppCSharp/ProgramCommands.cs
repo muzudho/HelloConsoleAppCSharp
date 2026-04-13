@@ -4,9 +4,10 @@ using HelloConsoleAppCSharp.Commands.BlinkLabelWarmup;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
-using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
+using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
+using HelloConsoleAppCSharp.Commands.ShowStartVerticalList;
 using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Controls;
@@ -149,6 +150,9 @@ internal static class ProgramCommands
                             text: "フローティングラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
                     });
                 return MuzRequestType.None;
+
+            // ［垂直の箇条書き］を表示する練習
+            case "show-start-vertical-list": return await MuzShowStartVerticalList.ExecuteAsync(pgContext);
 
             // ［点滅ラベル］の動作確認
             case "blink-label-warmup": return await MuzBlinkLabelWarmupCommand.ExecuteAsync();
