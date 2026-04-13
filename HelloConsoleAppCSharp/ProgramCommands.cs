@@ -4,7 +4,7 @@ using HelloConsoleAppCSharp.Commands.BlinkLabelWarmup;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
-using HelloConsoleAppCSharp.Commands.LaunchTimer;
+using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.TitlePageWarmup;

@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Commands.LaunchTimer;
+﻿namespace HelloConsoleAppCSharp.Commands.ShowErapsedTime;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
