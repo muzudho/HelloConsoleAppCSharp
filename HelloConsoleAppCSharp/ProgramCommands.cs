@@ -121,7 +121,7 @@ internal static class ProgramCommands
             case "blink-label-warmup": return await MuzBlinkLabelWarmupCommand.ExecuteAsync();
 
             // ［壁面の塗り潰し］の動作確認
-            case "wall-warmup":
+            case "show-wall":
                 int wallHeight = 25;
                 await MuzWallViews.PrintAsync(
                     wallWidth: 80,
@@ -131,7 +131,7 @@ internal static class ProgramCommands
                 return MuzRequestType.None;
 
             // ［アプリケーション起動からの経過時間を表示する］の練習
-            case "launch-timer-warmup": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
+            case "show-erapsed-time": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
 
             // ［タイトル風ページ］の描画練習
             case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);

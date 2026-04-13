@@ -144,7 +144,7 @@ internal static class ProgramCommands
             
             
             // ［アプリケーション起動からの経過時間を表示する］の練習
-            case "launch-timer-warmup": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
+            case "show-erapsed-time": return await MuzLaunchTimerWarmupCommand.ExecuteAsync(pgContext);
             
             
             // ～中略～
@@ -158,4 +158,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `launch-timer-warmup` と入力すると、［タイマー］の動作確認ができます。  
+これで、このコンソール・アプリケーションを起動し、 `show-erapsed-time` と入力すると、［タイマー］の動作確認ができます。  

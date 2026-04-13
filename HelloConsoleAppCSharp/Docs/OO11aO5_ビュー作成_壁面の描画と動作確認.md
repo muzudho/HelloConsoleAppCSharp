@@ -135,7 +135,7 @@ internal static class ProgramCommands
             
             
             // ［壁面の塗り潰し］の動作確認
-            case "wall-warmup":
+            case "show-wall":
                 int wallHeight = 25;
                 await MuzWallViews.PrintAsync(
                     wallWidth: 80,
@@ -156,4 +156,4 @@ internal static class ProgramCommands
 }
 ```
 
-これで、このコンソール・アプリケーションを起動し、 `wall-warmup` と入力すると、［壁面］が塗りつぶされます。  
+これで、このコンソール・アプリケーションを起動し、 `show-wall` と入力すると、［壁面］が塗りつぶされます。  
