@@ -86,13 +86,13 @@ internal static class ProgramCommands
             // ［フローティングラベル］の動作確認
             case "floating-label-warmup":
                 await MuzConsoleHelper.SetColorAsync(
-                    fgColor: ConsoleColor.White,
-                    bgColor: ConsoleColor.Green,
+                    fgColor: ConsoleColor.Black,
+                    bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
                     {
                         await MuzLabelViews.PrintAsync(
-                            left: 20,
-                            top: 5,
+                            left: 1,
+                            top: 2,
                             text: "フローティングラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
                     });
                 return MuzRequestType.None;
