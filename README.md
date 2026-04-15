@@ -80,7 +80,7 @@ select-start-warmup
 cursor-increment-warmup
 ```
 
-👆 📄[カーソルキーとインクリメントと動作確認](./HelloConsoleAppCSharp/Docs/OO17A2_カーソルキーとインクリメントと動作確認.md)  
+👆 📄[カーソルキーとインクリメントと動作確認](./HelloConsoleAppCSharp/Docs/OO17A1_カーソルキーとインクリメントと動作確認.md)  
 
 
 ```shell
@@ -101,7 +101,7 @@ show-erapsed-time
 cursor-warmup
 ```
 
-👆（これは作りかけ） 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17_カーソルの作成と動作確認.md)
+👆（これは作りかけ） 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17A2_カーソルの作成と動作確認.md)
 
 
 ```shell
