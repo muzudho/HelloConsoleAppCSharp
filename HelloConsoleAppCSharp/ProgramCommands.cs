@@ -1,11 +1,12 @@
 ﻿namespace HelloConsoleAppCSharp;
 
-using HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
+using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 using HelloConsoleAppCSharp.Commands.CursorWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
+using HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
 using HelloConsoleAppCSharp.Commands.ShowStartVerticalList;
 using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
@@ -156,6 +157,9 @@ internal static class ProgramCommands
 
             // ［点滅ラベル］の動作確認
             case "select-start-warmup": return await MuzSelectStartWarmupCommand.ExecuteAsync();
+
+            // ［カーソルとインクリメント］の動作確認
+            case "cursor-increment-warmup": return await MuzCursorIncrementWarmupCommand.ExecuteAsync();
 
             // ［壁面の塗り潰し］の動作確認
             case "show-wall":
