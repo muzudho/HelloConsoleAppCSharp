@@ -11,8 +11,10 @@ internal static class MuzTitlePageWarmupCommand
 
         string[] commandList = [
             "show-wall",
-            "show-message-box",
+            //"show-message-box",
             "show-start-box",
+            "show-title",
+            "show-credit",
         ];
         foreach (var command in commandList)
         {
