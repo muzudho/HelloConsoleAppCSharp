@@ -21,30 +21,56 @@ internal static class MuzCursorWarmupCommand
                 //
                 Console.WriteLine("キー入力待機中。［エンターキー］か、［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
 
-                // カーソルの停止Ｙ位置のリスト
-                int[] stopYList = [16, 18, 20];
-
                 // カーソルの位置を管理するモデル
                 var listCursor = new MuzListCursorModel(
-                    size: stopYList.Length);   // リストの項目数
+                    size: 3);   // リストの項目数
 
 
                 while (true)  // 無限ループ
                 {
                     // 📍 NOTE:
                     //
-                    //      一定間隔で点滅するカーソル（ブリンカー）を表示するぜ（＾～＾）！
+                    //      一定間隔で点滅（ブリンク）するラベルを表示するぜ（＾～＾）！
                     //
-                    await MuzWidgets.PrintBlinkingTextAsync(
-                        text: " ",  // ホワイトスペース
-                        left: 36,
-                        top: stopYList[listCursor.PreviousIndex],
-                        isVisible: false);  // 常にホワイトスペースを表示
-                    await MuzWidgets.PrintBlinkingTextAsync(
-                        text: "▶",  // 右向きの三角形は、半角のようだ。
-                        left: 36,
-                        top: stopYList[listCursor.SelectedIndex],
-                        isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
+                    await MuzConsoleHelper.BlinkAsync(
+                        fgColor1: ConsoleColor.Black,
+                        bgColor1: ConsoleColor.Cyan,
+                        fgColor2: ConsoleColor.White,   // ２番目の色
+                        bgColor2: ConsoleColor.Blue,
+                        isColor2: listCursor.SelectedIndex == 0 && (DateTime.Now.Millisecond / 500) % 2 == 0, // 選択されていれば、0.5秒ごとに［２番目の色］に切替
+                        onColorChanged: async () =>
+                        {
+                            await MuzLabelViews.PrintAsync(
+                                left: 38,
+                                top: 16,
+                                text: "開始");
+                        });
+                    await MuzConsoleHelper.BlinkAsync(
+                        fgColor1: ConsoleColor.Black,
+                        bgColor1: ConsoleColor.Cyan,
+                        fgColor2: ConsoleColor.White,   // ２番目の色
+                        bgColor2: ConsoleColor.Blue,
+                        isColor2: listCursor.SelectedIndex == 1 && (DateTime.Now.Millisecond / 500) % 2 == 0,
+                        onColorChanged: async () =>
+                        {
+                            await MuzLabelViews.PrintAsync(
+                                left: 38,
+                                top: 17,
+                                text: "設定");
+                        });
+                    await MuzConsoleHelper.BlinkAsync(
+                        fgColor1: ConsoleColor.Black,
+                        bgColor1: ConsoleColor.Cyan,
+                        fgColor2: ConsoleColor.White,   // ２番目の色
+                        bgColor2: ConsoleColor.Blue,
+                        isColor2: listCursor.SelectedIndex == 2 && (DateTime.Now.Millisecond / 500) % 2 == 0,
+                        onColorChanged: async () =>
+                        {
+                            await MuzLabelViews.PrintAsync(
+                                left: 38,
+                                top: 18,
+                                text: "終了");
+                        });
 
                     // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
                     if (!Console.KeyAvailable)
