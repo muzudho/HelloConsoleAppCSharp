@@ -84,6 +84,13 @@ cursor-increment-warmup
 
 
 ```shell
+show-start-menu
+```
+
+👆 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17A2_メニューの作成と動作確認.md)
+
+
+```shell
 show-wall
 ```
 
@@ -95,13 +102,6 @@ show-erapsed-time
 ```
 
 👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/OO11A7_アプリケーション起動からの経過時間を表示する.md)  
-
-
-```shell
-cursor-warmup
-```
-
-👆（これは作りかけ） 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17A2_カーソルの作成と動作確認.md)
 
 
 ```shell

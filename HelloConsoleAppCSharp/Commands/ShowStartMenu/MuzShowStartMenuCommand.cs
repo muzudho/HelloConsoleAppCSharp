@@ -1,11 +1,11 @@
-﻿namespace HelloConsoleAppCSharp.Commands.CursorWarmup;
+﻿namespace HelloConsoleAppCSharp.Commands.ShowStartMenu;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.Models;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 
-internal static class MuzCursorWarmupCommand
+internal static class MuzShowStartMenuCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {

@@ -2,7 +2,7 @@
 
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
-using HelloConsoleAppCSharp.Commands.CursorWarmup;
+using HelloConsoleAppCSharp.Commands.ShowStartMenu;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
@@ -161,6 +161,9 @@ internal static class ProgramCommands
             // ［カーソルとインクリメント］の動作確認
             case "cursor-increment-warmup": return await MuzCursorIncrementWarmupCommand.ExecuteAsync();
 
+            // ［メニュー］の動作確認
+            case "show-start-menu": return await MuzShowStartMenuCommand.ExecuteAsync();
+
             // ［壁面の塗り潰し］の動作確認
             case "show-wall":
                 int wallHeight = 25;
@@ -176,9 +179,6 @@ internal static class ProgramCommands
 
             // ［タイトル風ページ］の描画練習
             case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);
-
-            // ［カーソル］の動作確認
-            case "cursor-warmup": return await MuzCursorWarmupCommand.ExecuteAsync();
 
             // ［メニュー］の動作確認
             case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync(pgContext);

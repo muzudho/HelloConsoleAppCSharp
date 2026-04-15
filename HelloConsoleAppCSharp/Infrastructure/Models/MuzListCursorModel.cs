@@ -28,7 +28,7 @@ internal class MuzListCursorModel
         this.SelectedIndex += offset;
 
         // 終わりを超えたら、始まりに戻します。
-        if (this.SelectedIndex > this.Size)
+        if (this.SelectedIndex >= this.Size)
         {
             this.SelectedIndex = 0;
         }
