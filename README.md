@@ -40,63 +40,74 @@ command command hello
 
 
 ```shell
+hide-message-box
+hide-start-box
 ```
 
-* 📄 [ビュー作成_フローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A1_ビュー作成_フローティングボックスの作成と動作確認.md)
+👆 📄 [ビュー作成_フローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A1_ビュー作成_フローティングボックスの作成と動作確認.md)  
+
+
+```shell
+show-message-box
+show-start-box
+```
+
+👆 📄 [ビュー作成_枠付きのフローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A2_ビュー作成_枠付きのフローティングボックスの作成と動作確認.md)  
+
+
+```shell
+floating-label-warmup
+```
+
+👆 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A3_ビュー作成_フローティングラベルの作成と動作確認.md)  
+
+
+```shell
+show-start-vertical-list
+```
+
+👆 📄 [箇条書き（垂直）作成の基本](./HelloConsoleAppCSharp/Docs/OO11A4_箇条書き（垂直）作成の基本.md)  
+
+
+```shell
+select-start-warmup
+```
+
+👆 📄 [ビュー作成_点滅ラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A5_ビュー作成_点滅ラベルの作成と動作確認.md)  
+
+
+```shell
+show-wall
+```
+
+👆 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11A6_ビュー作成_壁面の描画と動作確認.md)
+
+
+```shell
+show-erapsed-time
+```
+
+👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/OO11A7_アプリケーション起動からの経過時間を表示する.md)  
+
+
+```shell
+title-page-warmup
+```
+
+👆（これは作りかけ） 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO11A8_ビュー作成_タイトル画面風の描画と動作確認.md)
 
 
 ```shell
 ```
 
-* 📄 [ビュー作成_枠付きのフローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A2_ビュー作成_枠付きのフローティングボックスの作成と動作確認.md)
+👆（これは作りかけ） 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO15_［OBSOLETED］ブリンカーの作成と動作確認.md)
 
 
 ```shell
+cursor-warmup
 ```
 
-* 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A3_ビュー作成_フローティングラベルの作成と動作確認.md)
-
-
-```shell
-```
-
-* 📄 [箇条書き（垂直）作成の基本](./HelloConsoleAppCSharp/Docs/OO11A4_箇条書き（垂直）作成の基本.md)
-
-
-```shell
-```
-
-* 📄 [ビュー作成_点滅ラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A5_ビュー作成_点滅ラベルの作成と動作確認.md)
-
-
-```shell
-```
-
-* 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11A6_ビュー作成_壁面の描画と動作確認.md)
-
-
-```shell
-```
-
-* 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/OO11A7_アプリケーション起動からの経過時間を表示する.md)
-
-
-```shell
-```
-
-* 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO11A8_ビュー作成_タイトル画面風の描画と動作確認.md)
-
-
-```shell
-```
-
-* 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO15_［OBSOLETED］ブリンカーの作成と動作確認.md)
-
-
-```shell
-```
-
-* 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17_カーソルの作成と動作確認.md)
+👆（これは作りかけ） 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17_カーソルの作成と動作確認.md)
 
 
 ```shell
