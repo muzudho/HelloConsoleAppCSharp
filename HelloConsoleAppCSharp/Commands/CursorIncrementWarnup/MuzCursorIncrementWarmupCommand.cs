@@ -20,10 +20,9 @@ internal static class MuzCursorIncrementWarmupCommand
                 //
                 Console.WriteLine("キー入力待機中。［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
 
-                var listCursor = new MuzListCursorModel();
-
-                // カーソルの停止Ｙ位置のリスト
-                int[] stopYList = [16, 18, 20];
+                // カーソルの位置を管理するモデル
+                var listCursor = new MuzListCursorModel(
+                    size: 3);   // リストの項目数
 
                 while (true)  // 無限ループ
                 {
@@ -57,24 +56,14 @@ internal static class MuzCursorIncrementWarmupCommand
 
                     if (key.Key == ConsoleKey.UpArrow)
                     {
-                        listCursor.PreviousIndex = listCursor.SelectedIndex;
-                        listCursor.SelectedIndex--;
-                        if (listCursor.SelectedIndex < 0)
-                        {
-                            listCursor.SelectedIndex = stopYList.Length - 1;
-                        }
+                        listCursor.Add(-1);
                         Console.WriteLine($"［↑］キーを押したぜ（＾～＾）数は {listCursor.SelectedIndex} になった（＾～＾）");
                         continue;
                     }
 
                     if (key.Key == ConsoleKey.DownArrow)
                     {
-                        listCursor.PreviousIndex = listCursor.SelectedIndex;
-                        listCursor.SelectedIndex++;
-                        if (listCursor.SelectedIndex >= stopYList.Length)
-                        {
-                            listCursor.SelectedIndex = 0;
-                        }
+                        listCursor.Add(1);
                         Console.WriteLine($"［↓］キーを押したぜ（＾～＾）数は {listCursor.SelectedIndex} になった（＾～＾）");
                         continue;
                     }
