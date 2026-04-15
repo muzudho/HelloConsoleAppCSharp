@@ -1,6 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Infrastructure.Models;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzCursorIncrementWarmupCommand
@@ -19,9 +20,9 @@ internal static class MuzCursorIncrementWarmupCommand
                 //
                 Console.WriteLine("キー入力待機中。［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
 
-                int previousIndex = 0;   // カーソルの前回位置
-                int selectedIndex = 0;    // カーソルの現在位置
-                                          // カーソルの停止Ｙ位置のリスト
+                var listCursor = new MuzListCursorModel();
+
+                // カーソルの停止Ｙ位置のリスト
                 int[] stopYList = [16, 18, 20];
 
                 while (true)  // 無限ループ
@@ -56,25 +57,25 @@ internal static class MuzCursorIncrementWarmupCommand
 
                     if (key.Key == ConsoleKey.UpArrow)
                     {
-                        previousIndex = selectedIndex;
-                        selectedIndex--;
-                        if (selectedIndex < 0)
+                        listCursor.PreviousIndex = listCursor.SelectedIndex;
+                        listCursor.SelectedIndex--;
+                        if (listCursor.SelectedIndex < 0)
                         {
-                            selectedIndex = stopYList.Length - 1;
+                            listCursor.SelectedIndex = stopYList.Length - 1;
                         }
-                        Console.WriteLine($"［↑］キーを押したぜ（＾～＾）数は {selectedIndex} になった（＾～＾）");
+                        Console.WriteLine($"［↑］キーを押したぜ（＾～＾）数は {listCursor.SelectedIndex} になった（＾～＾）");
                         continue;
                     }
 
                     if (key.Key == ConsoleKey.DownArrow)
                     {
-                        previousIndex = selectedIndex;
-                        selectedIndex++;
-                        if (selectedIndex >= stopYList.Length)
+                        listCursor.PreviousIndex = listCursor.SelectedIndex;
+                        listCursor.SelectedIndex++;
+                        if (listCursor.SelectedIndex >= stopYList.Length)
                         {
-                            selectedIndex = 0;
+                            listCursor.SelectedIndex = 0;
                         }
-                        Console.WriteLine($"［↓］キーを押したぜ（＾～＾）数は {selectedIndex} になった（＾～＾）");
+                        Console.WriteLine($"［↓］キーを押したぜ（＾～＾）数は {listCursor.SelectedIndex} になった（＾～＾）");
                         continue;
                     }
 
