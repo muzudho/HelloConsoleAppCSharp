@@ -105,13 +105,6 @@ show-erapsed-time
 
 
 ```shell
-menu-warmup
-```
-
-👆 📄 [メニュー作成と動作確認](./HelloConsoleAppCSharp/Docs/OO18_メニュー作成と動作確認.md)  
-
-
-```shell
 typewriter-effect-warmup
 ```
 

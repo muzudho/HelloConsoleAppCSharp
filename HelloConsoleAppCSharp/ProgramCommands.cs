@@ -2,12 +2,11 @@
 
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
-using HelloConsoleAppCSharp.Commands.ShowStartMenu;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
-using HelloConsoleAppCSharp.Commands.MenuWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
+using HelloConsoleAppCSharp.Commands.ShowStartMenu;
 using HelloConsoleAppCSharp.Commands.ShowStartVerticalList;
 using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
@@ -179,9 +178,6 @@ internal static class ProgramCommands
 
             // ［タイトル風ページ］の描画練習
             case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);
-
-            // ［メニュー］の動作確認
-            case "menu-warmup": return await MuzMenuWarmupCommand.ExecuteAsync(pgContext);
 
             // ［タイプライター効果］の動作確認
             case "typewriter-effect-warmup":
