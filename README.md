@@ -91,19 +91,6 @@ show-erapsed-time
 
 
 ```shell
-title-page-warmup
-```
-
-👆（これは作りかけ） 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO11A8_ビュー作成_タイトル画面風の描画と動作確認.md)
-
-
-```shell
-```
-
-👆（これは作りかけ） 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO15_［OBSOLETED］ブリンカーの作成と動作確認.md)
-
-
-```shell
 cursor-warmup
 ```
 
@@ -136,6 +123,20 @@ message-box-warmup
 ```
 
 👆 📄 [メッセージボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO21_メッセージボックスの作成と動作確認.md)  
+
+
+```shell
+title-page-warmup
+```
+
+👆（これは作りかけ） 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO99A2_ビュー作成_タイトル画面風の描画と動作確認.md)
+
+
+
+```shell
+```
+
+👆（これは廃止予定） 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO99A3_［OBSOLETED］ブリンカーの作成と動作確認.md)
 
 
 TODO: 以降の予定： 古いタイマーの見直し、垂直メニューのサンプルの作り直し、古いブリンカーの見直し、画面遷移、  
