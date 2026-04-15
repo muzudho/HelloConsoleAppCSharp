@@ -15,6 +15,16 @@ internal enum MuzRequestType
 internal static class MuzREPL
 {
     /// <summary>
+    ///     <pre>
+    /// キー入力のポーリング間隔（ミリ秒）
+    /// 
+    ///     - キー入力待ちでブロックしてしまわないよう、CPU に処理を返すのに使う。
+    ///     - １／６０秒（約16.67ミリ秒）の２倍にしてある（＾～＾）
+    ///     </pre>
+    /// </summary>
+    public const int KeyInputPollingIntervalMilliseconds = 8;
+
+    /// <summary>
     /// プロンプトを表示するか。
     /// </summary>
     public static bool IsPromptVisible { get; set; } = true;

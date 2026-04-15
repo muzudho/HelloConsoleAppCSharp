@@ -2,6 +2,7 @@
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.Models;
+using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 
 internal class MuzStartMenuControl
@@ -68,7 +69,7 @@ internal class MuzStartMenuControl
             // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
             if (!Console.KeyAvailable)
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(16));    // およそ１／６０秒で画面更新（＾～＾）
+                Thread.Sleep(MuzREPL.KeyInputPollingIntervalMilliseconds);
                 continue;
             }
 

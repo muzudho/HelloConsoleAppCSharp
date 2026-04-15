@@ -33,8 +33,7 @@ internal class MuzSelectStartWarmupCommand
             // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
             if (!Console.KeyAvailable)
             {
-                // およそ１／６０秒後にループの先頭に戻るぜ（＾～＾）
-                Thread.Sleep(TimeSpan.FromMilliseconds(16));
+                Thread.Sleep(MuzREPL.KeyInputPollingIntervalMilliseconds);
                 continue;
             }
 
