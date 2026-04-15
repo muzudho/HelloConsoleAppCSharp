@@ -1,6 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.CursorWarmup;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Infrastructure.Models;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 
@@ -20,10 +21,13 @@ internal static class MuzCursorWarmupCommand
                 //
                 Console.WriteLine("キー入力待機中。［エンターキー］か、［エスケープキー］押下でループを抜けるぜ（＾～＾）...");
 
-                int previousIndex = 0;   // カーソルの前回位置
-                int selectedIndex = 0;    // カーソルの現在位置
-                                          // カーソルの停止Ｙ位置のリスト
+                // カーソルの停止Ｙ位置のリスト
                 int[] stopYList = [16, 18, 20];
+
+                // カーソルの位置を管理するモデル
+                var listCursor = new MuzListCursorModel(
+                    size: stopYList.Length);   // リストの項目数
+
 
                 while (true)  // 無限ループ
                 {
@@ -34,12 +38,12 @@ internal static class MuzCursorWarmupCommand
                     await MuzWidgets.PrintBlinkingTextAsync(
                         text: " ",  // ホワイトスペース
                         left: 36,
-                        top: stopYList[previousIndex],
+                        top: stopYList[listCursor.PreviousIndex],
                         isVisible: false);  // 常にホワイトスペースを表示
                     await MuzWidgets.PrintBlinkingTextAsync(
                         text: "▶",  // 右向きの三角形は、半角のようだ。
                         left: 36,
-                        top: stopYList[selectedIndex],
+                        top: stopYList[listCursor.SelectedIndex],
                         isVisible: (DateTime.Now.Millisecond / 500) % 2 == 0); // 0.5秒ごとに点滅
 
                     // キー入力がない場合は、少し待ってからループの先頭に戻るぜ（＾～＾）！
@@ -80,24 +84,14 @@ internal static class MuzCursorWarmupCommand
                     if (key.Key == ConsoleKey.UpArrow)
                     {
                         Console.WriteLine($"［↑］キーを押したぜ（＾～＾）");
-                        previousIndex = selectedIndex;
-                        selectedIndex--;
-                        if (selectedIndex < 0)
-                        {
-                            selectedIndex = stopYList.Length - 1;
-                        }
+                        listCursor.Add(-1);  // カーソル位置を上に移動
                         continue;
                     }
 
                     if (key.Key == ConsoleKey.DownArrow)
                     {
                         Console.WriteLine($"［↓］キーを押したぜ（＾～＾）");
-                        previousIndex = selectedIndex;
-                        selectedIndex++;
-                        if (selectedIndex >= stopYList.Length)
-                        {
-                            selectedIndex = 0;
-                        }
+                        listCursor.Add(1);   // カーソル位置を下に移動
                         continue;
                     }
 
