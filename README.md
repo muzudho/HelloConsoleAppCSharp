@@ -57,6 +57,8 @@ show-start-box
 
 ```shell
 floating-label-warmup
+show-title
+show-credit
 ```
 
 👆 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A3_ビュー作成_フローティングラベルの作成と動作確認.md)  
