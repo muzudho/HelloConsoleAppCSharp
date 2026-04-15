@@ -1,34 +1,47 @@
 # Ｃ＃コンソール・アプリ作成サンプル
 
-* 📄 [はじめに](./HelloConsoleAppCSharp/Docs/O1_はじめに.md)
-* 📄 [ソリューション一式の作成](./HelloConsoleAppCSharp/Docs/O2_ソリューション一式の作成.md)
-* 📄 [アプリの汎用ホスト化手順をカプセル化](./HelloConsoleAppCSharp/Docs/O3_アプリの汎用ホスト化手順をカプセル化.md)
-* 📄 [アプリケーション設定ファイルの準備](./HelloConsoleAppCSharp/Docs/O4_アプリケーション設定ファイルの準備.md)
-* 📄 [ロギングの準備](./HelloConsoleAppCSharp/Docs/O5_ロギングの準備.md)
-* 📄 [ロギングの準備（複数のロガーの使い分け）](./HelloConsoleAppCSharp/Docs/O6_ロギングの準備（複数のロガーの使い分け）.md)
-* 📄 [アサートの準備](./HelloConsoleAppCSharp/Docs/O7_アサートの準備.md)
-* 📄 [ユニットテストの準備](./HelloConsoleAppCSharp/Docs/O8_ユニットテストの準備.md)
+
+
+## 第１章：　インフラストラクチャーの作成
+
+* 📄 [はじめに](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O1_はじめに.md)
+* 📄 [ソリューション一式の作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O2_ソリューション一式の作成.md)
+* 📄 [アプリの汎用ホスト化手順をカプセル化](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O3_アプリの汎用ホスト化手順をカプセル化.md)
+* 📄 [アプリケーション設定ファイルの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O4_アプリケーション設定ファイルの準備.md)
+* 📄 [ロギングの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O5_ロギングの準備.md)
+* 📄 [ロギングの準備（複数のロガーの使い分け）](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O6_ロギングの準備（複数のロガーの使い分け）.md)
+* 📄 [アサートの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O7_アサートの準備.md)
+* 📄 [ユニットテストの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O8_ユニットテストの準備.md)
 
 
 ```shell
 hello
 ```
 
-👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/O9_リプルの作成.md)  
+👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O9_リプルの作成.md)  
 
+
+## 第２章：　タイトル画面作成
 
 ```shell
 print-warmup
 ```
 
-👆 📄 [コンソール出力の動作確認](./HelloConsoleAppCSharp/Docs/OO10A1_コンソール出力の動作確認.md)  
+👆 📄 [コンソール出力の動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O1_コンソール出力の動作確認.md)  
 
 
 ```shell
 key-input-warmup
 ```
 
-👆 📄 [キー入力の作成と動作確認](./HelloConsoleAppCSharp/Docs/OO10A2_キー入力の作成と動作確認.md)  
+👆 📄 [キー入力の作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O2_キー入力の作成と動作確認.md)  
+
+
+```shell
+show-erapsed-time
+```
+
+👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O3_アプリケーション起動からの経過時間を表示する.md)  
 
 
 ```shell
@@ -36,7 +49,7 @@ command hello
 command command hello
 ```
 
-👆 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/OO10A3_コマンドの間接的実行と動作確認.md)  
+👆 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O4_コマンドの間接的実行と動作確認.md)  
 
 
 ```shell
@@ -44,7 +57,7 @@ hide-message-box
 hide-start-box
 ```
 
-👆 📄 [ビュー作成_フローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A1_ビュー作成_フローティングボックスの作成と動作確認.md)  
+👆 📄 [ビュー作成_フローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O5_ビュー作成_フローティングボックスの作成と動作確認.md)  
 
 
 ```shell
@@ -52,7 +65,7 @@ show-message-box
 show-start-box
 ```
 
-👆 📄 [ビュー作成_枠付きのフローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A2_ビュー作成_枠付きのフローティングボックスの作成と動作確認.md)  
+👆 📄 [ビュー作成_枠付きのフローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O6_ビュー作成_枠付きのフローティングボックスの作成と動作確認.md)  
 
 
 ```shell
@@ -61,49 +74,52 @@ show-title
 show-credit
 ```
 
-👆 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A3_ビュー作成_フローティングラベルの作成と動作確認.md)  
+👆 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O7_ビュー作成_フローティングラベルの作成と動作確認.md)  
 
 
 ```shell
 show-start-vertical-list
 ```
 
-👆 📄 [箇条書き（垂直）作成の基本](./HelloConsoleAppCSharp/Docs/OO11A4_箇条書き（垂直）作成の基本.md)  
+👆 📄 [箇条書きの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O8_箇条書きの作成と動作確認.md)  
 
 
 ```shell
 select-start-warmup
 ```
 
-👆 📄 [ビュー作成_点滅ラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO11A5_ビュー作成_点滅ラベルの作成と動作確認.md)  
+👆 📄 [ビュー作成_点滅ラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O9_ビュー作成_点滅ラベルの作成と動作確認.md)  
 
 
 ```shell
 cursor-increment-warmup
 ```
 
-👆 📄[カーソルキーとインクリメントと動作確認](./HelloConsoleAppCSharp/Docs/OO17A1_カーソルキーとインクリメントと動作確認.md)  
+👆 📄[カーソルキーとインクリメントと動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/OO10_カーソルキーとインクリメントと動作確認.md)  
 
 
 ```shell
 show-start-menu
 ```
 
-👆 📄 [カーソルの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO17A2_メニューの作成と動作確認.md)
+👆 📄 [メニューの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/OO11_メニューの作成と動作確認.md)
 
 
 ```shell
 show-wall
 ```
 
-👆 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/OO11A6_ビュー作成_壁面の描画と動作確認.md)
+👆 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/OO12_ビュー作成_壁面の描画と動作確認.md)
 
 
 ```shell
-show-erapsed-time
+title-page-warmup
 ```
 
-👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/OO11A7_アプリケーション起動からの経過時間を表示する.md)  
+👆 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/OO13_ビュー作成_タイトル画面風の描画と動作確認.md)
+
+
+## 作りかけ
 
 
 ```shell
@@ -125,13 +141,6 @@ message-box-warmup
 ```
 
 👆 📄 [メッセージボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO21_メッセージボックスの作成と動作確認.md)  
-
-
-```shell
-title-page-warmup
-```
-
-👆（これは作りかけ） 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/OO99A2_ビュー作成_タイトル画面風の描画と動作確認.md)
 
 
 
