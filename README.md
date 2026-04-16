@@ -21,6 +21,16 @@ hello
 👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O9_リプルの作成.md)  
 
 
+## 第１章第２節：　コンソール操作の練習
+
+この節は作りかけです。先に第２章に進んでください。  
+
+TODO: ［赤い文字を表示しよう］  
+TODO: ［文字に背景色を付けよう］  
+TODO: ［コマンドを間接的に実行してみよう］
+TODO: ［コマンドのチュートリアルを作ろう］
+
+
 ## 第２章：　タイトル画面作成
 
 ```shell
@@ -35,6 +45,13 @@ clear
 ```
 
 👆 📄 [コンソールのクリアー](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O1A1_コンソールのクリアー.md)
+
+
+```shell
+show-wall
+```
+
+👆 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/OO12_ビュー作成_壁面の描画と動作確認.md)
 
 
 ```shell
@@ -110,13 +127,6 @@ show-start-menu
 ```
 
 👆 📄 [メニューの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/OO11_メニューの作成と動作確認.md)
-
-
-```shell
-show-wall
-```
-
-👆 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/OO12_ビュー作成_壁面の描画と動作確認.md)
 
 
 ```shell
