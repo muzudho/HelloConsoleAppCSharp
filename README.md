@@ -23,12 +23,20 @@ hello
 
 ## 第１章第２節：　コンソール操作の練習
 
+
+```shell
+command hello
+command command hello
+```
+
+👆 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O4_コマンドの間接的実行と動作確認.md)  
+
+
 この節は作りかけです。先に第２章に進んでください。  
 
+TODO: ［コマンドのチュートリアルを作ろう］
 TODO: ［赤い文字を表示しよう］  
 TODO: ［文字に背景色を付けよう］  
-TODO: ［コマンドを間接的に実行してみよう］
-TODO: ［コマンドのチュートリアルを作ろう］
 
 
 ## 第２章：　タイトル画面作成
@@ -66,14 +74,6 @@ show-erapsed-time
 ```
 
 👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O3_アプリケーション起動からの経過時間を表示する.md)  
-
-
-```shell
-command hello
-command command hello
-```
-
-👆 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O4_コマンドの間接的実行と動作確認.md)  
 
 
 ```shell
