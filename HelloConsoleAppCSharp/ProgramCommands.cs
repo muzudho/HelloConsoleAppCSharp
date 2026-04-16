@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp;
 
+using HelloConsoleAppCSharp.Commands.Clear;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
@@ -73,6 +74,9 @@ internal static class ProgramCommands
 
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
+
+            // ［コンソール］の文字を消します。
+            case "clear": return await MuzClearCommand.ExecuteAsync();
 
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
