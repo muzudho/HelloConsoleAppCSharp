@@ -31,6 +31,13 @@ print-warmup
 
 
 ```shell
+clear
+```
+
+👆 📄 [コンソールのクリアー](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O1A1_コンソールのクリアー.md)
+
+
+```shell
 key-input-warmup
 ```
 
