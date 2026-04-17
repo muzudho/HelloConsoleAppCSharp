@@ -1,0 +1,49 @@
+﻿namespace HelloConsoleAppCSharp.Commands.Clear;
+
+using HelloConsoleAppCSharp.Infrastructure.REPL;
+using System.Text.Json;
+
+internal static class MuzReadMessagesWarmupCommand
+{
+    internal static async Task<MuzRequestType> ExecuteAsync()
+    {
+        try
+        {
+            // TODO: Messages.json ファイルを読込みます。
+            string filePath = "Assets/Messages.json";  // ← あなたのJSONファイルのパスに変更
+
+            // ファイル全体を文字列として読み込む
+            string jsonString = File.ReadAllText(filePath);
+
+            // Dictionary<string, string> にデシリアライズ
+            Dictionary<string, string>? items = JsonSerializer.Deserialize<Dictionary<string, string>>(jsonString);
+
+            if (items != null)
+            {
+                Console.WriteLine("読み込み成功！アイテム一覧：\n");
+
+                foreach (var item in items)
+                {
+                    Console.WriteLine($"【{item.Key}】");
+                    Console.WriteLine(item.Value);
+                    Console.WriteLine("-------------------");
+                }
+
+                // 特定のアイテムを取り出す例
+                if (items.TryGetValue("水道水", out string? desc))
+                {
+                    Console.WriteLine($"水道水の説明: {desc}");
+                }
+            }
+
+            return MuzRequestType.None;
+        }
+        catch (Exception ex)
+        {
+            // TODO: ログファイル出力したい。
+            Console.WriteLine($"エラー: {ex.Message}");
+            throw;
+        }
+    }
+}
+
