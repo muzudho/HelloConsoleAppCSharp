@@ -39,11 +39,16 @@ change-color-warmup
 👆 📄 [文字色の変更と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O2_文字色の変更と動作確認.md)  
 
 
+```shell
+move-cursor-warmup
+```
+
+👆 📄 [カーソルの移動と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O3_カーソルの移動と動作確認.md)  
+
+
 この節は作りかけです。先に第２章に進んでください。  
 
 TODO: ［コマンドのチュートリアルを作ろう］
-TODO: ［赤い文字を表示しよう］  
-TODO: ［文字に背景色を付けよう］  
 
 
 ## 第２章：　タイトル画面作成

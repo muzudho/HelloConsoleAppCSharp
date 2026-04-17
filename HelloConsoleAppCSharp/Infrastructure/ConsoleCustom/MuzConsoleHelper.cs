@@ -6,7 +6,20 @@
 internal static class MuzConsoleHelper
 {
     /// <summary>
+    ///     <pre>
     /// 前景色、背景色を一時的に変更して、指定された処理を実行します。
+    ///     
+    ///     📍 NOTE:
+    ///     
+    ///         全部で16色あるよ：
+    ///     
+    ///         Black, DarkBlue, DarkGreen, DarkCyan, DarkRed, DarkMagenta, DarkYellow, Gray
+    ///         DarkGray, Blue, Green, Cyan, Red, Magenta, Yellow, White
+    ///     
+    ///         Console.Clear(); を呼ぶと、ウィンドウ全体の背景色も変わる（現在のBackgroundColorが適用される）。
+    ///         ANSIエスケープシーケンス を使えば、真のRGBカラー（24bit）や下線・太字なども使えるようになる。
+    ///     
+    ///     </pre>
     /// </summary>
     /// <param name="onColorChanged">色を変更した後に実行する処理</param>
     /// <param name="fgColor">設定する前景色</param>
