@@ -160,30 +160,33 @@ title-page-warmup
 👆 📄 [タイトル画面風の描画](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/OO11_タイトル画面風の描画.md)
 
 
-## 作りかけ
+## 第４章：図鑑の作成
+
+メニューから項目を選ぶと、メッセージが表示される、という図鑑のようなものを作ってみましょう（＾▽＾）！
 
 
 ```shell
 typewriter-effect-warmup
 ```
 
-👆 📄 [タイプライター効果の作成と動作確認](./HelloConsoleAppCSharp/Docs/OO19_タイプライター効果の作成と動作確認.md)  
+👆 📄 [タイプライター効果の作成](./HelloConsoleAppCSharp/Docs/O1_タイプライター効果の作成.md)  
 
 
 ```shell
 continue-prompt-warmup
 ```
 
-👆 📄 [コンティニュープロンプトの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO20_コンティニュープロンプトの作成と動作確認.md)  
+👆 📄 [コンティニュープロンプトの作成](./HelloConsoleAppCSharp/Docs/O2_コンティニュープロンプトの作成.md)  
 
 
 ```shell
 message-box-warmup
 ```
 
-👆 📄 [メッセージボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO21_メッセージボックスの作成と動作確認.md)  
+👆 📄 [メッセージボックスの作成](./HelloConsoleAppCSharp/Docs/O3_メッセージボックスの作成.md)  
 
 
+## 作りかけ
 
 TODO: 以降の予定： 古いタイマーの見直し、垂直メニューのサンプルの作り直し、古いブリンカーの見直し、画面遷移、  
 JSONファイルを使ったメッセージ管理、など。  
