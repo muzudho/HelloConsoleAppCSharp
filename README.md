@@ -67,6 +67,13 @@ get-console-size
 👆 📄 [コンソールのサイズ取得](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O6_コンソールのサイズ取得.md)  
 
 
+```shell
+show-progress-bar-warmup
+```
+
+👆 📄 [プログレスバーの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O7_プログレスバーの作成と動作確認.md)  
+
+
 ## 第３章：タイトル画面作成
 
 ```shell

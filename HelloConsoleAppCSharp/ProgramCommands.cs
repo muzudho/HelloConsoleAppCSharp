@@ -79,8 +79,8 @@ internal static class ProgramCommands
                 Console.WriteLine($"コンソールの（横幅, 縦幅）：（{Console.WindowWidth}, {Console.WindowHeight}）");
                 return MuzRequestType.None;
 
-            // ［コンソール出力］の動作確認
-            case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
+            // ［プログレスバー］作成の練習
+            case "show-progress-bar-warmup": return await MuzShowProgressBarWarmupCommand.ExecuteAsync();
 
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
