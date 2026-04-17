@@ -2,16 +2,16 @@
 
 
 
-## 第１章：　インフラストラクチャーの作成
+## 第１章：インフラストラクチャーの作成
 
-* 📄 [はじめに](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O1_はじめに.md)
-* 📄 [ソリューション一式の作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O2_ソリューション一式の作成.md)
-* 📄 [アプリの汎用ホスト化手順をカプセル化](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O3_アプリの汎用ホスト化手順をカプセル化.md)
-* 📄 [アプリケーション設定ファイルの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O4_アプリケーション設定ファイルの準備.md)
-* 📄 [ロギングの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O5_ロギングの準備.md)
-* 📄 [ロギングの準備（複数のロガーの使い分け）](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O6_ロギングの準備（複数のロガーの使い分け）.md)
-* 📄 [アサートの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O7_アサートの準備.md)
-* 📄 [ユニットテストの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O8_ユニットテストの準備.md)
+* 📄 [はじめに](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O1_はじめに.md)
+* 📄 [ソリューション一式の作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O2_ソリューション一式の作成.md)
+* 📄 [アプリの汎用ホスト化手順をカプセル化](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O3_アプリの汎用ホスト化手順をカプセル化.md)
+* 📄 [アプリケーション設定ファイルの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O4_アプリケーション設定ファイルの準備.md)
+* 📄 [ロギングの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O5_ロギングの準備.md)
+* 📄 [ロギングの準備（複数のロガーの使い分け）](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O6_ロギングの準備（複数のロガーの使い分け）.md)
+* 📄 [アサートの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O7_アサートの準備.md)
+* 📄 [ユニットテストの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O8_ユニットテストの準備.md)
 
 
 ```shell
@@ -21,7 +21,7 @@ hello
 👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O9_リプルの作成.md)  
 
 
-## 第１章第２節：　コンソール操作の練習
+## 第２章：コンソール操作の練習
 
 
 ```shell
@@ -29,21 +29,21 @@ command hello
 command command hello
 ```
 
-👆 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面作成/O4_コマンドの間接的実行と動作確認.md)  
+👆 📄 [コマンドの間接的実行](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O1_コマンドの間接的実行.md)  
 
 
 ```shell
 change-color-warmup
 ```
 
-👆 📄 [文字色の変更と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面作成/O2_文字色の変更と動作確認.md)  
+👆 📄 [文字色の変更と動作確認](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O2_文字色の変更.md)  
 
 
 ```shell
 move-cursor-warmup
 ```
 
-👆 📄 [カーソルの移動と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面作成/O3_カーソルの移動と動作確認.md)  
+👆 📄 [カーソルの移動と動作確認](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O3_カーソルの移動.md)  
 
 
 この節は作りかけです。先に第２章に進んでください。  
@@ -51,7 +51,7 @@ move-cursor-warmup
 TODO: ［コマンドのチュートリアルを作ろう］
 
 
-## 第２章：　タイトル画面作成
+## 第３章：タイトル画面作成
 
 ```shell
 print-warmup
