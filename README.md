@@ -32,6 +32,13 @@ command command hello
 👆 📄 [コマンドの間接的実行と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O4_コマンドの間接的実行と動作確認.md)  
 
 
+```shell
+change-color-warmup
+```
+
+👆 📄 [文字色の変更と動作確認](./HelloConsoleAppCSharp/Docs/第２章：タイトル画面作成/O2_文字色の変更と動作確認.md)  
+
+
 この節は作りかけです。先に第２章に進んでください。  
 
 TODO: ［コマンドのチュートリアルを作ろう］

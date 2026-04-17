@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp;
 
+using HelloConsoleAppCSharp.Commands.ChangeColorWarmup;
 using HelloConsoleAppCSharp.Commands.Clear;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
@@ -51,26 +52,15 @@ internal static class ProgramCommands
                 Console.ResetColor();
                 return MuzRequestType.None;
 
-            //case "sound":
-            //    Console.WriteLine("音を鳴らしてみるぜ（＾～＾）");
-            //    //Console.Beep(800, 300);   // Windows 限定。
+            // ［コマンド呼出し］の動作確認
+            case "command":
+                return await ProgramCommands.ExecuteAsync(
+                    command: arguments,
+                    pgContext: pgContext);
 
-            //    //SystemSounds は無かった。
-            //    //SystemSounds.Beep.Play();      // 標準のビープ
-            //    //SystemSounds.Asterisk.Play();  // 情報音（！マークっぽい）
-            //    //SystemSounds.Exclamation.Play(); // 警告音
-            //    //SystemSounds.Hand.Play();      // エラー音（×マーク）
-            //    //SystemSounds.Question.Play();  // 質問音
-
-            //    //これも無かった。
-            //    //SoundPlayer player = new SoundPlayer(@"C:\Windows\Media\Alarm01.wav"); // WAVファイル指定
-            //    //player.Play();        // 非同期で鳴らす（PlaySync()で同期）
-            //    //                      // player.PlaySync(); // 音が終わるまで待つ
-
-            //    //NuGet を調べた方がいい？
-            //    //dotnet add package NetCoreAudio
-
-            //    return MuzRequestType.None;
+            // ［文字色の変更］の動作確認
+            case "change-color-warmup":
+                return await MuzChangeColorWarmupCommand.ExecuteAsync();
 
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
@@ -265,11 +255,26 @@ internal static class ProgramCommands
                     });
                 return await messageBoxControl.Enter();
 
-            // ［コマンド呼出し］の動作確認
-            case "command":
-                return await ProgramCommands.ExecuteAsync(
-                    command: arguments,
-                    pgContext: pgContext);
+            //case "sound":
+            //    Console.WriteLine("音を鳴らしてみるぜ（＾～＾）");
+            //    //Console.Beep(800, 300);   // Windows 限定。
+
+            //    //SystemSounds は無かった。
+            //    //SystemSounds.Beep.Play();      // 標準のビープ
+            //    //SystemSounds.Asterisk.Play();  // 情報音（！マークっぽい）
+            //    //SystemSounds.Exclamation.Play(); // 警告音
+            //    //SystemSounds.Hand.Play();      // エラー音（×マーク）
+            //    //SystemSounds.Question.Play();  // 質問音
+
+            //    //これも無かった。
+            //    //SoundPlayer player = new SoundPlayer(@"C:\Windows\Media\Alarm01.wav"); // WAVファイル指定
+            //    //player.Play();        // 非同期で鳴らす（PlaySync()で同期）
+            //    //                      // player.PlaySync(); // 音が終わるまで待つ
+
+            //    //NuGet を調べた方がいい？
+            //    //dotnet add package NetCoreAudio
+
+            //    return MuzRequestType.None;
 
             default:
                 Console.WriteLine($"知らないコマンドだぜ: {command}");
