@@ -60,6 +60,13 @@ wait-for-3-seconds-warmup
 👆 📄 [３秒待つ](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O5_３秒待つ.md)
 
 
+```shell
+get-console-size
+```
+
+👆 📄 [コンソールのサイズ取得](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O6_コンソールのサイズ取得.md)  
+
+
 ## 第３章：タイトル画面作成
 
 ```shell

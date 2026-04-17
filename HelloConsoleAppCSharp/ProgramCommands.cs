@@ -74,6 +74,11 @@ internal static class ProgramCommands
             // ［３秒待つ］動作確認
             case "wait-for-3-seconds-warmup": return await MuzWaitFor3SecondsWarmupCommand.ExecuteAsync();
 
+            // ［コンソールの横幅取得］
+            case "get-console-size":
+                Console.WriteLine($"コンソールの（横幅, 縦幅）：（{Console.WindowWidth}, {Console.WindowHeight}）");
+                return MuzRequestType.None;
+
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
 
@@ -287,7 +292,6 @@ internal static class ProgramCommands
 
             //case "test1":
             //    Console.WriteLine("テストコマンド1だぜ（＾～＾）！");
-            //    Console.WriteLine($"コンソールの横幅：{Console.WindowWidth}, コンソールの縦幅：{Console.WindowHeight}");
             //    // Windows 専用： Console.SetWindowSize(120, Console.WindowHeight);
             //    return MuzRequestType.None;
 
