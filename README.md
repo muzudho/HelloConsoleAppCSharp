@@ -53,6 +53,12 @@ clear
 👆 📄 [コンソールのクリアー](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O4_コンソールのクリアー.md)
 
 
+```shell
+wait-for-3-seconds-warmup
+```
+
+👆 📄 [３秒待つ](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O5_３秒待つ.md)
+
 
 ## 第３章：タイトル画面作成
 

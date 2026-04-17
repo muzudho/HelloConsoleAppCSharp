@@ -13,6 +13,7 @@ using HelloConsoleAppCSharp.Commands.ShowStartMenu;
 using HelloConsoleAppCSharp.Commands.ShowStartVerticalList;
 using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
+using HelloConsoleAppCSharp.Commands.WaitFor3SecondsWarmup;
 using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -69,6 +70,9 @@ internal static class ProgramCommands
 
             // ［コンソール］の文字を全部消します。
             case "clear": return await MuzClearCommand.ExecuteAsync();
+
+            // ［３秒待つ］動作確認
+            case "wait-for-3-seconds-warmup": return await MuzWaitFor3SecondsWarmupCommand.ExecuteAsync();
 
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
@@ -279,6 +283,12 @@ internal static class ProgramCommands
             //    //NuGet を調べた方がいい？
             //    //dotnet add package NetCoreAudio
 
+            //    return MuzRequestType.None;
+
+            //case "test1":
+            //    Console.WriteLine("テストコマンド1だぜ（＾～＾）！");
+            //    Console.WriteLine($"コンソールの横幅：{Console.WindowWidth}, コンソールの縦幅：{Console.WindowHeight}");
+            //    // Windows 専用： Console.SetWindowSize(120, Console.WindowHeight);
             //    return MuzRequestType.None;
 
             default:

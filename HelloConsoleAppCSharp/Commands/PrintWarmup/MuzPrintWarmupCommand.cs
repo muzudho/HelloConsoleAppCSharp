@@ -7,23 +7,6 @@ internal static class MuzPrintWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync()
     {
-        // 文字色（前景色）を一時的に赤に変更
-        await MuzConsoleHelper.SetColorAsync(
-            fgColor: ConsoleColor.Red,
-            onColorChanged: async () =>
-            {
-                Console.WriteLine("これは赤い文字だぜ！");
-
-                // 加えて、背景色を一時的に青に変更
-                await MuzConsoleHelper.SetColorAsync(
-                    bgColor: ConsoleColor.Blue,
-                    onColorChanged: async () =>
-                    {
-                        Console.WriteLine("赤文字に青背景！");
-                        await Task.Delay(TimeSpan.FromSeconds(1));
-                    });
-            });
-
         Console.WriteLine("ここはデフォルトの色に戻ったよ");
         Console.WriteLine("３秒待つ（＾～＾）");
         await Task.Delay(TimeSpan.FromSeconds(3));
