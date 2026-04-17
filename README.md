@@ -169,21 +169,28 @@ title-page-warmup
 typewriter-effect-warmup
 ```
 
-👆 📄 [タイプライター効果の作成](./HelloConsoleAppCSharp/Docs/O1_タイプライター効果の作成.md)  
+👆 📄 [タイプライター効果の作成](./HelloConsoleAppCSharp/Docs/第４章：図鑑の作成/O1_タイプライター効果の作成.md)  
 
 
 ```shell
 continue-prompt-warmup
 ```
 
-👆 📄 [コンティニュープロンプトの作成](./HelloConsoleAppCSharp/Docs/O2_コンティニュープロンプトの作成.md)  
+👆 📄 [コンティニュープロンプトの作成](./HelloConsoleAppCSharp/Docs/第４章：図鑑の作成/O2_コンティニュープロンプトの作成.md)  
 
 
 ```shell
 message-box-warmup
 ```
 
-👆 📄 [メッセージボックスの作成](./HelloConsoleAppCSharp/Docs/O3_メッセージボックスの作成.md)  
+👆 📄 [メッセージボックスの作成](./HelloConsoleAppCSharp/Docs/第４章：図鑑の作成/O3_メッセージボックスの作成.md)  
+
+
+```shell
+read-messages-warmup
+```
+
+👆 📄 [ファイルからメッセージを読取](./HelloConsoleAppCSharp/Docs/第４章：図鑑の作成/O4_ファイルからメッセージを読取.md)
 
 
 ## 作りかけ
