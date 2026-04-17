@@ -46,9 +46,12 @@ move-cursor-warmup
 👆 📄 [カーソルの移動と動作確認](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O3_カーソルの移動.md)  
 
 
-この節は作りかけです。先に第２章に進んでください。  
+```shell
+clear
+```
 
-TODO: ［コマンドのチュートリアルを作ろう］
+👆 📄 [コンソールのクリアー](./HelloConsoleAppCSharp/Docs/第２章：コンソール操作の練習/O4_コンソールのクリアー.md)
+
 
 
 ## 第３章：タイトル画面作成
@@ -58,13 +61,6 @@ print-warmup
 ```
 
 👆 📄 [コンソール出力の動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面作成/O1_コンソール出力の動作確認.md)  
-
-
-```shell
-clear
-```
-
-👆 📄 [コンソールのクリアー](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面作成/O1A1_コンソールのクリアー.md)
 
 
 ```shell

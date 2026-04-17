@@ -67,11 +67,11 @@ internal static class ProgramCommands
             case "move-cursor-warmup":
                 return await MuzMoveCursorWarmupCommand.ExecuteAsync();
 
+            // ［コンソール］の文字を全部消します。
+            case "clear": return await MuzClearCommand.ExecuteAsync();
+
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
-
-            // ［コンソール］の文字を消します。
-            case "clear": return await MuzClearCommand.ExecuteAsync();
 
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
