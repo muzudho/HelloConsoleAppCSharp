@@ -185,11 +185,5 @@ message-box-warmup
 
 
 
-```shell
-```
-
-👆（これは廃止予定） 📄 [［OBSOLETED］ブリンカーの作成と動作確認](./HelloConsoleAppCSharp/Docs/OO99A3_［OBSOLETED］ブリンカーの作成と動作確認.md)
-
-
 TODO: 以降の予定： 古いタイマーの見直し、垂直メニューのサンプルの作り直し、古いブリンカーの見直し、画面遷移、  
 JSONファイルを使ったメッセージ管理、など。  
