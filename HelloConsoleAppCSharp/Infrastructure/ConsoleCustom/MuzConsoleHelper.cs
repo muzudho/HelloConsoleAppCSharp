@@ -34,7 +34,7 @@ internal static class MuzConsoleHelper
 
 
     /// <summary>
-    /// 処理が終わった後、カーソルの位置をリセットします。（初期位置に戻す）
+    /// 処理が終わった後、カーソルを元の位置に戻します。
     /// </summary>
     /// <returns></returns>
     public static async Task ResetCursorLocationAfterExecute(

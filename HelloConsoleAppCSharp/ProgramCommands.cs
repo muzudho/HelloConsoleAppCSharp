@@ -5,6 +5,7 @@ using HelloConsoleAppCSharp.Commands.Clear;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
+using HelloConsoleAppCSharp.Commands.MoveCursorWarmup;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
@@ -61,6 +62,10 @@ internal static class ProgramCommands
             // ［文字色の変更］の動作確認
             case "change-color-warmup":
                 return await MuzChangeColorWarmupCommand.ExecuteAsync();
+
+            // ［カーソルの移動］の動作確認
+            case "move-cursor-warmup":
+                return await MuzMoveCursorWarmupCommand.ExecuteAsync();
 
             // ［コンソール出力］の動作確認
             case "print-warmup": return await MuzPrintWarmupCommand.ExecuteAsync();
