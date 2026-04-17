@@ -80,24 +80,17 @@ show-progress-bar-warmup
 
 
 ```shell
-show-wall
-```
-
-👆 📄 [ビュー作成_壁面の描画と動作確認.md](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/OO12_ビュー作成_壁面の描画と動作確認.md)
-
-
-```shell
 key-input-warmup
 ```
 
-👆 📄 [キー入力の作成と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O2_キー入力の作成と動作確認.md)  
+👆 📄 [キー入力](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O1_キー入力.md)  
 
 
 ```shell
 show-erapsed-time
 ```
 
-👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O3_アプリケーション起動からの経過時間を表示する.md)  
+👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O2_アプリケーション起動からの経過時間を表示する.md)  
 
 
 ```shell
@@ -105,7 +98,7 @@ hide-message-box
 hide-start-box
 ```
 
-👆 📄 [ビュー作成_フローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O5_ビュー作成_フローティングボックスの作成と動作確認.md)  
+👆 📄 [フローティングボックスの作成](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O3_フローティングボックスの作成.md)  
 
 
 ```shell
@@ -113,7 +106,14 @@ show-message-box
 show-start-box
 ```
 
-👆 📄 [ビュー作成_枠付きのフローティングボックスの作成と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O6_ビュー作成_枠付きのフローティングボックスの作成と動作確認.md)  
+👆 📄 [枠付きのフローティングボックスの作成](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O4_枠付きのフローティングボックスの作成.md)  
+
+
+```shell
+show-wall
+```
+
+👆 📄 [壁面の描画.md](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O5_壁面の描画.md)
 
 
 ```shell
@@ -122,42 +122,42 @@ show-title
 show-credit
 ```
 
-👆 📄 [ビュー作成_フローティングラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O7_ビュー作成_フローティングラベルの作成と動作確認.md)  
+👆 📄 [フローティングラベルの作成](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O6_フローティングラベルの作成.md)  
 
 
 ```shell
 show-start-vertical-list
 ```
 
-👆 📄 [箇条書きの作成と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O8_箇条書きの作成と動作確認.md)  
+👆 📄 [箇条書きの作成](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O7_箇条書きの作成.md)  
 
 
 ```shell
 select-start-warmup
 ```
 
-👆 📄 [ビュー作成_点滅ラベルの作成と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O9_ビュー作成_点滅ラベルの作成と動作確認.md)  
+👆 📄 [点滅ラベルの作成](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O8_点滅ラベルの作成.md)  
 
 
 ```shell
 cursor-increment-warmup
 ```
 
-👆 📄[カーソルキーとインクリメントと動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/OO10_カーソルキーとインクリメントと動作確認.md)  
+👆 📄[カーソルキーとインクリメント](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O9_カーソルキーとインクリメント.md)  
 
 
 ```shell
 show-start-menu
 ```
 
-👆 📄 [メニューの作成と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/OO11_メニューの作成と動作確認.md)
+👆 📄 [メニューの作成](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/OO10_メニューの作成.md)
 
 
 ```shell
 title-page-warmup
 ```
 
-👆 📄 [ビュー作成_タイトル画面風の描画と動作確認](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/OO13_ビュー作成_タイトル画面風の描画と動作確認.md)
+👆 📄 [タイトル画面風の描画](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/OO11_タイトル画面風の描画.md)
 
 
 ## 作りかけ

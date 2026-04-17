@@ -54,6 +54,12 @@ internal static class ProgramCommands
                 Console.ResetColor();
                 return MuzRequestType.None;
 
+
+            // ----------------------------------------
+            // 第２章：プログレスバーの作成
+            // ----------------------------------------
+
+
             // ［コマンド呼出し］の動作確認
             case "command":
                 return await ProgramCommands.ExecuteAsync(
@@ -81,6 +87,12 @@ internal static class ProgramCommands
 
             // ［プログレスバー］作成の練習
             case "show-progress-bar-warmup": return await MuzShowProgressBarWarmupCommand.ExecuteAsync();
+
+
+            // ----------------------------------------
+            // 第３章：タイトル画面の作成
+            // ----------------------------------------
+
 
             // ［キー入力］の動作確認
             case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
