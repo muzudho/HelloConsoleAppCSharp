@@ -35,7 +35,7 @@ internal static class MuzInfrastructureHelper
                 //var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
                 await onHostEnabled(
-                    host.Services);     // ［サービスプロバイダー］だけ渡すぜ（＾～＾）
+                    host.Services);     // （ホストの様々な機能とか、このアプリケーションで使わないから）［サービスプロバイダー］だけ渡すぜ（＾～＾）
             });
     }
 
