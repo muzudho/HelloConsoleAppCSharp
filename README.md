@@ -8,8 +8,8 @@
 * 📄 [ソリューション一式の作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O2_ソリューション一式の作成.md)
 * 📄 [コンソールアプリケーションに汎用ホストの機能を追加](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O3_コンソールアプリケーションに汎用ホストの機能を追加.md)
 * 📄 [アプリケーション設定ファイルの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O4_アプリケーション設定ファイルの準備.md)
-* 📄 [ロギングの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O5_ロギングの準備.md)
-* 📄 [ロギングの準備（複数のロガーの使い分け）](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O6_ロギングの準備（複数のロガーの使い分け）.md)
+* 📄 [ロギングの準備＜その１＞](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O5_ロギングの準備＜その１＞.md)
+* 📄 [ロギングの準備＜その２＞（複数のロガーの使い分け）](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O6_ロギングの準備＜その２＞（複数のロガーの使い分け）.md)
 * 📄 [アサートの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O7_アサートの準備.md)
 * 📄 [ユニットテストの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O8_ユニットテストの準備.md)
 
