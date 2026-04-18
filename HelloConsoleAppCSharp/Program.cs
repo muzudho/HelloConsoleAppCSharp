@@ -22,24 +22,23 @@ try
     // それを［ビルド］するぜ（＾▽＾）
     await MuzInfrastructureHelper.BuildHostAsync(
         commandLineArgs: args,
-        onHostEnabled: async (host) =>
+        onHostEnabled: async (services) =>
         {
-            // ここからビルドされた［汎用ホスト］（host）が使えるぜ（＾▽＾）！
-            Console.WriteLine("ここからビルドされた［汎用ホスト］（host）が使えるぜ（＾▽＾）！");
+            // ここから［サービス・プロバイダー］（services）が使えるぜ（＾▽＾）！
+            Console.WriteLine("ここから［サービス・プロバイダー］（services）が使えるぜ（＾▽＾）！");
 
             // ［アプリケーション設定ファイル］を動作確認してみようぜ（＾～＾）
-            var appSettings = host.Services.GetRequiredService<IOptions<MuzAppSettings>>().Value;
+            var appSettings = services.GetRequiredService<IOptions<MuzAppSettings>>().Value;
             Console.WriteLine($"AppName: {appSettings.AppName}");
 
             // ［ロガー］を動作確認してみようぜ（＾～＾）
-            var logger = host.Services.GetRequiredService<ILogger<Program>>();
+            var logger = services.GetRequiredService<ILogger<Program>>();
             logger.LogInformation("デフォルトのログを書き込むぜ～（＾～＾）！");
 
             // ［ロガー別のログ］を動作確認してみようぜ（＾～＾）
-            var loggingSvc = host.Services.GetRequiredService<IMuzLoggingService>();
+            var loggingSvc = services.GetRequiredService<IMuzLoggingService>();
             loggingSvc.Others.LogInformation("その他のログだぜ（＾～＾）");
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
-
 
             // 📍 NOTE:
             //
@@ -53,6 +52,7 @@ try
                 },
                 evalAsync: async (command) => await ProgramCommands.ExecuteAsync(
                         command,
+                        services,
                         pgContext));
 
 

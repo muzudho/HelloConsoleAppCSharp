@@ -13,7 +13,7 @@ internal static class MuzInfrastructureHelper
 {
     public static async Task BuildHostAsync(
         string[] commandLineArgs,
-        Func<IHost, Task> onHostEnabled)
+        Func<IServiceProvider, Task> onHostEnabled)
     {
         // ビルダー作成（＾～＾）
         //
@@ -34,7 +34,8 @@ internal static class MuzInfrastructureHelper
                 // ここから、以下のようにして、ロガー（ILogger）を使えるようになったぜ（＾▽＾）！
                 //var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
-                await onHostEnabled(host);
+                await onHostEnabled(
+                    host.Services);     // ［サービスプロバイダー］だけ渡すぜ（＾～＾）
             });
     }
 

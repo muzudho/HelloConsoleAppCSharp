@@ -15,6 +15,7 @@ using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Commands.WaitFor3SecondsWarmup;
 using HelloConsoleAppCSharp.Controls;
+using HelloConsoleAppCSharp.Experiment;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
@@ -26,6 +27,7 @@ internal static class ProgramCommands
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         string command,
+        IServiceProvider services,
         ProgramContext pgContext)
     {
         // 入力が空白だけだったら、無視するぜ（＾～＾）
@@ -64,6 +66,7 @@ internal static class ProgramCommands
             case "command":
                 return await ProgramCommands.ExecuteAsync(
                     command: arguments,
+                    services: services,
                     pgContext: pgContext);
 
             // ［文字色の変更］の動作確認
@@ -241,7 +244,7 @@ internal static class ProgramCommands
             case "show-erapsed-time": return await MuzShowErapsedTimeCommand.ExecuteAsync(pgContext);
 
             // ［タイトル風ページ］の描画練習
-            case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(pgContext);
+            case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(services, pgContext);
 
             // ［タイプライター効果］の動作確認
             case "typewriter-effect-warmup":
@@ -305,10 +308,12 @@ internal static class ProgramCommands
 
             //    return MuzRequestType.None;
 
-            //case "test1":
-            //    Console.WriteLine("テストコマンド1だぜ（＾～＾）！");
-            //    // Windows 専用： Console.SetWindowSize(120, Console.WindowHeight);
-            //    return MuzRequestType.None;
+            case "experiment":
+                Console.WriteLine("実験中だぜ（＾～＾）！");
+                //new MuzExperiment();
+                // Windows 専用： Console.SetWindowSize(120, Console.WindowHeight);
+                return MuzRequestType.None;
+
 
             default:
                 Console.WriteLine($"知らないコマンドだぜ: {command}");
