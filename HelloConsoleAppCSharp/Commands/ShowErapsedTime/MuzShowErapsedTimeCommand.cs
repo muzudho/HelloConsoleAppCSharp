@@ -3,13 +3,16 @@
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 internal static class MuzShowErapsedTimeCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
-        ProgramContext pgContext)
+        IServiceProvider services)
     {
+        var pgSvc = services.GetRequiredService<ProgramService>();
+
         // 📍 NOTE:
         //
         //      無限ループの抜け方を説明しておきましょう。
@@ -26,7 +29,7 @@ internal static class MuzShowErapsedTimeCommand
                     // アプリケーション起動からの経過時刻を表示するぜ（＾～＾）！
                     await MuzWidgets.PrintErapsedTimeAsync(
                         label: "Time ",
-                        launchDateTime: pgContext.LaunchDateTime,
+                        launchDateTime: pgSvc.LaunchDateTime,
                         left: 62,
                         top: 0);
                 });

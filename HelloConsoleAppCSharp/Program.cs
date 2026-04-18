@@ -40,6 +40,11 @@ try
             loggingSvc.Others.LogInformation("その他のログだぜ（＾～＾）");
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
 
+            // EXPERIMENTAL:
+            var pgSvc = services.GetRequiredService<ProgramService>();
+            pgSvc.LaunchDateTime = DateTime.Now;
+
+
             // 📍 NOTE:
             //
             //      キーボードからのコマンド入力を待機するぜ（＾～＾）！

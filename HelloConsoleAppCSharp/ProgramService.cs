@@ -17,5 +17,5 @@ internal class ProgramService
     /// <summary>
     /// 起動日時を記憶しておくぜ（＾～＾）！
     /// </summary>
-    public DateTime LaunchDateTime { get; init; }
+    internal DateTime LaunchDateTime { get; set; }
 }
