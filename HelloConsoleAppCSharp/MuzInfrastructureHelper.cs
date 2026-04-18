@@ -2,6 +2,7 @@
 
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -50,14 +51,25 @@ internal static class MuzInfrastructureHelper
         // お前のアプリケーションに合わせて、［サービス］を追加していってくれだぜ（＾～＾）！
         Console.WriteLine("ホストビルドする前にやることがあればここでやるぜ（＾～＾）！例えば、［サービス］を追加したりとか、そういうのだぜ（＾～＾）！");
 
-        MuzAppSettingsHelper.SetupBeforeHostBuild(builder);   // ［アプリケーション設定ファイル］を読み書きできるようにするための準備をするぜ（＾～＾）！
+        //
+        // ［アプリケーション設定ファイル］サービスの登録
+        //
+        MuzAppSettingsHelper.SetupBeforeHostBuild(builder);
 
-        await MuzLogging.SetupBeforeHostBuildAsync( // ［ロギング］するための準備をするぜ（＾～＾）！
+        //
+        // ［ロギング］サービスの登録
+        //
+        await MuzLogging.SetupBeforeHostBuildAsync(
             builder: builder,
             onBootstrapLoggingEnabled: async (bootstrapLogger) =>
             {
                 // ここから `bootstrapLogger` を使った［ロギング］できる（＾～＾）！
                 bootstrapLogger.LogInformation("ホストビルド前だが、ブートストラップ・ログは出せるぜ（＾～＾）！");
+
+                //
+                // EXPERIMENTAL: ［プログラム］サービスの登録
+                //
+                builder.Services.AddScoped<ProgramService>();
             });
     }
 
