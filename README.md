@@ -6,7 +6,7 @@
 
 * 📄 [はじめに](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O1_はじめに.md)
 * 📄 [ソリューション一式の作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O2_ソリューション一式の作成.md)
-* 📄 [アプリの汎用ホスト化手順をカプセル化](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O3_アプリの汎用ホスト化手順をカプセル化.md)
+* 📄 [コンソールアプリケーションに汎用ホストの機能を追加](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O3_コンソールアプリケーションに汎用ホストの機能を追加.md)
 * 📄 [アプリケーション設定ファイルの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O4_アプリケーション設定ファイルの準備.md)
 * 📄 [ロギングの準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O5_ロギングの準備.md)
 * 📄 [ロギングの準備（複数のロガーの使い分け）](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/O6_ロギングの準備（複数のロガーの使い分け）.md)
