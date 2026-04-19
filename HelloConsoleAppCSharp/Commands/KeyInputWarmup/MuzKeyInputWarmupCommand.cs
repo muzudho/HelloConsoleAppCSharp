@@ -4,7 +4,8 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzKeyInputWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        IServiceProvider services)
     {
         // 📍 NOTE:
         //

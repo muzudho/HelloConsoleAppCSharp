@@ -27,8 +27,7 @@ internal static class ProgramCommands
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         string command,
-        IServiceProvider services,
-        ProgramContext pgContext)
+        IServiceProvider services)
     {
         // 入力が空白だけだったら、無視するぜ（＾～＾）
         if (string.IsNullOrWhiteSpace(command)) return MuzRequestType.None;
@@ -66,8 +65,7 @@ internal static class ProgramCommands
             case "command":
                 return await ProgramCommands.ExecuteAsync(
                     command: arguments,
-                    services: services,
-                    pgContext: pgContext);
+                    services: services);
 
             // ［文字色の変更］の動作確認
             case "change-color-warmup":
@@ -89,7 +87,7 @@ internal static class ProgramCommands
                 return MuzRequestType.None;
 
             // ［プログレスバー］作成の練習
-            case "show-progress-bar-warmup": return await MuzShowProgressBarWarmupCommand.ExecuteAsync();
+            case "show-progress-bar-warmup": return await MuzShowProgressBarWarmupCommand.ExecuteAsync(services);
 
 
             // ----------------------------------------
@@ -98,7 +96,7 @@ internal static class ProgramCommands
 
 
             // ［キー入力］の動作確認
-            case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync();
+            case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync(services);
 
             // ［フローティングボックス］の動作確認＜その１＞
             case "hide-message-box":
@@ -219,16 +217,16 @@ internal static class ProgramCommands
                 return MuzRequestType.None;
 
             // ［垂直の箇条書き］を表示する練習
-            case "show-start-vertical-list": return await MuzShowStartVerticalList.ExecuteAsync(services);
+            case "show-start-vertical-list": return await MuzShowStartVerticalListCommand.ExecuteAsync(services);
 
             // ［点滅ラベル］の動作確認
-            case "select-start-warmup": return await MuzSelectStartWarmupCommand.ExecuteAsync();
+            case "select-start-warmup": return await MuzSelectStartWarmupCommand.ExecuteAsync(services);
 
             // ［カーソルとインクリメント］の動作確認
-            case "cursor-increment-warmup": return await MuzCursorIncrementWarmupCommand.ExecuteAsync();
+            case "cursor-increment-warmup": return await MuzCursorIncrementWarmupCommand.ExecuteAsync(services);
 
             // ［メニュー］の動作確認
-            case "show-start-menu": return await MuzShowStartMenuCommand.ExecuteAsync();
+            case "show-start-menu": return await MuzShowStartMenuCommand.ExecuteAsync(services);
 
             // ［壁面の塗り潰し］の動作確認
             case "show-wall":
@@ -244,7 +242,7 @@ internal static class ProgramCommands
             case "show-erapsed-time": return await MuzShowErapsedTimeCommand.ExecuteAsync(services);
 
             // ［タイトル風ページ］の描画練習
-            case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(services, pgContext);
+            case "title-page-warmup": return await MuzTitlePageWarmupCommand.ExecuteAsync(services);
 
             // ［タイプライター効果］の動作確認
             case "typewriter-effect-warmup":

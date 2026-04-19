@@ -6,7 +6,8 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzCursorIncrementWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        IServiceProvider services)
     {
         // 色替え
         await MuzConsoleHelper.SetColorAsync(

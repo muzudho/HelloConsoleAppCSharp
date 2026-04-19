@@ -57,8 +57,7 @@ try
                 },
                 evalAsync: async (command) => await ProgramCommands.ExecuteAsync(
                         command,
-                        services,
-                        pgContext));
+                        services));
 
 
         });

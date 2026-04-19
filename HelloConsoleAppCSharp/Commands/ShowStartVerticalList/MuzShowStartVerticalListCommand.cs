@@ -5,7 +5,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 using System;
 
-internal class MuzShowStartVerticalList
+internal class MuzShowStartVerticalListCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         IServiceProvider services)

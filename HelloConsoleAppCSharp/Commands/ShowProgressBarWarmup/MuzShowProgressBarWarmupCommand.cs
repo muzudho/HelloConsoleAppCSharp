@@ -6,7 +6,8 @@ using System.Text;
 
 internal static class MuzShowProgressBarWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        IServiceProvider services)
     {
         Console.WriteLine("これから、進捗バーの真似事をするぜ（＾～＾）");
 

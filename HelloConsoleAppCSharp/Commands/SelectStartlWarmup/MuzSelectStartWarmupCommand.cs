@@ -6,7 +6,8 @@ using HelloConsoleAppCSharp.Views;
 
 internal class MuzSelectStartWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        IServiceProvider services)
     {
         // 📍 NOTE:
         //
