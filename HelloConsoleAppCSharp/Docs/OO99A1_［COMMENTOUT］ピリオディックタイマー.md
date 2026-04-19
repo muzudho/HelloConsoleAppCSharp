@@ -140,7 +140,7 @@ using System;
 internal static class MuzTitlePageWarmupCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
-        ProgramContext pgContext)
+        IServiceProvider services)
     {
         MuzREPL.IsPromptVisible = false; // プロンプトは消す。
         await MuzPageLayouts.PrintTitlePageAsync();
@@ -253,7 +253,7 @@ internal static class MuzTitlePageWarmupCommand
                 //
                 await MuzWidgets.PrintErapsedTimeAsync(
                     label: "Time ",
-                    launchDateTime: pgContext.LaunchDateTime,
+                    launchDateTime: services.LaunchDateTime,
                     left: 62,
                     top: 0);
 
