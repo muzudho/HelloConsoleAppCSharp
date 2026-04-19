@@ -30,12 +30,13 @@ internal static class MuzReadMessagesWarmupCommand
                     Console.WriteLine("-------------------");
                 }
 
-                Console.WriteLine("［水道水］の説明をもう１回見てみるぜ（＾～＾）");
+                var target = "セメント";
+                Console.WriteLine($"［{target}］の説明をもう１回見てみるぜ（＾～＾）");
 
                 // 特定のアイテムを取り出す例
-                if (items.TryGetValue("水道水", out string? desc))
+                if (items.TryGetValue(target, out string? desc))
                 {
-                    Console.WriteLine($"水道水の説明: {desc}");
+                    Console.WriteLine($"{target}の説明: {desc}");
                 }
             }
 
