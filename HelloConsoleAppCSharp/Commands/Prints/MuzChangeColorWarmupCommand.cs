@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Commands.ChangeColorWarmup;
+﻿namespace HelloConsoleAppCSharp.Commands.Prints;
 
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;

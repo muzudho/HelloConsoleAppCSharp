@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp;
 
-using HelloConsoleAppCSharp.Commands.ChangeColorWarmup;
+using HelloConsoleAppCSharp.Commands.Prints;
 using HelloConsoleAppCSharp.Commands.Clear;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
