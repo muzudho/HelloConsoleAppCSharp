@@ -5,7 +5,8 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzClearCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        IServiceProvider services)
     {
         // いったん、背景色を黒にして、画面全体を塗りつぶします。
         await MuzConsoleHelper.SetColorAsync(

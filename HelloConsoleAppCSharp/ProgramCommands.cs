@@ -71,17 +71,17 @@ internal static class ProgramCommands
 
             // ［文字色の変更］の動作確認
             case "change-color-warmup":
-                return await MuzChangeColorWarmupCommand.ExecuteAsync();
+                return await MuzChangeColorWarmupCommand.ExecuteAsync(services);
 
             // ［カーソルの移動］の動作確認
             case "move-cursor-warmup":
-                return await MuzMoveCursorWarmupCommand.ExecuteAsync();
+                return await MuzMoveCursorWarmupCommand.ExecuteAsync(services);
 
             // ［コンソール］の文字を全部消します。
-            case "clear": return await MuzClearCommand.ExecuteAsync();
+            case "clear": return await MuzClearCommand.ExecuteAsync(services);
 
             // ［３秒待つ］動作確認
-            case "wait-for-3-seconds-warmup": return await MuzWaitFor3SecondsWarmupCommand.ExecuteAsync();
+            case "wait-for-3-seconds-warmup": return await MuzWaitFor3SecondsWarmupCommand.ExecuteAsync(services);
 
             // ［コンソールの横幅取得］
             case "get-console-size":
@@ -219,7 +219,7 @@ internal static class ProgramCommands
                 return MuzRequestType.None;
 
             // ［垂直の箇条書き］を表示する練習
-            case "show-start-vertical-list": return await MuzShowStartVerticalList.ExecuteAsync(pgContext);
+            case "show-start-vertical-list": return await MuzShowStartVerticalList.ExecuteAsync(services);
 
             // ［点滅ラベル］の動作確認
             case "select-start-warmup": return await MuzSelectStartWarmupCommand.ExecuteAsync();

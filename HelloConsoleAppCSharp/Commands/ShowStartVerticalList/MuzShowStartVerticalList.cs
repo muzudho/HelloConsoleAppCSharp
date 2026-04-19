@@ -8,7 +8,7 @@ using System;
 internal class MuzShowStartVerticalList
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
-        ProgramContext pgContext)
+        IServiceProvider services)
     {
         // 📍 NOTE:
         //
