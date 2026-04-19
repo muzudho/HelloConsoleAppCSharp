@@ -5,13 +5,13 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 using System;
 
 /// <summary>
-/// EXPERIMENTAL: 色指定をしてメッセージ表示。
+/// 色を指定してメッセージ表示。
 /// </summary>
-internal class MuzMessageWithColorCommand
+internal class MuzPrintMessageWithColorCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
-        string arguments,
-        IServiceProvider services)
+        IServiceProvider services,
+        string arguments)
     {
         // 半角空白で引数を分割するぜ（＾～＾）
         //

@@ -38,7 +38,14 @@ command command hello
 change-color-warmup
 ```
 
-👆 📄 [文字色の変更と動作確認](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2_文字色の変更.md)  
+👆 📄 [文字色の変更＜その１＞ウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A1_文字色の変更＜その１＞ウォーミングアップ.md)  
+
+
+```shell
+print-message-with-color Red Blue Hello, World!!
+```
+
+👆 📄 [文字色の変更＜その２＞色を指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A2_文字色の変更＜その２＞色を指定してメッセージ表示.md)  
 
 
 ```shell

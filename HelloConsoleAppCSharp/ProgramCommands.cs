@@ -68,8 +68,10 @@ internal static class ProgramCommands
                     services: services);
 
             // ［文字色の変更］の動作確認
-            case "change-color-warmup":
-                return await MuzChangeColorWarmupCommand.ExecuteAsync(services);
+            case "change-color-warmup": return await MuzChangeColorWarmupCommand.ExecuteAsync(services);
+
+            // ［色を指定してメッセージ表示］
+            case "print-message-with-color": return await MuzPrintMessageWithColorCommand.ExecuteAsync(services, arguments);
 
             // ［カーソルの移動］の動作確認
             case "move-cursor-warmup":
