@@ -5,7 +5,8 @@ using System.Text.Json;
 
 internal static class MuzReadMessagesWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync()
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        IServiceProvider services)
     {
         try
         {

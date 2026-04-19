@@ -285,7 +285,7 @@ internal static class ProgramCommands
                 return await messageBoxControl.Enter(services);
 
             // ［メッセージ］ファイルの読込の動作確認
-            case "read-messages-warmup": return await MuzReadMessagesWarmupCommand.ExecuteAsync();
+            case "read-messages-warmup": return await MuzReadMessagesWarmupCommand.ExecuteAsync(services);
 
             //case "sound":
             //    Console.WriteLine("音を鳴らしてみるぜ（＾～＾）");
