@@ -39,7 +39,8 @@ internal class MuzMessageBoxControl
     // ========================================
 
 
-    public async Task<MuzRequestType> Enter()
+    public async Task<MuzRequestType> Enter(
+        IServiceProvider services)
     {
         //              4   8  12  16  20  24  28  32  36  40  44  48  52  56  60  64  68  72  76  80
         //          +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
@@ -100,6 +101,7 @@ internal class MuzMessageBoxControl
 
                     // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
                     _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
+                        services: services,
                         left: messageBoxLeft + 1,   // 枠線の太さを足す（＾～＾）
                         top: messageBoxTop + 1,
                         message: message);

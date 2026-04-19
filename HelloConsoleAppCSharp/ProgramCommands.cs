@@ -254,6 +254,7 @@ internal static class ProgramCommands
                         onColorChanged: async () =>
                         {
                             result = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
+                                services: services,
                                 left: Console.CursorLeft,
                                 top: Console.CursorTop,
                                 message: "タイプライターエフェクトのウォームアップだぜ（＾～＾）\n複数行にも対応だぜ（＾～＾）！");
@@ -264,6 +265,7 @@ internal static class ProgramCommands
             // ［コンティニュープロンプト］の動作確認
             case "continue-prompt-warmup":
                 return await MuzContinuePromptWarmupCommand.ExecuteAsync(
+                services: services,
                 messageList: new List<string>
                 {
                                 "続きのプロンプトのウォームアップだぜ（＾～＾）！\nこれも複数行に対応してるぜ（＾～＾）！",
@@ -280,7 +282,7 @@ internal static class ProgramCommands
                                     "次のメッセージだぜ（＾～＾）！",
                                     "最後のメッセージだぜ（＾～＾）！"
                     });
-                return await messageBoxControl.Enter();
+                return await messageBoxControl.Enter(services);
 
             // ［メッセージ］ファイルの読込の動作確認
             case "read-messages-warmup": return await MuzReadMessagesWarmupCommand.ExecuteAsync();

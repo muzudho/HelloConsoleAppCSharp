@@ -7,7 +7,9 @@ using HelloConsoleAppCSharp.Views;
 
 internal static class MuzContinuePromptWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(List<string> messageList)
+    internal static async Task<MuzRequestType> ExecuteAsync(
+        IServiceProvider services,
+        List<string> messageList)
     {
         // 色変更
         await MuzConsoleHelper.SetColorAsync(
@@ -30,6 +32,7 @@ internal static class MuzContinuePromptWarmupCommand
 
                     // １行毎にタイプライター表示するぜ、戻り値は無視していいぜ（＾～＾）
                     _ = await MuzTypewriterEffectWarmupCommand.ExecuteAsync(
+                            services: services,
                             left: Console.CursorLeft,
                             top: Console.CursorTop,
                             message: message);
