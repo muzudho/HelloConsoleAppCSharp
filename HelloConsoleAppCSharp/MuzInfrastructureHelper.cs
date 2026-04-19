@@ -67,7 +67,7 @@ internal static class MuzInfrastructureHelper
                 bootstrapLogger.LogInformation("ホストビルド前だが、ブートストラップ・ログは出せるぜ（＾～＾）！");
 
                 //
-                // EXPERIMENTAL: ［プログラム］サービスの登録
+                // ［プログラム］サービスの登録
                 //
                 builder.Services.AddScoped<ProgramService>();
             });
