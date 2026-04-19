@@ -35,9 +35,9 @@ try
             loggingSvc.Others.LogInformation("その他のログだぜ（＾～＾）");
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
 
-            // フォルダーに分類しても中身が１ファイルしかないような、分類する方がコストになるような細かいものを、［プログラム・サービス］にまとめておくぜ（＾～＾）！
+            // フォルダーに分類するほどでもない雑多な変数は、［プログラム・サービス］にまとめておくぜ（＾～＾）！
             var pgSvc = services.GetRequiredService<ProgramService>();
-            // 開始日時を記憶しておくぜ（＾～＾）！
+            // ［アプリケーションを開始した日時］を記憶しておくぜ（＾～＾）！
             pgSvc.LaunchDateTime = DateTime.Now;
 
 

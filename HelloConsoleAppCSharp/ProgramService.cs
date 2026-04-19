@@ -3,7 +3,7 @@
 using System;
 
 /// <summary>
-/// TODO: `ProgramContext` をこれに変更したい。
+/// フォルダーに分類しても中身が１ファイルしかないような、分類する方がコストになるような細かいものを、［プログラム・サービス］にまとめておくぜ（＾～＾）！
 /// </summary>
 internal class ProgramService
 {
