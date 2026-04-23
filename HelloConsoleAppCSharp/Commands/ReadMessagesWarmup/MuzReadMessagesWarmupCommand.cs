@@ -11,7 +11,7 @@ internal static class MuzReadMessagesWarmupCommand
         try
         {
             // TODO: Messages.json ファイルを読込みます。
-            string filePath = "Assets/Messages.json";  // ← あなたのJSONファイルのパスに変更
+            string filePath = "Assets/MessagesWarmup.json";  // ← あなたのJSONファイルのパスに変更
 
             // ファイル全体を文字列として読み込む
             string jsonString = File.ReadAllText(filePath);

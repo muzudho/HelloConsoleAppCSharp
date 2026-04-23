@@ -1,10 +1,10 @@
 ﻿namespace HelloConsoleAppCSharp;
 
-using HelloConsoleAppCSharp.Commands.Prints;
 using HelloConsoleAppCSharp.Commands.Clear;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
+using HelloConsoleAppCSharp.Commands.Prints;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
@@ -16,6 +16,7 @@ using HelloConsoleAppCSharp.Commands.WaitFor3SecondsWarmup;
 using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Experiment;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Infrastructure.Messages;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 
@@ -53,6 +54,20 @@ internal static class ProgramCommands
                 Console.WriteLine("文字色を変えたよ！");
                 Console.ResetColor();
                 return MuzRequestType.None;
+
+
+            // ----------------------------------------
+            // 第１章：インフラストラクチャーの作成
+            // ----------------------------------------
+
+
+            // ［メッセージを配列で持つメッセージファイル］の読込の動作確認
+            case "read-messages-2-warmup":
+                {
+                    var dictionary = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
+                    Console.WriteLine(dictionary["ErrorMsg_1"]);
+                    return MuzRequestType.None;
+                }
 
 
             // ----------------------------------------
