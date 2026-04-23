@@ -21,6 +21,13 @@ hello
 👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O9_リプルの作成.md)  
 
 
+```shell
+read-messages-warmup
+```
+
+👆 📄 [ファイルからメッセージを読取](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10_ファイルからメッセージを読取.md)
+
+
 ## 第２章：プログレスバーの作成
 
 この章では、コンソールの操作を覚えながら、プログレスバーを作ってみましょう（＾▽＾）  
@@ -52,7 +59,7 @@ print-message-with-color Red Blue Hello, World!!
 move-cursor-warmup
 ```
 
-👆 📄 [カーソルの移動と動作確認](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O3_カーソルの移動.md)  
+👆 📄 [カーソルの移動](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O3_カーソルの移動.md)  
 
 
 ```shell
@@ -191,13 +198,6 @@ message-box-warmup
 ```
 
 👆 📄 [メッセージボックスの作成](./HelloConsoleAppCSharp/Docs/第４章：図鑑の作成/O3_メッセージボックスの作成.md)  
-
-
-```shell
-read-messages-warmup
-```
-
-👆 📄 [ファイルからメッセージを読取](./HelloConsoleAppCSharp/Docs/第４章：図鑑の作成/O4_ファイルからメッセージを読取.md)
 
 
 ## 作りかけ
