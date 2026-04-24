@@ -21,7 +21,6 @@ public class HelloConsoleAppCSharpTests
         // Expected
         var expected = "TestApp";
 
-
         // Act
         var appSettings = new MuzAppSettings();
         appSettings.AppName = expected;
@@ -30,10 +29,20 @@ public class HelloConsoleAppCSharpTests
         Assert.Equal(expected, appSettings.AppName);
     }
 
+
     [Fact]
     public void Message_GetMessage_ReturnsMessage()
     {
         // Expected
-        var expected = "1.0.0";
+        var expected = @"""Don't Repeat Yourself.""
+
+    — The Pragmatic Programmer
+      Andy Hunt, Dave Thomas";
+
+        // Act
+        var act = MuzMessagesHelper.GetMessage("Msg_1");
+
+        // Assert
+        Assert.Equal(expected, act);
     }
 }
