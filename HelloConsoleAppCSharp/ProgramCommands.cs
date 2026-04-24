@@ -14,13 +14,11 @@ using HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Commands.WaitFor3SecondsWarmup;
 using HelloConsoleAppCSharp.Controls;
-using HelloConsoleAppCSharp.Experiment;
 using HelloConsoleAppCSharp.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
-using System.Runtime.CompilerServices;
 
 /// <summary>
 /// コマンド実行部
@@ -76,6 +74,16 @@ internal static class ProgramCommands
                 {
                     var pgSvc = services.GetRequiredService<ProgramService>();
                     pgSvc.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
+                    return MuzRequestType.None;
+                }
+
+            // キャッシュした［メッセージ辞書］から、メッセージ取得
+            case "get-message":
+                {
+                    var pgSvc = services.GetRequiredService<ProgramService>();
+                    // コマンドの第二引数をメッセージのキーとして使うぜ（＾～＾）
+                    var message = pgSvc.MessageCache.GetValueOrDefault(arguments, "メッセージが見つからないぜ（＾～＾）！");
+                    Console.WriteLine(message);
                     return MuzRequestType.None;
                 }
 

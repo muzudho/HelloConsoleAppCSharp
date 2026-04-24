@@ -38,6 +38,15 @@ read-messages-2-warmup
 👆 📄 [ファイルからメッセージを読み取ろう＜その２＞複数行の書式](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A2_ファイルからメッセージを読み取ろう＜その２＞複数行の書式.md)  
 
 
+```shell
+load-messages
+get-message ErrorMsg_1
+get-message WaHaHa!
+```
+
+👆 📄 [ファイルからメッセージを読み取ろう＜その３＞コマンドでの動作確認](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A3_ファイルからメッセージを読み取ろう＜その３＞コマンドでの動作確認.md)  
+
+
 ## 第２章：プログレスバーの作成
 
 この章では、コンソールの操作を覚えながら、プログレスバーを作ってみましょう（＾▽＾）  
