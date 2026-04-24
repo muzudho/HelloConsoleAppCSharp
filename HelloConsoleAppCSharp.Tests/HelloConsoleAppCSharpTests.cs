@@ -50,9 +50,11 @@ public class HelloConsoleAppCSharpTests
       Andy Hunt, Dave Thomas";
 
         // Act
-        var act = MuzMessagesHelper.GetMessage(serviceProvider, "Msg_1");
+        var actual = MuzMessagesHelper.GetMessage(serviceProvider, "Msg_1");
 
-        // Assert
-        Assert.Equal(expected, act);
+        // Assert - 改行コードを統一して比較（クロスプラットフォーム対応）
+        Assert.Equal(
+            expected.ReplaceLineEndings("\n"), 
+            actual.ReplaceLineEndings("\n"));
     }
 }
