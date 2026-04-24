@@ -114,6 +114,9 @@ internal static class ProgramCommands
             // ［色を指定してメッセージ表示］
             case "print-message-with-color": return await MuzPrintMessageWithColorCommand.ExecuteAsync(services, arguments);
 
+            // ［位置も指定してメッセージ表示］
+            case "print-message-with-location": return await MuzPrintMessageWithLocationCommand.ExecuteAsync(services, arguments);
+
             // ［カーソルの移動］の動作確認
             case "move-cursor-warmup":
                 return await MuzMoveCursorWarmupCommand.ExecuteAsync(services);

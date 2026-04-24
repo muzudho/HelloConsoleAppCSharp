@@ -17,9 +17,9 @@ internal class MuzPrintMessageWithColorCommand
         // 半角空白で引数を分割するぜ（＾～＾）
         //
         // 引数は必ず３つ入力されるものとし、
-        // トークンの１つ目は前景色、
-        // トークンの２つ目は背景色、
-        // それ以降はメッセージだぜ（＾～＾）
+        // トークンの１つ目は、前景色、
+        // トークンの２つ目は、背景色、
+        // それ以降は、メッセージだぜ（＾～＾）
         var parts = arguments.Split(new[] { ' ' }, 3, StringSplitOptions.RemoveEmptyEntries);
 
         // 引数が３つ未満のとき

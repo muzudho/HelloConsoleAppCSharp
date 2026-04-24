@@ -95,6 +95,14 @@ move-cursor-warmup
 👆 📄 [文字表示＜その３＞カーソル移動のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A3_文字表示＜その３＞カーソル移動のウォーミングアップ.md)  
 
 
+```shell
+print-message-with-location 20 5 Red Blue Hello, World!!
+print-message-with-location 30 6 Red White Hello, World!!
+```
+
+👆 📄 [文字表示＜その４＞位置も指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A4_文字表示＜その４＞位置も指定してメッセージ表示.md)  
+
+
 ## 文字を表示しようのあとで
 
 ```shell
