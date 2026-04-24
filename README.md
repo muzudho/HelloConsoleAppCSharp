@@ -22,20 +22,20 @@ hello
 👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O9_リプルの作成.md)  
 
 
-### ファイルからメッセージを読み取ろう
+### 第１章第２節：ファイルからメッセージを読込もう
 
 ```shell
 read-messages-warmup
 ```
 
-👆 📄 [ファイルからメッセージを読み取ろう＜その１＞ウォーミングアップ](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A1_ファイルからメッセージを読み取ろう＜その１＞ウォーミングアップ.md)
+👆 📄 [ウォーミングアップ](./HelloConsoleAppCSharp/Docs/第１章第２節：ファイルからメッセージを読込もう/O1_ウォーミングアップ.md)
 
 
 ```shell
 read-messages-2-warmup
 ```
 
-👆 📄 [ファイルからメッセージを読み取ろう＜その２＞複数行の書式](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A2_ファイルからメッセージを読み取ろう＜その２＞複数行の書式.md)  
+👆 📄 [複数行の書式](./HelloConsoleAppCSharp/Docs/第１章第２節：ファイルからメッセージを読込もう/O2_複数行の書式.md)  
 
 
 ```shell
@@ -46,14 +46,14 @@ get-message-warmup Msg_1
 get-message-warmup WaHaHa!
 ```
 
-👆 📄 [ファイルからメッセージを読み取ろう＜その３＞コマンドでの動作確認](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A3_ファイルからメッセージを読み取ろう＜その３＞コマンドでの動作確認.md)  
+👆 📄 [キャッシュしよう](./HelloConsoleAppCSharp/Docs/第１章第２節：ファイルからメッセージを読込もう/O3_キャッシュしよう.md)  
 
 
 ```shell
 get-message Msg_1
 ```
 
-👆 📄 [ファイルからメッセージを読み取ろう＜その４＞メソッドにしよう](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A4_ファイルからメッセージを読み取ろう＜その４＞メソッドにしよう.md)📄 [
+👆 📄 [メソッドにしよう](./HelloConsoleAppCSharp/Docs/第１章第２節：ファイルからメッセージを読込もう/O4_メソッドにしよう.md)📄 [
 
 
 ## 第２章：プログレスバーの作成
