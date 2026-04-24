@@ -65,7 +65,7 @@ internal static class ProgramCommands
             case "read-messages-2-warmup":
                 {
                     var dictionary = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
-                    Console.WriteLine(dictionary["ErrorMsg_1"]);
+                    Console.WriteLine(dictionary["Msg_1"]);
                     return MuzRequestType.None;
                 }
 

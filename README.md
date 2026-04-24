@@ -41,7 +41,6 @@ read-messages-2-warmup
 ```shell
 load-messages
 get-message-warmup Msg_1
-get-message-warmup ErrorMsg_1
 get-message-warmup WaHaHa!
 ```
 
@@ -50,7 +49,6 @@ get-message-warmup WaHaHa!
 
 ```shell
 get-message Msg_1
-get-message ErrorMsg_1
 ```
 
 👆 📄 [ファイルからメッセージを読み取ろう＜その４＞メソッドにしよう](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A4_ファイルからメッセージを読み取ろう＜その４＞メソッドにしよう.md)📄 [
