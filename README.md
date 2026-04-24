@@ -98,6 +98,9 @@ move-cursor-warmup
 ```shell
 print-message-with-location 20 5 Red Blue Hello, World!!
 print-message-with-location 30 6 Red White Hello, World!!
+
+# 入力エラーのときの動作確認（＾～＾）
+print-message-with-location Banana
 ```
 
 👆 📄 [文字表示＜その４＞位置も指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A4_文字表示＜その４＞位置も指定してメッセージ表示.md)  

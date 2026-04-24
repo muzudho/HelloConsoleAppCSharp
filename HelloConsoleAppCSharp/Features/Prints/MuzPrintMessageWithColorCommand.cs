@@ -27,7 +27,8 @@ internal class MuzPrintMessageWithColorCommand
         if (parts.Length < 3)
         {
             // 使い方説明を表示して終了するぜ（＾～＾）
-            Console.WriteLine(MuzMessagesHelper.GetMessage(services, string.Format("ErrorMsg_1", argIndex, argIndex + 1, argIndex + 2)));
+            var rawMessage = MuzMessagesHelper.GetMessage(services, "ErrorMsg_1");
+            Console.WriteLine(string.Format(rawMessage, argIndex, argIndex + 1, argIndex + 2));
             return MuzRequestType.None;
         }
 
