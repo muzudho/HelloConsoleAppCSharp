@@ -73,7 +73,7 @@ command command hello
 change-color-warmup
 ```
 
-👆 📄 [文字色の変更＜その１＞ウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A1_文字色の変更＜その１＞ウォーミングアップ.md)  
+👆 📄 [文字表示＜その１＞色変更のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A1_文字表示＜その１＞色変更のウォーミングアップ.md)  
 
 
 ```shell
@@ -83,7 +83,7 @@ print-message-with-color Red Blue Hello, World!!
 print-message-with-color Banana
 ```
 
-👆 📄 [文字色の変更＜その２＞色を指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A2_文字色の変更＜その２＞色を指定してメッセージ表示.md)  
+👆 📄 [文字表示＜その２＞色を指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A2_文字表示＜その２＞色を指定してメッセージ表示.md)  
 
 
 ```shell
