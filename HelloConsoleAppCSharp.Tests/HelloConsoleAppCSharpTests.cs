@@ -29,4 +29,11 @@ public class HelloConsoleAppCSharpTests
         // Assert
         Assert.Equal(expected, appSettings.AppName);
     }
+
+    [Fact]
+    public void Message_GetMessage_ReturnsMessage()
+    {
+        // Expected
+        var expected = "1.0.0";
+    }
 }

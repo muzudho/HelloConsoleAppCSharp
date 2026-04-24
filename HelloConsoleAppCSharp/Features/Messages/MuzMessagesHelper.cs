@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Features.Messages;
 
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
 /// <summary>
@@ -61,5 +62,29 @@ internal static class MuzMessagesHelper
         }
 
         return result;
+    }
+
+
+    /// <summary>
+    /// メッセージの取得
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="key">メッセージのキー</param>
+    /// <param name="forceLoad">キャッシュを捨てて再読込したいとき真</param>
+    /// <returns>メッセージ</returns>
+    public static string GetMessage(
+        IServiceProvider services,
+        string key,
+        bool forceLoad = false)
+    {
+        const string filePath = "Assets/Messages.json";     // ファイル名は埋込でいいかな（＾～＾）
+        const string defaultMessage = "メッセージが見つからないぜ（＾～＾）！";    // 見つからないときのデフォルトメッセージも埋込でいいかな（＾～＾）
+
+        var pgSvc = services.GetRequiredService<ProgramService>();
+
+        // 強制読込（空のときも読込）
+        if (!pgSvc.MessageCache.Any() || forceLoad) pgSvc.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary(filePath);
+        
+        return pgSvc.MessageCache.GetValueOrDefault(key, defaultMessage);
     }
 }

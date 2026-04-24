@@ -1,4 +1,10 @@
 {
+  "Msg_1": [
+    "\"Don't Repeat Yourself.\"",
+    "",
+    "    — The Pragmatic Programmer",
+    "      Andy Hunt, Dave Thomas"
+  ],
   "ErrorMsg_1": [
     "【引数エラー】引数は半角区切りで、１つ目の要素は前景色、２つ目の要素は背景色、３つ目以降の要素はメッセージを入れてください（＾～＾）",
     "全部で16色あるよ：",
