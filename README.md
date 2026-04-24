@@ -78,6 +78,9 @@ change-color-warmup
 
 ```shell
 print-message-with-color Red Blue Hello, World!!
+
+# 入力エラーのときの動作確認（＾～＾）
+print-message-with-color Banana
 ```
 
 👆 📄 [文字色の変更＜その２＞色を指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A2_文字色の変更＜その２＞色を指定してメッセージ表示.md)  

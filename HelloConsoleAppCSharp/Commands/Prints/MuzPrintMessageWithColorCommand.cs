@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.Prints;
 
+using HelloConsoleAppCSharp.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using System;
@@ -24,12 +25,8 @@ internal class MuzPrintMessageWithColorCommand
         // 引数が３つ未満のとき
         if (parts.Length < 3)
         {
-            Console.WriteLine($@"【引数エラー】引数は半角区切りで、１つ目の要素は前景色、２つ目の要素は背景色、３つ目以降の要素はメッセージを入れてください（＾～＾）
-全部で16色あるよ：
-    Black, DarkBlue, DarkGreen, DarkCyan, DarkRed, DarkMagenta, DarkYellow, Gray
-    DarkGray, Blue, Green, Cyan, Red, Magenta, Yellow, White
-指定しない場合は Default を入れてね（＾～＾）
-");
+            // 使い方説明を表示して終了するぜ（＾～＾）
+            Console.WriteLine(MuzMessagesHelper.GetMessage(services, "ErrorMsg_1"));
             return MuzRequestType.None;
         }
 
