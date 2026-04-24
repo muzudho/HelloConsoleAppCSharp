@@ -73,7 +73,7 @@ get-message Msg_1
 change-color-warmup
 ```
 
-👆 📄 [文字表示＜その１＞色変更のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O1_色変更のウォーミングアップ.md)  
+👆 📄 [色変更のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O1_色変更のウォーミングアップ.md)  
 
 
 ```shell
@@ -86,14 +86,14 @@ print-message-with-color Default Green Hello, World!!
 print-message-with-color Banana
 ```
 
-👆 📄 [文字表示＜その２＞色を指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O2_色を指定してメッセージ表示.md)  
+👆 📄 [色を指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O2_色を指定してメッセージ表示.md)  
 
 
 ```shell
 move-cursor-warmup
 ```
 
-👆 📄 [文字表示＜その３＞カーソル移動のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O3_カーソル移動のウォーミングアップ.md)  
+👆 📄 [カーソル移動のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O3_カーソル移動のウォーミングアップ.md)  
 
 
 ```shell
@@ -107,7 +107,7 @@ print-message-with-location Default 7 Red Blue Hello, World!!
 print-message-with-location Banana
 ```
 
-👆 📄 [文字表示＜その４＞位置も指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O4_位置も指定してメッセージ表示.md)  
+👆 📄 [位置も指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O4_位置も指定してメッセージ表示.md)  
 
 
 ## 第２章第２節：プログレスバーの作成
