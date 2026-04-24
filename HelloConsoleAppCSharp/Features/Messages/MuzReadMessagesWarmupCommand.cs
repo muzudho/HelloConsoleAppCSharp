@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Commands.Clear;
+﻿namespace HelloConsoleAppCSharp.Features.Messages;
 
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using System.Text.Json;

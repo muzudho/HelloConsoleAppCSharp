@@ -21,18 +21,20 @@ hello
 👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O9_リプルの作成.md)  
 
 
+### ファイルからメッセージを読み取ろう
+
 ```shell
 read-messages-warmup
 ```
 
-👆 📄 [ファイルからメッセージを読取](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10_メッセージファイル＜その１＞ファイルからメッセージを読取.md)
+👆 📄 [ファイルからメッセージを読み取ろう＜その１＞ウォーミングアップ](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A1_ファイルからメッセージを読み取ろう＜その１＞ウォーミングアップ.md)
 
 
 ```shell
 read-messages-2-warmup
 ```
 
-👆 📄 [ファイルからメッセージを読取（配列対応）](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO11_メッセージファイル＜その２＞メッセージを配列で持つメッセージファイルの読取.md)  
+👆 📄 [ファイルからメッセージを読み取ろう＜その２＞複数行の書式](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/OO10A2_ファイルからメッセージを読み取ろう＜その２＞複数行の書式.md)  
 
 
 ## 第２章：プログレスバーの作成
