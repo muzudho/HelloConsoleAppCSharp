@@ -66,6 +66,13 @@ internal static class MuzInfrastructureHelper
                 // ここから `bootstrapLogger` を使った［ロギング］できる（＾～＾）！
                 bootstrapLogger.LogInformation("ホストビルド前だが、ブートストラップ・ログは出せるぜ（＾～＾）！");
 
+
+                // 📍 NOTE:
+                //
+                //      （あとで）ここへサービスを追加していくぜ（＾～＾）
+                //
+
+
                 //
                 // ［プログラム］サービスの登録
                 //
