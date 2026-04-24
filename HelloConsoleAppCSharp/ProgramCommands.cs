@@ -4,7 +4,6 @@ using HelloConsoleAppCSharp.Commands.Clear;
 using HelloConsoleAppCSharp.Commands.ContinuePromptWarmup;
 using HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 using HelloConsoleAppCSharp.Commands.KeyInputWarmup;
-using HelloConsoleAppCSharp.Commands.Prints;
 using HelloConsoleAppCSharp.Commands.PrintWarmup;
 using HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 using HelloConsoleAppCSharp.Commands.ShowErapsedTime;
