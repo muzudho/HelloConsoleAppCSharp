@@ -69,6 +69,8 @@ command command hello
 👆 📄 [コマンドの間接的実行](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O1_コマンドの間接的実行.md)  
 
 
+## 文字を表示しよう
+
 ```shell
 change-color-warmup
 ```
@@ -90,8 +92,10 @@ print-message-with-color Banana
 move-cursor-warmup
 ```
 
-👆 📄 [カーソルの移動](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O3_カーソルの移動.md)  
+👆 📄 [文字表示＜その３＞カーソル移動のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O2A3_文字表示＜その３＞カーソル移動のウォーミングアップ.md)  
 
+
+## 文字を表示しようのあとで
 
 ```shell
 clear
