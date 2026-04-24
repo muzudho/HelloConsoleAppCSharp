@@ -27,8 +27,8 @@ internal class MuzPrintMessageWithColorCommand
         if (parts.Length < 3)
         {
             // 使い方説明を表示して終了するぜ（＾～＾）
-            var rawMessage = MuzMessagesHelper.GetMessage(services, "ErrorMsg_1");
-            Console.WriteLine(string.Format(rawMessage, argIndex, argIndex + 1, argIndex + 2));
+            var errorMessage = ToErrorMessage(services, argIndex);
+            Console.WriteLine(errorMessage);
             return MuzRequestType.None;
         }
 
@@ -46,5 +46,20 @@ internal class MuzPrintMessageWithColorCommand
             });
 
         return MuzRequestType.None;
+    }
+
+
+    /// <summary>
+    /// エラーメッセージの生成
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="argIndex"></param>
+    /// <returns></returns>
+    internal static string ToErrorMessage(
+        IServiceProvider services,
+        int argIndex = 1)
+    {
+        var rawMessage = MuzMessagesHelper.GetMessage(services, "ErrorMsg_1");
+        return string.Format(rawMessage, argIndex, argIndex + 1, argIndex + 2);
     }
 }

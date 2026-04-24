@@ -35,8 +35,11 @@ internal class MuzPrintMessageWithLocationCommand
         if (isError)
         {
             // 使い方説明を表示して終了するぜ（＾～＾）
-            var rawMessage = MuzMessagesHelper.GetMessage(services, "ErrorMsg_2");
-            Console.WriteLine(string.Format(rawMessage, argIndex, argIndex + 1));
+            var errorMessage = string.Join(
+                "\n",
+                ToErrorMessage(services, argIndex),
+                MuzPrintMessageWithColorCommand.ToErrorMessage(services, argIndex + 2));
+            Console.WriteLine(errorMessage);
             return MuzRequestType.None;
         }
 
@@ -50,5 +53,20 @@ internal class MuzPrintMessageWithLocationCommand
         });
 
         return MuzRequestType.None;
+    }
+
+
+    /// <summary>
+    /// エラーメッセージの生成
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="argIndex"></param>
+    /// <returns></returns>
+    internal static string ToErrorMessage(
+        IServiceProvider services,
+        int argIndex = 1)
+    {
+        var rawMessage = MuzMessagesHelper.GetMessage(services, "ErrorMsg_2");
+        return string.Format(rawMessage, argIndex, argIndex + 1);
     }
 }
