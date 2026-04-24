@@ -81,6 +81,9 @@ change-color-warmup
 ```shell
 print-message-with-color Red Blue Hello, World!!
 
+# Default の動作確認（＾～＾）
+print-message-with-color Default Green Hello, World!!
+
 # 入力エラーのときの動作確認（＾～＾）
 print-message-with-color Banana
 ```
@@ -98,6 +101,9 @@ move-cursor-warmup
 ```shell
 print-message-with-location 20 5 Red Blue Hello, World!!
 print-message-with-location 30 6 Red White Hello, World!!
+
+# Default の動作確認（＾～＾）
+print-message-with-location Default 7 Red Blue Hello, World!!
 
 # 入力エラーのときの動作確認（＾～＾）
 print-message-with-location Banana
