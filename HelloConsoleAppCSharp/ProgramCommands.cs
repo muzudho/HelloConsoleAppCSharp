@@ -127,6 +127,12 @@ internal static class ProgramCommands
             case "move-cursor-warmup":
                 return await MuzMoveCursorWarmupCommand.ExecuteAsync(services);
 
+
+            // ----------------------------------------
+            // 第２章第２節：プログレスバーの作成
+            // ----------------------------------------
+
+
             // ［コンソール］の文字を全部消します。
             case "clear": return await MuzClearCommand.ExecuteAsync(services);
 
