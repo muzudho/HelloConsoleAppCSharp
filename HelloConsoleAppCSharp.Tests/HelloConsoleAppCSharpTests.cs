@@ -32,6 +32,9 @@ public class HelloConsoleAppCSharpTests
     }
 
 
+    /// <summary>
+    /// メッセージを取得するテスト
+    /// </summary>
     [Fact]
     public void Message_GetMessage_ReturnsMessage()
     {
