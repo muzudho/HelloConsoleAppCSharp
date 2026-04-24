@@ -17,7 +17,6 @@ using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Experiment;
 using HelloConsoleAppCSharp.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
-using HelloConsoleAppCSharp.Infrastructure.Messages;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 

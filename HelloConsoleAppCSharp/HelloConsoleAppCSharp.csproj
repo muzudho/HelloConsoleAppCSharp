@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <Folder Include="Commands\ReadMessagesWarmup\" />
+    <Folder Include="Infrastructure\Messages\" />
   </ItemGroup>
 
 </Project>
