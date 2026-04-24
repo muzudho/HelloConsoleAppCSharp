@@ -22,6 +22,14 @@ hello
 👆 📄 [リプルの作成](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャー/O9_リプルの作成.md)  
 
 
+```shell
+command hello
+command command hello
+```
+
+👆 📄 [コマンドの間接的実行](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/OO10_コマンドの間接的実行.md)  
+
+
 ### 第１章第２節：ファイルからメッセージを読込もう
 
 ```shell
@@ -59,14 +67,6 @@ get-message Msg_1
 ## 第２章：プログレスバーの作成
 
 この章では、コンソールの操作を覚えながら、プログレスバーを作ってみましょう（＾▽＾）  
-
-
-```shell
-command hello
-command command hello
-```
-
-👆 📄 [コマンドの間接的実行](./HelloConsoleAppCSharp/Docs/第２章：プログレスバーの作成/O1_コマンドの間接的実行.md)  
 
 
 ## 文字を表示しよう
