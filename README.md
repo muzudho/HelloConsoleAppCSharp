@@ -41,6 +41,8 @@ read-messages-2-warmup
 ```shell
 load-messages
 get-message-warmup Msg_1
+
+# 入力エラーのときの動作確認（＾～＾）
 get-message-warmup WaHaHa!
 ```
 

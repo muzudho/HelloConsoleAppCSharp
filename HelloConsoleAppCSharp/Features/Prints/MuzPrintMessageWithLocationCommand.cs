@@ -8,7 +8,8 @@ internal class MuzPrintMessageWithLocationCommand
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
         IServiceProvider services,
-        string arguments)
+        string arguments,
+        int argIndex = 1)
     {
         // 半角空白で引数を分割するぜ（＾～＾）
         //
@@ -34,7 +35,7 @@ internal class MuzPrintMessageWithLocationCommand
         if (isError)
         {
             // 使い方説明を表示して終了するぜ（＾～＾）
-            Console.WriteLine(MuzMessagesHelper.GetMessage(services, "ErrorMsg_2"));
+            Console.WriteLine(MuzMessagesHelper.GetMessage(services, string.Format("ErrorMsg_2", argIndex , argIndex + 1)));
             return MuzRequestType.None;
         }
 
@@ -44,7 +45,7 @@ internal class MuzPrintMessageWithLocationCommand
             Console.SetCursorPosition(left, top);
 
             // トークンの３つ目以降を次のコマンドに渡すぜ（＾～＾）
-            await MuzPrintMessageWithColorCommand.ExecuteAsync(services, parts[2]);
+            await MuzPrintMessageWithColorCommand.ExecuteAsync(services, parts[2], argIndex: argIndex + 2);
         });
 
         return MuzRequestType.None;
