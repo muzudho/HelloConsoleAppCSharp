@@ -30,9 +30,11 @@ internal class MuzPrintMessageWithLocationCommand
         if (parts.Length < 3) { isError = true; }
         else
         {
-            // エラーのとき、エラーフラグを立てるぜ（＾～＾）
-            isError |= !int.TryParse(parts[0], out left);
-            isError |= !int.TryParse(parts[1], out top);
+            if (parts[0] == "Default") { left = Console.CursorLeft; }
+            else { isError |= !int.TryParse(parts[0], out left); }      // エラーのとき、エラーフラグを立てるぜ（＾～＾）
+
+            if (parts[1] == "Default") { top = Console.CursorTop; }
+            else { isError |= !int.TryParse(parts[1], out top); }
         }
 
         if (isError)
