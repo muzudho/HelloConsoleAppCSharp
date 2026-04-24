@@ -19,6 +19,8 @@ using HelloConsoleAppCSharp.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
+using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.CompilerServices;
 
 /// <summary>
 /// コマンド実行部
@@ -66,6 +68,14 @@ internal static class ProgramCommands
                 {
                     var dictionary = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
                     Console.WriteLine(dictionary["ErrorMsg_1"]);
+                    return MuzRequestType.None;
+                }
+
+            // ［メッセージを配列で持つメッセージファイル］を読込み、キャッシュへ格納
+            case "load-messages":
+                {
+                    var pgSvc = services.GetRequiredService<ProgramService>();
+                    pgSvc.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
                     return MuzRequestType.None;
                 }
 

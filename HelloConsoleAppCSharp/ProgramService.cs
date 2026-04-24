@@ -29,4 +29,14 @@ internal class ProgramService
     #endregion
 
 
+    #region ［メッセージのキャッシュ］
+
+    /// <summary>
+    /// メッセージのキャッシュを格納しておくぜ（＾～＾）！
+    /// </summary>
+    internal Dictionary<string, string> MessageCache { get; set; } = new Dictionary<string, string>();
+
+    #endregion
+
+
 }
