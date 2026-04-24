@@ -1,6 +1,8 @@
 ﻿namespace HelloConsoleAppCSharp.Tests;
 
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
+using HelloConsoleAppCSharp.Features.Messages;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 /// <summary>
@@ -33,6 +35,11 @@ public class HelloConsoleAppCSharpTests
     [Fact]
     public void Message_GetMessage_ReturnsMessage()
     {
+        // Arrange - テスト用のDIコンテナを作成
+        var services = new ServiceCollection();
+        services.AddSingleton<ProgramService>();
+        var serviceProvider = services.BuildServiceProvider();
+
         // Expected
         var expected = @"""Don't Repeat Yourself.""
 
@@ -40,7 +47,7 @@ public class HelloConsoleAppCSharpTests
       Andy Hunt, Dave Thomas";
 
         // Act
-        var act = MuzMessagesHelper.GetMessage("Msg_1");
+        var act = MuzMessagesHelper.GetMessage(serviceProvider, "Msg_1");
 
         // Assert
         Assert.Equal(expected, act);

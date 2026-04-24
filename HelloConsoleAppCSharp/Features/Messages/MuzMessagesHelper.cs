@@ -6,7 +6,7 @@ using System.Text.Json;
 /// <summary>
 /// メッセージ・リソース読取の自前実装
 /// </summary>
-internal static class MuzMessagesHelper
+public static class MuzMessagesHelper
 {
     /// <summary>
     /// JSONファイルからメッセージを読み込み、Dictionary<string, string> で返す。
