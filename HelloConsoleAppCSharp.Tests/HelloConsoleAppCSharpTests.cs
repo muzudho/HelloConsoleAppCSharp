@@ -39,9 +39,9 @@ public class HelloConsoleAppCSharpTests
     public void Message_GetMessage_ReturnsMessage()
     {
         // Arrange - テスト用のDIコンテナを作成
-        var services = new ServiceCollection();
-        services.AddSingleton<ProgramService>();
-        var serviceProvider = services.BuildServiceProvider();
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddSingleton<ProgramService>();
+        var services = serviceCollection.BuildServiceProvider();
 
         // Expected
         var expected = @"""Don't Repeat Yourself.""
@@ -50,7 +50,7 @@ public class HelloConsoleAppCSharpTests
       Andy Hunt, Dave Thomas";
 
         // Act
-        var actual = MuzMessagesHelper.GetMessage(serviceProvider, "Msg_1");
+        var actual = MuzMessagesHelper.GetMessage(services, "Msg_1");
 
         // Assert - 改行コードを統一して比較（クロスプラットフォーム対応）
         Assert.Equal(
