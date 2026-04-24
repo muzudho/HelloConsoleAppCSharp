@@ -61,6 +61,18 @@ internal static class ProgramCommands
             // ----------------------------------------
 
 
+            // ［コマンド呼出し］の動作確認
+            case "command":
+                return await ProgramCommands.ExecuteAsync(
+                    command: arguments,
+                    services: services);
+
+
+            // ----------------------------------------
+            // 第１章第２節：ファイルからメッセージを読込もう
+            // ----------------------------------------
+
+
             // ［メッセージを配列で持つメッセージファイル］の読込の動作確認
             case "read-messages-2-warmup":
                 {
@@ -101,12 +113,6 @@ internal static class ProgramCommands
             // 第２章：プログレスバーの作成
             // ----------------------------------------
 
-
-            // ［コマンド呼出し］の動作確認
-            case "command":
-                return await ProgramCommands.ExecuteAsync(
-                    command: arguments,
-                    services: services);
 
             // ［文字色の変更］の動作確認
             case "change-color-warmup": return await MuzChangeColorWarmupCommand.ExecuteAsync(services);
