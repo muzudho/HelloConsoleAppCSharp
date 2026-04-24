@@ -78,11 +78,20 @@ internal static class ProgramCommands
                 }
 
             // キャッシュした［メッセージ辞書］から、メッセージ取得
-            case "get-message":
+            case "get-message-warmup":
                 {
                     var pgSvc = services.GetRequiredService<ProgramService>();
                     // コマンドの第二引数をメッセージのキーとして使うぜ（＾～＾）
                     var message = pgSvc.MessageCache.GetValueOrDefault(arguments, "メッセージが見つからないぜ（＾～＾）！");
+                    Console.WriteLine(message);
+                    return MuzRequestType.None;
+                }
+
+            // メッセージ取得
+            case "get-message":
+                {
+                    // コマンドの第二引数をメッセージのキーとして使うぜ（＾～＾）
+                    var message = MuzMessagesHelper.GetMessage(services, arguments);
                     Console.WriteLine(message);
                     return MuzRequestType.None;
                 }
