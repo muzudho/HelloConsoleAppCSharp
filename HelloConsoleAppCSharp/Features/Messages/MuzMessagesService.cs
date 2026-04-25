@@ -10,20 +10,20 @@ public class MuzMessagesService
 
 
     // ========================================
-    // 構成
+    // 窓口データメンバー
     // ========================================
 
-
-    #region ［キャッシュ］
 
     /// <summary>
     /// メッセージのキャッシュを格納しておくぜ（＾～＾）！
     /// </summary>
     internal Dictionary<string, string> MessageCache { get; set; } = new Dictionary<string, string>();
 
-    #endregion
 
-    #region ［取得］
+    // ========================================
+    // 窓口メソッド
+    // ========================================
+
 
     /// <summary>
     /// メッセージの取得
@@ -43,8 +43,6 @@ public class MuzMessagesService
 
         return this.MessageCache.GetValueOrDefault(key, defaultMessage);
     }
-
-    #endregion
 
 
 }
