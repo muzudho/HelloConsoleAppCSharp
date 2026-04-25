@@ -3,6 +3,7 @@
 using HelloConsoleAppCSharp.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
+using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
 /// 位置を指定してメッセージを表示するコマンド
@@ -71,7 +72,8 @@ internal class MuzPrintMessageWithLocationCommand
         IServiceProvider services,
         int argIndex = 1)
     {
-        var rawMessage = MuzMessagesHelper.GetMessage(services, "ErrorMsg_2");
+        var msgSvc = services.GetRequiredService<MuzMessagesService>();
+        var rawMessage = msgSvc.GetMessage("ErrorMsg_2");
         return string.Format(rawMessage, argIndex, argIndex + 1);
     }
 }

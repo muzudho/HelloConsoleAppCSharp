@@ -2,7 +2,6 @@
 
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Features.Messages;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 /// <summary>
@@ -50,7 +49,8 @@ public class HelloConsoleAppCSharpTests
       Andy Hunt, Dave Thomas";
 
         // Act
-        var actual = MuzMessagesHelper.GetMessage(services, "Msg_1");
+        var msgSvc = services.GetRequiredService<MuzMessagesService>();
+        var actual = msgSvc.GetMessage("Msg_1");
 
         // Assert - 改行コードを統一して比較（クロスプラットフォーム対応）
         Assert.Equal(

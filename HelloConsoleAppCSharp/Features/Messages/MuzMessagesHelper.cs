@@ -1,15 +1,14 @@
 ﻿namespace HelloConsoleAppCSharp.Features.Messages;
 
-using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
 /// <summary>
-/// メッセージ・リソース読取の自前実装
+/// メッセージ・リソース読取のヘルパークラス
 /// </summary>
 public static class MuzMessagesHelper
 {
     /// <summary>
-    /// JSONファイルからメッセージを読み込み、Dictionary<string, string> で返す。
+    /// JSONファイルからメッセージを読み込み、Dictionary&lt;string, string&gt; で返す。
     /// 値が string[] の場合は "\n" で結合して1つの文字列にする。
     /// </summary>
     public static Dictionary<string, string> GetMessagesAsDictionary(string filePath)
@@ -62,29 +61,5 @@ public static class MuzMessagesHelper
         }
 
         return result;
-    }
-
-
-    /// <summary>
-    /// メッセージの取得
-    /// </summary>
-    /// <param name="services"></param>
-    /// <param name="key">メッセージのキー</param>
-    /// <param name="forceLoad">キャッシュを捨てて再読込したいとき真</param>
-    /// <returns>メッセージ</returns>
-    public static string GetMessage(
-        IServiceProvider services,
-        string key,
-        bool forceLoad = false)
-    {
-        const string filePath = "Assets/Messages.json";     // ファイル名は埋込でいいかな（＾～＾）
-        const string defaultMessage = "メッセージが見つからないぜ（＾～＾）！";    // 見つからないときのデフォルトメッセージも埋込でいいかな（＾～＾）
-
-        var msgSvc = services.GetRequiredService<MuzMessagesService>();
-
-        // 強制読込（空のときも読込）
-        if (!msgSvc.MessageCache.Any() || forceLoad) msgSvc.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary(filePath);
-        
-        return msgSvc.MessageCache.GetValueOrDefault(key, defaultMessage);
     }
 }

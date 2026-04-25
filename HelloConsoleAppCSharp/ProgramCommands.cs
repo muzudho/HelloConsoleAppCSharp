@@ -103,7 +103,8 @@ internal static class ProgramCommands
             case "get-message":
                 {
                     // コマンドの第二引数をメッセージのキーとして使うぜ（＾～＾）
-                    var message = MuzMessagesHelper.GetMessage(services, arguments);
+                    var msgSvc = services.GetRequiredService<MuzMessagesService>();
+                    var message = msgSvc.GetMessage(arguments);
                     Console.WriteLine(message);
                     return MuzRequestType.None;
                 }

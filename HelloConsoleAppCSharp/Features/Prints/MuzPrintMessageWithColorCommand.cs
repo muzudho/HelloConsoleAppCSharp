@@ -3,6 +3,7 @@
 using HelloConsoleAppCSharp.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 /// <summary>
@@ -59,7 +60,8 @@ internal class MuzPrintMessageWithColorCommand
         IServiceProvider services,
         int argIndex = 1)
     {
-        var rawMessage = MuzMessagesHelper.GetMessage(services, "ErrorMsg_1");
+        var msgSvc = services.GetRequiredService<MuzMessagesService>();
+        var rawMessage = msgSvc.GetMessage("ErrorMsg_1");
         return string.Format(rawMessage, argIndex, argIndex + 1, argIndex + 2);
     }
 }
