@@ -84,17 +84,17 @@ internal static class ProgramCommands
             // ［メッセージを配列で持つメッセージファイル］を読込み、キャッシュへ格納
             case "load-messages":
                 {
-                    var pgSvc = services.GetRequiredService<ProgramService>();
-                    pgSvc.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
+                    var msgSvc = services.GetRequiredService<MuzMessagesService>();
+                    msgSvc.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
                     return MuzRequestType.None;
                 }
 
             // キャッシュした［メッセージ辞書］から、メッセージ取得
             case "get-message-warmup":
                 {
-                    var pgSvc = services.GetRequiredService<ProgramService>();
+                    var msgSvc = services.GetRequiredService<MuzMessagesService>();
                     // コマンドの第二引数をメッセージのキーとして使うぜ（＾～＾）
-                    var message = pgSvc.MessageCache.GetValueOrDefault(arguments, "メッセージが見つからないぜ（＾～＾）！");
+                    var message = msgSvc.MessageCache.GetValueOrDefault(arguments, "メッセージが見つからないぜ（＾～＾）！");
                     Console.WriteLine(message);
                     return MuzRequestType.None;
                 }
