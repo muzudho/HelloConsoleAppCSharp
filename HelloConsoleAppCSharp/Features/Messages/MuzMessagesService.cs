@@ -19,6 +19,16 @@ public class MuzMessagesService
     /// </summary>
     internal Dictionary<string, string> MessageCache { get; set; } = new Dictionary<string, string>();
 
+    /// <summary>
+    /// メッセージ・ファイルへのパス
+    /// </summary>
+    public string FilePath { get; set; } = "Assets/Messages.json";
+
+    /// <summary>
+    /// 見つからないときのデフォルトメッセージ
+    /// </summary>
+    public string DefaultMessage { get; set; } = "メッセージが見つからないぜ（＾～＾）！";
+
 
     // ========================================
     // 窓口メソッド
@@ -35,13 +45,10 @@ public class MuzMessagesService
         string key,
         bool forceLoad = false)
     {
-        const string filePath = "Assets/Messages.json";     // ファイル名は埋込でいいかな（＾～＾）
-        const string defaultMessage = "メッセージが見つからないぜ（＾～＾）！";    // 見つからないときのデフォルトメッセージも埋込でいいかな（＾～＾）
-
         // 強制読込（空のときも読込）
-        if (!this.MessageCache.Any() || forceLoad) this.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary(filePath);
+        if (!this.MessageCache.Any() || forceLoad) this.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary(this.FilePath);
 
-        return this.MessageCache.GetValueOrDefault(key, defaultMessage);
+        return this.MessageCache.GetValueOrDefault(key, this.DefaultMessage);
     }
 
 
