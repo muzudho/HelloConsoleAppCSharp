@@ -144,7 +144,9 @@ catch (Exception ex)
 finally
 {
     Console.WriteLine("アプリが終了するぜ（＾～＾）！");
-    await MuzInfrastructureHelper.Cleanup();
+
+    // お前のアプリケーションに合わせて、［片付け］コードを追加していってくれだぜ（＾～＾）！
+    MuzLogging.Cleanup(); // ロガーのクリーンアップ（＾～＾）
 }
 
 // Program.cs を最後まで実行しても、必ずしもアプリケーションが終了するわけじゃないぜ（＾～＾）！

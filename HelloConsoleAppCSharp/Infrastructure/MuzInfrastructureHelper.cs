@@ -33,15 +33,4 @@ internal static class MuzInfrastructureHelper
         // ホストビルド後の処理（＾～＾）
         await afterHostBuild(builder, host.Services, executeAfterHostBuild);
     }
-
-
-    /// <summary>
-    /// アプリケーション終了時に片付けるぜ（＾▽＾）
-    /// </summary>
-    public static async Task Cleanup()
-    {
-        // お前のアプリケーションに合わせて、［片付け］コードを追加していってくれだぜ（＾～＾）！
-
-        MuzLogging.Cleanup(); // ロガーのクリーンアップ（＾～＾）
-    }
 }
