@@ -1,6 +1,5 @@
 ﻿namespace HelloConsoleAppCSharp.Infrastructure;
 
-using HelloConsoleAppCSharp.Infrastructure.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -8,7 +7,7 @@ using System;
 /// <summary>
 /// どんなコンソール・アプリを作るときでも、本題に入る前に似たようなコードを書くことになる……、そんな似たコード［ホストビルド］をまとめたヘルパークラスだぜ（＾～＾）！
 /// </summary>
-internal static class MuzInfrastructureHelper
+internal static class MuzHostHelper
 {
     public static async Task RunAsync(
         string[] commandLineArgs,

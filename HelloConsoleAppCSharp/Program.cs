@@ -17,7 +17,7 @@ try
     // ホストビルドするぜ（＾～＾）！
     // ［ホスト］ってのは［汎用ホスト］のことで、いろいろ［サービス］っていう便利機能を付け加えることができるフレームワークみたいなもんだぜ（＾～＾）
     // それを［ビルド］するぜ（＾▽＾）
-    await MuzInfrastructureHelper.RunAsync(
+    await MuzHostHelper.RunAsync(
         commandLineArgs: args,
         beforeHostBuild: async (builder, executeBeforeBuild) =>
         {

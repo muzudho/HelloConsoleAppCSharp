@@ -3,7 +3,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-internal class MuzInfrastructureHelper
+internal class MuzHostHelper
 {
     public static async Task RunAsync(
         string[] commandLineArgs,
