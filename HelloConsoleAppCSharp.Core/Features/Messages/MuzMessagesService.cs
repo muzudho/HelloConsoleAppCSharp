@@ -47,7 +47,7 @@ public class MuzMessagesService
         // 強制読込（空のときも読込）
         if (!this.MessageCache.Any() || forceLoad)
         {
-            // 実行ファイルのディレクトリを基準にした絶対パスを生成
+            // 設定されているファイルパスを、実行ファイルのディレクトリを基準にした絶対パスに変換します。
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             var absolutePath = Path.Combine(baseDirectory, this.FilePath);
             this.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary(absolutePath);
