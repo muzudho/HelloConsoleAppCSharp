@@ -7,7 +7,6 @@ using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -51,7 +50,9 @@ try
         },
         onLoggingAsync: async (builder, services, onHostEnabled) =>
         {
-            //await onHostEnabled(host);  // ホストは有効になっているぜ（＾▽＾）！
+            // こっちはコメントアウト（＾～＾）
+            //await onHostEnabled(services);  // ホストは有効になっているぜ（＾▽＾）！
+
             await MuzLogging.SetupAfterHostBuildAsync(
                 configurationMgr: builder.Configuration,
                 onLoggingServiceEnabled: async () =>
