@@ -12,7 +12,7 @@ using System;
 /// </summary>
 internal static class MuzInfrastructureHelper
 {
-    public static async Task BuildHostAsync(
+    public static async Task RunAsync(
         string[] commandLineArgs,
         Action<IServiceCollection> beforeBuild,
         Func<IServiceProvider, Task> onHostEnabled)
