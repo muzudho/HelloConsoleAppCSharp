@@ -48,10 +48,10 @@ try
 
 
         },
-        afterHostBuild: async (builder, services, onHostEnabled) =>
+        afterHostBuild: async (builder, services, executeAfterHostBuild) =>
         {
             // こっちはコメントアウト（＾～＾）
-            //await onHostEnabled(services);  // ホストは有効になっているぜ（＾▽＾）！
+            //await executeAfterHostBuild(services);  // ホストは有効になっているぜ（＾▽＾）！
 
             await MuzLogging.SetupAfterHostBuildAsync(
                 configurationMgr: builder.Configuration,
@@ -60,11 +60,11 @@ try
                     // ここから、以下のようにして、ロガー（ILogger）を使えるようになったぜ（＾▽＾）！
                     //var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
-                    await onHostEnabled(
+                    await executeAfterHostBuild(
                         services);     // （ホストの様々な機能とか、このアプリケーションで使わないから）［サービスプロバイダー］だけ渡すぜ（＾～＾）
                 });
         },
-        onHostEnabled: async (services) =>
+        executeAfterHostBuild: async (services) =>
         {
             // ここから［サービス・プロバイダー］（services）が使えるぜ（＾▽＾）！
             Console.WriteLine("ここから［サービス・プロバイダー］（services）が使えるぜ（＾▽＾）！");

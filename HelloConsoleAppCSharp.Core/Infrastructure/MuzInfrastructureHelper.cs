@@ -9,7 +9,7 @@ internal class MuzInfrastructureHelper
         string[] commandLineArgs,
         Action<IServiceCollection> beforeBuild,
         Func<IHostApplicationBuilder, IServiceProvider, Func<IServiceProvider, Task>, Task> afterHostBuild,
-        Func<IServiceProvider, Task> onHostEnabled)
+        Func<IServiceProvider, Task> executeAfterHostBuild)
     {
         // ビルダー作成（＾～＾）
         //
@@ -27,7 +27,7 @@ internal class MuzInfrastructureHelper
         var host = builder.Build();
 
         // ホストビルド後の処理（＾～＾）
-        await afterHostBuild(builder, host.Services, onHostEnabled);
+        await afterHostBuild(builder, host.Services, executeAfterHostBuild);
     }
 
 
