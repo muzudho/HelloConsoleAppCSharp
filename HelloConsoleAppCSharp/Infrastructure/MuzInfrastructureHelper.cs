@@ -1,6 +1,5 @@
-﻿namespace HelloConsoleAppCSharp;
+﻿namespace HelloConsoleAppCSharp.Infrastructure;
 
-using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using Microsoft.Extensions.DependencyInjection;
