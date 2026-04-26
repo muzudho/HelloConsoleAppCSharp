@@ -8,7 +8,7 @@ internal class MuzInfrastructureHelper
     public static async Task RunAsync(
         string[] commandLineArgs,
         Action<IServiceCollection> beforeBuild,
-        Func<IHostApplicationBuilder, IServiceProvider, Func<IServiceProvider, Task>, Task> onLoggingAsync,
+        Func<IHostApplicationBuilder, IServiceProvider, Func<IServiceProvider, Task>, Task> afterHostBuild,
         Func<IServiceProvider, Task> onHostEnabled)
     {
         // ビルダー作成（＾～＾）
@@ -27,7 +27,7 @@ internal class MuzInfrastructureHelper
         var host = builder.Build();
 
         // ホストビルド後の処理（＾～＾）
-        await onLoggingAsync(builder, host.Services, onHostEnabled);
+        await afterHostBuild(builder, host.Services, onHostEnabled);
     }
 
 

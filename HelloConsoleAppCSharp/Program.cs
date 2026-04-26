@@ -48,7 +48,7 @@ try
 
 
         },
-        onLoggingAsync: async (builder, services, onHostEnabled) =>
+        afterHostBuild: async (builder, services, onHostEnabled) =>
         {
             // こっちはコメントアウト（＾～＾）
             //await onHostEnabled(services);  // ホストは有効になっているぜ（＾▽＾）！
