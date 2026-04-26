@@ -1,6 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Features.Messages;
-
-using HelloConsoleAppCSharp.Core.Features.Messages;
+﻿namespace HelloConsoleAppCSharp.Core.Features.Messages;
 
 /// <summary>
 /// メッセージを扱うサービスだぜ（＾～＾）！例えば、［メッセージのキャッシュ］を管理したりとか、そういうのをやるぜ（＾～＾）！
@@ -17,7 +15,8 @@ public class MuzMessagesService
     /// <summary>
     /// メッセージのキャッシュを格納しておくぜ（＾～＾）！
     /// </summary>
-    internal Dictionary<string, string> MessageCache { get; set; } = new Dictionary<string, string>();
+    public Dictionary<string, string> MessageCache { get; set; } = new Dictionary<string, string>();
+
 
     /// <summary>
     /// メッセージ・ファイルへのパス

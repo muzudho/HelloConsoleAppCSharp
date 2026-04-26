@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp;
 
+using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using Microsoft.Extensions.DependencyInjection;
@@ -77,6 +78,13 @@ internal static class MuzInfrastructureHelper
                 // ［プログラム］サービスの登録
                 //
                 builder.Services.AddScoped<ProgramService>();
+
+                //
+                // ［メッセージ］サービスの登録
+                //
+                builder.Services.AddScoped<MuzMessagesService>();
+
+
             });
     }
 

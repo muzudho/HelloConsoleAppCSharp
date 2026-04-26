@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Features.Prints;
 
-using HelloConsoleAppCSharp.Features.Messages;
+using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using Microsoft.Extensions.DependencyInjection;
