@@ -74,8 +74,7 @@ internal static class MuzLogging
     /// </summary>
     /// <returns></returns>
     public static async Task SetupAfterHostBuildAsync(
-        ConfigurationManager configurationMgr,
-        IHost host,
+        IConfigurationManager configurationMgr,
         Func<Task> onLoggingServiceEnabled)
     {
         // ［ホストビルド］後だから、［アプリケーション設定ファイル］のサービス設定も終わって、ファイルを読めるようになってるだろ（＾▽＾）
@@ -105,7 +104,7 @@ internal static class MuzLogging
     /// <summary>
     /// ［設定ファイル］からロガーの設定を行う。
     /// </summary>
-    private static void SetupFrom(ConfigurationManager configurationMgr)
+    private static void SetupFrom(IConfigurationManager configurationMgr)
     {
         var options = new ConfigurationReaderOptions
         {

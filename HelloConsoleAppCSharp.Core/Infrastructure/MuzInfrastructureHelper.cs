@@ -1,22 +1,15 @@
-﻿namespace HelloConsoleAppCSharp.Infrastructure;
+﻿namespace HelloConsoleAppCSharp.Core.Infrastructure;
 
-using HelloConsoleAppCSharp.Infrastructure.Configuration;
-using HelloConsoleAppCSharp.Infrastructure.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
 
-/// <summary>
-/// どんなコンソール・アプリを作るときでも、本題に入る前に似たようなコードを書くことになる……、そんな似たコード［ホストビルド］をまとめたヘルパークラスだぜ（＾～＾）！
-/// </summary>
-internal static class MuzInfrastructureHelper
+internal class MuzInfrastructureHelper
 {
     public static async Task RunAsync(
         string[] commandLineArgs,
         Action<IServiceCollection> beforeBuild,
-        Func<IHostApplicationBuilder, IServiceProvider, Func<IServiceProvider, Task>, Task> onLoggingAsync,
-        Func<IServiceProvider, Task> onHostEnabled)
+        Func<Func<IServiceProvider, Task>, Task> onLoggingAsync,
+        Func<IServiceProvider, Task> onHostEnabledAsync)
     {
         // ビルダー作成（＾～＾）
         //
@@ -30,7 +23,19 @@ internal static class MuzInfrastructureHelper
             beforeBuild: beforeBuild);
         var host = builder.Build(); // ホストビルド（＾～＾）
 
-        await onLoggingAsync(builder, host.Services, onHostEnabled);
+        await onLoggingAsync(onHostEnabledAsync);
+        ////await onHostEnabled(host);  // ホストは有効になっているぜ（＾▽＾）！
+        //await MuzLogging.SetupAfterHostBuildAsync(
+        //    configurationMgr: builder.Configuration,
+        //    host: host,
+        //    onLoggingServiceEnabled: async () =>
+        //    {
+        //        // ここから、以下のようにして、ロガー（ILogger）を使えるようになったぜ（＾▽＾）！
+        //        //var logger = host.Services.GetRequiredService<ILogger<Program>>();
+
+        //        await onHostEnabled(
+        //            host.Services);     // （ホストの様々な機能とか、このアプリケーションで使わないから）［サービスプロバイダー］だけ渡すぜ（＾～＾）
+        //    });
     }
 
 
@@ -49,27 +54,26 @@ internal static class MuzInfrastructureHelper
         //
         // ［アプリケーション設定ファイル］サービスの登録
         //
-        MuzAppSettingsHelper.SetupBeforeHostBuild(builder);
+        //MuzAppSettingsHelper.SetupBeforeHostBuild(builder);
 
         //
         // ［ロギング］サービスの登録
         //
-        await MuzLogging.SetupBeforeHostBuildAsync(
-            builder: builder,
-            onBootstrapLoggingEnabled: async (bootstrapLogger) =>
-            {
-                // ここから `bootstrapLogger` を使った［ロギング］できる（＾～＾）！
-                bootstrapLogger.LogInformation("ホストビルド前だが、ブートストラップ・ログは出せるぜ（＾～＾）！");
+        //await MuzLogging.SetupBeforeHostBuildAsync(
+        //    builder: builder,
+        //    onBootstrapLoggingEnabled: async (bootstrapLogger) =>
+        //    {
+        //        // ここから `bootstrapLogger` を使った［ロギング］できる（＾～＾）！
+        //        bootstrapLogger.LogInformation("ホストビルド前だが、ブートストラップ・ログは出せるぜ（＾～＾）！");
+
+        //        // 📍 NOTE:
+        //        //
+        //        //      （あとで）ここへサービスを追加していくぜ（＾～＾）
+        //        //
+        //        beforeBuild(builder.Services);
 
 
-                // 📍 NOTE:
-                //
-                //      （あとで）ここへサービスを追加していくぜ（＾～＾）
-                //
-                beforeBuild(builder.Services);
-
-
-            });
+        //    });
     }
 
 
@@ -80,6 +84,6 @@ internal static class MuzInfrastructureHelper
     {
         // お前のアプリケーションに合わせて、［片付け］コードを追加していってくれだぜ（＾～＾）！
 
-        MuzLogging.Cleanup(); // ロガーのクリーンアップ（＾～＾）
+        //MuzLogging.Cleanup(); // ロガーのクリーンアップ（＾～＾）
     }
 }
