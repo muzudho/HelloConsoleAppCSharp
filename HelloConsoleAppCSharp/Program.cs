@@ -2,7 +2,7 @@
 
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Core.Features.Messages;
-using HelloConsoleAppCSharp.Infrastructure;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
