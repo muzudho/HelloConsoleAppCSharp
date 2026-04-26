@@ -1,10 +1,8 @@
 ﻿namespace HelloConsoleAppCSharp.Infrastructure;
 
-using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
 
 /// <summary>
@@ -14,6 +12,7 @@ internal static class MuzInfrastructureHelper
 {
     public static async Task RunAsync(
         string[] commandLineArgs,
+        Func<IHostApplicationBuilder, Action<IServiceCollection>, Task> beforeHostBuild,
         Action<IServiceCollection> executeBeforeBuild,
         Func<IHostApplicationBuilder, IServiceProvider, Func<IServiceProvider, Task>, Task> afterHostBuild,
         Func<IServiceProvider, Task> executeAfterHostBuild)
@@ -25,55 +24,14 @@ internal static class MuzInfrastructureHelper
         HostApplicationBuilder builder = Host.CreateApplicationBuilder(commandLineArgs);  // コンソールアプリケーション用（＾～＾）
         //WebApplicationBuilder builder = WebApplication.CreateBuilder(commandLineArgs);  // ウェブアプリケーション用（＾～＾）
 
-        // ホストビルド前の処理（＾～＾）
-        await SetupBeforeBuildAsync(
-            builder,
-            executeBeforeBuild: executeBeforeBuild);
+        // ホストビルド前の処理（＾～＾）　例えば、［サービス］を追加したりとか、そういうのだぜ（＾～＾）！
+        await beforeHostBuild(builder, executeBeforeBuild);
 
         // ホストビルド（＾～＾）
         var host = builder.Build();
 
         // ホストビルド後の処理（＾～＾）
         await afterHostBuild(builder, host.Services, executeAfterHostBuild);
-    }
-
-
-    /// <summary>
-    /// ホストビルドする前にやることがあればここでやるぜ（＾～＾）！例えば、［サービス］を追加したりとか、そういうのだぜ（＾～＾）！
-    /// </summary>
-    /// <param name="builder"></param>
-    /// <returns></returns>
-    private static async Task SetupBeforeBuildAsync(
-        IHostApplicationBuilder builder,
-        Action<IServiceCollection> executeBeforeBuild)
-    {
-        // お前のアプリケーションに合わせて、［サービス］を追加していってくれだぜ（＾～＾）！
-        Console.WriteLine("ホストビルドする前にやることがあればここでやるぜ（＾～＾）！例えば、［サービス］を追加したりとか、そういうのだぜ（＾～＾）！");
-
-        //
-        // ［アプリケーション設定ファイル］サービスの登録
-        //
-        MuzAppSettingsHelper.SetupBeforeHostBuild(builder);
-
-        //
-        // ［ロギング］サービスの登録
-        //
-        await MuzLogging.SetupBeforeHostBuildAsync(
-            builder: builder,
-            onBootstrapLoggingEnabled: async (bootstrapLogger) =>
-            {
-                // ここから `bootstrapLogger` を使った［ロギング］できる（＾～＾）！
-                bootstrapLogger.LogInformation("ホストビルド前だが、ブートストラップ・ログは出せるぜ（＾～＾）！");
-
-
-                // 📍 NOTE:
-                //
-                //      （あとで）ここへサービスを追加していくぜ（＾～＾）
-                //
-                executeBeforeBuild(builder.Services);
-
-
-            });
     }
 
 

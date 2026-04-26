@@ -19,6 +19,36 @@ try
     // それを［ビルド］するぜ（＾▽＾）
     await MuzInfrastructureHelper.RunAsync(
         commandLineArgs: args,
+        beforeHostBuild: async (builder, executeBeforeBuild) =>
+        {
+            // お前のアプリケーションに合わせて、［サービス］を追加していってくれだぜ（＾～＾）！
+            Console.WriteLine("ホストビルドする前にやることがあればここでやるぜ（＾～＾）！例えば、［サービス］を追加したりとか、そういうのだぜ（＾～＾）！");
+
+            //
+            // ［アプリケーション設定ファイル］サービスの登録
+            //
+            MuzAppSettingsHelper.SetupBeforeHostBuild(builder);
+
+            //
+            // ［ロギング］サービスの登録
+            //
+            await MuzLogging.SetupBeforeHostBuildAsync(
+                builder: builder,
+                onBootstrapLoggingEnabled: async (bootstrapLogger) =>
+                {
+                    // ここから `bootstrapLogger` を使った［ロギング］できる（＾～＾）！
+                    bootstrapLogger.LogInformation("ホストビルド前だが、ブートストラップ・ログは出せるぜ（＾～＾）！");
+
+
+                    // 📍 NOTE:
+                    //
+                    //      （あとで）ここへサービスを追加していくぜ（＾～＾）
+                    //
+                    executeBeforeBuild(builder.Services);
+
+
+                });
+        },
         executeBeforeBuild: (services) =>
         {
 
