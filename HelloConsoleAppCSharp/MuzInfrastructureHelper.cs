@@ -25,7 +25,9 @@ internal static class MuzInfrastructureHelper
         HostApplicationBuilder builder = Host.CreateApplicationBuilder(commandLineArgs);  // コンソールアプリケーション用（＾～＾）
         //WebApplicationBuilder builder = WebApplication.CreateBuilder(commandLineArgs);  // ウェブアプリケーション用（＾～＾）
 
-        await SetupBeforeBuildAsync(builder);    // ビルド前の処理（＾～＾）
+        await SetupBeforeBuildAsync(    // ビルド前の処理（＾～＾）
+            builder,
+            beforeBuild: () => { });
         var host = builder.Build(); // ホストビルド（＾～＾）
 
         //await onHostEnabled(host);  // ホストは有効になっているぜ（＾▽＾）！
@@ -48,7 +50,9 @@ internal static class MuzInfrastructureHelper
     /// </summary>
     /// <param name="builder"></param>
     /// <returns></returns>
-    private static async Task SetupBeforeBuildAsync(HostApplicationBuilder builder)
+    private static async Task SetupBeforeBuildAsync(
+        IHostApplicationBuilder builder,
+        Action beforeBuild)
     {
         // お前のアプリケーションに合わせて、［サービス］を追加していってくれだぜ（＾～＾）！
         Console.WriteLine("ホストビルドする前にやることがあればここでやるぜ（＾～＾）！例えば、［サービス］を追加したりとか、そういうのだぜ（＾～＾）！");
