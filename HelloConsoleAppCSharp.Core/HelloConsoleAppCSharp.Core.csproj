@@ -4,6 +4,16 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- NuGetパッケージ情報 -->
+    <PackageId>HelloConsoleAppCSharp.Core</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Muzudho</Authors>
+    <Company>Muzudho</Company>
+    <Description>C# コンソールアプリ作成のための再利用可能なライブラリ</Description>
+    <PackageTags>console;csharp;tutorial;library</PackageTags>
+    <RepositoryUrl>https://github.com/muzudho/HelloConsoleAppCSharp2</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
