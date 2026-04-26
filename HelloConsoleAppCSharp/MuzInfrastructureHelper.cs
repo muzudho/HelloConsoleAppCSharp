@@ -77,6 +77,7 @@ internal static class MuzInfrastructureHelper
                 //
                 //      （あとで）ここへサービスを追加していくぜ（＾～＾）
                 //
+                beforeBuild();
 
 
                 //
