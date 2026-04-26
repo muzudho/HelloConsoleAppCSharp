@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Features.Messages;
+﻿namespace HelloConsoleAppCSharp.Core.Features.Messages;
 
 using System.Text.Json;
 

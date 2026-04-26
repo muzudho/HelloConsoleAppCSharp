@@ -1,5 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Features.Messages;
 
+using HelloConsoleAppCSharp.Core.Features.Messages;
+
 /// <summary>
 /// メッセージを扱うサービスだぜ（＾～＾）！例えば、［メッセージのキャッシュ］を管理したりとか、そういうのをやるぜ（＾～＾）！
 /// </summary>
