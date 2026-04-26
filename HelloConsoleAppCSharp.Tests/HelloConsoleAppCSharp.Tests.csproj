@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HelloConsoleAppCSharp\HelloConsoleAppCSharp.csproj" />
+    <ProjectReference Include="..\HelloConsoleAppCSharp.Core\HelloConsoleAppCSharp.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
