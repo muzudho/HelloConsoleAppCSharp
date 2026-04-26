@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using HelloConsoleAppCSharp;
+using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -25,6 +26,24 @@ try
             //
             //      ここで、あとで［サービスの登録］とかやるぜ（＾▽＾）！
             //
+
+
+            //
+            // ［プログラム］サービスの登録
+            //
+            services.AddScoped<ProgramService>();
+
+
+            //
+            // ［メッセージ］サービスの登録
+            //
+            services.AddScoped<MuzMessagesService>(sp =>
+            {
+                var service = new MuzMessagesService();
+                // アプリケーションのルートからの相対パスを設定
+                service.FilePath = "Assets/Messages.json";
+                return service;
+            });
 
 
         },
