@@ -30,6 +30,9 @@ command command hello
 👆 📄 [コマンドの間接的実行](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/OO10_コマンドの間接的実行.md)  
 
 
+* 📄 [ライブラリー作成のための準備](./HelloConsoleAppCSharp/Docs/第１章：インフラストラクチャーの作成/OO11_ライブラリー作成のための準備.md)
+
+
 ### 第１章第２節：ファイルからメッセージを読込もう
 
 ```shell

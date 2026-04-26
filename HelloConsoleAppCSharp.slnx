@@ -2,6 +2,7 @@
   <Folder Name="/ソリューション項目/">
     <File Path="README.md" />
   </Folder>
+  <Project Path="HelloConsoleAppCSharp.Core/HelloConsoleAppCSharp.Core.csproj" Id="b23e4718-6895-404a-ab9e-de7f08b17722" />
   <Project Path="HelloConsoleAppCSharp.Tests/HelloConsoleAppCSharp.Tests.csproj" />
   <Project Path="HelloConsoleAppCSharp/HelloConsoleAppCSharp.csproj" />
 </Solution>
