@@ -11,8 +11,8 @@ public static class MuzHostHelper
 {
     public static async Task RunAsync(
         string[] commandLineArgs,
-        Func<IHostApplicationBuilder, Action<IServiceCollection>, Task> beforeHostBuild,
-        Action<IServiceCollection> executeBeforeBuild,
+        Func<IHostApplicationBuilder, Func<IServiceCollection, Task>, Task> beforeHostBuild,
+        Func<IServiceCollection, Task> executeBeforeBuild,
         Func<IHostApplicationBuilder, IServiceProvider, Func<IServiceProvider, Task>, Task> afterHostBuild,
         Func<IServiceProvider, Task> executeAfterHostBuild)
     {

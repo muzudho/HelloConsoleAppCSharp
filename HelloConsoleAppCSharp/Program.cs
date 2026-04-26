@@ -44,12 +44,12 @@ try
                     //
                     //      （あとで）ここへサービスを追加していくぜ（＾～＾）
                     //
-                    executeBeforeBuild(builder.Services);
+                    await executeBeforeBuild(builder.Services);
 
 
                 });
         },
-        executeBeforeBuild: (services) =>
+        executeBeforeBuild: async (services) =>
         {
 
 
