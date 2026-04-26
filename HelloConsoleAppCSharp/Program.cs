@@ -17,6 +17,7 @@ try
     // それを［ビルド］するぜ（＾▽＾）
     await MuzInfrastructureHelper.BuildHostAsync(
         commandLineArgs: args,
+        beforeBuild: () => { },
         onHostEnabled: async (services) =>
         {
             // ここから［サービス・プロバイダー］（services）が使えるぜ（＾▽＾）！

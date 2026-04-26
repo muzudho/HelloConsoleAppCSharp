@@ -15,6 +15,7 @@ internal static class MuzInfrastructureHelper
 {
     public static async Task BuildHostAsync(
         string[] commandLineArgs,
+        Action beforeBuild,
         Func<IServiceProvider, Task> onHostEnabled)
     {
         // ビルダー作成（＾～＾）
