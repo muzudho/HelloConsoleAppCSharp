@@ -7,7 +7,7 @@ internal class MuzInfrastructureHelper
 {
     public static async Task RunAsync(
         string[] commandLineArgs,
-        Action<IServiceCollection> beforeBuild,
+        Action<IServiceCollection> executeBeforeBuild,
         Func<IHostApplicationBuilder, IServiceProvider, Func<IServiceProvider, Task>, Task> afterHostBuild,
         Func<IServiceProvider, Task> executeAfterHostBuild)
     {
@@ -21,7 +21,7 @@ internal class MuzInfrastructureHelper
         // ホストビルド前の処理（＾～＾）
         await SetupBeforeBuildAsync(
             builder,
-            beforeBuild: beforeBuild);
+            executeBeforeBuild: executeBeforeBuild);
 
         // ホストビルド（＾～＾）
         var host = builder.Build();
@@ -38,7 +38,7 @@ internal class MuzInfrastructureHelper
     /// <returns></returns>
     private static async Task SetupBeforeBuildAsync(
         IHostApplicationBuilder builder,
-        Action<IServiceCollection> beforeBuild)
+        Action<IServiceCollection> executeBeforeBuild)
     {
         // お前のアプリケーションに合わせて、［サービス］を追加していってくれだぜ（＾～＾）！
         Console.WriteLine("ホストビルドする前にやることがあればここでやるぜ（＾～＾）！例えば、［サービス］を追加したりとか、そういうのだぜ（＾～＾）！");
@@ -63,7 +63,7 @@ internal class MuzInfrastructureHelper
         //        //
         //        //      （あとで）ここへサービスを追加していくぜ（＾～＾）
         //        //
-        //        beforeBuild(builder.Services);
+        //        executeBeforeBuild(builder.Services);
 
 
         //    });

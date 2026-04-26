@@ -19,7 +19,7 @@ try
     // それを［ビルド］するぜ（＾▽＾）
     await MuzInfrastructureHelper.RunAsync(
         commandLineArgs: args,
-        beforeBuild: (services) =>
+        executeBeforeBuild: (services) =>
         {
 
 
