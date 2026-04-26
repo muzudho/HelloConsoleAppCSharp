@@ -82,7 +82,13 @@ internal static class MuzInfrastructureHelper
                 //
                 // ［メッセージ］サービスの登録
                 //
-                builder.Services.AddScoped<MuzMessagesService>();
+                builder.Services.AddScoped<MuzMessagesService>(sp => 
+                {
+                    var service = new MuzMessagesService();
+                    // アプリケーションのルートからの相対パスを設定
+                    service.FilePath = "Assets/Messages.json";
+                    return service;
+                });
 
 
             });

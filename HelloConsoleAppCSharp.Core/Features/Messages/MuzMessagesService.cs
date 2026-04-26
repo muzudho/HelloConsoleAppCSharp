@@ -19,7 +19,7 @@ public class MuzMessagesService
 
 
     /// <summary>
-    /// メッセージ・ファイルへのパス
+    /// メッセージ・ファイルへのパス（実行ファイルのディレクトリからの相対パス）
     /// </summary>
     public string FilePath { get; set; } = "Assets/Messages.json";
 
@@ -45,7 +45,13 @@ public class MuzMessagesService
         bool forceLoad = false)
     {
         // 強制読込（空のときも読込）
-        if (!this.MessageCache.Any() || forceLoad) this.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary(this.FilePath);
+        if (!this.MessageCache.Any() || forceLoad)
+        {
+            // 実行ファイルのディレクトリを基準にした絶対パスを生成
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            var absolutePath = Path.Combine(baseDirectory, this.FilePath);
+            this.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary(absolutePath);
+        }
 
         return this.MessageCache.GetValueOrDefault(key, this.DefaultMessage);
     }
