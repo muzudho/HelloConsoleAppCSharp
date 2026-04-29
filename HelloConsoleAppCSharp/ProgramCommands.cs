@@ -14,11 +14,11 @@ using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Commands.WaitFor3SecondsWarmup;
 using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Core.Features.Messages;
-using HelloConsoleAppCSharp.Application.Features.Messages;
 using HelloConsoleAppCSharp.Application.Features.Prints;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
+using HelloConsoleAppCSharp.Commands.Messages;
 
 /// <summary>
 /// コマンド実行部
