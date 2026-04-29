@@ -1,8 +1,8 @@
 ﻿namespace HelloConsoleAppCSharp.Application.Features.Prints;
 
 using HelloConsoleAppCSharp.Core.Features.Messages;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -38,7 +38,7 @@ internal class MuzPrintMessageWithColorCommand
         string message = parts[2];
 
         // 続けて、背景色を一時的に黄色に変更
-        await MuzConsoleHelper.SetColorAsync(
+        await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.SetColorAsync(
             fgColor: fgColor ?? Console.ForegroundColor,
             bgColor: bgColor ?? Console.BackgroundColor,
             onColorChanged: async () =>
