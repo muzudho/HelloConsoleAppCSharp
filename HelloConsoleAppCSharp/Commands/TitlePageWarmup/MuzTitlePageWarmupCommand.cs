@@ -18,9 +18,9 @@ internal static class MuzTitlePageWarmupCommand
         ];
         foreach (var command in commandList)
         {
-            await ProgramCommands.ExecuteAsync(command, services);
+            await ProgramCommands.ExecuteAsync(services, command);
         }
-        var result = await ProgramCommands.ExecuteAsync("show-start-menu", services);
+        var result = await ProgramCommands.ExecuteAsync(services, "show-start-menu");
 
         return MuzRequestType.None;
     }

@@ -129,9 +129,7 @@ try
                     Console.Write("> ");  // プロンプトを表示
                     await Task.CompletedTask;  // ここは非同期関数なので、Taskを返す必要がある。今回は特に非同期処理はないので、完了済みのTaskを返す。
                 },
-                evalAsync: async (command) => await ProgramCommands.ExecuteAsync(
-                        command,
-                        services));
+                evalAsync: async (command) => await ProgramCommands.ExecuteAsync(services, command));
 
 
         });

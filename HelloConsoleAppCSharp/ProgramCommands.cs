@@ -27,8 +27,8 @@ using Microsoft.Extensions.DependencyInjection;
 internal static class ProgramCommands
 {
     internal static async Task<MuzRequestType> ExecuteAsync(
-        string command,
-        IServiceProvider services)
+        IServiceProvider services,
+        string command)
     {
         // 入力が空白だけだったら、無視するぜ（＾～＾）
         if (string.IsNullOrWhiteSpace(command)) return MuzRequestType.None;
