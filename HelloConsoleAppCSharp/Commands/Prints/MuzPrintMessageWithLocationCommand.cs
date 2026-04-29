@@ -3,6 +3,7 @@
 using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
 /// コマンド引数の解析後
@@ -28,10 +29,15 @@ internal record MuzPrintMessageWithLocationCommandParameters
 /// </summary>
 internal class MuzPrintMessageWithLocationCommand
 {
-    internal static async Task<MuzREPLRequestType> ExecuteAsync(
-        IServiceProvider services,
+    /// <summary>
+    /// コマンド引数の解析
+    /// </summary>
+    /// <param name="arguments"></param>
+    /// <param name="parameters"></param>
+    /// <returns></returns>
+    public static bool TryParseParameters(
         string arguments,
-        int argIndex = 1)
+        [NotNullWhen(true)] out MuzPrintMessageWithLocationCommandParameters? parameters)
     {
         // 半角空白で引数を分割するぜ（＾～＾）
         //
@@ -41,22 +47,28 @@ internal class MuzPrintMessageWithLocationCommand
         // それ以降は、次のコマンドに渡すぜ（＾～＾）
         var parts = arguments.Split(new[] { ' ' }, 3, StringSplitOptions.RemoveEmptyEntries);
 
-        bool isError = false;
-        int left = 0;   // 左端が 0。右に行くほど大きくなるぜ（＾～＾）
-        int top = 0;    // 上端が 0。下に行くほど大きくなるぜ（＾～＾）
-
         // 引数が３つ未満のとき
-        if (parts.Length < 3) { isError = true; }
-        else
-        {
-            if (parts[0] == "Default") { left = Console.CursorLeft; }
-            else { isError |= !int.TryParse(parts[0], out left); }      // エラーのとき、エラーフラグを立てるぜ（＾～＾）
+        if (parts.Length < 3) { parameters = null; return false; }
 
-            if (parts[1] == "Default") { top = Console.CursorTop; }
-            else { isError |= !int.TryParse(parts[1], out top); }
-        }
+        int left = 0;   // 左端が 0。右に行くほど大きくなるぜ（＾～＾）
+        if (parts[0] == "Default") { left = Console.CursorLeft; }
+        else if (!int.TryParse(parts[0], out left)) { parameters = null; return false; }
 
-        if (isError)
+        int top = 0;    // 上端が 0。下に行くほど大きくなるぜ（＾～＾）
+        if (parts[1] == "Default") { top = Console.CursorTop; }
+        else if (!int.TryParse(parts[1], out top)) { parameters = null; return false; }
+
+        parameters = new MuzPrintMessageWithLocationCommandParameters(left, top, parts[2]);
+        return true;
+    }
+
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
+        IServiceProvider services,
+        string arguments,
+        int argIndex = 1)
+    {
+
+        if (!MuzPrintMessageWithLocationCommand.TryParseParameters(arguments, out var parameters))
         {
             // 使い方説明を表示して終了するぜ（＾～＾）
             var errorMessage = string.Join(
@@ -70,10 +82,10 @@ internal class MuzPrintMessageWithLocationCommand
         // 処理の後、カーソルを元の位置に戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
-            Console.SetCursorPosition(left, top);
+            Console.SetCursorPosition(parameters.Left, parameters.Top);
 
             // トークンの３つ目以降を次のコマンドに渡すぜ（＾～＾）
-            await MuzPrintMessageWithColorCommand.ExecuteByStringAsync(services, parts[2], argIndex: argIndex + 2);
+            await MuzPrintMessageWithColorCommand.ExecuteByStringAsync(services, parameters.RestCommand, argIndex: argIndex + 2);
         });
 
         return MuzREPLRequestType.None;
