@@ -109,7 +109,7 @@ internal class MuzMessageBoxControl
                     while (true)
                     {
                         // ［コンティニュープロンプト］の点滅
-                        await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.BlinkAsync(
+                        await MuzConsoleHelper.BlinkAsync(
                             fgColor1: ConsoleColor.Blue,
                             bgColor1: ConsoleColor.Cyan,
                             fgColor2: ConsoleColor.Cyan,   // 背景色と同じにする

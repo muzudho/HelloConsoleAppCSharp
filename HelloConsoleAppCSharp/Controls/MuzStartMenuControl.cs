@@ -25,7 +25,7 @@ internal class MuzStartMenuControl
             //
             //      一定間隔で点滅（ブリンク）するラベルを表示するぜ（＾～＾）！
             //
-            await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.BlinkAsync(
+            await MuzConsoleHelper.BlinkAsync(
                 fgColor1: ConsoleColor.Black,
                 bgColor1: ConsoleColor.Cyan,
                 fgColor2: ConsoleColor.White,   // ２番目の色
@@ -38,7 +38,7 @@ internal class MuzStartMenuControl
                         top: 16,
                         text: "開始");
                 });
-            await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.BlinkAsync(
+            await MuzConsoleHelper.BlinkAsync(
                 fgColor1: ConsoleColor.Black,
                 bgColor1: ConsoleColor.Cyan,
                 fgColor2: ConsoleColor.White,   // ２番目の色
@@ -51,7 +51,7 @@ internal class MuzStartMenuControl
                         top: 17,
                         text: "設定");
                 });
-            await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.BlinkAsync(
+            await MuzConsoleHelper.BlinkAsync(
                 fgColor1: ConsoleColor.Black,
                 bgColor1: ConsoleColor.Cyan,
                 fgColor2: ConsoleColor.White,   // ２番目の色

@@ -1,7 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.SelectStartlWarmup;
 
 using HelloConsoleAppCSharp.Core.Infrastructure;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Views;
 
 internal class MuzSelectStartWarmupCommand
@@ -17,7 +16,7 @@ internal class MuzSelectStartWarmupCommand
         while (true)  // 無限ループ。
         {
             // ラベルの表示
-            await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.BlinkAsync(
+            await MuzConsoleHelper.BlinkAsync(
                 fgColor1: ConsoleColor.Black,
                 bgColor1: ConsoleColor.Cyan,
                 fgColor2: ConsoleColor.White,   // ２番目の色
