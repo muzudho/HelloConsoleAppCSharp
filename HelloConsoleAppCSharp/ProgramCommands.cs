@@ -16,7 +16,7 @@ using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Domain.Features.Messages;
-using HelloConsoleAppCSharp.Features.Prints;
+using HelloConsoleAppCSharp.Domain.Features.Prints;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;

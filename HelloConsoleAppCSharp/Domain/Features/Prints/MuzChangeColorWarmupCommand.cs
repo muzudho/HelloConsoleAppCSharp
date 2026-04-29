@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Features.Prints;
+﻿namespace HelloConsoleAppCSharp.Domain.Features.Prints;
 
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
