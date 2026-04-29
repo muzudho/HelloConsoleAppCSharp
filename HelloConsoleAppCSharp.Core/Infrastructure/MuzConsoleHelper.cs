@@ -148,6 +148,30 @@ public static class MuzConsoleHelper
 
 
     /// <summary>
+    /// 前景色、背景色を指定してメッセージ表示
+    /// </summary>
+    /// <param name="foregroundColor">前景色</param>
+    /// <param name="backgroundColor">背景色</param>
+    /// <param name="message">メッセージ</param>
+    /// <returns></returns>
+    public static async Task WriteLineAsync(
+        ConsoleColor? foregroundColor,
+        ConsoleColor? backgroundColor,
+        string message)
+    {
+        // 色を一時的に変更
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: foregroundColor ?? Console.ForegroundColor,
+            bgColor: backgroundColor ?? Console.BackgroundColor,
+            onColorChanged: async () =>
+            {
+                // メッセージを表示
+                Console.WriteLine(message);
+            });
+    }
+
+
+    /// <summary>
     ///     <pre>
     /// テキストを点滅させます。
     /// 

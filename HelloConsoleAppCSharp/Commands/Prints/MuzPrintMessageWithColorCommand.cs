@@ -81,29 +81,13 @@ internal class MuzPrintMessageWithColorCommand
             return MuzREPLRequestType.None;
         }
 
-        // 続けて、色を一時的に変更
-        await ExecuteAsync(
+        // 前景色、背景色を指定してメッセージ表示
+        await MuzConsoleHelper.WriteLineAsync(
             foregroundColor: parameters.ForegroundColor,
             backgroundColor: parameters.BackgroundColor,
             message: parameters.Message);
 
-
         return MuzREPLRequestType.None;
-    }
-
-
-    internal static async Task ExecuteAsync(
-        ConsoleColor? foregroundColor,
-        ConsoleColor? backgroundColor,
-        string message)
-    {
-        await MuzConsoleHelper.SetColorAsync(
-            fgColor: foregroundColor ?? Console.ForegroundColor,
-            bgColor: backgroundColor ?? Console.BackgroundColor,
-            onColorChanged: async () =>
-            {
-                Console.WriteLine(message);
-            });
     }
 
 
