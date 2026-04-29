@@ -4,7 +4,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzTypewriterEffectWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services,
         int left,
         int top,
@@ -31,6 +31,6 @@ internal static class MuzTypewriterEffectWarmupCommand
             currentTop++;
         }
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

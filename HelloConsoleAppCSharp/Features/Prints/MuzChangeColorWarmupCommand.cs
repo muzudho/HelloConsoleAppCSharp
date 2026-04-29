@@ -8,7 +8,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 /// </summary>
 internal class MuzChangeColorWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         Console.WriteLine("まずはデフォルトの色だぜ（＾▽＾）");
@@ -34,6 +34,6 @@ internal class MuzChangeColorWarmupCommand
 
         Console.WriteLine("字の色も戻して、ここはデフォルトの色に戻ったよ（＾～＾）");
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

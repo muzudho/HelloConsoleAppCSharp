@@ -4,13 +4,13 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal class MuzWaitFor3SecondsWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         Console.WriteLine("３秒待てだぜ（＾～＾）");
         await Task.Delay(TimeSpan.FromSeconds(3));
         Console.WriteLine("お待たせだぜ～（＾▽＾）");
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

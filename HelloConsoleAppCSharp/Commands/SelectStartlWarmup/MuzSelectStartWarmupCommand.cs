@@ -6,7 +6,7 @@ using HelloConsoleAppCSharp.Views;
 
 internal class MuzSelectStartWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         // 📍 NOTE:
@@ -53,6 +53,6 @@ internal class MuzSelectStartWarmupCommand
                 break;  // ループを抜ける
             }
         }
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

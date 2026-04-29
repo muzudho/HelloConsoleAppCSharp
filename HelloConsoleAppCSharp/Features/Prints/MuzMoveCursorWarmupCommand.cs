@@ -5,7 +5,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal class MuzMoveCursorWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         // 処理の後、カーソルを元の位置に戻す
@@ -34,6 +34,6 @@ internal class MuzMoveCursorWarmupCommand
 
         });
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

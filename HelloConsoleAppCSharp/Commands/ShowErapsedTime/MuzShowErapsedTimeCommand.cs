@@ -9,7 +9,7 @@ using System;
 
 internal static class MuzShowErapsedTimeCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         var pgSvc = services.GetRequiredService<ApplicationService>();
@@ -57,6 +57,6 @@ internal static class MuzShowErapsedTimeCommand
                 break;  // ループを抜ける
             }
         }
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

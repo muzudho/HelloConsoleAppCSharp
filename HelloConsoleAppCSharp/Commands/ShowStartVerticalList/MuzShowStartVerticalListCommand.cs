@@ -7,7 +7,7 @@ using System;
 
 internal class MuzShowStartVerticalListCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         // 📍 NOTE:
@@ -64,6 +64,6 @@ internal class MuzShowStartVerticalListCommand
                     items: new[] { "開始", "設定", "終了" });
             });
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

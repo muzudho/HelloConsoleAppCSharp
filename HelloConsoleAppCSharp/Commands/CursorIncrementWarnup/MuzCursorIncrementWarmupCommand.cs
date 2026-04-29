@@ -6,7 +6,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzCursorIncrementWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         // 色替え
@@ -73,6 +73,6 @@ internal static class MuzCursorIncrementWarmupCommand
                 }
             });
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

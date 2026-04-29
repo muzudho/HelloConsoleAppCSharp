@@ -11,7 +11,7 @@ using System;
 /// </summary>
 internal class MuzPrintMessageWithColorCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services,
         string arguments,
         int argIndex = 1)
@@ -30,7 +30,7 @@ internal class MuzPrintMessageWithColorCommand
             // 使い方説明を表示して終了するぜ（＾～＾）
             var errorMessage = ToErrorMessage(services, argIndex);
             Console.WriteLine(errorMessage);
-            return MuzRequestType.None;
+            return MuzREPLRequestType.None;
         }
 
         ConsoleColor? fgColor = MuzConsoleHelper.GetColorByName(parts[0]);
@@ -46,7 +46,7 @@ internal class MuzPrintMessageWithColorCommand
                 Console.WriteLine(message);
             });
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 
 

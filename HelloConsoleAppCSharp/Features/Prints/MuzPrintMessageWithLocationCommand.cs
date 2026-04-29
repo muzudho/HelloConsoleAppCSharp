@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 /// </summary>
 internal class MuzPrintMessageWithLocationCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services,
         string arguments,
         int argIndex = 1)
@@ -46,7 +46,7 @@ internal class MuzPrintMessageWithLocationCommand
                 ToErrorMessage(services, argIndex),
                 MuzPrintMessageWithColorCommand.ToErrorMessage(services, argIndex + 2));
             Console.WriteLine(errorMessage);
-            return MuzRequestType.None;
+            return MuzREPLRequestType.None;
         }
 
         // 処理の後、カーソルを元の位置に戻す
@@ -58,7 +58,7 @@ internal class MuzPrintMessageWithLocationCommand
             await MuzPrintMessageWithColorCommand.ExecuteAsync(services, parts[2], argIndex: argIndex + 2);
         });
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 
 

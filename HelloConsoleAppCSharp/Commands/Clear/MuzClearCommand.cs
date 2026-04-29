@@ -5,7 +5,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzClearCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         // いったん、背景色を黒にして、画面全体を塗りつぶします。
@@ -17,7 +17,7 @@ internal static class MuzClearCommand
             });
         // カーソルの位置は、先頭に戻ります。
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }
 

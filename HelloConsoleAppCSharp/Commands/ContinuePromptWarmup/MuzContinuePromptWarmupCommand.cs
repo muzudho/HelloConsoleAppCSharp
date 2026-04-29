@@ -7,7 +7,7 @@ using HelloConsoleAppCSharp.Views;
 
 internal static class MuzContinuePromptWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services,
         List<string> messageList)
     {
@@ -76,6 +76,6 @@ internal static class MuzContinuePromptWarmupCommand
                 }
             });
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

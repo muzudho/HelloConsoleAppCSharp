@@ -26,12 +26,12 @@ using Microsoft.Extensions.DependencyInjection;
 /// </summary>
 internal static class ProgramCommands
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services,
         string command)
     {
         // 入力が空白だけだったら、無視するぜ（＾～＾）
-        if (string.IsNullOrWhiteSpace(command)) return MuzRequestType.None;
+        if (string.IsNullOrWhiteSpace(command)) return MuzREPLRequestType.None;
 
         // 最初の半角空白でコマンドと引数を分割するぜ（＾～＾）
         var parts = command.Split(new[] { ' ' }, 2, StringSplitOptions.RemoveEmptyEntries);
@@ -44,17 +44,17 @@ internal static class ProgramCommands
         {
             case "exit":
                 Console.WriteLine("REPLを終了するぜ（＾～＾）");
-                return MuzRequestType.Exit;
+                return MuzREPLRequestType.Exit;
 
             case "hello":
                 Console.WriteLine("こんにちは（＾～＾）！");
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             case "color":
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("文字色を変えたよ！");
                 Console.ResetColor();
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
 
             // ----------------------------------------
@@ -79,7 +79,7 @@ internal static class ProgramCommands
                 {
                     var dictionary = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
                     Console.WriteLine(dictionary["Msg_1"]);
-                    return MuzRequestType.None;
+                    return MuzREPLRequestType.None;
                 }
 
             // ［メッセージを配列で持つメッセージファイル］を読込み、キャッシュへ格納
@@ -87,7 +87,7 @@ internal static class ProgramCommands
                 {
                     var msgSvc = services.GetRequiredService<MuzMessagesService>();
                     msgSvc.MessageCache = MuzMessagesHelper.GetMessagesAsDictionary("Assets/Messages.json");
-                    return MuzRequestType.None;
+                    return MuzREPLRequestType.None;
                 }
 
             // キャッシュした［メッセージ辞書］から、メッセージ取得
@@ -97,7 +97,7 @@ internal static class ProgramCommands
                     // コマンドの第二引数をメッセージのキーとして使うぜ（＾～＾）
                     var message = msgSvc.MessageCache.GetValueOrDefault(arguments, "メッセージが見つからないぜ（＾～＾）！");
                     Console.WriteLine(message);
-                    return MuzRequestType.None;
+                    return MuzREPLRequestType.None;
                 }
 
             // メッセージ取得
@@ -107,7 +107,7 @@ internal static class ProgramCommands
                     var msgSvc = services.GetRequiredService<MuzMessagesService>();
                     var message = msgSvc.GetMessage(arguments);
                     Console.WriteLine(message);
-                    return MuzRequestType.None;
+                    return MuzREPLRequestType.None;
                 }
 
 
@@ -144,7 +144,7 @@ internal static class ProgramCommands
             // ［コンソールの横幅取得］
             case "get-console-size":
                 Console.WriteLine($"コンソールの（横幅, 縦幅）：（{Console.WindowWidth}, {Console.WindowHeight}）");
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             // ［プログレスバー］作成の練習
             case "show-progress-bar-warmup": return await MuzShowProgressBarWarmupCommand.ExecuteAsync(services);
@@ -171,7 +171,7 @@ internal static class ProgramCommands
                             width: 80,
                             height: 7);
                     });
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             // ［フローティングボックス］の動作確認＜その２＞
             case "hide-start-box":
@@ -186,7 +186,7 @@ internal static class ProgramCommands
                             width: 40,
                             height: 5);
                     });
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             // ［枠付きのフローティングボックス］の動作確認＜その１＞
             case "show-message-box":
@@ -201,7 +201,7 @@ internal static class ProgramCommands
                             width: 80,
                             height: 7);
                     });
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             // ［枠付きのフローティングボックス］の動作確認＜その２＞
             case "show-start-box":
@@ -216,7 +216,7 @@ internal static class ProgramCommands
                             width: 40,
                             height: 5);
                     });
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             // ［フローティングラベル］の動作確認
             case "floating-label-warmup":
@@ -230,7 +230,7 @@ internal static class ProgramCommands
                             top: 2,
                             text: "フローティングラベルのウォームアップだぜ（＾～＾）！\n複数行にも対応だぜ（＾～＾）！");
                     });
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
             case "show-title":
                 // 処理の後、カーソルの位置を戻す
                 await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
@@ -252,7 +252,7 @@ internal static class ProgramCommands
                                 text: titleStr);
                         });
                 });
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
             case "show-credit":
                 // 処理の後、カーソルの位置を戻す
                 await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
@@ -274,7 +274,7 @@ internal static class ProgramCommands
                                 text: creditStr);
                         });
                 });
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             // ［垂直の箇条書き］を表示する練習
             case "show-start-vertical-list": return await MuzShowStartVerticalListCommand.ExecuteAsync(services);
@@ -296,7 +296,7 @@ internal static class ProgramCommands
                     wallHeight: wallHeight,
                     wallColor: ConsoleColor.Cyan);
                 Console.SetCursorPosition(0, wallHeight);   // 改行
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
             // ［アプリケーション起動からの経過時間を表示する］の練習
             case "show-erapsed-time": return await MuzShowErapsedTimeCommand.ExecuteAsync(services);
@@ -307,7 +307,7 @@ internal static class ProgramCommands
             // ［タイプライター効果］の動作確認
             case "typewriter-effect-warmup":
                 {
-                    MuzRequestType result = MuzRequestType.None;
+                    MuzREPLRequestType result = MuzREPLRequestType.None;
                     await MuzConsoleHelper.SetColorAsync(
                         fgColor: ConsoleColor.Black,
                         bgColor: ConsoleColor.Cyan,
@@ -372,12 +372,12 @@ internal static class ProgramCommands
                 Console.WriteLine("実験中だぜ（＾～＾）！");
                 //new MuzExperiment();
                 // Windows 専用： Console.SetWindowSize(120, Console.WindowHeight);
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
 
 
             default:
                 Console.WriteLine($"知らないコマンドだぜ: {command}");
-                return MuzRequestType.None;
+                return MuzREPLRequestType.None;
         }
     }
 }

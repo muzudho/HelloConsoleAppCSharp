@@ -4,7 +4,7 @@ using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzTitlePageWarmupCommand
 {
-    internal static async Task<MuzRequestType> ExecuteAsync(
+    internal static async Task<MuzREPLRequestType> ExecuteAsync(
         IServiceProvider services)
     {
         MuzREPL.IsPromptVisible = false; // プロンプトは消す。
@@ -22,6 +22,6 @@ internal static class MuzTitlePageWarmupCommand
         }
         var result = await ProgramCommands.ExecuteAsync(services, "show-start-menu");
 
-        return MuzRequestType.None;
+        return MuzREPLRequestType.None;
     }
 }

@@ -2,7 +2,7 @@
 
 using System;
 
-internal enum MuzRequestType
+internal enum MuzREPLRequestType
 {
     None = 0,
 
@@ -40,7 +40,7 @@ internal static class MuzREPL
     /// <returns></returns>
     internal static async Task RunAsync(
         Func<Task> printPromptAsync,
-        Func<string, Task<MuzRequestType>> evalAsync)
+        Func<string, Task<MuzREPLRequestType>> evalAsync)
     {
         Console.WriteLine("コマンド入力待機中...（exit で終了）");
 
@@ -63,7 +63,7 @@ internal static class MuzREPL
             // ここでコマンドを処理（Eval）
             var request = await evalAsync(line);
 
-            if (request == MuzRequestType.Exit) break;
+            if (request == MuzREPLRequestType.Exit) break;
         }
 
         //Console.WriteLine("終了したぜ！");
