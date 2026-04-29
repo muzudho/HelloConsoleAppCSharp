@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Domain;
+﻿namespace HelloConsoleAppCSharp.Application;
 
 using System;
 

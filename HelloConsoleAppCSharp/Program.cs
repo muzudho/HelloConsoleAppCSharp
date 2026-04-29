@@ -4,7 +4,7 @@ using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
-using HelloConsoleAppCSharp.Domain;
+using HelloConsoleAppCSharp.Application;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using Microsoft.Extensions.DependencyInjection;

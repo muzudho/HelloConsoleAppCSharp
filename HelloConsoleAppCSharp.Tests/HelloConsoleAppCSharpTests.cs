@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Tests;
 
 using HelloConsoleAppCSharp.Core.Features.Messages;
-using HelloConsoleAppCSharp.Domain;
+using HelloConsoleAppCSharp.Application;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using Microsoft.Extensions.DependencyInjection;     // ServiceCollection を使用するために。
 using Xunit;
