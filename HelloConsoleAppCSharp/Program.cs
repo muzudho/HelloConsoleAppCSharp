@@ -3,6 +3,7 @@
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure;
+using HelloConsoleAppCSharp.Domain;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
@@ -62,7 +63,7 @@ try
             //
             // ［プログラム］サービスの登録
             //
-            services.AddScoped<ProgramService>();
+            services.AddScoped<ApplicationService>();
 
 
             //
@@ -113,7 +114,7 @@ try
             loggingSvc.Verbose.LogInformation("大量のログだぜ（＾～＾）");
 
             // フォルダーに分類するほどでもない雑多な変数は、［プログラム・サービス］にまとめておくぜ（＾～＾）！
-            var pgSvc = services.GetRequiredService<ProgramService>();
+            var pgSvc = services.GetRequiredService<ApplicationService>();
             // ［アプリケーションを開始した日時］を記憶しておくぜ（＾～＾）！
             pgSvc.LaunchDateTime = DateTime.Now;
 

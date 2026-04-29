@@ -1,5 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.ShowErapsedTime;
 
+using HelloConsoleAppCSharp.Domain;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
@@ -11,7 +12,7 @@ internal static class MuzShowErapsedTimeCommand
     internal static async Task<MuzRequestType> ExecuteAsync(
         IServiceProvider services)
     {
-        var pgSvc = services.GetRequiredService<ProgramService>();
+        var pgSvc = services.GetRequiredService<ApplicationService>();
 
         // 📍 NOTE:
         //

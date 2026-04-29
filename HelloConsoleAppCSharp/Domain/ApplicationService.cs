@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp;
+﻿namespace HelloConsoleAppCSharp.Domain;
 
 using System;
 
@@ -7,10 +7,10 @@ using System;
 /// ［作りたいもの］と［作るのを便利にするもの］に分けたとき、  
 /// 前者を［ドメインモデル］、後者を［インフラストラクチャー］と呼ぶことがあるぜ（＾～＾）！
 /// 
-/// それを踏まえて、［ドメインモデル］の方で使い、［インフラストラクチャー］の方では使わないデータを、詰め込むのがこの［プログラム・サービス］クラスだぜ（＾～＾）！
+/// それを踏まえて、［ドメインモデル］の方で使い、［インフラストラクチャー］の方では使わないデータを、詰め込むのがこの［アプリケーション・サービス］クラスだぜ（＾～＾）！
 ///     </pre>
 /// </summary>
-internal class ProgramService
+internal class ApplicationService
 {
 
 

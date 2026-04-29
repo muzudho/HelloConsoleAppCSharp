@@ -1,6 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Tests;
 
 using HelloConsoleAppCSharp.Core.Features.Messages;
+using HelloConsoleAppCSharp.Domain;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using Microsoft.Extensions.DependencyInjection;     // ServiceCollection を使用するために。
 using Xunit;
@@ -40,7 +41,7 @@ public class HelloConsoleAppCSharpTests
     {
         // Arrange - テスト用のDIコンテナを作成
         var serviceCollection = new ServiceCollection();
-        serviceCollection.AddSingleton<ProgramService>();
+        serviceCollection.AddSingleton<ApplicationService>();
         var services = serviceCollection.BuildServiceProvider();
 
         // Expected
