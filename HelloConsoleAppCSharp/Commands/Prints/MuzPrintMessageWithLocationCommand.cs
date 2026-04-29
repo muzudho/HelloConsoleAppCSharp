@@ -79,16 +79,45 @@ internal class MuzPrintMessageWithLocationCommand
             return MuzREPLRequestType.None;
         }
 
+        if (!MuzPrintMessageWithColorCommand.TryParseParameters(
+            arguments: parameters.RestCommand,
+            out var parameters2))
+        {
+            // 使い方説明を表示して終了するぜ（＾～＾）
+            var errorMessage = MuzPrintMessageWithColorCommand.ToErrorMessage(services, argIndex + 2);
+            Console.WriteLine(errorMessage);
+            return MuzREPLRequestType.None;
+        }
+
+        await WriteLineAsync(
+            left: parameters.Left,
+            top: parameters.Top,
+            foregroundColor: parameters2.ForegroundColor,
+            backgroundColor: parameters2.BackgroundColor,
+            message: parameters2.Message);
+
+        return MuzREPLRequestType.None;
+    }
+
+
+    public static async Task WriteLineAsync(
+        int left,
+        int top,
+        ConsoleColor? foregroundColor,
+        ConsoleColor? backgroundColor,
+        string message)
+    {
         // 処理の後、カーソルを元の位置に戻す
         await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
-            Console.SetCursorPosition(parameters.Left, parameters.Top);
+            Console.SetCursorPosition(left, top);
 
             // トークンの３つ目以降を次のコマンドに渡すぜ（＾～＾）
-            await MuzPrintMessageWithColorCommand.ExecuteAsync(services, parameters.RestCommand, argIndex: argIndex + 2);
+            await MuzConsoleHelper.WriteLineAsync(
+                foregroundColor: foregroundColor,
+                backgroundColor: backgroundColor,
+                message: message);
         });
-
-        return MuzREPLRequestType.None;
     }
 
 
