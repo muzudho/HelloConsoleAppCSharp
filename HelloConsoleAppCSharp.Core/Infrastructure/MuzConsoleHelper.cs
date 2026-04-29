@@ -153,6 +153,36 @@ public static class MuzConsoleHelper
 
 
     /// <summary>
+    /// 左位置、上位置、前景色、背景色を指定してメッセージ表示
+    /// </summary>
+    /// <param name="left">左位置</param>
+    /// <param name="top">上位置</param>
+    /// <param name="foregroundColor">前景色</param>
+    /// <param name="backgroundColor">背景色</param>
+    /// <param name="message">メッセージ</param>
+    /// <returns></returns>
+    public static async Task WriteLineAsync(
+        int left,
+        int top,
+        ConsoleColor? foregroundColor,
+        ConsoleColor? backgroundColor,
+        string message)
+    {
+        // 処理の後、カーソルを元の位置に戻す
+        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        {
+            Console.SetCursorPosition(left, top);
+
+            // トークンの３つ目以降を次のコマンドに渡すぜ（＾～＾）
+            await MuzConsoleHelper.WriteLineAsync(
+                foregroundColor: foregroundColor,
+                backgroundColor: backgroundColor,
+                message: message);
+        });
+    }
+
+
+    /// <summary>
     /// 処理が終わった後、カーソルを元の位置に戻します。
     /// </summary>
     /// <returns></returns>
