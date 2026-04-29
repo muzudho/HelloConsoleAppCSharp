@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Application.Features.Prints;
+﻿namespace HelloConsoleAppCSharp.Commands.Prints;
 
 using HelloConsoleAppCSharp.Core.Infrastructure;
 

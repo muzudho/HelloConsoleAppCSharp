@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.ShowErapsedTime;
 
-using HelloConsoleAppCSharp.Application;
+using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
