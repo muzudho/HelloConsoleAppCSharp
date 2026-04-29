@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Views;
 
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 /// <summary>
 /// 壁面
@@ -15,7 +15,7 @@ internal static class MuzWallViews
         int wallTop = 0)
     {
         // 処理の後、カーソルの位置を戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
             // いったん、背景色を黒にして、画面全体を塗りつぶします。
             await MuzConsoleHelper.SetColorAsync(

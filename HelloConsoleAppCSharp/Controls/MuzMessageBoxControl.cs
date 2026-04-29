@@ -2,7 +2,7 @@
 
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Views;
 using System;
 using System.Collections.Generic;
@@ -110,7 +110,7 @@ internal class MuzMessageBoxControl
                     while (true)
                     {
                         // ［コンティニュープロンプト］の点滅
-                        await MuzConsoleHelper.BlinkAsync(
+                        await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.BlinkAsync(
                             fgColor1: ConsoleColor.Blue,
                             bgColor1: ConsoleColor.Cyan,
                             fgColor2: ConsoleColor.Cyan,   // 背景色と同じにする

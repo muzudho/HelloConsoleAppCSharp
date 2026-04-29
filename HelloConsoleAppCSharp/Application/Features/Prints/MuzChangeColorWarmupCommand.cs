@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Application.Features.Prints;
 
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 /// <summary>
 /// 文字色を変えるデモンストレーションをします。

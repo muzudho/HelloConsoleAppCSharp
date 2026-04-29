@@ -2,7 +2,7 @@
 
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Views;
 
 internal static class MuzContinuePromptWarmupCommand

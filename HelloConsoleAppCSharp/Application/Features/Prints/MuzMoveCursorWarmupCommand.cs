@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Application.Features.Prints;
 
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 internal class MuzMoveCursorWarmupCommand
 {
@@ -9,7 +9,7 @@ internal class MuzMoveCursorWarmupCommand
         IServiceProvider services)
     {
         // 処理の後、カーソルを元の位置に戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
             // 色を一時的に変更
             await MuzConsoleHelper.SetColorAsync(

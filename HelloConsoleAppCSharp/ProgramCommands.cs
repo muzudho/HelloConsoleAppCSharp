@@ -17,7 +17,7 @@ using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Application.Features.Messages;
 using HelloConsoleAppCSharp.Application.Features.Prints;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Views;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -233,7 +233,7 @@ internal static class ProgramCommands
                 return MuzREPLRequestType.None;
             case "show-title":
                 // 処理の後、カーソルの位置を戻す
-                await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+                await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
                 {
                     await MuzConsoleHelper.SetColorAsync(
                         fgColor: ConsoleColor.Black,
@@ -255,7 +255,7 @@ internal static class ProgramCommands
                 return MuzREPLRequestType.None;
             case "show-credit":
                 // 処理の後、カーソルの位置を戻す
-                await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+                await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
                 {
                     await MuzConsoleHelper.SetColorAsync(
                         fgColor: ConsoleColor.Black,

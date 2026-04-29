@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Infrastructure.Models;
 
 internal static class MuzCursorIncrementWarmupCommand
