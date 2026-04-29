@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Infrastructure.REPL;
+﻿namespace HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 
 using System;
 

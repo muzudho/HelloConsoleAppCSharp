@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.Clear;
 
+using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
-using HelloConsoleAppCSharp.Infrastructure.REPL;
 
 internal static class MuzClearCommand
 {

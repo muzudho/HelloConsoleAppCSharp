@@ -131,8 +131,8 @@ internal class MuzTimer
 ```csharp
 namespace HelloConsoleAppCSharp.Commands.TitlePageWarmup;
 
+using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
-using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.Scheduler;
 using HelloConsoleAppCSharp.Views;
 using System;

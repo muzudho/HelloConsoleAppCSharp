@@ -1,8 +1,8 @@
 ﻿namespace HelloConsoleAppCSharp.Controls;
 
+using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using HelloConsoleAppCSharp.Infrastructure.Models;
-using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 
 internal class MuzStartMenuControl

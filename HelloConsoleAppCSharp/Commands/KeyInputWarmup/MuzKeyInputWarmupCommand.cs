@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.KeyInputWarmup;
 
-using HelloConsoleAppCSharp.Infrastructure.REPL;
+using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 
 internal static class MuzKeyInputWarmupCommand
 {

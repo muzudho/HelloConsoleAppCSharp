@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.PrintWarmup;
 
+using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
-using HelloConsoleAppCSharp.Infrastructure.REPL;
 using System.Text;
 
 internal static class MuzShowProgressBarWarmupCommand

@@ -3,10 +3,10 @@
 using HelloConsoleAppCSharp;
 using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure;
+using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Domain;
 using HelloConsoleAppCSharp.Infrastructure.Configuration;
 using HelloConsoleAppCSharp.Infrastructure.Logging;
-using HelloConsoleAppCSharp.Infrastructure.REPL;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;

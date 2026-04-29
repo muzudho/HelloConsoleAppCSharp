@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.ShowStartVerticalList;
 
+using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
-using HelloConsoleAppCSharp.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Views;
 using System;
 
