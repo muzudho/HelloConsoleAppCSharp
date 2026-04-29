@@ -54,7 +54,7 @@ internal class MuzPrintMessageWithLocationCommand
             Console.SetCursorPosition(left, top);
 
             // トークンの３つ目以降を次のコマンドに渡すぜ（＾～＾）
-            await MuzPrintMessageWithColorCommand.ExecuteAsync(services, parts[2], argIndex: argIndex + 2);
+            await MuzPrintMessageWithColorCommand.ExecuteByStringAsync(services, parts[2], argIndex: argIndex + 2);
         });
 
         return MuzREPLRequestType.None;

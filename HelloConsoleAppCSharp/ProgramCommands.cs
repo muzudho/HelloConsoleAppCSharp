@@ -119,7 +119,7 @@ internal static class ProgramCommands
             case "change-color-warmup": return await MuzChangeColorWarmupCommand.ExecuteAsync(services);
 
             // ［色を指定してメッセージ表示］
-            case "print-message-with-color": return await MuzPrintMessageWithColorCommand.ExecuteAsync(services, arguments);
+            case "print-message-with-color": return await MuzPrintMessageWithColorCommand.ExecuteByStringAsync(services, arguments);
 
             // ［位置も指定してメッセージ表示］
             case "print-message-with-location": return await MuzPrintMessageWithLocationCommand.ExecuteAsync(services, arguments);

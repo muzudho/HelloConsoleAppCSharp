@@ -4,16 +4,42 @@ using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Diagnostics.CodeAnalysis;
+
+/// <summary>
+/// コマンド引数の解析後
+/// </summary>
+internal record MuzPrintMessageWithColorCommandParameters
+{
+    public MuzPrintMessageWithColorCommandParameters(
+        ConsoleColor? fgColor,
+        ConsoleColor? bgColor,
+        string message)
+    {
+        ForegroundColor = fgColor;
+        BackgroundColor = bgColor;
+        Message = message;
+    }
+
+    public ConsoleColor? ForegroundColor { get; init; }
+    public ConsoleColor? BackgroundColor { get; init; }
+    public string Message { get; init; }
+}
 
 /// <summary>
 /// 色を指定してメッセージ表示。
 /// </summary>
 internal class MuzPrintMessageWithColorCommand
 {
-    internal static async Task<MuzREPLRequestType> ExecuteAsync(
-        IServiceProvider services,
+    /// <summary>
+    /// コマンド引数の解析
+    /// </summary>
+    /// <param name="arguments"></param>
+    /// <param name="parameters"></param>
+    /// <returns></returns>
+    public static bool TryParseParameters(
         string arguments,
-        int argIndex = 1)
+        [NotNullWhen(true)] out MuzPrintMessageWithColorCommandParameters? parameters)
     {
         // 半角空白で引数を分割するぜ（＾～＾）
         //
@@ -26,23 +52,42 @@ internal class MuzPrintMessageWithColorCommand
         // 引数が３つ未満のとき
         if (parts.Length < 3)
         {
+            // 終了
+            parameters = null;
+            return false;
+        }
+
+        string message = parts[2];
+
+        parameters = new MuzPrintMessageWithColorCommandParameters(
+            fgColor: MuzConsoleHelper.GetColorByName(parts[0]),
+            bgColor: MuzConsoleHelper.GetColorByName(parts[1]),
+            message: message);
+
+        return true;
+    }
+
+    internal static async Task<MuzREPLRequestType> ExecuteByStringAsync(
+        IServiceProvider services,
+        string arguments,
+        int argIndex = 1)
+    {
+        // コマンド引数の解析
+        if(!TryParseParameters(arguments, out var parameters))
+        {
             // 使い方説明を表示して終了するぜ（＾～＾）
             var errorMessage = ToErrorMessage(services, argIndex);
             Console.WriteLine(errorMessage);
             return MuzREPLRequestType.None;
         }
 
-        ConsoleColor? fgColor = MuzConsoleHelper.GetColorByName(parts[0]);
-        ConsoleColor? bgColor = MuzConsoleHelper.GetColorByName(parts[1]);
-        string message = parts[2];
-
         // 続けて、背景色を一時的に黄色に変更
         await MuzConsoleHelper.SetColorAsync(
-            fgColor: fgColor ?? Console.ForegroundColor,
-            bgColor: bgColor ?? Console.BackgroundColor,
+            fgColor: parameters.ForegroundColor ?? Console.ForegroundColor,
+            bgColor: parameters.BackgroundColor ?? Console.BackgroundColor,
             onColorChanged: async () =>
             {
-                Console.WriteLine(message);
+                Console.WriteLine(parameters.Message);
             });
 
         return MuzREPLRequestType.None;
