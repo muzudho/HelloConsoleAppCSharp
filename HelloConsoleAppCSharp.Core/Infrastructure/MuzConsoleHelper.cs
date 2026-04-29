@@ -129,25 +129,6 @@ public static class MuzConsoleHelper
 
 
     /// <summary>
-    /// 処理が終わった後、カーソルを元の位置に戻します。
-    /// </summary>
-    /// <returns></returns>
-    public static async Task ResetCursorLocationAfterExecute(
-        Func<Task> executeAsync)
-    {
-        // 現在のカーソル位置を記憶
-        var oldLeft = Console.CursorLeft;
-        var oldTop = Console.CursorTop;
-
-        // 処理を実行
-        await executeAsync();
-
-        // カーソルの位置を戻す
-        Console.SetCursorPosition(oldLeft, oldTop);
-    }
-
-
-    /// <summary>
     /// 前景色、背景色を指定してメッセージ表示
     /// </summary>
     /// <param name="foregroundColor">前景色</param>
@@ -168,6 +149,25 @@ public static class MuzConsoleHelper
                 // メッセージを表示
                 Console.WriteLine(message);
             });
+    }
+
+
+    /// <summary>
+    /// 処理が終わった後、カーソルを元の位置に戻します。
+    /// </summary>
+    /// <returns></returns>
+    public static async Task ResetCursorLocationAfterExecute(
+        Func<Task> executeAsync)
+    {
+        // 現在のカーソル位置を記憶
+        var oldLeft = Console.CursorLeft;
+        var oldTop = Console.CursorTop;
+
+        // 処理を実行
+        await executeAsync();
+
+        // カーソルの位置を戻す
+        Console.SetCursorPosition(oldLeft, oldTop);
     }
 
 
