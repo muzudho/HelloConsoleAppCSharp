@@ -1,4 +1,4 @@
-﻿namespace HelloConsoleAppCSharp.Features.Messages;
+﻿namespace HelloConsoleAppCSharp.Domain.Features.Messages;
 
 using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using System.Text.Json;
