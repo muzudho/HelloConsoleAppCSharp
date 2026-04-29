@@ -12,12 +12,12 @@ using System.Diagnostics.CodeAnalysis;
 internal record MuzPrintMessageWithColorCommandParameters
 {
     public MuzPrintMessageWithColorCommandParameters(
-        ConsoleColor? fgColor,
-        ConsoleColor? bgColor,
+        ConsoleColor? foregroundColor,
+        ConsoleColor? backgroundColor,
         string message)
     {
-        ForegroundColor = fgColor;
-        BackgroundColor = bgColor;
+        ForegroundColor = foregroundColor;
+        BackgroundColor = backgroundColor;
         Message = message;
     }
 
@@ -60,8 +60,8 @@ internal class MuzPrintMessageWithColorCommand
         string message = parts[2];
 
         parameters = new MuzPrintMessageWithColorCommandParameters(
-            fgColor: MuzConsoleHelper.GetColorByName(parts[0]),
-            bgColor: MuzConsoleHelper.GetColorByName(parts[1]),
+            foregroundColor: MuzConsoleHelper.GetColorByName(parts[0]),
+            backgroundColor: MuzConsoleHelper.GetColorByName(parts[1]),
             message: message);
 
         return true;
@@ -81,16 +81,29 @@ internal class MuzPrintMessageWithColorCommand
             return MuzREPLRequestType.None;
         }
 
-        // 続けて、背景色を一時的に黄色に変更
-        await MuzConsoleHelper.SetColorAsync(
-            fgColor: parameters.ForegroundColor ?? Console.ForegroundColor,
-            bgColor: parameters.BackgroundColor ?? Console.BackgroundColor,
-            onColorChanged: async () =>
-            {
-                Console.WriteLine(parameters.Message);
-            });
+        // 続けて、色を一時的に変更
+        await ExecuteAsync(
+            foregroundColor: parameters.ForegroundColor,
+            backgroundColor: parameters.BackgroundColor,
+            message: parameters.Message);
+
 
         return MuzREPLRequestType.None;
+    }
+
+
+    internal static async Task ExecuteAsync(
+        ConsoleColor? foregroundColor,
+        ConsoleColor? backgroundColor,
+        string message)
+    {
+        await MuzConsoleHelper.SetColorAsync(
+            fgColor: foregroundColor ?? Console.ForegroundColor,
+            bgColor: backgroundColor ?? Console.BackgroundColor,
+            onColorChanged: async () =>
+            {
+                Console.WriteLine(message);
+            });
     }
 
 
