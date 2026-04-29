@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Views;
 
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 /// <summary>
 /// 矩形の塗り潰し領域を［ボックス］と呼ぶことにします。

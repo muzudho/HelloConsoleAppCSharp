@@ -8,15 +8,16 @@
 以下のフォルダーと空ファイルを用意してください。  
 
 ```plaintext
-📁 HelloConsoleAppCSharp
-+-- 📁 Commands
-|   +-- 📁 ShowErapsedTime
-|       +-- 📄 MuzShowErapsedTimeCommand.cs
-+-- 📁 Infrastructure
-    +-- 📁 Scheduler
-        +-- 📄 MuzTimer.cs
-+-- 📁 Views
-    +-- 📄 MuzWidgets.cs
+📁 ソリューション 'HelloConsoleAppCSharp'
++-- 📁 HelloConsoleAppCSharp
+    +-- 📁 Commands
+    |   +-- 📁 ShowErapsedTime
+    |       +-- 📄 MuzShowErapsedTimeCommand.cs
+    +-- 📁 Infrastructure
+    |   +-- 📁 Scheduler
+    |       +-- 📄 MuzTimer.cs
+    +-- 📁 Views
+        +-- 📄 MuzWidgets.cs
 ```
 
 

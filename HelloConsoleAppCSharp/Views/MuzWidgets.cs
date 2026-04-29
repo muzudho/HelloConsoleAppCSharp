@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Views;
 
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 /// <summary>
 /// 画面上の部品（ウィジェット）を表示するためのものです。

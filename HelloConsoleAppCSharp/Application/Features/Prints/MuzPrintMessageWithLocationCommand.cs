@@ -2,7 +2,6 @@
 
 using HelloConsoleAppCSharp.Core.Features.Messages;
 using HelloConsoleAppCSharp.Core.Infrastructure;
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
 using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
@@ -50,7 +49,7 @@ internal class MuzPrintMessageWithLocationCommand
         }
 
         // 処理の後、カーソルを元の位置に戻す
-        await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
         {
             Console.SetCursorPosition(left, top);
 

@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Views;
 
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 /// <summary>
 /// 垂直方向の箇条書きを表示します。

@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Views;
 
-using HelloConsoleAppCSharp.Infrastructure.ConsoleCustom;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 /// <summary>
 /// （入力できる文字列と区別して）入力しない文字列をラベルと呼ぶことにします。

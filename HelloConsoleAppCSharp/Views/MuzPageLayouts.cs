@@ -24,7 +24,7 @@ internal static class MuzPageLayouts
             wallColor: wallColor);
 
         // 処理の後、カーソルの位置を戻す
-        await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
             {
                 // 色替え
                 await MuzConsoleHelper.SetColorAsync(

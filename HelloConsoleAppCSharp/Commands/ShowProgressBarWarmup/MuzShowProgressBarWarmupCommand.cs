@@ -25,7 +25,7 @@ internal static class MuzShowProgressBarWarmupCommand
             await Task.Delay(TimeSpan.FromMilliseconds(100));
 
             // 処理の後、カーソルを元の位置に戻す
-            await HelloConsoleAppCSharp.Infrastructure.ConsoleCustom.MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+            await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
             {
                 // ［進捗バー］幅１
                 await MuzConsoleHelper.SetColorAsync(
