@@ -2,7 +2,7 @@
 
 using System;
 
-internal enum MuzREPLRequestType
+public enum MuzREPLRequestType
 {
     None = 0,
 
@@ -12,7 +12,7 @@ internal enum MuzREPLRequestType
     Exit,
 }
 
-internal static class MuzREPL
+public static class MuzREPL
 {
     /// <summary>
     ///     <pre>
@@ -38,7 +38,7 @@ internal static class MuzREPL
     /// <param name="printPromptAsync"></param>
     /// <param name="evalAsync"></param>
     /// <returns></returns>
-    internal static async Task RunAsync(
+    public static async Task RunAsync(
         Func<Task> printPromptAsync,
         Func<string, Task<MuzREPLRequestType>> evalAsync)
     {
