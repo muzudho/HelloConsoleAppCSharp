@@ -1,6 +1,5 @@
 ﻿namespace HelloConsoleAppCSharp.Application.Features.Prints;
 
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 
 internal class MuzMoveCursorWarmupCommand

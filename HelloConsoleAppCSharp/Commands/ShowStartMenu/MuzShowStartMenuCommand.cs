@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.ShowStartMenu;
 
 using HelloConsoleAppCSharp.Controls;
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 internal static class MuzShowStartMenuCommand
 {

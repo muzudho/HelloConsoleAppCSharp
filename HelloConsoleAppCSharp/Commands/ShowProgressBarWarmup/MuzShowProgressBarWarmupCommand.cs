@@ -1,6 +1,5 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.PrintWarmup;
 
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using System.Text;
 

@@ -1,7 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Controls;
 
 using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Views;
 using System;

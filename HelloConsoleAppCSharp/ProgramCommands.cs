@@ -14,7 +14,6 @@ using HelloConsoleAppCSharp.Commands.TypewriterEffectWarmup;
 using HelloConsoleAppCSharp.Commands.WaitFor3SecondsWarmup;
 using HelloConsoleAppCSharp.Controls;
 using HelloConsoleAppCSharp.Core.Features.Messages;
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Application.Features.Messages;
 using HelloConsoleAppCSharp.Application.Features.Prints;
 using HelloConsoleAppCSharp.Core.Infrastructure;

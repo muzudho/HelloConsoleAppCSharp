@@ -1,6 +1,5 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.CursorIncrementWarmup;
 
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
 using HelloConsoleAppCSharp.Core.Infrastructure;
 using HelloConsoleAppCSharp.Infrastructure.Models;
 

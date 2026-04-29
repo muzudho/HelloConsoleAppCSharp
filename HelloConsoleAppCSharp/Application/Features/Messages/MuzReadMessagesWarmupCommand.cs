@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Application.Features.Messages;
 
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 using System.Text.Json;
 
 internal static class MuzReadMessagesWarmupCommand

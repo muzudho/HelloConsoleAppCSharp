@@ -1,6 +1,6 @@
 ﻿namespace HelloConsoleAppCSharp.Commands.WaitFor3SecondsWarmup;
 
-using HelloConsoleAppCSharp.Core.Infrastructure.REPL;
+using HelloConsoleAppCSharp.Core.Infrastructure;
 
 internal class MuzWaitFor3SecondsWarmupCommand
 {
