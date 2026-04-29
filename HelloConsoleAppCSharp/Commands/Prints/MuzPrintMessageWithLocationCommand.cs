@@ -5,6 +5,25 @@ using HelloConsoleAppCSharp.Core.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
+/// コマンド引数の解析後
+/// </summary>
+internal record MuzPrintMessageWithLocationCommandParameters
+{
+    public MuzPrintMessageWithLocationCommandParameters(
+        int left,
+        int top,
+        string restCommand)
+    {
+        Left = left;
+        Top = top;
+        RestCommand = restCommand;
+    }
+    public int Left { get; init; }
+    public int Top { get; init; }
+    public string RestCommand { get; init; }
+}
+
+/// <summary>
 /// 位置を指定してメッセージを表示するコマンド
 /// </summary>
 internal class MuzPrintMessageWithLocationCommand
