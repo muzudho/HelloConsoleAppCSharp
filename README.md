@@ -113,34 +113,45 @@ print-message-with-location Banana
 👆 📄 [位置も指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O4_位置も指定してメッセージ表示.md)  
 
 
-## 第２章第２節：プログレスバーの作成
+## 第２章第２節：コンソールにボックスを表示しよう
+
+
+```shell
+hide-message-box
+hide-start-box
+```
+
+👆 📄 [ボックス表示のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章第２節：コンソールにボックスを表示しよう/O1_ボックス表示のウォーミングアップ.md)  
+
+
+## 第２章第３節：プログレスバーの作成
 
 ```shell
 clear
 ```
 
-👆 📄 [コンソールのクリアー](./HelloConsoleAppCSharp/Docs/第２章第２節：プログレスバーの作成/O4_コンソールのクリアー.md)
+👆 📄 [コンソールのクリアー](./HelloConsoleAppCSharp/Docs/第２章第３節：プログレスバーの作成/O4_コンソールのクリアー.md)
 
 
 ```shell
 wait-for-3-seconds-warmup
 ```
 
-👆 📄 [３秒待つ](./HelloConsoleAppCSharp/Docs/第２章第２節：プログレスバーの作成/O5_３秒待つ.md)
+👆 📄 [３秒待つ](./HelloConsoleAppCSharp/Docs/第２章第３節：プログレスバーの作成/O5_３秒待つ.md)
 
 
 ```shell
 get-console-size
 ```
 
-👆 📄 [コンソールのサイズ取得](./HelloConsoleAppCSharp/Docs/第２章第２節：プログレスバーの作成/O6_コンソールのサイズ取得.md)  
+👆 📄 [コンソールのサイズ取得](./HelloConsoleAppCSharp/Docs/第２章第３節：プログレスバーの作成/O6_コンソールのサイズ取得.md)  
 
 
 ```shell
 show-progress-bar-warmup
 ```
 
-👆 📄 [プログレスバーの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章第２節：プログレスバーの作成/O7_プログレスバーの作成と動作確認.md)  
+👆 📄 [プログレスバーの作成と動作確認](./HelloConsoleAppCSharp/Docs/第２章第３節：プログレスバーの作成/O7_プログレスバーの作成と動作確認.md)  
 
 
 ## 第３章：タイトル画面の作成
@@ -158,14 +169,6 @@ show-erapsed-time
 ```
 
 👆 📄 [アプリケーション起動からの経過時間を表示する](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O2_アプリケーション起動からの経過時間を表示する.md)  
-
-
-```shell
-hide-message-box
-hide-start-box
-```
-
-👆 📄 [フローティングボックスの作成](./HelloConsoleAppCSharp/Docs/第３章：タイトル画面の作成/O3_フローティングボックスの作成.md)  
 
 
 ```shell

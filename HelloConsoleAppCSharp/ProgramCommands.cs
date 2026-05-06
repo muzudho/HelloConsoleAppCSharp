@@ -130,32 +130,9 @@ internal static class ProgramCommands
 
 
             // ----------------------------------------
-            // 第２章第２節：プログレスバーの作成
+            // 第２章第２節：コンソールにボックスを表示しよう
             // ----------------------------------------
 
-
-            // ［コンソール］の文字を全部消します。
-            case "clear": return await MuzClearCommand.ExecuteAsync(services);
-
-            // ［３秒待つ］動作確認
-            case "wait-for-3-seconds-warmup": return await MuzWaitFor3SecondsWarmupCommand.ExecuteAsync(services);
-
-            // ［コンソールの横幅取得］
-            case "get-console-size":
-                Console.WriteLine($"コンソールの（横幅, 縦幅）：（{Console.WindowWidth}, {Console.WindowHeight}）");
-                return MuzREPLRequestType.None;
-
-            // ［プログレスバー］作成の練習
-            case "show-progress-bar-warmup": return await MuzShowProgressBarWarmupCommand.ExecuteAsync(services);
-
-
-            // ----------------------------------------
-            // 第３章：タイトル画面の作成
-            // ----------------------------------------
-
-
-            // ［キー入力］の動作確認
-            case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync(services);
 
             // ［フローティングボックス］の動作確認＜その１＞
             case "hide-message-box":
@@ -186,6 +163,35 @@ internal static class ProgramCommands
                             height: 5);
                     });
                 return MuzREPLRequestType.None;
+
+
+            // ----------------------------------------
+            // 第２章第３節：プログレスバーの作成
+            // ----------------------------------------
+
+
+            // ［コンソール］の文字を全部消します。
+            case "clear": return await MuzClearCommand.ExecuteAsync(services);
+
+            // ［３秒待つ］動作確認
+            case "wait-for-3-seconds-warmup": return await MuzWaitFor3SecondsWarmupCommand.ExecuteAsync(services);
+
+            // ［コンソールの横幅取得］
+            case "get-console-size":
+                Console.WriteLine($"コンソールの（横幅, 縦幅）：（{Console.WindowWidth}, {Console.WindowHeight}）");
+                return MuzREPLRequestType.None;
+
+            // ［プログレスバー］作成の練習
+            case "show-progress-bar-warmup": return await MuzShowProgressBarWarmupCommand.ExecuteAsync(services);
+
+
+            // ----------------------------------------
+            // 第３章：タイトル画面の作成
+            // ----------------------------------------
+
+
+            // ［キー入力］の動作確認
+            case "key-input-warmup": return await MuzKeyInputWarmupCommand.ExecuteAsync(services);
 
             // ［枠付きのフローティングボックス］の動作確認＜その１＞
             case "show-message-box":
