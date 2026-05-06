@@ -85,14 +85,14 @@ internal class MuzMessageBoxControl
                 foreach (var message in this.MessageList)
                 {
                     // ［ボックス］
-                    await MuzBoxViews.PrintDoubleBorderBoxAsync(
+                    await MuzConsole.PrintDoubleBorderBoxAsync(
                         left: messageBoxLeft,
                         top: messageBoxTop,
                         width: 80,
                         height: 7);
 
                     // ［コンティニュープロンプト］の消去
-                    await MuzBoxViews.PrintBoxAsync(
+                    await MuzConsole.PrintBoxAsync(
                         left: 75,
                         top: 6,
                         width: 1,
