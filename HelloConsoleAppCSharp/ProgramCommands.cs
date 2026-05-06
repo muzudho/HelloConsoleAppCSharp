@@ -200,7 +200,7 @@ internal static class ProgramCommands
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
                     {
-                        await MuzBoxViews.PrintDoubleBorderAsync(
+                        await MuzBoxViews.PrintDoubleBorderBoxAsync(
                             left: 0,
                             top: 1,
                             width: 80,
@@ -215,7 +215,7 @@ internal static class ProgramCommands
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
                     {
-                        await MuzBoxViews.PrintDoubleBorderAsync(
+                        await MuzBoxViews.PrintDoubleBorderBoxAsync(
                             left: 20,
                             top: 15,
                             width: 40,
