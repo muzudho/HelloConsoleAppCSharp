@@ -1,7 +1,7 @@
 ﻿namespace HelloConsoleAppCSharp.Core.Infrastructure;
 
 /// <summary>
-/// コンソールの操作でよく使う機能をまとめたクラス
+/// コンソールの操作でよく使うメソッドをまとめたクラス
 /// </summary>
 public static class MuzConsole
 {
@@ -251,6 +251,37 @@ public static class MuzConsole
                 Console.WriteLine();    // 改行
             }
         });
+    }
+
+    /// <summary>
+    ///     <pre>
+    /// ［ボックス］表示
+    /// 
+    ///     - 色指定も一緒にするぜ（＾～＾）！
+    ///     </pre>
+    /// </summary>
+    /// <param name="left"></param>
+    /// <param name="top"></param>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <param name="fgColor"></param>
+    /// <param name="bgColor"></param>
+    /// <returns></returns>
+    public static async Task PrintBoxAsync(
+         int left,
+         int top,
+         int width,
+         int height,
+         ConsoleColor? fgColor = null,
+         ConsoleColor? bgColor = null)
+    {
+        await MuzConsole.SetColorAsync(
+            fgColor: fgColor,
+            bgColor: bgColor,
+            onColorChanged: async () =>
+            {
+                await PrintBoxAsync(left, top, width, height);
+            });
     }
 
 
