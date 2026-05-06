@@ -136,7 +136,7 @@ internal static class ProgramCommands
 
             // ［フローティングボックス］の動作確認＜その１＞
             case "hide-message-box":
-                await MuzConsoleHelper.SetColorAsync(
+                await MuzConsole.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -151,7 +151,7 @@ internal static class ProgramCommands
 
             // ［フローティングボックス］の動作確認＜その２＞
             case "hide-start-box":
-                await MuzConsoleHelper.SetColorAsync(
+                await MuzConsole.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -195,7 +195,7 @@ internal static class ProgramCommands
 
             // ［枠付きのフローティングボックス］の動作確認＜その１＞
             case "show-message-box":
-                await MuzConsoleHelper.SetColorAsync(
+                await MuzConsole.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -210,7 +210,7 @@ internal static class ProgramCommands
 
             // ［枠付きのフローティングボックス］の動作確認＜その２＞
             case "show-start-box":
-                await MuzConsoleHelper.SetColorAsync(
+                await MuzConsole.SetColorAsync(
                     fgColor: ConsoleColor.Blue,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -225,7 +225,7 @@ internal static class ProgramCommands
 
             // ［フローティングラベル］の動作確認
             case "floating-label-warmup":
-                await MuzConsoleHelper.SetColorAsync(
+                await MuzConsole.SetColorAsync(
                     fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -238,9 +238,9 @@ internal static class ProgramCommands
                 return MuzREPLRequestType.None;
             case "show-title":
                 // 処理の後、カーソルの位置を戻す
-                await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+                await MuzConsole.ResetCursorLocationAfterExecute(async () =>
                 {
-                    await MuzConsoleHelper.SetColorAsync(
+                    await MuzConsole.SetColorAsync(
                         fgColor: ConsoleColor.Black,
                         bgColor: ConsoleColor.Cyan,
                         onColorChanged: async () =>
@@ -260,9 +260,9 @@ internal static class ProgramCommands
                 return MuzREPLRequestType.None;
             case "show-credit":
                 // 処理の後、カーソルの位置を戻す
-                await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+                await MuzConsole.ResetCursorLocationAfterExecute(async () =>
                 {
-                    await MuzConsoleHelper.SetColorAsync(
+                    await MuzConsole.SetColorAsync(
                         fgColor: ConsoleColor.Black,
                         bgColor: ConsoleColor.Cyan,
                         onColorChanged: async () =>
@@ -313,7 +313,7 @@ internal static class ProgramCommands
             case "typewriter-effect-warmup":
                 {
                     MuzREPLRequestType result = MuzREPLRequestType.None;
-                    await MuzConsoleHelper.SetColorAsync(
+                    await MuzConsole.SetColorAsync(
                         fgColor: ConsoleColor.Black,
                         bgColor: ConsoleColor.Cyan,
                         onColorChanged: async () =>

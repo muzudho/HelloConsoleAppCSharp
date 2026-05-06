@@ -48,7 +48,7 @@ internal class MuzShowStartVerticalListCommand
         //
 
         // 色替え
-        await MuzConsoleHelper.SetColorAsync(
+        await MuzConsole.SetColorAsync(
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>

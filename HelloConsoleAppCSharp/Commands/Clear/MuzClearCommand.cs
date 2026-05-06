@@ -8,7 +8,7 @@ internal static class MuzClearCommand
         IServiceProvider services)
     {
         // いったん、背景色を黒にして、画面全体を塗りつぶします。
-        await MuzConsoleHelper.SetColorAsync(
+        await MuzConsole.SetColorAsync(
             bgColor: ConsoleColor.Black,
             onColorChanged: async () =>
             {

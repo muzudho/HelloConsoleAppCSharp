@@ -15,10 +15,10 @@ internal static class MuzWallViews
         int wallTop = 0)
     {
         // 処理の後、カーソルの位置を戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             // いったん、背景色を黒にして、画面全体を塗りつぶします。
-            await MuzConsoleHelper.SetColorAsync(
+            await MuzConsole.SetColorAsync(
                 bgColor: ConsoleColor.Black,
                 onColorChanged: async () =>
                 {
@@ -27,7 +27,7 @@ internal static class MuzWallViews
 
 
             // 次に、壁面の色で、使用する［固定サイズ］の面積を塗りつぶします。
-            await MuzConsoleHelper.SetColorAsync(
+            await MuzConsole.SetColorAsync(
                 bgColor: wallColor,
                 onColorChanged: async () =>
                 {

@@ -8,10 +8,10 @@ internal class MuzMoveCursorWarmupCommand
         IServiceProvider services)
     {
         // 処理の後、カーソルを元の位置に戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             // 色を一時的に変更
-            await MuzConsoleHelper.SetColorAsync(
+            await MuzConsole.SetColorAsync(
                 fgColor: ConsoleColor.Black,
                 bgColor: ConsoleColor.White,
                 onColorChanged: async () =>
@@ -21,7 +21,7 @@ internal class MuzMoveCursorWarmupCommand
                 });
 
             // 色を一時的に変更
-            await MuzConsoleHelper.SetColorAsync(
+            await MuzConsole.SetColorAsync(
                 fgColor: ConsoleColor.Yellow,
                 bgColor: ConsoleColor.Green,
                 onColorChanged: async () =>

@@ -14,7 +14,7 @@ internal static class MuzBoxViews
          int height)
     {
         // 処理の後、カーソルの位置を戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             // 次に、［固定サイズ］の面積をホワイトスペースで埋めます。
             for (int dy = 0; dy < height; dy++)
@@ -52,7 +52,7 @@ internal static class MuzBoxViews
         int height)
     {
         // 処理の後、カーソルの位置を戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             // ダブル・ボーダーを表示するための文字
             char topLeft = '╔';

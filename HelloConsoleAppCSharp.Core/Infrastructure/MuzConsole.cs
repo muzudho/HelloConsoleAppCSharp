@@ -3,7 +3,7 @@
 /// <summary>
 /// コンソールの操作でよく使う機能をまとめたクラス
 /// </summary>
-public static class MuzConsoleHelper
+public static class MuzConsole
 {
 
 
@@ -141,7 +141,7 @@ public static class MuzConsoleHelper
         string message)
     {
         // 色を一時的に変更
-        await MuzConsoleHelper.SetColorAsync(
+        await MuzConsole.SetColorAsync(
             fgColor: foregroundColor ?? Console.ForegroundColor,
             bgColor: backgroundColor ?? Console.BackgroundColor,
             onColorChanged: async () =>
@@ -169,12 +169,12 @@ public static class MuzConsoleHelper
         string message)
     {
         // 処理の後、カーソルを元の位置に戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             Console.SetCursorPosition(left, top);
 
             // トークンの３つ目以降を次のコマンドに渡すぜ（＾～＾）
-            await MuzConsoleHelper.WriteLineAsync(
+            await MuzConsole.WriteLineAsync(
                 foregroundColor: foregroundColor,
                 backgroundColor: backgroundColor,
                 message: message);

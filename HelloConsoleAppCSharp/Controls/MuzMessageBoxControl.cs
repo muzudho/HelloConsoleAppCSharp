@@ -73,7 +73,7 @@ internal class MuzMessageBoxControl
         //      👆　とりあえず、５行表示できるボックスを下の方いっぱいに配置してみるぜ（＾～＾）
 
         // 色替え
-        await MuzConsoleHelper.SetColorAsync(
+        await MuzConsole.SetColorAsync(
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>
@@ -109,7 +109,7 @@ internal class MuzMessageBoxControl
                     while (true)
                     {
                         // ［コンティニュープロンプト］の点滅
-                        await MuzConsoleHelper.BlinkAsync(
+                        await MuzConsole.BlinkAsync(
                             fgColor1: ConsoleColor.Blue,
                             bgColor1: ConsoleColor.Cyan,
                             fgColor2: ConsoleColor.Cyan,   // 背景色と同じにする

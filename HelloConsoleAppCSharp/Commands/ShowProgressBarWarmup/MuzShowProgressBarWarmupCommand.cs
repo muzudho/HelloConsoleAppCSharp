@@ -25,10 +25,10 @@ internal static class MuzShowProgressBarWarmupCommand
             await Task.Delay(TimeSpan.FromMilliseconds(100));
 
             // 処理の後、カーソルを元の位置に戻す
-            await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+            await MuzConsole.ResetCursorLocationAfterExecute(async () =>
             {
                 // ［進捗バー］幅１
-                await MuzConsoleHelper.SetColorAsync(
+                await MuzConsole.SetColorAsync(
                     fgColor: ConsoleColor.White,
                     bgColor: ConsoleColor.Blue,
                     onColorChanged: async () =>

@@ -13,7 +13,7 @@ internal static class MuzVerticalListViews
         string[] items)
     {
         // 処理の後、カーソルの位置を戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             // メニュー項目を表示
             for (int dy = 0; dy < items.Length; dy++)

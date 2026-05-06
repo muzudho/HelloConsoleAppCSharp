@@ -60,8 +60,8 @@ internal class MuzPrintMessageWithColorCommand
         string message = parts[2];
 
         parameters = new MuzPrintMessageWithColorCommandParameters(
-            foregroundColor: MuzConsoleHelper.GetColorByName(parts[0]),
-            backgroundColor: MuzConsoleHelper.GetColorByName(parts[1]),
+            foregroundColor: MuzConsole.GetColorByName(parts[0]),
+            backgroundColor: MuzConsole.GetColorByName(parts[1]),
             message: message);
 
         return true;
@@ -82,7 +82,7 @@ internal class MuzPrintMessageWithColorCommand
         }
 
         // 前景色、背景色を指定してメッセージ表示
-        await MuzConsoleHelper.WriteLineAsync(
+        await MuzConsole.WriteLineAsync(
             foregroundColor: parameters.ForegroundColor,
             backgroundColor: parameters.BackgroundColor,
             message: parameters.Message);

@@ -24,10 +24,10 @@ internal static class MuzPageLayouts
             wallColor: wallColor);
 
         // 処理の後、カーソルの位置を戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
             {
                 // 色替え
-                await MuzConsoleHelper.SetColorAsync(
+                await MuzConsole.SetColorAsync(
                     fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>

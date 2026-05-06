@@ -46,7 +46,7 @@ internal static class MuzWidgets
         int top)
     {
         // カーソルの位置を戻す
-        await MuzConsoleHelper.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             // 位置設定
             Console.SetCursorPosition(left, top);
@@ -216,7 +216,7 @@ internal static class MuzTitlePageWarmupCommand
         //
 
         // 色替え
-        await MuzConsoleHelper.SetColorAsync(
+        await MuzConsole.SetColorAsync(
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>

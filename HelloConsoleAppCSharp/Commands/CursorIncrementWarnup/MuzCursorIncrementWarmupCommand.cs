@@ -9,7 +9,7 @@ internal static class MuzCursorIncrementWarmupCommand
         IServiceProvider services)
     {
         // 色替え
-        await MuzConsoleHelper.SetColorAsync(
+        await MuzConsole.SetColorAsync(
             fgColor: ConsoleColor.Blue,
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>
