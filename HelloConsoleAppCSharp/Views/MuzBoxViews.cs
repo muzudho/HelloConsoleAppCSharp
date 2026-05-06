@@ -7,7 +7,7 @@ using HelloConsoleAppCSharp.Core.Infrastructure;
 /// </summary>
 internal static class MuzBoxViews
 {
-    public static async Task PrintAsync(
+    public static async Task PrintBoxAsync(
          int left,
          int top,
          int width,

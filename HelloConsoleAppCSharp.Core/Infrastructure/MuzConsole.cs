@@ -8,8 +8,11 @@ public static class MuzConsole
 
 
     // ========================================
-    // 窓口メソッド
+    // 構成
     // ========================================
+
+
+    #region ［色関連］
 
 
     /// <summary>
@@ -128,6 +131,11 @@ public static class MuzConsole
     }
 
 
+    #endregion
+
+    #region ［メッセージ表示］
+
+
     /// <summary>
     /// 前景色、背景色を指定してメッセージ表示
     /// </summary>
@@ -182,6 +190,11 @@ public static class MuzConsole
     }
 
 
+    #endregion
+    
+    #region ［カーソル位置関連］
+
+
     /// <summary>
     /// 処理が終わった後、カーソルを元の位置に戻します。
     /// </summary>
@@ -199,6 +212,11 @@ public static class MuzConsole
         // カーソルの位置を戻す
         Console.SetCursorPosition(oldLeft, oldTop);
     }
+
+
+    #endregion
+
+    #region ［テキスト点滅］
 
 
     /// <summary>
@@ -242,6 +260,9 @@ public static class MuzConsole
         Console.ForegroundColor = oldFgColor;
         Console.BackgroundColor = oldBgColor;
     }
+
+
+    #endregion
 
 
 }
