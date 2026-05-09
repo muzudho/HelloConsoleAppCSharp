@@ -31,7 +31,7 @@ internal static class MuzWallViews
                 bgColor: wallColor,
                 onColorChanged: async () =>
                 {
-                    await MuzConsole.PrintBoxAsync(
+                    await MuzConsole.FillRectAsync(
                         left: wallLeft,
                         top: wallTop,
                         width: wallWidth,

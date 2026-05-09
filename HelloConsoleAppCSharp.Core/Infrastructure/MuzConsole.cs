@@ -230,7 +230,7 @@ public static class MuzConsole
     /// <param name="width"></param>
     /// <param name="height"></param>
     /// <returns></returns>
-    public static async Task PrintBoxAsync(
+    public static async Task FillRectAsync(
          int left,
          int top,
          int width,
@@ -280,7 +280,7 @@ public static class MuzConsole
             bgColor: bgColor,
             onColorChanged: async () =>
             {
-                await PrintBoxAsync(left, top, width, height);
+                await FillRectAsync(left, top, width, height);
             });
     }
 
