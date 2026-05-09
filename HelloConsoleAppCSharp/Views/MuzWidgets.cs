@@ -18,7 +18,7 @@ internal static class MuzWidgets
         int top)
     {
         // カーソルの位置を戻す
-        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
             // 位置設定
             Console.SetCursorPosition(left, top);
@@ -48,7 +48,7 @@ internal static class MuzWidgets
         bool isVisible)
     {
         // カーソルの位置を戻す
-        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
             // 位置設定
             Console.SetCursorPosition(left, top);

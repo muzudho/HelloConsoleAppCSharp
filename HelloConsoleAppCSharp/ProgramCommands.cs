@@ -230,7 +230,7 @@ internal static class ProgramCommands
                 return MuzREPLRequestType.None;
             case "show-title":
                 // 処理の後、カーソルの位置を戻す
-                await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+                await MuzConsole.PreserveCursorPositionAsync(async () =>
                 {
                     await MuzConsole.RunWithColorAsync(
                         fgColor: ConsoleColor.Black,
@@ -252,7 +252,7 @@ internal static class ProgramCommands
                 return MuzREPLRequestType.None;
             case "show-credit":
                 // 処理の後、カーソルの位置を戻す
-                await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+                await MuzConsole.PreserveCursorPositionAsync(async () =>
                 {
                     await MuzConsole.RunWithColorAsync(
                         fgColor: ConsoleColor.Black,

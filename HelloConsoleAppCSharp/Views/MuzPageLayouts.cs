@@ -24,7 +24,7 @@ internal static class MuzPageLayouts
             wallColor: wallColor);
 
         // 処理の後、カーソルの位置を戻す
-        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
             {
                 // 色替え
                 await MuzConsole.RunWithColorAsync(

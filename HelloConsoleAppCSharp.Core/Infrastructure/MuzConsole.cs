@@ -177,7 +177,7 @@ public static class MuzConsole
         string message)
     {
         // 処理の後、カーソルを元の位置に戻す
-        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
             Console.SetCursorPosition(left, top);
 
@@ -199,7 +199,7 @@ public static class MuzConsole
     /// 処理が終わった後、カーソルを元の位置に戻します。
     /// </summary>
     /// <returns></returns>
-    public static async Task ResetCursorLocationAfterExecute(
+    public static async Task PreserveCursorPositionAsync(
         Func<Task> executeAsync)
     {
         // 現在のカーソル位置を記憶
@@ -237,7 +237,7 @@ public static class MuzConsole
          int height)
     {
         // 処理の後、カーソルの位置を戻す
-        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
             // 次に、［固定サイズ］の面積をホワイトスペースで埋めます。
             for (int dy = 0; dy < height; dy++)
@@ -306,7 +306,7 @@ public static class MuzConsole
         int height)
     {
         // 処理の後、カーソルの位置を戻す
-        await MuzConsole.ResetCursorLocationAfterExecute(async () =>
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
             // ダブル・ボーダーを表示するための文字
             char topLeft = '╔';
