@@ -113,7 +113,7 @@ print-message-with-location Banana
 👆 📄 [位置も指定してメッセージ表示](./HelloConsoleAppCSharp/Docs/第２章第１節：コンソールに文字を表示しよう/O4_位置も指定してメッセージ表示.md)  
 
 
-## 第２章第２節：コンソールにボックスを表示しよう
+## 第２章第２節：コンソールに矩形を表示しよう
 
 
 ```shell
@@ -121,7 +121,7 @@ hide-message-box
 hide-start-box
 ```
 
-👆 📄 [ボックス表示のウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章第２節：コンソールにボックスを表示しよう/O1_ボックス表示のウォーミングアップ.md)  
+👆 📄 [矩形塗りつぶしのウォーミングアップ](./HelloConsoleAppCSharp/Docs/第２章第２節：コンソールに矩形を表示しよう/O1_矩形塗りつぶしのウォーミングアップ.md)  
 
 
 ## 第２章第３節：プログレスバーの作成
