@@ -267,7 +267,7 @@ public static class MuzConsole
     /// <param name="fgColor"></param>
     /// <param name="bgColor"></param>
     /// <returns></returns>
-    public static async Task PrintBoxAsync(
+    public static async Task FillRectAsync(
          int left,
          int top,
          int width,

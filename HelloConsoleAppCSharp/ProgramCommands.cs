@@ -136,7 +136,7 @@ internal static class ProgramCommands
 
             // ［フローティングボックス］の動作確認＜その１＞
             case "hide-message-box":
-                await MuzConsole.PrintBoxAsync(
+                await MuzConsole.FillRectAsync(
                     left: 0,
                     top: 1,
                     width: 80,
@@ -147,7 +147,7 @@ internal static class ProgramCommands
 
             // ［フローティングボックス］の動作確認＜その２＞
             case "hide-start-box":
-                await MuzConsole.PrintBoxAsync(
+                await MuzConsole.FillRectAsync(
                     left: 20,
                     top: 15,
                     width: 40,
