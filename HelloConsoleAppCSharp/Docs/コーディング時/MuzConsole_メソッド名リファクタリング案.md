@@ -54,6 +54,8 @@
 
 - `FillRectAsync(...)` は `width <= 0` または `height <= 0` のとき何も描画しない
 - 負の幅や高さで反対方向に塗る仕様はサポートしない
+- `DrawDoubleBorderRectAsync(...)` は `width < 2` または `height < 2` のとき何も描画しない
+- 二重線の矩形が潰れるサイズはサポートしない
 
 ## 将来の追加候補
 

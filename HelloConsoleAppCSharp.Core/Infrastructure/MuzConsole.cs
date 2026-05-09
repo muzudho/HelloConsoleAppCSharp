@@ -293,6 +293,7 @@ public static class MuzConsole
     /// <summary>
     ///     <pre>
     /// 下図のような二重線の矩形を表示します。
+    /// width が 2 未満、または height が 2 未満のときは何も描画しません。
     /// 
     ///     ╔══════╗
     ///     ║      ║
@@ -310,6 +311,9 @@ public static class MuzConsole
         int width,
         int height)
     {
+        // 二重線の矩形が潰れるサイズなら、何もしません。
+        if (width < 2 || height < 2) return;
+
         // 処理の後、カーソルの位置を戻す
         await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
