@@ -50,6 +50,11 @@
 - `FillRectAsync(...)`
 - `DrawDoubleBorderRectAsync(...)`
 
+仕様メモ:
+
+- `FillRectAsync(...)` は `width <= 0` または `height <= 0` のとき何も描画しない
+- 負の幅や高さで反対方向に塗る仕様はサポートしない
+
 ## 将来の追加候補
 
 - `DrawSingleBorderRectAsync(...)`

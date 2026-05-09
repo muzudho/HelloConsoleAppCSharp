@@ -224,6 +224,7 @@ public static class MuzConsole
 
     /// <summary>
     /// 矩形領域を塗りつぶして表示します。
+    /// width が 0 以下、または height が 0 以下のときは何も描画しません。
     /// </summary>
     /// <param name="left"></param>
     /// <param name="top"></param>
@@ -236,6 +237,9 @@ public static class MuzConsole
          int width,
          int height)
     {
+        // 幅や高さが 0 以下なら、逆方向の塗りつぶしは行わず、何もしません。
+        if (width <= 0 || height <= 0) return;
+
         // 処理の後、カーソルの位置を戻す
         await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
@@ -256,6 +260,7 @@ public static class MuzConsole
     /// <summary>
     ///     <pre>
     /// 矩形領域を塗りつぶして表示します。
+    /// width が 0 以下、または height が 0 以下のときは何も描画しません。
     /// 
     ///     - 色指定も一緒にするぜ（＾～＾）！
     ///     </pre>
