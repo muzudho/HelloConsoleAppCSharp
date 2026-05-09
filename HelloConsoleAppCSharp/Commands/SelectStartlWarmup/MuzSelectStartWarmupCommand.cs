@@ -16,7 +16,7 @@ internal class MuzSelectStartWarmupCommand
         while (true)  // 無限ループ。
         {
             // ラベルの表示
-            await MuzConsole.BlinkAsync(
+            await MuzConsole.RunWithBlinkColorsAsync(
                 fgColor1: ConsoleColor.Black,
                 bgColor1: ConsoleColor.Cyan,
                 fgColor2: ConsoleColor.White,   // ２番目の色

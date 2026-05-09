@@ -378,7 +378,7 @@ public static class MuzConsole
     /// <param name="onColorChanged">色を変更した後に実行する処理</param>
     /// <param name="fgColor">設定する前景色</param>
     /// <param name="bgColor">設定する背景色</param>
-    public static async Task BlinkAsync(
+    public static async Task RunWithBlinkColorsAsync(
         ConsoleColor fgColor1,
         ConsoleColor bgColor1,
         ConsoleColor fgColor2,
