@@ -163,6 +163,7 @@ public static class MuzConsole
     /// <summary>
     /// 左位置、上位置、前景色、背景色を指定してメッセージ表示します。
     /// 改行は行いません。
+    /// 出力がリダイレクトされていない場合、必要ならコンソール・バッファーを自動的に広げます。
     /// </summary>
     /// <param name="left">左位置</param>
     /// <param name="top">上位置</param>
@@ -177,6 +178,8 @@ public static class MuzConsole
         ConsoleColor? backgroundColor,
         string message)
     {
+        EnsureBufferSizeForText(left, top, message, appendNewLine: false);
+
         // 処理の後、カーソルを元の位置に戻す
         await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
@@ -196,6 +199,7 @@ public static class MuzConsole
     /// <summary>
     /// 左位置、上位置、前景色、背景色を指定してメッセージ表示
     /// 表示後に改行します。
+    /// 出力がリダイレクトされていない場合、必要ならコンソール・バッファーを自動的に広げます。
     /// </summary>
     /// <param name="left">左位置</param>
     /// <param name="top">上位置</param>
@@ -210,17 +214,74 @@ public static class MuzConsole
         ConsoleColor? backgroundColor,
         string message)
     {
-        await MuzConsole.WriteAtAsync(
-            left: left,
-            top: top,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            message: message);
+        EnsureBufferSizeForText(left, top, message, appendNewLine: true);
 
-        await MuzConsole.WriteLineAsync(
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            message: string.Empty);
+        // 処理の後、カーソルを元の位置に戻す
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
+        {
+            Console.SetCursorPosition(left, top);
+
+            await MuzConsole.RunWithColorAsync(
+                fgColor: foregroundColor ?? Console.ForegroundColor,
+                bgColor: backgroundColor ?? Console.BackgroundColor,
+                onColorChanged: async () =>
+                {
+                    Console.WriteLine(message);
+                });
+        });
+    }
+
+
+    /// <summary>
+    /// 文字列を指定座標へ描画するために必要なコンソール・バッファーサイズを確保します。
+    /// </summary>
+    /// <param name="left">描画開始位置の左座標</param>
+    /// <param name="top">描画開始位置の上座標</param>
+    /// <param name="message">描画する文字列</param>
+    /// <param name="appendNewLine">末尾に改行を行う場合は真</param>
+    private static void EnsureBufferSizeForText(
+        int left,
+        int top,
+        string message,
+        bool appendNewLine)
+    {
+        if (Console.IsOutputRedirected) return;
+
+        var lines = (message ?? string.Empty)
+            .Replace("\r\n", "\n")
+            .Replace('\r', '\n')
+            .Split('\n');
+
+        var lineCount = Math.Max(1, lines.Length);
+        var maxLineLength = lines.Length == 0 ? 0 : lines.Max(line => line.Length);
+
+        var requiredWidth = left + Math.Max(1, maxLineLength);
+        var requiredHeight = top + lineCount + (appendNewLine ? 1 : 0);
+
+        EnsureBufferSize(requiredWidth, requiredHeight);
+    }
+
+
+    /// <summary>
+    /// 必要なコンソール・バッファーサイズを確保します。
+    /// </summary>
+    /// <param name="requiredWidth">必要な幅</param>
+    /// <param name="requiredHeight">必要な高さ</param>
+    private static void EnsureBufferSize(
+        int requiredWidth,
+        int requiredHeight)
+    {
+        var targetBufferWidth = Math.Max(Console.WindowWidth, Math.Max(Console.BufferWidth, requiredWidth));
+        if (targetBufferWidth > Console.BufferWidth)
+        {
+            Console.BufferWidth = targetBufferWidth;
+        }
+
+        var targetBufferHeight = Math.Max(Console.WindowHeight, Math.Max(Console.BufferHeight, requiredHeight));
+        if (targetBufferHeight > Console.BufferHeight)
+        {
+            Console.BufferHeight = targetBufferHeight;
+        }
     }
 
 
