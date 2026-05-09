@@ -299,7 +299,7 @@ public static class MuzConsole
     /// <param name="top"></param>
     /// <param name="width">2 以上としてください。</param>
     /// <param name="height">2 以上としてください。</param>
-    public static async Task PrintDoubleBorderBoxAsync(
+    public static async Task DrawDoubleBorderRectAsync(
         int left,
         int top,
         int width,
