@@ -72,7 +72,7 @@ public static class MuzConsole
     /// </summary>
     /// <param name="name">色の名前</param>
     /// <returns>対応するConsoleColorオブジェクト、またはnull（Defaultの場合）</returns>
-    public static ConsoleColor? GetColorByName(string name)
+    public static ConsoleColor? ParseColor(string name)
     {
         switch (name)
         {

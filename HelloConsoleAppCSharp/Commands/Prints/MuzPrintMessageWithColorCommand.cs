@@ -60,8 +60,8 @@ internal class MuzPrintMessageWithColorCommand
         string message = parts[2];
 
         parameters = new MuzPrintMessageWithColorCommandParameters(
-            foregroundColor: MuzConsole.GetColorByName(parts[0]),
-            backgroundColor: MuzConsole.GetColorByName(parts[1]),
+            foregroundColor: MuzConsole.ParseColor(parts[0]),
+            backgroundColor: MuzConsole.ParseColor(parts[1]),
             message: message);
 
         return true;
