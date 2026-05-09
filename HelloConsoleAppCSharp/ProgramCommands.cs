@@ -130,11 +130,11 @@ internal static class ProgramCommands
 
 
             // ----------------------------------------
-            // 第２章第２節：コンソールにボックスを表示しよう
+            // 第２章第２節：コンソールに矩形を表示しよう
             // ----------------------------------------
 
 
-            // ［フローティングボックス］の動作確認＜その１＞
+            // ［矩形塗りつぶし］の動作確認＜その１＞
             case "hide-message-box":
                 await MuzConsole.FillRectAsync(
                     left: 0,
@@ -145,7 +145,7 @@ internal static class ProgramCommands
                     bgColor: ConsoleColor.Cyan);
                 return MuzREPLRequestType.None;
 
-            // ［フローティングボックス］の動作確認＜その２＞
+            // ［矩形塗りつぶし］の動作確認＜その２＞
             case "hide-start-box":
                 await MuzConsole.FillRectAsync(
                     left: 20,
