@@ -28,7 +28,7 @@ internal static class MuzShowProgressBarWarmupCommand
             await MuzConsole.ResetCursorLocationAfterExecute(async () =>
             {
                 // ［進捗バー］幅１
-                await MuzConsole.SetColorAsync(
+                await MuzConsole.RunWithColorAsync(
                     fgColor: ConsoleColor.White,
                     bgColor: ConsoleColor.Blue,
                     onColorChanged: async () =>

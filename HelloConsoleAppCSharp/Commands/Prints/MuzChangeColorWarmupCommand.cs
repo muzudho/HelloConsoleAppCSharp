@@ -13,14 +13,14 @@ internal class MuzChangeColorWarmupCommand
         Console.WriteLine("まずはデフォルトの色だぜ（＾▽＾）");
 
         // 文字色（前景色）を一時的に赤に変更
-        await MuzConsole.SetColorAsync(
+        await MuzConsole.RunWithColorAsync(
             fgColor: ConsoleColor.Green,
             onColorChanged: async () =>
             {
                 Console.WriteLine("続けて、ピーマンみたいな緑色の文字にしたぜ（＾▽＾）！");
 
                 // 続けて、背景色を一時的に黄色に変更
-                await MuzConsole.SetColorAsync(
+                await MuzConsole.RunWithColorAsync(
                     bgColor: ConsoleColor.Yellow,
                     onColorChanged: async () =>
                     {

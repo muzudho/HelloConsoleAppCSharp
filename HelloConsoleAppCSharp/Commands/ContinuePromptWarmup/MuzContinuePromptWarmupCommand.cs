@@ -11,7 +11,7 @@ internal static class MuzContinuePromptWarmupCommand
         List<string> messageList)
     {
         // 色変更
-        await MuzConsole.SetColorAsync(
+        await MuzConsole.RunWithColorAsync(
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>

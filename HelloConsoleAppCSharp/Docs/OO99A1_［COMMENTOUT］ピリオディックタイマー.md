@@ -216,7 +216,7 @@ internal static class MuzTitlePageWarmupCommand
         //
 
         // 色替え
-        await MuzConsole.SetColorAsync(
+        await MuzConsole.RunWithColorAsync(
             fgColor: ConsoleColor.Black,
             bgColor: ConsoleColor.Cyan,
             onColorChanged: async () =>

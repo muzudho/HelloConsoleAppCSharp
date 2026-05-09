@@ -34,7 +34,7 @@ public static class MuzConsole
     /// <param name="onColorChanged">色を変更した後に実行する処理</param>
     /// <param name="fgColor">設定する前景色</param>
     /// <param name="bgColor">設定する背景色</param>
-    public static async Task SetColorAsync(
+    public static async Task RunWithColorAsync(
         Func<Task> onColorChanged,
         ConsoleColor? fgColor = null,
         ConsoleColor? bgColor = null)
@@ -149,7 +149,7 @@ public static class MuzConsole
         string message)
     {
         // 色を一時的に変更
-        await MuzConsole.SetColorAsync(
+        await MuzConsole.RunWithColorAsync(
             fgColor: foregroundColor ?? Console.ForegroundColor,
             bgColor: backgroundColor ?? Console.BackgroundColor,
             onColorChanged: async () =>
@@ -275,7 +275,7 @@ public static class MuzConsole
          ConsoleColor? fgColor = null,
          ConsoleColor? bgColor = null)
     {
-        await MuzConsole.SetColorAsync(
+        await MuzConsole.RunWithColorAsync(
             fgColor: fgColor,
             bgColor: bgColor,
             onColorChanged: async () =>

@@ -11,7 +11,7 @@ internal class MuzMoveCursorWarmupCommand
         await MuzConsole.ResetCursorLocationAfterExecute(async () =>
         {
             // 色を一時的に変更
-            await MuzConsole.SetColorAsync(
+            await MuzConsole.RunWithColorAsync(
                 fgColor: ConsoleColor.Black,
                 bgColor: ConsoleColor.White,
                 onColorChanged: async () =>
@@ -21,7 +21,7 @@ internal class MuzMoveCursorWarmupCommand
                 });
 
             // 色を一時的に変更
-            await MuzConsole.SetColorAsync(
+            await MuzConsole.RunWithColorAsync(
                 fgColor: ConsoleColor.Yellow,
                 bgColor: ConsoleColor.Green,
                 onColorChanged: async () =>

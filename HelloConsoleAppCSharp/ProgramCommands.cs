@@ -187,7 +187,7 @@ internal static class ProgramCommands
 
             // ［枠付きのフローティングボックス］の動作確認＜その１＞
             case "show-message-box":
-                await MuzConsole.SetColorAsync(
+                await MuzConsole.RunWithColorAsync(
                     fgColor: ConsoleColor.Blue,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -202,7 +202,7 @@ internal static class ProgramCommands
 
             // ［枠付きのフローティングボックス］の動作確認＜その２＞
             case "show-start-box":
-                await MuzConsole.SetColorAsync(
+                await MuzConsole.RunWithColorAsync(
                     fgColor: ConsoleColor.Blue,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -217,7 +217,7 @@ internal static class ProgramCommands
 
             // ［フローティングラベル］の動作確認
             case "floating-label-warmup":
-                await MuzConsole.SetColorAsync(
+                await MuzConsole.RunWithColorAsync(
                     fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
@@ -232,7 +232,7 @@ internal static class ProgramCommands
                 // 処理の後、カーソルの位置を戻す
                 await MuzConsole.ResetCursorLocationAfterExecute(async () =>
                 {
-                    await MuzConsole.SetColorAsync(
+                    await MuzConsole.RunWithColorAsync(
                         fgColor: ConsoleColor.Black,
                         bgColor: ConsoleColor.Cyan,
                         onColorChanged: async () =>
@@ -254,7 +254,7 @@ internal static class ProgramCommands
                 // 処理の後、カーソルの位置を戻す
                 await MuzConsole.ResetCursorLocationAfterExecute(async () =>
                 {
-                    await MuzConsole.SetColorAsync(
+                    await MuzConsole.RunWithColorAsync(
                         fgColor: ConsoleColor.Black,
                         bgColor: ConsoleColor.Cyan,
                         onColorChanged: async () =>
@@ -305,7 +305,7 @@ internal static class ProgramCommands
             case "typewriter-effect-warmup":
                 {
                     MuzREPLRequestType result = MuzREPLRequestType.None;
-                    await MuzConsole.SetColorAsync(
+                    await MuzConsole.RunWithColorAsync(
                         fgColor: ConsoleColor.Black,
                         bgColor: ConsoleColor.Cyan,
                         onColorChanged: async () =>

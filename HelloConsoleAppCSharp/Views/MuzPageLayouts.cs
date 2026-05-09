@@ -27,7 +27,7 @@ internal static class MuzPageLayouts
         await MuzConsole.ResetCursorLocationAfterExecute(async () =>
             {
                 // 色替え
-                await MuzConsole.SetColorAsync(
+                await MuzConsole.RunWithColorAsync(
                     fgColor: ConsoleColor.Black,
                     bgColor: ConsoleColor.Cyan,
                     onColorChanged: async () =>
