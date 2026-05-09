@@ -89,7 +89,7 @@ internal class MuzPrintMessageWithLocationCommand
             return MuzREPLRequestType.None;
         }
 
-        await MuzConsole.WriteLineAsync(
+        await MuzConsole.WriteLineAtAsync(
             left: parameters.Left,
             top: parameters.Top,
             foregroundColor: parameters2.ForegroundColor,

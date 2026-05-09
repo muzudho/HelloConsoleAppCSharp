@@ -169,7 +169,7 @@ public static class MuzConsole
     /// <param name="backgroundColor">背景色</param>
     /// <param name="message">メッセージ</param>
     /// <returns></returns>
-    public static async Task WriteLineAsync(
+    public static async Task WriteLineAtAsync(
         int left,
         int top,
         ConsoleColor? foregroundColor,
