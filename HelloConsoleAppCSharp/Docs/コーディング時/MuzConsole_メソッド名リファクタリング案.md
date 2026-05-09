@@ -37,13 +37,13 @@
 
 ### 文字表示
 
+- `WriteAtAsync(...)`
 - `WriteLineAsync(...)`
 - `WriteLineAtAsync(...)`
 
 将来的に追加候補:
 
 - `WriteAsync(...)`
-- `WriteAtAsync(...)`
 
 ### 矩形
 

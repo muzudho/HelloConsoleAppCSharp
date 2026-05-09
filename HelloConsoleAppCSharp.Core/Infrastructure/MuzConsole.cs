@@ -161,7 +161,41 @@ public static class MuzConsole
 
 
     /// <summary>
+    /// 左位置、上位置、前景色、背景色を指定してメッセージ表示します。
+    /// 改行は行いません。
+    /// </summary>
+    /// <param name="left">左位置</param>
+    /// <param name="top">上位置</param>
+    /// <param name="foregroundColor">前景色</param>
+    /// <param name="backgroundColor">背景色</param>
+    /// <param name="message">メッセージ</param>
+    /// <returns></returns>
+    public static async Task WriteAtAsync(
+        int left,
+        int top,
+        ConsoleColor? foregroundColor,
+        ConsoleColor? backgroundColor,
+        string message)
+    {
+        // 処理の後、カーソルを元の位置に戻す
+        await MuzConsole.PreserveCursorPositionAsync(async () =>
+        {
+            Console.SetCursorPosition(left, top);
+
+            await MuzConsole.RunWithColorAsync(
+                fgColor: foregroundColor ?? Console.ForegroundColor,
+                bgColor: backgroundColor ?? Console.BackgroundColor,
+                onColorChanged: async () =>
+                {
+                    Console.Write(message);
+                });
+        });
+    }
+
+
+    /// <summary>
     /// 左位置、上位置、前景色、背景色を指定してメッセージ表示
+    /// 表示後に改行します。
     /// </summary>
     /// <param name="left">左位置</param>
     /// <param name="top">上位置</param>
@@ -176,17 +210,17 @@ public static class MuzConsole
         ConsoleColor? backgroundColor,
         string message)
     {
-        // 処理の後、カーソルを元の位置に戻す
-        await MuzConsole.PreserveCursorPositionAsync(async () =>
-        {
-            Console.SetCursorPosition(left, top);
+        await MuzConsole.WriteAtAsync(
+            left: left,
+            top: top,
+            foregroundColor: foregroundColor,
+            backgroundColor: backgroundColor,
+            message: message);
 
-            // トークンの３つ目以降を次のコマンドに渡すぜ（＾～＾）
-            await MuzConsole.WriteLineAsync(
-                foregroundColor: foregroundColor,
-                backgroundColor: backgroundColor,
-                message: message);
-        });
+        await MuzConsole.WriteLineAsync(
+            foregroundColor: foregroundColor,
+            backgroundColor: backgroundColor,
+            message: string.Empty);
     }
 
 
