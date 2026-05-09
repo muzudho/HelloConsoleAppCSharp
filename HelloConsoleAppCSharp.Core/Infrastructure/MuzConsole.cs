@@ -320,6 +320,7 @@ public static class MuzConsole
     /// <summary>
     /// 矩形領域を塗りつぶして表示します。
     /// width が 0 以下、または height が 0 以下のときは何も描画しません。
+    /// 出力がリダイレクトされていない場合、必要ならコンソール・バッファーを自動的に広げます。
     /// </summary>
     /// <param name="left"></param>
     /// <param name="top"></param>
@@ -334,6 +335,8 @@ public static class MuzConsole
     {
         // 幅や高さが 0 以下なら、逆方向の塗りつぶしは行わず、何もしません。
         if (width <= 0 || height <= 0) return;
+
+        EnsureBufferSize(left + width, top + height + 1);
 
         // 処理の後、カーソルの位置を戻す
         await MuzConsole.PreserveCursorPositionAsync(async () =>
@@ -356,6 +359,7 @@ public static class MuzConsole
     ///     <pre>
     /// 矩形領域を塗りつぶして表示します。
     /// width が 0 以下、または height が 0 以下のときは何も描画しません。
+    /// 出力がリダイレクトされていない場合、必要ならコンソール・バッファーを自動的に広げます。
     /// 
     ///     - 色指定も一緒にするぜ（＾～＾）！
     ///     </pre>
@@ -389,6 +393,7 @@ public static class MuzConsole
     ///     <pre>
     /// 下図のような二重線の矩形を表示します。
     /// width が 2 未満、または height が 2 未満のときは何も描画しません。
+    /// 出力がリダイレクトされていない場合、必要ならコンソール・バッファーを自動的に広げます。
     /// 
     ///     ╔══════╗
     ///     ║      ║
@@ -408,6 +413,8 @@ public static class MuzConsole
     {
         // 二重線の矩形が潰れるサイズなら、何もしません。
         if (width < 2 || height < 2) return;
+
+        EnsureBufferSize(left + width, top + height + 1);
 
         // 処理の後、カーソルの位置を戻す
         await MuzConsole.PreserveCursorPositionAsync(async () =>
