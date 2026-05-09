@@ -216,14 +216,14 @@ public static class MuzConsole
 
     #endregion
 
-    #region ［ボックス表示］
+    #region ［矩形描画］
 
 
-    // 矩形の塗り潰し領域を［ボックス］と呼ぶことにします。
+    // 矩形領域の塗りつぶしや罫線描画をまとめます。
 
 
     /// <summary>
-    /// ［ボックス］表示
+    /// 矩形領域を塗りつぶして表示します。
     /// </summary>
     /// <param name="left"></param>
     /// <param name="top"></param>
@@ -239,7 +239,7 @@ public static class MuzConsole
         // 処理の後、カーソルの位置を戻す
         await MuzConsole.PreserveCursorPositionAsync(async () =>
         {
-            // 次に、［固定サイズ］の面積をホワイトスペースで埋めます。
+            // 指定サイズの矩形領域をホワイトスペースで埋めます。
             for (int dy = 0; dy < height; dy++)
             {
                 Console.SetCursorPosition(left, top + dy);
@@ -255,7 +255,7 @@ public static class MuzConsole
 
     /// <summary>
     ///     <pre>
-    /// ［ボックス］表示
+    /// 矩形領域を塗りつぶして表示します。
     /// 
     ///     - 色指定も一緒にするぜ（＾～＾）！
     ///     </pre>
@@ -287,7 +287,7 @@ public static class MuzConsole
 
     /// <summary>
     ///     <pre>
-    /// 下図のような感じの罫線を表示します。
+    /// 下図のような二重線の矩形を表示します。
     /// 
     ///     ╔══════╗
     ///     ║      ║
